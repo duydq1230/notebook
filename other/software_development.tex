@@ -1,0 +1,40 @@
+\chapter{Phát triển phần mềm}
+
+* Phát triển phần mềm là một việc đau khổ. Từ việc quản lý code và version, packing, documentation. Dưới đây là lượm lặt những nguyên tắc cơ bản của mình.
+
+### Quản lý phiên bản
+
+Việc đánh số phiên bản các thay đổi của phần mềm khi có hàm được thêm, lỗi được sửa, hay các phiên bản tiền phát hành cần thống nhất theo chuẩn của [semversion]. Điều này giúp nhóm có thể tương tác dễ hơn với người dùng cuối.
+
+![](https://raw.githubusercontent.com/magizbox/magizbox/master/wordpress/phat_trien_phan_mem/version.png)
+
+**Đánh số phiên bản**
+
+Phiên bản được đánh theo chuẩn của [semversion](https://semver.org/).
+
+* Mỗi khi một bug được sửa, phiên bản sẽ tăng lên một patch
+* Mỗi khi có một hàm mới được thêm, phiên bản sẽ tăng lên một patch.
+* Khi một phiên bản mới được phát hành, phiên bản sẽ tăng lên một minor.
+* Trước khi phát hành, bắt đầu với x.y.z-rc, x.y.z-rc.1, x.y.z-rc.2. Cuối cùng mới là x.y.z
+* Mỗi khi phiên bản rc lỗi, khi public lại, đặt phiên bản alpha x.y.z-alpha.t (một phương án tốt hơn là cài đặt thông qua github)
+
+**Đánh số phiên bản trên git**
+
+Ở nhánh develop, mỗi lần merge sẽ được đánh version theo PATCH, thể hiện một bug được sửa hoặc một thay đổi của hàm
+
+Ở nhánh master, mỗi lần release sẽ được thêm các chỉ như x.y1.0-rc, x.y1.0-rc.1, x.y1.0-rc, x.y1.0
+
+*Vẫn còn lăn tăn*:
+
+* Hiện tại theo workflow này thì chưa cần sử dụng alpha, beta (chắc là khi đó đã có lượt người sử dụng mới cần đến những phiên bản như thế này)
+
+**Tải phần mềm lên pypi**
+
+Làm theo hướng dẫn [tại đây](http://peterdowns.com/posts/first-time-with-pypi.html)
+
+1. Cấu hình file `.pypirc`
+2. Upload lên pypi
+
+```
+python setup.py sdist upload -r pypi
+```

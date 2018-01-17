@@ -1,0 +1,113 @@
+\chapter{Pytorch}
+
+**Bí kíp luyện công**
+
+(cập nhật 08/12/2017): cảm giác [talk](http://videolectures.net/deeplearning2017_chintala_torch/) của anh Soumith Chintala (Facebook, research editor) ở Deep Learning Summer School 2017 khá thú vị.
+
+Sau khi nghe bài này thì hâm mộ luôn anh Soumith Chintala, tìm loạt bài anh trình bày luôn
+
+* [PyTorch: Fast Differentiable Dynamic Graphs in Python with a Tensor JIT](https://www.youtube.com/watch?v=DBVLcgq2Eg0&amp;t=2s), Strange Loop Sep 2017
+* [Keynote: PyTorch: Framework for fast, dynamic deep learning and scientific computing](https://www.youtube.com/watch?v=LAMwEJZqesU&amp;t=66s), EuroSciPy Aug 2017
+
+
+## So sánh giữa Tensorflow và Pytorch?
+
+Có 2 điều cần phải nói khi mọi người luôn luôn so sánh giữa Tensorflow và Pytorch. (1) Tensorflow khiến mọi người "không thoải mái" (2) Pytorch thực sự là một đối thủ trên bàn cân. Một trong những câu trả lời hay nhất mình tìm được là của anh Hieu Pham (Google Brain) [trả lời trên quora (25/11/2017)](https://www.quora.com/What-are-your-reviews-between-PyTorch-and-TensorFlow/answer/Hieu-Pham-20?srid=5O2u). Điều quan trọng nhất trong câu trả lời này là *"Dùng Pytorch rất sướng cho nghiên cứu, nhưng scale lên mức business thì Tensorflow là lựa chọn tốt hơn"*
+
+## Behind The Scene
+
+(15/11/2017) Hôm nay bắt đầu thử nghiệm pytorch với project thần thánh classification sử dụng cnn https://github.com/Shawn1993/cnn-text-classification-pytorch
+
+Cảm giác đầu tiên là make it run khá đơn giản
+
+```
+conda create -n test-torch python=3.5
+pip install http://download.pytorch.org/whl/cu80/torch-0.2.0.post3-cp35-cp35m-manylinux1_x86_64.whl
+pip install torchvision
+pip install torchtext
+```
+
+Thế là `main.py` chạy! Hay thật. Còn phải vọc để bạn này chạy với CUDA nữa.
+
+**Cài đặt CUDA trong ubuntu 16.04**
+
+Kiểm tra VGA
+
+```
+$ lspci | grep VGA
+01:00.0 VGA compatible controller: NVIDIA Corporation GM204 [GeForce GTX 980] (rev a1)
+```
+
+Kiểm tra CUDA đã cài đặt trong Ubuntu [^1]
+
+```
+$ nvcc --version
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2016 NVIDIA Corporation
+Built on Sun_Sep__4_22:14:01_CDT_2016
+Cuda compilation tools, release 8.0, V8.0.44
+```
+
+Kiểm tra pytorch chạy với cuda `test_cuda.py`
+
+```python
+import torch
+print("Cuda:", torch.cuda.is_available())
+```
+
+```
+$ python test_cuda.py
+CUDA: True
+```
+
+Chỉ cần cài đặt thành công CUDA là pytorch tự work luôn. Ngon thật!
+
+*Ngày X*
+
+Chẳng hiểu sao update system kiểu nào mà hôm nay lại không sử dụng được CUDA `torch.cuda.is_available() = False`. Sau khi dùng lệnh `torch.Tensor().cuda()` thì gặp lỗi
+
+```
+AssertionError:
+The NVIDIA driver on your system is too old (found version 8000).
+Please update your GPU driver by downloading and installing a new
+version from the URL: http://www.nvidia.com/Download/index.aspx
+Alternatively, go to: https://pytorch.org/binaries to install
+a PyTorch version that has been compiled with your version
+of the CUDA driver.
+```
+
+Kiểm tra lại thì mình đang dùng nvidia-361, làm thử theo [link này](http://www.linuxandubuntu.com/home/how-to-install-latest-nvidia-drivers-in-linux) để update NVIDIA, chưa biết kết quả ra sao?
+
+May quá, sau khi update lên nvida-387 là ok. Haha
+
+**Ngày 2**
+
+Hôm qua đã bắt đầu implement một nn với pytorch rồi. Hướng dẫn ở [Deep Learning with PyTorch: A 60 Minute Blitz](http://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html) hữu ích phết.
+
+Hướng dẫn implement các mạng neural với pytorch rất hay tại [PyTorch-Tutorial](https://github.com/MorvanZhou/PyTorch-Tutorial)
+
+(lượm lặt) Trang này [Awesome-pytorch-list](https://github.com/bharathgs/Awesome-pytorch-list) chứa rất nhiều link hay về pytorch như tập hợp các thư viện liên quan, các hướng dẫn và ví dụ sau đó là các cài đặt của các paper sử dụng pytorch.
+
+(lượm lặt) Loạt video hướng dẫn pytorch [PyTorchZeroToAll](https://www.youtube.com/watch?v=SKq-pmkekTk&amp;list=PLlMkM4tgfjnJ3I-dbhO9JTw7gNty6o_2m) của tác giả Sung Kim trên youtube.
+
+Bước tiếp theo là visualize loss và graph trong tensorboard, sử dụng [tensorboard_logger](https://github.com/TeamHG-Memex/tensorboard_logger) khá hay.
+
+```
+pip install tensorboard_logger
+pip install tensorboard
+```
+
+Chạy tensorboard server
+
+```
+tensorboard --log-dir=runs
+```
+
+**Ngày 3**: Vấn đề kỹ thuật
+
+Hôm qua cố gắng implement một phần thuật toán CNN cho bài toán phân lớp văn bản. Vấn đề đầu tiên là biểu diển sentence thế nào. Cảm giác load word vector vào khá chậm. Mà thằng tách từ của underthesea cũng chậm kinh khủng.
+
+Một vài link tham khảo về bài toán CNN: [Implementing a CNN for Text Classification in TensorFlow](http://www.wildml.com/2015/12/implementing-a-cnn-for-text-classification-in-tensorflow/), [Text classification using CNN : Example](https://agarnitin86.github.io/blog/2016/12/23/text-classification-cnn)
+
+[^1]: https://askubuntu.com/questions/799184/how-can-i-install-cuda-on-ubuntu-16-04
+

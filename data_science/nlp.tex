@@ -1,0 +1,27 @@
+\chapter{Xử lý ngôn ngữ tự nhiên}
+
+**05/01/2018**: "điên đầu" với Sphinx và HTK
+
+HTK thì đã bỏ rồi vì quá lằng nhằng.
+
+Sphinx thì setup được đối với dữ liệu nhỏ rồi. Nhưng không thể làm nó hoạt động với dữ liệu của VIVOS. Chắc hôm nay sẽ switch sang Kaldi vậy.
+
+**26/12/2017**: Automatic Speech Recognition 100
+
+Sau mấy ngày "vật lộn" với code base của Truong Do, thì cuối cùng cũng produce voice được. Cảm giác rất thú vị. Quyết định làm luôn ASR. Tìm mãi chẳng thấy code base đâu (chắc do lĩnh vực mới nên không có kinh nghiệm). May quá lại có bạn frankydotid có project về nhận diện tiếng Indonesia ở [github](https://github.com/frankydotid/Indonesian-Speech-Recognition). Trong README.md bạn đấy bảo là phải cần đọc HTK Book. Tốt quá đang cần cơ bản.
+
+**20/12/2017**: Text to speech 100
+
+Cảm ơn project rất hay của [bạn Truong Do ở vais](https://vais.vn/vi/tai-ve/hts_for_vietnamese/), nếu không có project này chắc mình phải mất rất nhiều thời gian mới có được phiên bản text to speech đầu tiên.
+
+Tóm lại thì việc sinh ra tiếng nói từ text gồm 4 giai đoạn
+
+1. Sinh ra features từ file wav sử dụng tool sptk
+2. Tạo một lab, trong đó có dữ liệu huấn luyện (những đặc trưng của âm thanh được trích xuất từ bước 1), text đầu vào
+3. Sử dụng htk để train dữ liệu từ thư mục lab, đầu ra là một model
+4. Sử dụng model để sinh ra output với text đầu vào, dùng hts_engine để decode, kết quả được wav files.
+
+Phù. 4 bước đơn giản thế này thôi mà không biết. Lục cả internet ra mãi chẳng hiểu, cuối cùng file phân tích file `train.sh` của bạn Truong Do mới hiểu. Ahihi
+
+**24/11/2017**: Nhánh của Trí tuệ nhân tạo mà hiện tại mình đang theo đuổi. Project hiện tại là [underthesea](https://github.com/magizbox/underthesea). Với mục đích là xây dựng một toolkit cho xử lý ngôn ngữ tự nhiên tiếng Việt.
+

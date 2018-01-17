@@ -1,0 +1,24 @@
+\chapter{Phân loại văn bản}
+
+<h3>Naive Bayes Classifier</h3>
+Tham khảo thư viện <a href="http://scikit-learn.org/stable/modules/naive_bayes.html" target="_blank" rel="noopener">Scikit-learn</a>
+
+Xét bài toán classification với C classes 1,2,…,C. Tính xác suất để 1 điểm dữ liệu rơi vào class C ta có công thức: $latex P(\frac{c}{x})$. Tức tính xác suất để đầu ra là class C biết rằng đầu vào là vector x. Việc xác định class của điểm dữ liệu đó bằng cách chọn ra class có xác suất cao nhất:<p style="text-align:center;">
+c = argmax($latex P(\frac{c}{x})$) với c ∈ {1,…,C}</p>
+Sử dụng quy tắc Bayes:<p style="text-align:center;">
+c = argmax($latex P(\frac{c}{x})$) = argmax($latex P(\frac{P(\frac{c}{x})P(x)}{P(x)}$) = argmax($latex P(\frac{P(\frac{c}{x})}{P(c)}$))</p>
+
+<h4>Các phân phối thường dùng</h4>
+<strong>Gaussian Naive Bayes</strong>
+Mô hình này được sử dụng chủ yếu trong loại dữ liệu mà các thành phần là các biến liên tục.
+<strong>Multinomial Naive Bayes</strong>
+Mô hình này chủ yếu được sử dụng trong phân loại văn bản mà feature vectors được tính bằng Bags of Words. Lúc này, mỗi văn bản được biểu diễn bởi một vector có độ dài d chính là số từ trong từ điển. Giá trị của thành phần thứ i trong mỗi vector chính là số lần từ thứ i xuất hiện trong văn bản đó.
+Khi đó, $latex P(\frac{x_i}{c})$ tỉ lệ với tần suất từ thứ i xuất hiện trong các văn bản của class c:<p style="text-align:center;"> $latex P(\frac{x_i}{c})$ = $latex \frac{Nx_i}{Nc}$</p>
+<p style="padding-left:70px;">Trong đó:</p>
+<p style="padding-left:90px;">$latex Nx_i$ là tổng số lần từ thứ i xuất hiện trong các văn bản của class c, nó được tính là tổng của tất cả các thành phần thứ i của các feature vectors ứng với class c.</p>
+<p style="padding-left:90px;">$latex Nc$ là tổng số từ (kể cả lặp) xuất hiện trong class c. Hay bằng tổng độ dài của toàn bộ các văn bản thuộc vào class c.</p>
+Nếu có một từ mới chưa bao giờ xuất hiện trong class c thì biểu thức trên sẽ bằng 0, điều này dẫn đến vế phải của c bằng 0.
+<strong>Bernoulli Naive Bayes</strong>
+Mô hình này được áp dụng cho các loại dữ liệu mà mỗi thành phần là một giá trị binary. Ví dụ: cũng với loại văn bản nhưng thay vì đếm tổng số lần xuất hiện của 1 từ trong văn bản, ta chỉ cần quan tâm từ đó có xuất hiện hay không.
+Khi đó: $latex P(\frac{x_i}{c})$ = $latex P(\frac{i}{c})x_i$ + (1 − $latex P(\frac{i}{c})$(1 − $latex x_i $))
+Với $latex P(\frac{i}{c})$ là xác suất từ thứ i xuất hiện trong các văn bản của class c.
