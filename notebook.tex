@@ -1,0 +1,41 @@
+\documentclass[14pt, letterpaper, twoside]{book}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{vietnam}
+\usepackage[vietnam]{babel}
+
+\usepackage[unicode]{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{eucal}
+\usepackage{mathtools}
+
+
+\usepackage[plain]{cite}
+\usepackage{natbib}
+
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+filecolor=magenta,
+urlcolor=cyan,
+}
+
+\title{Ghi chú của một coder}
+\author{Vũ Anh}
+\date{Tháng 01 năm 2018}
+\usepackage{index}
+
+\begin{document}
+  \makeindex
+  \maketitle
+
+
+  \input{probabilistic.tex}
+  \input{machine_learning.tex}
+
+
+  \bibliography{mybib}{}
+  \bibliographystyle{ksfh_nat}
+\end{document}
