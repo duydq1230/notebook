@@ -11,6 +11,14 @@
 \usepackage{eucal}
 \usepackage{mathtools}
 
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=none,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
 
 \usepackage[plain]{cite}
 \usepackage{natbib}
@@ -34,6 +42,7 @@ urlcolor=cyan,
 
   \input{probabilistic.tex}
   \input{machine_learning.tex}
+  \input{programming.tex}
 
 
   \bibliography{mybib}{}
