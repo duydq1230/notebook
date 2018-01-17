@@ -13,11 +13,11 @@
 
 \usepackage{listings}
 \lstset{
-  basicstyle=\ttfamily,
-  columns=fullflexible,
-  frame=none,
-  breaklines=true,
-  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+basicstyle=\ttfamily,
+columns=fullflexible,
+frame=none,
+breaklines=true,
+postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 }
 
 \usepackage[plain]{cite}
@@ -35,14 +35,20 @@ urlcolor=cyan,
 \date{Tháng 01 năm 2018}
 \usepackage{index}
 
+
+
 \begin{document}
+
   \makeindex
   \maketitle
 
+  \tableofcontents
 
-  \input{probabilistic.tex}
-  \input{machine_learning.tex}
   \input{programming.tex}
+  \input{probabilistic.tex}
+  \input{computer_science.tex}
+  \input{machine_learning.tex}
+  \input{other.tex}
 
 
   \bibliography{mybib}{}

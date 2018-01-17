@@ -1,0 +1,60 @@
+\chapter{Hệ điều hành}
+
+Những phần mềm không thể thiếu
+
+* Trình duyệt Google Chrome (với các extensions Scihub, Mendeley Desktop, Adblock)
+    * Adblock extension
+* Terminal (Oh-my-zsh)
+* IDE Pycharm để code python
+* Quản lý phiên bản code Git
+* Bộ gõ ibus-unikey trong Ubuntu hoặc unikey (Windows) (Ctrl-Space để chuyển đổi ngôn ngữ)
+* CUDA (lập trình trên GPU)
+
+**Xem thông tin hệ thống**
+
+Phiên bản `ubuntu 16.04`
+
+\begin{lstlisting}
+sudo apt-get install sysstat
+\end{lstlisting}
+
+
+Xem hoạt động (%) của các core cpu
+
+```
+mpstat -A
+```
+
+CPU của mình có bao nhiều core, bao nhiêu siblibngs
+
+```
+cat /proc/cpuinfo
+
+processor       : 23
+vendor_id       : GenuineIntel
+cpu family      : 6
+model           : 62
+model name      : Intel(R) Xeon(R) CPU E5-2430 v2 @ 2.50GHz
+stepping        : 4
+microcode       : 0x428
+cpu MHz         : 1599.707
+cache size      : 15360 KB
+physical id     : 1
+siblings        : 12
+core id         : 5
+cpu cores       : 6
+apicid          : 43
+initial apicid  : 43
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 13
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm ida arat xsaveopt pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms
+bogomips        : 5005.20
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 46 bits physical, 48 bits virtual
+power management:
+```
+
+Kết quả cho thấy cpu của 6 core và 12 siblings

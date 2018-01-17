@@ -5,3 +5,128 @@
   \item Học MLE và MAP?
 \end{itemize}
 
+## Machine Learning
+
+**Có bao nhiêu thuật toán Machine Learning?**
+
+Có rất nhiều thuật toán Machine Learning, bài viết [Điểm qua các thuật toán Machine Learning hiện đại](https://ongxuanhong.wordpress.com/2015/10/22/diem-qua-cac-thuat-toan-machine-learning-hien-dai/) của Ông Xuân Hồng tổng hợp khá nhiều thuật toán. Theo đó, các thuật toán Machine Learning được chia thành các nhánh lớn như `regression`, `bayesian`, `regularization`, `decision tree`, `instance based`, `dimesionality reduction`, `clustering`, `deep learning`, `neural networks`, `associated rule`, `ensemble`... Ngoài ra thì còn có các cheatsheet của [sklearn](http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html).
+
+Việc biết nhiều thuật toán cũng giống như ra đường mà có nhiều lựa chọn về xe cộ. Tuy nhiên, quan trọng là có task để làm, sau đó thì cập nhật SOTA của task đó để biết các công cụ mới.
+
+**Xây dựng model cần chú ý điều gì?**
+
+Khi xây dựng một model cần chú ý đến vấn đề tối ưu hóa tham số (có thể sử dụng [GridSearchCV](sklearn.model_selection.GridSearchCV))
+
+Bài phát biểu này có vẻ cũng rất hữu ích [PYCON UK 2017: Machine learning libraries you'd wish you'd known about](https://www.youtube.com/watch?v=nDF7_8FOhpI). Có đề cập đến
+
+* [DistrictDataLabs/yellowbrick](https://github.com/DistrictDataLabs/yellowbrick) (giúp visualize model được train bởi sklearn)
+* [marcotcr/lime](https://github.com/marcotcr/lime) (giúp inspect classifier)
+* [TeamHG-Memex/eli5](https://github.com/TeamHG-Memex/eli5) (cũng giúp inspect classifier, hỗ trợ nhiều model như xgboost, crfsuite, đặc biệt có TextExplainer sử dụng thuật toán từ eli5)
+* [rhiever/tpot](https://github.com/rhiever/tpot) (giúp tối ưu hóa pipeline)
+* [dask/dask](https://github.com/dask/dask) (tính toán song song và lập lịch)
+
+Ghi chú về các thuật toán trong xử lý ngôn ngữ tự nhiên tại [underthesea.flow/wiki](https://github.com/magizbox/underthesea.flow/wiki/Develop)
+
+Framework để train, test hiện tại vẫn rất thoải mái sklearn. tensorboard cung cấp phần log cũng khá hay.
+
+[Câu trả lời hay](https://www.quora.com/What-are-the-most-important-machine-learning-techniques-to-master-at-this-time/answer/Sean-McClure-3?srid=5O2u) cho câu hỏi [Những kỹ thuật machine learning nào quan trọng nhất để master?](https://www.quora.com/What-are-the-most-important-machine-learning-techniques-to-master-at-this-time), đặc biệt là dẫn đến bài [The State of ML and Data Science 2017](https://www.kaggle.com/surveys/2017) của Kaggle.
+
+**Tài liệu học PGM**
+
+[Playlist youtube](https://www.youtube.com/watch?v=WPSQfOkb1M8&amp;list=PL50E6E80E8525B59C) khóa học Probabilistic Graphical Models của cô Daphne Koller. Ngoài ra còn có một [tutorial](http://mensxmachina.org/files/software/demos/bayesnetdemo.html) dở hơi ở đâu về tạo Bayesian network
+
+**[Chưa biết] Tại sao Logistic Regression lại là Linear Model?**
+
+Trong quyển Deep Learning, chương 6, trang 165, tác giả có viết
+
+```
+Linear models, such as logistic regression and linear
+regression, are appealing because they can be ﬁt
+eﬃciently and reliably, either in closed form or
+with convex optimization
+```
+
+Mình tự hỏi tại sao logistic regression lại là linear, trong khi nó có sử dụng hàm logit (nonlinear)? Tìm hiểu hóa ra cũng có bạn hỏi giống mình trên [stats.stackexchange.com](https://stats.stackexchange.com/questions/93569/why-is-logistic-regression-a-linear-classifier). Ngoài câu trả lời trên stats.stackexchange, đọc một số cái khác [Generalized Linear Models, SPSS Statistics 22.0.0](https://www.ibm.com/support/knowledgecenter/en/SSLVMB_22.0.0/com.ibm.spss.statistics.help/spss/advanced/idh_idd_genlin_typeofmodel.htm)
+ và [6.1 - Introduction to Generalized Linear Models, Analysis of Discrete Data, Pennsylvania State University](https://onlinecourses.science.psu.edu/stat504/node/216) cũng vẫn chưa hiểu lắm.
+
+Hiện tại chỉ hiểu là các lớp model này chỉ có thể hoạt động trên các tập linear separable, có lẽ do việc map input x, luôn có một liên kết linear $latex wx$, trước khi đưa vào hàm non-linear.
+
+**Các tập dữ liệu thú vị**
+
+*Iris dataset*: dữ liệu về hoa iris
+
+Là một ví dụ cho bài toán phân loại
+
+*Weather problem*: dữ liệu thời tiết. Có thể tìm được ở trong quyển Data Mining: Practical Machine Learning Tools and Techniques
+
+Là một ví dụ cho bài toán cây quyết định
+
+## Deep Learning
+
+**Tài liệu Deep Learning**
+
+Lang thang thế nào lại thấy trang này [My Reading List for Deep Learning!](https://www.microsoft.com/en-us/research/wp-content/uploads/2017/02/DL_Reading_List.pdf) của một anh ở Microsoft. Trong đó, (đương nhiên) có Deep Learning của thánh Yoshua Bengio, có một vụ hay nữa là bài review "Deep Learning" của mấy thánh Yann Lecun, Yoshua Bengio, Geoffrey Hinton trên tạp chí Nature. Ngoài ra còn có nhiều tài liệu hữu ích khác.
+
+### Các layer trong deep learning [^2]
+
+#### Sparse Layers
+
+[**nn.Embedding**](http://pytorch.org/docs/master/nn.html#embedding) ([hướng dẫn](http://pytorch.org/tutorials/beginner/nlp/word_embeddings_tutorial.html))
+★ grep code: [Shawn1993/cnn-text-classification-pytorch](https://github.com/Shawn1993/cnn-text-classification-pytorch/blob/master/model.py#L18)
+Đóng vai trò như một lookup table, map một word với dense vector tương ứng
+
+#### Convolution Layers
+
+[**nn.Conv1d**](http://pytorch.org/docs/master/nn.html#conv1d), [**nn.Conv2d**](http://pytorch.org/docs/master/nn.html#conv2d), [**nn.Conv3d**](http://pytorch.org/docs/master/nn.html#conv3d) [^1]
+★ grep code: [Shawn1993/cnn-text-classification-pytorch](https://github.com/Shawn1993/cnn-text-classification-pytorch/blob/master/model.py#L20-L24), [galsang/CNN-sentence-classification-pytorch](https://github.com/galsang/CNN-sentence-classification-pytorch/blob/master/model.py#L36-L38)
+
+Các tham số trong Convolution Layer
+
+* `kernel_size` (hay là filter size)
+
+Đối với NLP, kernel_size thường bằng region_size * word_dim (đối với conv1d) hay (region_size, word_dim) đối với conv2d
+
+<small>Quá trình tạo feature map đối với region size bằng 2</small>
+![](https://media.giphy.com/media/l2QE2y1UQP7vIgiti/giphy.gif)
+
+* `in_channels`, `out_channels` (là số lượng `feature maps`)
+
+Kênh (channels) là các cách nhìn (view) khác nhau đối với dữ liệu. Ví dụ, trong ảnh thường có 3 kênh RGB (red, green, blue), có thể áp dụng convolution giữa các kênh. Với văn bản cũng có thể có các kênh khác nhau, như khi có các kênh sử dụng các word embedding khác nhau (word2vec, GloVe), hoặc cùng một câu nhưng biểu diễn ở các ngôn ngữ khác nhau.
+
+* `stride`
+
+Định nghĩa bước nhảy của filter.
+
+![](http://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/11/Screen-Shot-2015-11-05-at-10.18.08-AM-1024x251.png)
+
+Hình minh họa sự khác biệt giữa các feature map đối với stride=1 và stride=2. Feature map đối với stride = 1 có kích thước là 5, feature map đối với stride = 3 có kích thước là 3. Stride càng lớn thì kích thước của feature map càng nhỏ.
+
+Trong bài báo của Kim 2014, `stride = 1` đối với `nn.conv2d` và `stride = word_dim` đối với `nn.conv1d`
+
+Toàn bộ tham số của mạng CNN trong bài báo Kim 2014,
+
+![](http://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/11/Screen-Shot-2015-11-06-at-8.03.47-AM.png)
+
+| Description         | Values          |
+|---------------------|-----------------|
+| input word vectors  | Google word2vec |
+| filter region size  | (3, 4, 5)       |
+| feature maps        | 100             |
+| activation function | ReLU            |
+| pooling             | 1-max pooling   |
+| dropout rate        | 0.5             |
+| $latex l&amp;s=2$2 norm constraint  | 3               |
+
+Đọc thêm:
+
+* [Lecture 13: Convolutional Neural Networks (for NLP). CS224n-2017](http://web.stanford.edu/class/cs224n/lectures/cs224n-2017-lecture13-CNNs.pdf)
+* [DeepNLP-models-Pytorch - 8. Convolutional Neural Networks](https://nbviewer.jupyter.org/github/DSKSD/DeepNLP-models-Pytorch/blob/master/notebooks/08.CNN-for-Text-Classification.ipynb)
+* [A Sensitivity Analysis of (and Practitioners’ Guide to) Convolutional Neural Networks for Sentence Classification. Zhang 2015](https://arxiv.org/pdf/1510.03820.pdf)
+
+**BTS**
+
+22/11/2017 - Phải nói quyển này hơi nặng so với mình. Nhưng thôi cứ cố gắng vậy.
+24/11/2017 - Từ hôm nay, mỗi ngày sẽ ghi chú một phần (rất rất nhỏ) về Deep Learning [tại đây](https://docs.google.com/document/d/1KxDrw5s6uYHNLda7t0rhp0RM_TlUGxydQ-Qi1JOPFr8/edit?usp=sharing)
+
+[^1]: [Understanding Convolutional Neural Networks for NLP](http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp)
+[^2]: [http://pytorch.org/docs/master/nn.html](http://pytorch.org/docs/master/nn.html)

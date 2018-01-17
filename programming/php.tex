@@ -1,0 +1,73 @@
+\chapter{PHP}
+
+PHP là ngôn ngữ lập trình web dominate tất cả các anh tài khác mà (chắc là) chỉ dịu đi khi mô hình REST xuất hiện. Nhớ lần đầu gặp bạn Laravel mà cảm giác cuộc đời sang trang.
+
+Cuối tuần này lại phải xem làm sao cài được xdebug vào PHPStorm cho thằng em tập tành lập trình. Haizzz
+
+### Tương tác với cơ sở dữ liệu
+
+Liệt kê danh sách các bản ghi trong bảng groups
+
+```
+$sql = "SELECT * FROM `groups`";
+$groups = mysqli_query($conn, $sql);
+```
+
+Xóa một bản ghi trong bảng groups
+
+```
+$sql = "DELETE FROM `groups` WHERE id = `5`";
+mysqli_query($conn, $sql);
+```
+
+### Cài đặt debug trong PHPStorm
+
+https://www.youtube.com/watch?v=mEJ21RB0F14
+
+(1) XAMPP
+
+- Download XAMPP (cho PHP 7.1.x - do XDebug chưa chính thức hỗ trợ 7.2.0)
+https://www.apachefriends.org/xampp-files/7.1.12/xampp-win32-7.1.12-0-VC14-installer.exe
+- Install XAMPP xampp-win32-7.1.12-0-VC14-installer.exe
+- Truy cập vào địa chỉ http://localhost/dashboard/phpinfo.php để kiểm tra cài đặt đã thành công chưa
+
+(2) Tải và cài đặt PHPStorm
+
+- Download PHPStorm https://download-cf.jetbrains.com/webide/PhpStorm-2017.3.2.exe
+- Install PHPStorm
+
+(3) Tạo một web project trong PHPStorm
+- Chọn interpreter trỏ đến PHP trong xampp
+
+(4) Viết một chương trình add.php
+
+```php
+$a = 2;
+$b = 3;
+$c = $a + $b;
+
+echo $c;
+```
+
+Click vào `add.php`, chọn Debug, PHPStorm sẽ báo chưa cài XDebug
+
+(5) Cài đặt XDebug theo hướng dẫn tại https://gist.github.com/odan/1abe76d373a9cbb15bed
+
+Click vào add.php, chọn Debug
+
+(6) Cài đặt XDebug với PHPStorm Marklets
+Vào trang https://www.jetbrains.com/phpstorm/marklets/
+Trong phần Zend Debugger
+- chọn cổng 9000
+- IP: 127.0.0.1
+Nhấn nút Generate
+
+Bookmark các link &quot;Start debugger&quot;, &quot;Stop debugger&quot; lên trình duyệt
+
+(7) Debug PHP từ trình duyệt
+
+* Vào trang http://localhost/untitled/add.php
+* Click vào bookmark Start debugger
+* Trong PHPStorm, nhấn vào biểu tượng &quot;Start Listening for PHP Debug Connections&quot;
+* Đặt breakpoint tại dòng thứ 5
+* Refresh lại trang http://localhost/untitled/add.php, lúc này, breakpoint sẽ dừng ở dòng 5
