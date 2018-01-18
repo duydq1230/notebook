@@ -264,5 +264,24 @@
 \contentsline {chapter}{\numberline {37}Ch\IeC {\`a}o h\IeC {\`a}ng}{297}{chapter.37}
 \contentsline {chapter}{\numberline {38}Ph\IeC {\'a}t tri\IeC {\h \ecircumflex }n ph\IeC {\`\acircumflex }n m\IeC {\`\ecircumflex }m}{298}{chapter.38}
 \contentsline {chapter}{\numberline {39}Ph\IeC {\uhorn }\IeC {\ohorn }ng ph\IeC {\'a}p l\IeC {\`a}m vi\IeC {\d \ecircumflex }c}{299}{chapter.39}
-\contentsline {part}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u}{301}{chapter*.7}
-\contentsline {part}{Ch\IeC {\h i} m\IeC {\d u}c}{302}{chapter*.8}
+\contentsline {chapter}{\numberline {40}Agile}{301}{chapter.40}
+\contentsline {section}{\numberline {40.1}Introduction}{301}{section.40.1}
+\contentsline {section}{\numberline {40.2}Team}{302}{section.40.2}
+\contentsline {section}{\numberline {40.3}Artifacts}{304}{section.40.3}
+\contentsline {section}{\numberline {40.4}Meetings}{304}{section.40.4}
+\contentsline {chapter}{\numberline {41}Docker}{308}{chapter.41}
+\contentsline {section}{\numberline {41.1}Get Started}{308}{section.41.1}
+\contentsline {section}{\numberline {41.2}Dev}{310}{section.41.2}
+\contentsline {section}{\numberline {41.3}Dockerfile}{310}{section.41.3}
+\contentsline {section}{\numberline {41.4}Container}{311}{section.41.4}
+\contentsline {section}{\numberline {41.5}Compose}{312}{section.41.5}
+\contentsline {section}{\numberline {41.6}Swarm}{313}{section.41.6}
+\contentsline {section}{\numberline {41.7}UCP}{314}{section.41.7}
+\contentsline {section}{\numberline {41.8}Labs}{315}{section.41.8}
+\contentsline {section}{\numberline {41.9}GUI}{316}{section.41.9}
+\contentsline {chapter}{\numberline {42}Lean}{317}{chapter.42}
+\contentsline {section}{\numberline {42.1}Lean Canvas}{317}{section.42.1}
+\contentsline {section}{\numberline {42.2}Workflow}{317}{section.42.2}
+\contentsline {section}{\numberline {42.3}Validated Learning}{318}{section.42.3}
+\contentsline {part}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u}{319}{chapter*.7}
+\contentsline {part}{Ch\IeC {\h i} m\IeC {\d u}c}{320}{chapter*.8}
