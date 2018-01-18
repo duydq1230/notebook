@@ -1,0 +1,1371 @@
+\chapter{Javascript}
+
+View online \href{http://magizbox.com/training/java/site/}{http://magizbox.com/training/java/site/}
+
+What is Javascript?
+JavaScript is a high-level, dynamic, untyped, and interpreted programming language. It has been standardized in the ECMAScript language specification. Alongside HTML and CSS, it is one of the three core technologies of World Wide Web content production; the majority of websites employ it and it is supported by all modern Web browsers without plug-ins. JavaScript is prototype-based with first-class functions, making it a multi-paradigm language, supporting object-oriented, imperative, and functional programming styles. It has an API for working with text, arrays, dates and regular expressions, but does not include any I/O, such as networking, storage, or graphics facilities, relying for these upon the host environment in which it is embedded.
+
+
+\section{Installation}
+
+Google Chrome
+Pycharm
+
+\section{IDE}
+
+Google Chrome Developer Tools
+
+The Chrome Developer Tools (DevTools for short), are a set of web authoring and debugging tools built into Google Chrome. The DevTools provide web developers deep access into the internals of the browser and their web application. Use the DevTools to efficiently track down layout issues, set JavaScript breakpoints, and get insights for code optimization.
+
+\section{Basic Syntax}
+
+1. Code Formatting
+Indent with 2 spaces
+
+// Object initializer.
+var inset = {
+  top: 10,
+  right: 20,
+  bottom: 15,
+  left: 12
+};
+
+// Array initializer.
+this.rows_ = [
+  '"Slartibartfast" <fjordmaster@magrathea.com>',
+  '"Zaphod Beeblebrox" <theprez@universe.gov>',
+  '"Ford Prefect" <ford@theguide.com>',
+  '"Arthur Dent" <has.no.tea@gmail.com>',
+  '"Marvin the Paranoid Android" <marv@googlemail.com>',
+  'the.mice@magrathea.com'
+];
+
+// Used in a method call.
+goog.dom.createDom(goog.dom.TagName.DIV, {
+  id: 'foo',
+  className: 'some-css-class',
+  style: 'display:none'
+}, 'Hello, world!');
+2. Naming
+functionNamesLikeThis
+variableNamesLikeThis
+ClassNamesLikeThis
+EnumNamesLikeThis
+methodNamesLikeThis
+CONSTANT_VALUES_LIKE_THIS
+foo.namespaceNamesLikeThis.bar
+filenameslikethis.js.
+3. Comment
+Use JSDoc
+
+3.1 Class Comment
+/**
+ * Class making something fun and easy.
+ * @param {string} arg1 An argument that makes this more interesting.
+ * @param {Array.<number>} arg2 List of numbers to be processed.
+ * @constructor
+ * @extends {goog.Disposable}
+ */
+project.MyClass = function(arg1, arg2) {
+  // ...
+};
+goog.inherits(project.MyClass, goog.Disposable);
+3.2 Method Comment
+/**
+ * Operates on an instance of MyClass and returns something.
+ * @param {project.MyClass} obj Instance of MyClass which leads to a long
+ *     comment that needs to be wrapped to two lines.
+ * @return {boolean} Whether something occurred.
+ */
+function PR_someMethod(obj) {
+  // ...
+}
+4. Expression and Statements
+Expression
+A fragment of code that produces a value is called an Expression
+
+22
+"this is an epression"
+(5 > 6) ? false : true
+Statements
+The Simplest kind of stagement is an expression with a semi colon
+
+!false;
+5 + 6;
+5. Loop and iteration
+while
+var number = 0;
+while (number <= 12) {
+  console.log(number);
+  number = number + 2;
+}
+do..while
+do {
+  var yourName = prompt("Who are you?");
+} while (!yourName);
+console.log(yourName);
+for
+for (var i = 0; i < 10; i++) {
+  console.log(i);
+}
+6. Function
+6.1 Defining a Function
+var square = function(x) {
+  return x * x;
+};
+square(5);
+6.2 Scope
+Scope is the area where contains all variable or function are living.
+Scope has some rules:
+Child Scope can access all variable and function in parent Scope. (E.g: Local Scope can access Global Scope)
+function saveName(firstName) {
+    var temp = "temp";
+    function capitalizeName() {
+        temp = temp + " here";
+        return firstName.toUpperCase();
+    }
+    var capitalized = capitalizeName();
+    return capitalized;
+}
+alert(saveName("Robert"));
+But parent Scope can access variable and function inside children scope (E.g: Global Scope cannot acces to local Scope)
+function talkDirty () {
+    var saying = "Oh, you little VB lover, you";
+    return alert(saying);
+}
+alert(saying); //->Error
+6.3 Call Stack
+The storage where computer stores context is called CALL STACK.
+
+// CALL STACK
+function greet(who) {
+    console.log("Hello " + who);
+    ask("How are you?");
+    console.log("I'm fine");
+};
+
+function ask(question) {
+    console.log("well, " + question);
+};
+
+greet("Harry");
+console.log("Bye");
+Out of Call Stack
+
+function chicken() {
+    return egg();
+}
+
+function egg() {
+    return chicken();
+}
+console.log(chicken() + " came first");
+6.4. Optional Argument
+We can pass too many or too few arguments to the function without any SyntaxError.
+If we pass too much arguments, the extra ones are ignored
+If we pass to few arguments, the missing ones get value undefined
+function power(base, exponent) {
+    if (exponent == undefined) {
+        exponent = 2;
+    }
+    var result = 1;
+    for (var count = 0; count < exponent; count++) {
+        result = result * base;
+    }
+    return result;
+}
+console.log(power(4));
+console.log(power(4,3));
+upside: flexible
+downside: hard to control the error
+
+6.5 Closure
+Look at this example:
+
+function sayHello(name){
+    var text = 'Hello' + name;
+    var say = function(){
+        console.log(text);
+    }
+    return say;
+}
+var say2 = sayHello("ahaha");
+say2();
+if in C program, does say2() work?
+The answer is nope! Because in C program, when a function returns, the Stack-flame will be destroyed, and all the local variable such as text will undefinded. So, when say2() is called, there is no text anymore, and the error, will be shown!
+But, in JavaScript, This code works!! Because, it provides for us an Object called Closure! Closure is borned when we define a function in another function, it keep all the live local variable. So, when say2() is called, the closure will give all the value of local variable outside it, and text will be identity.!
+
+var globalVariable = 10;
+function func(){
+    var name = "xxx";
+    function getName(){
+        return name;
+    }
+    function speak(){
+        var sound = "alo";
+        function scream(){
+            console.log(globalVariable);
+            console.log(name);
+            return "aaaaaaaaaa!";
+        }
+        function talk(){
+            var voice = getName() + " speak " + sound;
+            console.log(voice);
+            return voice;
+        }
+        scream();
+        talk();
+    }
+    speak();
+}
+func();
+6.6. Recursion
+Recursion is function can call itself, as long as it is not overflow
+
+function power(base, exponent){
+    if (exponent == 0){
+        return 1;
+    }
+    else{
+        return base * power(base, exponent -1);
+    }
+}
+console.log(power(2,3));
+
+function FindSolution(target){
+    function Find(start, history){
+        if (start == target){
+            return history;
+        }
+        else if (start > target){
+            return null;
+        }
+        else{
+            return Find(start + 5, "(" + history + " + 5 ") ||
+            Find(start * 3, "(" + history + " * 3)");
+        }
+    }
+    return Find(1, "1");
+}
+console.log(FindSolution(25));
+6.7. Arguments object
+The arguments object contains all parameters you pass to a function.
+
+function argumentCounter() {
+    console.log("you gave me", arguments.length, "argument.");
+}
+argumentCounter("Straw man", "Tautology", "Ad hominem");
+6.8. Higher-Order Function
+###Filter array
+var ancestry = JSON.parse(ANCESTRY_FILE);
+console.log(ancestry.length);
+
+function filter(array, test) {
+    var passed = [];
+    for (var i = 0; i < array.length; i++){
+        if (test(array[i])){
+            passed.push(array[i]);
+        }
+    }
+    return passed;
+}
+console.log(filter(ancestry, function(person){
+    return person.born > 1900 && person.born < 1925;
+}));
+
+### TRANSFORMING WITH A MAP
+function map(array, transform) {
+  var mapped = [];
+  for (var i = 0; i < array.length; i++)
+    mapped.push(transform(array[i]));
+  return mapped;
+}
+
+var overNinety = ancestry.filter(function(person) {
+  return person.died - person.born > 90;
+});
+console.log(map(overNinety, function(person) {
+  return person.name;
+}));
+
+
+### REDUCE
+function reduce(array, combine, start) {
+  var current = start;
+  for (var i = 0; i < array.length; i++)
+    current = combine(current, array[i]);
+  return current;
+}
+console.log(reduce([1, 2, 3, 4], function(a, b) {
+  return a + b;
+}, 0));
+#Problem: using map and reduce, transform [1,2,3,4] to [1,2],[3,4]
+
+var a = [1, 2, 3, 4]
+a = _.map(a, function(i){
+    if(i % 2 == 0){
+        return [[],[i]]
+    } else {
+        return [[i], []]
+    }
+});
+a = _.reduce(a, function(x, y){
+   return [x[0].concat(y[0]), x[1].concat(y[1])]
+})
+
+
+### BINDING FUNCTION
+var theSet = ["Carel Haverbeke", "Maria van Brussel",
+              "Donald Duck"];
+function isInSet(set, person) {
+  return set.indexOf(person.name) > -1;
+}
+
+console.log(ancestry.filter(function(person) {
+  return isInSet(theSet, person);
+}));
+console.log(ancestry.filter(isInSet.bind(null, theSet)));
+What's the cleanest way to write a multiline string in JavaScript? [duplicate] ↩
+
+Google JavaScript Style Guide ↩
+
+\section{Data Structure}
+
+\subsection{Number}
+
+Some example of number: 10, 1.234, 1.99e9, NaN, Infinity, -Infinity
+
+console.log(2.99e9);
+console.log(0 /0);
+console.log(1 /0);
+console.log(-1 /0);
+Automatic Conversion
+
+console.log(8 * null); // -> 0
+console.log("5" - 1); // -> 4
+console.log("5" + 1); //-> 51
+console.log(false == 0) //-> true
+
+\subsection{String}
+
+sprintf
+In index.html
+
+<script src="cdnjs.cloudflare.com/ajax/libs/sprintf/1.0.3/sprintf.js"/>
+
+In script.js
+
+// arguments
+sprintf("%1$s %2$s", "hello", "sprintf")
+# hello sprintf
+
+// object
+var user = {
+    name: "Dolly"
+}
+sprintf("Hello %(name)s", user)
+# Hello Dolly
+
+// array of object
+var users = [
+    {name: "Dolly"},
+    {name: "Molly"}
+]
+sprintf("Hello %(users[0].name)s and %(users[1].name)s", {users: users})
+# Hello Dolly and Molly
+Multiline String
+str = "\
+line 1\
+line 2\
+line 3";
+Regular Expression in JavaScript
+This lab is based on Chapter9: EloquentJavaScript
+
+Creating a regular expression
+There are 2 ways:
+
+var re1 = new RegExp("abc");
+var re2 = /abc/
+there are some special characters such as question mark, or plus sign. If you want to use them, you have to use backslash. Like this:
+
+var eighteen = /eighteen\+/;
+var question = /question\?/;
+Testing for match
+Regular Express has a number of method. Simplest is test
+
+console.log(/abc/.test("abcd"));
+console.log(/abc/.test("abxde"));
+Matching a set of character []: Put a set of characters between 2 square bracket
+
+console.log(/[0123456789]/.test("1245"));
+console.log(/[0-9]/.test("1");
+console.log(/[0-9]/.test("acd");
+console.log(/[0-9]/.test("aaascacas1"));
+There are some special character:
+\d Any digit character (Like [0-9])
+
+var datetime = /\d\d-\d\d-\d\d\d\d\s\d\d:\d\d/;
+console.log(datetime.test("16-06-2016 14:09"));
+console.log(dateTime.test("30-jan-2003 15:20"));
+\w An alphanumeric character (“word character”)
+
+var word = /\w/;
+console.log(word.test("@#@#"));
+\s Any whitespace character (space, tab, newline, and similar)
+
+var space = /\d\.\s+abc/;
+console.log(space.test("1. abd"));
+console.log(space.test("1.     abd"));
+console.log(space.test("1.abd"));
+\D A character that is not a digit
+
+var notDigit = /\D/;
+console.log(notDigit.test("ww"));
+console.log(notDigit.test("1a"));
+console.log(notDigit.test("1124"));
+\W A nonalphanumeric character
+
+var nonAlphanumbericChar = /\W/;
+console.log(nonAlphanumbericChar.test("abc12231"));
+console.log(nonAlphanumbericChar.test("!@#%{}_"));
+\S A nonwhitespace character
+
+var nonWhiteSpace = /\S/;
+console.log(nonWhiteSpace.test("abc123"));
+console.log(nonWhiteSpace.test("1.  abcd"));
+console.log(nonWhiteSpace.test("  "));
+"." Any character except for newline
+
+var anyThing = /...\./;
+console.log(anyThing.test("abc."));
+console.log(anyThing.test("acbacd."));
+console.log(anyThing.test("acba"));
+"^" Using caret character to match any except the ones
+
+var notBinary = /[^01]/;
+console.log(notBinary.test("01101011100"));
+console.log(notBinary.test("01021010010"));
+Repeating parts of Pattern
+The square bracket [] above only match 1 digit. How can regex match more than 1 digit?
+"+" Match one or more
+"*" Match zero or more
+
+console.log(/\d+/.test(1234));
+console.log(/\d+/.test());
+
+console.log(/\d*/.test(1234));
+console.log(/\d*/.test())
+"?" Question mark test a character exist or not is still oke
+
+var ball = /bal?l/;
+console.log(ball.test("ball"));
+console.log(ball.test("bal"));
+{a,b} the character before exist from a to b times. Check datetime:
+
+var datetime = /\d{1,2}-\d{1,2}-\d{4} \d{1,2}:\d{1,2}/;
+console.log(datetime.test("20-12-2015 14:09"));
+var checkTimes = /waz{3,5}up/;
+console.log(checkTimes.test("wazzzzzup"));
+console.log(checkTimes.test("wazzzup"));
+console.log(checkTimes.test("wazup"));
+Grouping Subexpressions
+() using prentheses to make whole group like one character
+
+var cartoonCrying = /boo+(hoo+)+/i; //i to match all Captalize or normal text
+console.log(cartoonCrying.test("Boohoooohoohooo"));
+console.log(cartoonCrying.test("boohoooohooOOO"));
+Matches and group
+Test is a simplest method, and it only return true or false.
+exec (execute) is anther method in regex. It returns null if no match, and object if match.
+
+var match  = /\d+/.exec("one two 100");
+console.log(match);
+console.log(match.input);
+console.log(match.index);
+if in the expression has a group subexpression, then it will return the text contain this subexpress, and the text match this subexpress:
+
+var quotedText = /'([^']*)'/;
+console.log(quotedText.exec("she said 'hello'"));
+and if the subexpression appears one more times, then the result will be displayed the last match one.
+
+console.log(/bad(ly)?/.exec("bad"));
+console.log(/(\d)+/.exec("123"));
+The date type
+create new Date(). return the current time
+
+var date =  new Date();
+console.log(new Date(2009, 11, 9);
+console.log(new Date(2009, 11, 9, 23, 59, 61));
+<!--TimeStamp-->
+console.log(new Date(2009, 11, 9, 23, 59, 61).getTime());
+console.log(new Date(1260378001000));
+<!--getFullYear, getMonth,...-->
+var date = new Date();
+console.log(date.getFullYear());
+console.log(date.getMonth());
+console.log(date.getDate());
+console.log(date.getHours());
+console.log(date.getMinutes());
+console.log(date.getSeconds());
+Word and string boundaries
+console.log(/cat/.test("concatenate"));
+console.log(/cat/.test("con123cat-129e0enate"));
+console.log(/\bcat\b/.test("concatenate"));
+console.log(/\bcat\b/.test("con123cat-129e0enate"));
+Choice patterm
+Only one in the list beween the "|" match
+
+var animalCount = /\b\d+ (pig|cow|chicken)s?\b/;
+console.log(animalCount.test("15 pigs"));
+console.log(animalCount.test("15 pigchickens"));
+Replace
+Replace will find the first match and replace.if we want to replace all matches, using "g" behind the expresssion
+
+console.log("papa".replace("p", "m"));
+console.log("Borobudur".replace(/[ou]/, "a"));
+console.log("Borobudur".replace(/[ou]/g, "a"));
+Replace can refer back to the matched, and using them
+
+console.log("Le, Khanh\nNguyen, Hung\nDuong, Bach".replace(/([\w]+), ([\w]+)/g, "$1 $2"));
+Greed
+function stripComments(code) {
+  return code.replace(/\/\/.*|\/\*[^]*\*\//g, "");
+}
+console.log(stripComments("1 + /* 2 */3"));
+// → 1 + 3
+console.log(stripComments("x = 10;// ten!"));
+// → x = 10;
+console.log(stripComments("1 /* a */+/* b */ 1"));
+// → 1  1
+Search method
+Search method return the first index if the regular expression match.
+And return -1 if not found
+
+console.log("  word".search(/\S/));
+// → 2
+console.log("    ".search(/\S/));
+// → -1
+The last index property
+In the regular expression has a property is lastIndex. And when this Regex do some method, it will start from the lastIndex. And after doing something, the lastIndex will update to the behind the index of the match exec.
+
+var pattern = /y/g;
+pattern.lastIndex = 3; //lastIndex update to 3
+var match = pattern.exec("xyzzy"); //lastIndex update to 5
+console.log(pattern.lastIndex);
+
+match = pattern.exec("xyzzyxxx"); //Not match any "y" from index 5
+console.log(match.index);
+console.log(pattern.lastIndex);
+Looping Over the Line
+Applying the hepoloris of lastIndex, we can using while to do something like this:
+
+var input = "A string with 3 numbers in it... 42 and 88.";
+var number = /\b(\d+)\b/g;
+var match;
+while (match = number.exec(input))
+  console.log("Found", match[1], "at", match.index);
+
+\subsection{Collection}
+
+Some useful methods with array
+push and pop
+var a = [1,2,3,4];
+console.log(a.pop(), a);
+console.log(a.push(3), a);
+shift and unshift
+console.log(a.shift(), a);
+console.log(a.unshift(1), a);
+indexOf and lastIndexOf
+var b = [1,2,3,4,2,3,1];
+console.log(b.indexOf(1));
+console.log(b.lastIndexOf(1));
+slice
+console.log([0,1,2,3,4].slice(2,4));
+console.log([0,1,2,3,4].slice(2));
+concat
+var a = [1,2,3];
+var b = [4,5,6];
+a.concat(b);
+console.log(a);
+
+\subsection{Datetime}
+
+Current Time
+moment().format('MMMM Do YYYY, h:mm:ss a');
+Moment.js ↩
+
+\subsection{Boolean}
+
+Boolean has only 2 values: true and false
+
+console.log("Abc" < "Abcd") // -> true
+console.log("abc" < "Abcd") // -> false
+console.log("123" == "123") // -> true
+console.log(NaN == NaN) // -> false
+what is the different?
+
+console.log("5" == 5);
+console.log("5" === 5);
+
+\subsection{Object}
+
+Object
+Define an object
+var object = {
+  number: 10,
+  string: "string",
+  array: [1,2,3],
+  object: {a: 1, b: 2}
+}
+Add new property to object
+object.newProperty = "value";
+object['key'] = 'value';
+delete property
+delete object.newProperty;
+Window object (global object)
+The Global scope is stored in an object which called window
+
+function test(){
+    var local = 10;
+    console.log("local" in window);
+    console.log(window.local);
+}
+test();
+var global = 10;
+console.log("global" in window);
+console.log(window.global);
+
+\section{OOP}
+
+
+1. Classes and Objects
+Constructor
+function Ball(position){
+    this.position = position;
+    this.display = function(){
+        console.log(this.position[0], ", ", this.position[1]);
+    }
+}
+
+ball = new Ball([2, 3]);
+ball.display();
+2. Inheritance
+Person = function (name, birthday, job) {
+  this.name = name;
+  this.birthday = birthday;
+  this.job = job;
+};
+
+Person.prototype.display = function () {
+  console.log(this.name, "\n");
+  console.log(this.birthday, "\n");
+  console.log(this.job, "\n");
+};
+
+Politician = function (name, birthday) {
+  Person.call(this, name, birthday, "Politician");
+};
+Politician.prototype = Object.create(Person.prototype);
+Politician.prototype.constructor = Politician;
+
+var person1 = new Person("Barack Obama", "04/08/1961", "Politician");
+var person2 = new Politician("David Cameron", "09/10/1966");
+person1.display();
+person2.display();
+
+Object-Oriented Programming
+var rabbit = {};
+rabbit.speak = function(line){
+console.log("The rabit says:'" + line + "'");
+ };
+rabbit.speak("I'm alive");
+
+function speak(line){
+   console.log("The "+ this.type + " rabbit says '" + line + "'");
+ }
+
+var whiteRabbit = {type: "white", speak: speak};
+var fatRabbit = {type: "fat", speak: speak};
+whiteRabbit.speak("Oh my ears and whiskers, " + "how late it's getting!");
+fatRabbit.speak("I could sure use a carrot right now");
+
+// Prototype
+// Prototype is another object that is used as a fallback source of properties
+// When object request a property that it does not have, its prototype will be searched for the property
+var empty = {};
+console.log(empty.toString);
+console.log(empty.toString);
+
+// Get prototype of an object 2 ways:
+console.log(Object.getPrototypeOf({}) == Object.prototype);
+console.log(Object.getPrototypeOf(Object.prototype));
+
+// Using Object.create to create an object with an specific prototype
+var protoRabbit = {
+  speak: function(line){
+    console.log("The " + this.type + " rabbit says '" + line + "'");
+  }
+};
+
+var killerRabbit = Object.create(protoRabbit);
+killerRabbit.type = "Killer";
+killerRabbit.speak("Skreeee!");
+
+// Constructor
+function Rabbit(type){
+   this.type = type;
+}
+var killerRabbit = new Rabbit("Killer");
+var blackRabbit = new Rabbit("black");
+console.log(blackRabbit.type);
+
+// using prototype to add a new method
+Rabbit.prototype.speak = function(line) {
+  console.log("The " + this.type + " rabit says '" + line + "'");
+};
+blackRabbit.speak("Doom...");
+
+
+// OVERRIDING DERIVED PROPERTIES
+Rabbit.prototype.teeth = "small";
+console.log(killerRabbit.teeth);
+
+killerRabbit.teeth = "Long, sharp, and bloody";
+console.log(killerRabbit.teeth);
+console.log(blackRabbit.teeth);
+console.log(Rabbit.prototype.teeth);
+
+// PROTOTYPE INTERFERENCE
+// A prototype can be used at any time to add methods, properties
+// to all objects based on it
+Rabbit.prototype.dance = function (){
+  console.log("The " + this.type + " rabbit dances a jig");
+};
+killerRabbit.dance();
+// but there is a problem:
+var map = {};
+function storePhi(event, phi){
+   map[event] = phi;
+}
+
+storePhi("pizza", 0.069);
+storePhi("touched tree", -0.081);
+console.log(map);
+
+Object.prototype.nonsense = "hi";
+for (var name in map) {
+  console.log(name);
+}
+console.log("nonsense" in map);
+console.log("toString" in map);
+delete Object.prototype.nonsense;
+//  we can use Object.defineProperty to solve it
+Object.defineProperty(Object.prototype, "hiddenNonsense", {
+   enumerable: false,
+   value: "hi"
+});
+
+for (var name in map) {
+  console.log(name);
+}
+console.log(map.hiddenNonsense);
+// but there still has a problem
+console.log("toString" in map);
+console.log(map.hasOwnProperty("toString"));
+
+// PROTOTYPE-LESS OBJECTS
+// if we only want to create an fresh object, without prototype then we tranform null to create
+var map = Object.create(null);
+map["pizza"] = 0.09;
+console.log("toString" in map);
+console.log("pizza" in map);
+
+// POLYMORPHISM
+// laying out a table: example for polymorphism
+function rowHeights(rows) {
+    return rows.map(function(row){
+        return row.reduce(function(max, cell) {
+            return Math.max(max, cell.minHeight());
+        }, 0);
+    });
+}
+
+function colWidths(rows) {
+    return rows[0].map(function(_, i) {
+        return rows.reduce(function(max, row){
+            return Math.max(max, row[i].minWidth());
+        }, 0);
+    });
+}
+
+function drawTable(rows) {
+    var heights = rowHeights(rows);
+    var widths = colWidths(rows);
+
+    function drawLine(blocks, lineNo) {
+        return blocks.map(function(block) {
+            return block[lineNo];
+        }).join(" ");
+    }
+
+    function drawRow(row, rowNum){
+        var blocks = row.map(function(cell, colNum) {
+           return cell.draw(widths[colNum], heights[rowNum]);
+        });
+        return blocks[0].map(function(_, lineNo) {
+            return drawLine(blocks, lineNo);
+        }).join("\n");
+    }
+
+    return rows.map(drawRow).join("\n");
+}
+
+function repeat(string, times){
+    var result = "";
+    for (var i = 0; i < times; i++){
+        result += string;
+    }
+    return result;
+}
+
+function TextCell(text){
+    this.text = text.split("\n");
+}
+TextCell.prototype.minWidth = function(){
+    return this.text.reduce(function(width, line){
+        return Math.max(width, line.lenght);
+    }, 0);
+};
+TextCell.prototype.minHeight = function(){
+    return this.text.length;
+}
+TextCell.prototype.minHeight = function(){
+    return this.text.lenght;
+}
+TextCell.prototype.minHeight = function(){
+    return this.text.length;
+}
+TextCell.prototype.draw = function(width, height){
+    var result = [];
+    for (var i = 0; i < height; i++){
+        var line = this.text[i] || "";
+        result.push(line + repeat(" ", width - line.length));
+    }
+    return result;
+}
+
+var rows = [];
+for (var i = 0; i < 5; i++){
+    var row = [];
+    for (var j = 0; j < 5; j++){
+        if ((i + j) % 2 == 0){
+            row.push(new TextCell("1234"));
+        } else{
+            row.push(new TextCell("5"));
+        }
+    }
+    rows.push(row);
+}
+console.log(drawTable(rows));
+
+// // GETTERS AND SETTERS
+// var pile = {
+//     elements: ["eggshell", "orange peel", "worm"],
+//     get height(){
+//         return this.elements.length;
+//     },
+//     set height(value) {
+//         console.log("Ignoring attemp to set high to ", value);
+//     }
+// };
+
+// console.log(pile.height);
+// pile.height = 100;
+// console.log(pile.height);
+
+[1]: Introduction to Object-Oriented JavaScript [2]: How to call parent constructor?
+
+\section{Networking}
+
+POST
+$.ajax({
+  type: "POST",
+  url: "http://service.com/items",
+  data: JSON.stringify({"name": "new item"}),
+  contentType: 'application/json'
+}).done(function (data) {
+  console.log(data)
+}).fail(function () {
+});
+
+\section{Logging}
+
+
+Javascript Logging
+Having a fancy JavaScript debugger is great, but sometimes the fastest way to find bugs is just to dump as much information to the console as you can.
+
+console.log
+console.assert
+console.error
+
+\section{Documentation}
+
+Components
+jsdoc (with docdash template)
+
+JSDoc is an API documentation generator for JavaScript, similar to JavaDoc or PHPDoc. You add documentation comments directly to your source code, right along side the code itself. The JSDoc Tool will scan your source code, and generate a complete HTML documentation website for you.
+
+gulp, PyCharm
+
+Usage
+Step 1. Install gulp-jsdoc
+npm install --save-dev gulp gulp-jsdoc docdash
+Step 2. Create documentation task
+Create documentation task in gulpfile.js file
+
+var template = {
+  "path": "./node_modules/docdash"
+};
+
+gulp.task('docs', function(){
+  return gulp.src("./src/*.js")
+    .pipe(jsdoc('./docs', template));
+});
+Step 3. Refresh Gulp tasks
+In pycharm, click to refresh button in gulp window.
+
+Step 4. Add comment to your code
+Add comment to your code, You can see an example: should.js
+
+/**
+ * Simple utility function for a bit more easier should assertion
+ * extension
+ * @param {Function} f So called plugin function. It should accept
+ * 2 arguments: `should` function and `Assertion` constructor
+ * @memberOf should
+ * @returns {Function} Returns `should` function
+ * @static
+ * @example
+ *
+ * should.use(function(should, Assertion) {
+ *   Assertion.add('asset', function() {
+ *      this.params = { operator: 'to be asset' };
+ *
+ *      this.obj.should.have.property('id').which.is.a.Number();
+ *      this.obj.should.have.property('path');
+ *  })
+ * })
+ */
+should.use = function(f) {
+  f(should, should.Assertion);
+  return this;
+};
+
+Types: boolean, string, number, Array (see more)
+
+Step 5. Run docs task
+In pycharm, click to docs task in gulp window.
+
+\section{Error Handling}
+
+In javascript bugs may be displayed is NaN or underfined and program still run but after that, the wrong value can cause some mistake when we use it So, finding bugs and fix them is the quiet hard work in javascript But we can do, and this job is called debugging
+
+STRICT MODE
+This is the way to find errors that javascript ignores. Example is using an undefined variable. if we dont use strick mode, then everything will be ok, but if using, the error will be shown
+
+function SpotProblem(){
+//     "use strict";
+    for (counter = 0; counter < 10; counter++){
+        console.log("Good!");
+    }
+}
+SpotProblem();
+console.log(counter);
+strick mode can find error when using this in local, but it is still in global. Example: When we forget to declare the key word "new" when create an new Object
+
+"use strict";
+function Person(name){
+    this.name = name;
+}
+var john = Person("John");
+console.log(name);
+And there are another cases, that trick mode is not allowed: Delete an object is not allowed
+
+"use strict";
+var x = 3.14;
+delete x;
+
+"use strict";
+var obj = {v1: 3, v2: 4};
+delete pbj;
+
+"use strict";
+var func = function(){};
+delete func;
+Duplicate parameter is not allowed
+
+"use strict";
+var func = function(a1, a1){
+    console.log(a1);
+}
+Reserve Word is not allowed to name variable
+
+"use strict";
+var arguments = 5;
+var eval = 6;
+console.log(arguments);
+console.log(eval);
+TESTING
+Testing makes sure that the program working well, and if there are any changes, testing will automatic show us the error, thus, we know where need to fix
+
+function Vector(x, y){
+    this.x = x;
+    this.y = y;
+}
+Vector.prototype.plus = function(other){
+    return new Vector(this.x + other.x, this.y + other.y);
+}
+
+function TestVector(){
+    var p1 = new Vector(10, 20);
+    var p2 = new Vector(-10, 5);
+    var p3 = p1.plus(p2);
+
+    if (p1.x !== 10) return "fail: x property";
+    if (p1.y !== 20) return "fail: y property";
+    if (p2.x !== -10) return "fail: nagative x property";
+    if (p2.y !== 5) return "fail: y property";
+    if (p3.x !== 0) return "fail: x property from plus";
+    if (p3.y !== 25) return "fail: y property from plus";
+    return "Vector is Oke";
+}
+TestVector();
+DEBUGGING
+when the testing is fail, we have to debug to find the bugs.
+The first we should guess the bug. And then we put break point in the line, we assume it make bug
+If that is the exactly bug we want to find, then we fix it, and write more test for this case
+In this example code below, the function convert the number in the decima to another. we run and see the result is wrong, so we guess that the error may be caused by the result variable, then we put break point in the line contains result variable.
+
+function ConvertNumber(n, base) {
+  var result = "", sign = "";
+  if (n < 0) {
+    sign = "-";
+    n = -n;
+  }
+  do {
+    result = String(n % base) + result;
+    n /= base; //-> n = Math.floor(n / base);
+  } while (n > 0);
+  return sign + result;
+}
+console.log(ConvertNumber(13, 10));
+console.log(ConvertNumber(14, 2));
+ERROR PROPAGATION
+Sometime our code is working well with normal input. But with special one, they can cause error. So, we have to consider all situation can make Flaws, and handling them.
+This example code below has an if..else to handle the wrong input if user types not a number in the prompt input
+
+function promptNumber(question) {
+  var result = Number(prompt(question, ""));
+  if (isNaN(result)) return null;
+  else return result;
+}
+console.log(promptNumber("How many trees do you see?"));
+EXCEPTION
+In the Error Propagation, we can control the errors if we know them. But what will happen if we don't know the error? For solving this problem, javascript provides for us an try...catch.. to control error we dont know or not sure
+
+try {
+    throw new Error("Invalid defination");
+} catch (error){
+    console.log(error);
+}
+
+function promtDirection(question){
+    var result = prompt(question, "");
+    if (result.toLowerCase() == "left") return "L";
+    if (result.toLowerCase() == "right") return "R";
+    throw new Error("Invalid direction: " + result);
+}
+
+function look(){
+    if (promtDirection("Which way?") == "L") {
+        return "a house";
+    }
+    else{
+        return "two angry bears";
+    }
+}
+
+try {
+    console.log("you see", look());
+} catch (error) {
+    console.log("Something went wrong: " + error);
+}
+CLEAN UP AFTER EXCEPTIONS
+We have a block of code below:
+
+var context = null;
+function withContext(newContext, body){
+  var oldContext = context;
+  context = newContext;
+  var result = body();
+  context = oldContext;
+  return result;
+}
+withContext("new", function(){
+  var a = b/0;
+  return a;
+});
+What would happend with context? It cannot be excute the last line code, because in withContext function, it will throw off the stack by an exception. So javascript provides a try...finally...
+
+var context = null;
+function withContext(newContext, body){
+  var oldContext = context;
+  context = newContext;
+  try{
+    return body();
+  } finally {
+    context = oldContext;
+  }
+}
+withContext("new", function(){
+  var a = b/0;
+  return a;
+});
+SELECTIVE CATCHING
+There are some errors cannot handle by environment. So, if we let the error go through, it can cause broken program.
+For examnple, the Error() in environment cannot catch the infinitive loop in the try block, if we dont catch this problem, the programm will crash soon
+
+for (;;) {
+  try {
+    var dir = promtDirection("Where?");
+    console.log("You chose ", dir);
+    break;
+  } catch (e) {
+    console.log("Not a valid direction. Try again.");
+  }
+}
+The loop will break out if the promptDirection() can excute.
+But it doesn't. Because it is not defined before, so the environment catch it and go through the catch to show error
+The circle again and again will make the program crash.
+So we will create a special Exception.
+
+function InputError(message){
+  this.message = message;
+  this.stack = (new Error()).stack;
+}
+InputError.prototype = Object.create(Error.prototype);
+InputError.prototype.name = "InputError";
+Error: has an property is stack. it contains all exception, which environment can catch. Then, we have the promptDirection function to return the result if Enter valid format, or an exception if invalid
+
+function promptDirection(question){
+  var result = prompt(question, "");
+  if (result.toLowerCase() == "left") return "L";
+  if (result.toLowerCase() == "right") return "R";
+  throw new InputError("Invalid direction: " + result);
+}
+Finally, we can catch all exception we want
+
+for (;;){
+  try {
+    var dir = promptDirection("Where?");
+    console.log("You choose ", dir);
+    break;
+  } catch(e) {
+    if (e instanceof InputError){
+      console.log("Not a valid direction. Try again. ");
+    }
+    else {
+      throw e;
+    }
+  }
+}
+ASSERTIONS
+function AssertionFailed(message) {
+  this.message = message;
+}
+AssertionFailed.prototype = Object.create(Error.prototype);
+
+function assert(test, message) {
+  if (!test)
+    throw new AssertionFailed(message);
+}
+
+function lastElement(array) {
+  assert(array.length > 0, "empty array in lastElement");
+  return array[array.length - 1];
+}
+
+\section{Testing}
+
+Mocha
+Mocha is a feature-rich JavaScript test framework running on Node.js and the browser, making asynchronous testing simple and fun. Mocha tests run serially, allowing for flexible and accurate reporting, while mapping uncaught exceptions to the correct test cases.
+
+Installation
+bower install -D mocha chai
+Usage
+Step 1. Make index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tests</title>
+  <link rel="stylesheet" media="all" href="mocha.css">
+</head>
+<body>
+  <div id="mocha"></div>
+  <script src="mocha.js"></script>
+  <script src="chai.js"></script>
+  <script src="functions.js"></script>
+  <script>mocha.setup('bdd'); chai.should();</script>
+  <script src="tests.js"></script>
+  <script>mocha.run();</script>
+</body>
+</html>
+Step 2. Edit functions.js
+
+function sum(a, b){
+  return a + b;
+}
+
+function asynchronusSum(a, b){
+  return new Promise(function(fulfill, reject){
+    fulfill(a + b);
+  });
+}
+Step 3. Edit tests.js
+
+describe('Calculator', function() {
+  this.timeout(5000);
+  describe('#sum()', function() {
+    it('should return sum of two number', function() {
+      sum(2, 3).should.equal(5)
+    });
+  });
+
+  describe('#asynchronusSum()', function() {
+    it('should return sum of two number', function(done) {
+      asynchronusSum(2, 3).then(function(output){
+          output.should.equal(5);
+          done();
+      })
+    });
+  });
+});
+
+\section{Package Manager}
+
+Bower
+A package manager for the web
+
+Web sites are made of lots of things — frameworks, libraries, assets, utilities, and rainbows. Bower manages all these things for you.
+
+Bower works by fetching and installing packages from all over, taking care of hunting, finding, downloading, and saving the stuff you’re looking for. Bower keeps track of these packages in a manifest file, bower.json. How you use packages is up to you. Bower provides hooks to facilitate using packages in your tools and workflows.
+
+Bower is optimized for the front-end. Bower uses a flat dependency tree, requiring only one version for each package, reducing page load to a minimum.
+
+http://bower.io/
+
+[code] bower install jquery underscore moment sprintf -S [/code]
+
+HTML <bower based>
+
+<script src="./bower_components/jquery/dist/jquery.js"></script>
+<script src="./bower_components/moment/moment.js"></script>
+<script src="./bower_components/underscore/underscore.js"></script>
+<script src="./bower_components/sprintf/src/sprintf.js"></script>
+HTML <cdn based>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/sprintf/1.0.3/sprintf.js"></script>
+
+\section{Build Tool}
+
+Gulp
+
+Automate and enhance your workflow
+
+Here's some of the sweet stuff you try out with this repo.
+
+Compile CoffeeScript (with source maps!)
+Compile Handlebars Templates
+Compile SASS with Compass
+LiveReload
+require non-CommonJS code, with dependencies
+Set up module aliases
+Run a static Node server (with logging)
+Pop open your app in a Browser
+Report Errors through Notification Center
+Image processing
+Installation
+npm install -S gulp gulp-concat
+Usage
+Watch
+
+var gulp = require('gulp');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var jsdoc = require("gulp-jsdoc");
+
+var third_parties = [
+  "bower_components/jquery/dist/jquery.js",
+  "bower_components/bootstrap/dist/js/bootstrap.js",
+  "bower_components/underscore/underscore.js",
+  "bower_components/ring/ring.js",
+  "bower_components/moment/moment.js",
+  "bower_components/sprintf/src/sprintf.js",
+  "bower_components/uri.js/src/URI.js",
+  "bower_components/run/run.js"
+];
+
+var modules = [
+  "modules/your_script.js"
+];
+
+gulp.watch(third_parties, ['js_thirdparty']);
+gulp.watch(modules, ['js_modules']);
+
+gulp.task('js_thirdparty', function () {
+  return gulp
+    .src(third_parties)
+    .pipe(concat('third_party.uglify.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./scripts'));
+});
+
+gulp.task('js_modules', function () {
+  return gulp
+    .src(modules)
+    .pipe(concat('modules.uglify.js'))
+    //.pipe(uglify())
+    .pipe(gulp.dest('./scripts'));
+});
+
+gulp.task('documentation', function () {
+  return gulp
+    .src("./modules/*/*.js")
+    .pipe(jsdoc('./documentation'));
+});
+
+gulp.task('default', ['js_thirdparty', 'js_modules']);
+http://gulpjs.com/
+
+Deprecated
+grunt
+
+\section{Make Module}
+
+Make Module
+sample modules: underscore, momentjs
+
+Folder Structure
+|- docs
+|- test
+|- src
+|   |-- your_module.js
+|- .gitignore
+|- bower.json
+
+
+

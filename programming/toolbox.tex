@@ -1,0 +1,379 @@
+\chapter{Toolbox}
+
+View online \href{http://magizbox.com/training/toolbox/site/}{http://magizbox.com/training/toolbox/site/}
+
+Toolbox by MG
+The Toolbox contains all the little tools you never know where to find.
+
+Text Editor
+Vim : Vim is a clone of Bill Joy's vi text editor program for Unix. It was written by Bram Moolenaar based on source for a port of the Stevie editor to the Amiga and first released publicly in 1991. Vim is designed for use both from a command-line interface and as a standalone application in a graphical user interface. Vim is free and open source software and is released under a license that includes some charityware clauses, encouraging users who enjoy the software to consider donating to children in Uganda. The license is compatible with the GNU General Public License. Although it was originally released for the Amiga, Vim has since been developed to be cross-platform, supporting many other platforms. In 2006, it was voted the most popular editor amongst Linux Journal readers; in 2015 the Stack Overflow developer survey found it to be the third most popular text editor; and in 2016 the Stack Overflow developer survey found it to be the fourth most popular development environment.
+
+Virtual Machine
+VirtualBox : Oracle VM VirtualBox (formerly Sun VirtualBox, Sun xVM VirtualBox and Innotek VirtualBox) is a free and open-source hypervisor for x86 computers currently being developed by Oracle Corporation. Developed initially by Innotek GmbH, it was acquired by Sun Microsystems in 2008 which was in turn acquired by Oracle in 2010. VirtualBox may be installed on a number of host operating systems, including: Linux, macOS, Windows, Solaris, and OpenSolaris. There are also ports to FreeBSD and Genode. It supports the creation and management of guest virtual machines running versions and derivations of Windows, Linux, BSD, OS/2, Solaris, Haiku, OSx86 and others, and limited virtualization of macOS guests on Apple hardware. For some guest operating systems, a "Guest Additions" package of device drivers and system applications is available which typically improves performance, especially of graphics.
+
+VMWare : VMware, Inc. is a subsidiary of Dell Technologies that provides cloud computing and platform virtualization software and services. It was the first commercially successful company to virtualize the x86 architecture. VMware's desktop software runs on Microsoft Windows, Linux, and macOS, while its enterprise software hypervisor for servers, VMware ESXi, is a bare-metal hypervisor that runs directly on server hardware without requiring an additional underlying operating system.
+
+\section{Vim}
+
+Vim
+Running Vim for the First Time
+To start Vim, enter this command:
+
+gvim file.txt
+In UNIX you can type this at any command prompt. If you are running Microsoft Windows, open an MS-DOS prompt window and enter the command. In either case, Vim starts editing a file called file.txt. Because this is a new file, you get a blank window. This is what your screen will look like:
+
++---------------------------------------+
+|#                  |
+|~                  |
+|~                  |
+|~                  |
+|~                  |
+|"file.txt" [New file]          |
++---------------------------------------+
+    ('#" is the cursor position.)
+The tilde (~) lines indicate lines not in the file. In other words, when Vim runs out of file to display, it displays tilde lines. At the bottom of the screen, a message line indicates the file is named file.txt and shows that you are creating a new file. The message information is temporary and other information overwrites it.
+
+THE VIM COMMAND
+
+The gvim command causes the editor to create a new window for editing. If you use this command:
+
+vim file.txt
+the editing occurs inside your command window. In other words, if you are running inside an xterm, the editor uses your xterm window. If you are using an MS-DOS command prompt window under Microsoft Windows, the editing occurs inside this window. The text in the window will look the same for both versions, but with gvim you have extra features, like a menu bar. More about that later.
+
+Inserting text
+The Vim editor is a modal editor. That means that the editor behaves differently, depending on which mode you are in. The two basic modes are called Normal mode and Insert mode. In Normal mode the characters you type are commands. In Insert mode the characters are inserted as text. Since you have just started Vim it will be in Normal mode. To start Insert mode you type the "i" command (i for Insert). Then you can enter the text. It will be inserted into the file. Do not worry if you make mistakes; you can correct them later. To enter the following programmer's limerick, this is what you type:
+
+iA very intelligent turtle
+Found programming UNIX a hurdle
+After typing "turtle" you press the key to start a new line. Finally you press the key to stop Insert mode and go back to Normal mode. You now have two lines of text in your Vim window:
+
++---------------------------------------+
+|A very intelligent turtle      |
+|Found programming UNIX a hurdle    |
+|~                  |
+|~                  |
+|                   |
++---------------------------------------+
+WHAT IS THE MODE?
+
+To be able to see what mode you are in, type this command:
+
+:set showmode
+You will notice that when typing the colon Vim moves the cursor to the last line of the window. That's where you type colon commands (commands that start with a colon). Finish this command by pressing the <Enter> key (all commands that start with a colon are finished this way). Now, if you type the "i" command Vim will display --INSERT-- at the bottom of the window. This indicates you are in Insert mode.
+
++---------------------------------------+
+|A very intelligent turtle      |
+|Found programming UNIX a hurdle    |
+|~                  |
+|~                  |
+|-- INSERT --               |
++---------------------------------------+
+If you press <Esc> to go back to Normal mode the last line will be made blank.
+
+GETTING OUT OF TROUBLE
+
+One of the problems for Vim novices is mode confusion, which is caused by forgetting which mode you are in or by accidentally typing a command that switches modes. To get back to Normal mode, no matter what mode you are in, press the key. Sometimes you have to press it twice. If Vim beeps back at you, you already are in Normal mode.
+
+==============================================================================
+
+Moving around
+After you return to Normal mode, you can move around by using these keys:
+
+h   left                        *hjkl*
+j   down
+k   up
+l   right
+At first, it may appear that these commands were chosen at random. After all, who ever heard of using l for right? But actually, there is a very good reason for these choices: Moving the cursor is the most common thing you do in an editor, and these keys are on the home row of your right hand. In other words, these commands are placed where you can type them the fastest (especially when you type with ten fingers).
+
+Note:
+You can also move the cursor by using the arrow keys.  If you do,
+however, you greatly slow down your editing because to press the arrow
+keys, you must move your hand from the text keys to the arrow keys.
+Considering that you might be doing it hundreds of times an hour, this
+can take a significant amount of time.
+   Also, there are keyboards which do not have arrow keys, or which
+locate them in unusual places; therefore, knowing the use of the hjkl
+keys helps in those situations.
+One way to remember these commands is that h is on the left, l is on the right and j points down. In a picture:
+
+           k
+       h     l
+         j
+The best way to learn these commands is by using them. Use the "i" command to insert some more lines of text. Then use the hjkl keys to move around and insert a word somewhere. Don't forget to press to go back to Normal mode. The |vimtutor| is also a nice way to learn by doing.
+
+For Japanese users, Hiroshi Iwatani suggested using this:
+
+        Komsomolsk
+            ^
+            |
+   Huan Ho  <--- --->  Los Angeles
+(Yellow river)      |
+            v
+          Java (the island, not the programming language)
+==============================================================================
+
+Deleting characters
+To delete a character, move the cursor over it and type "x". (This is a throwback to the old days of the typewriter, when you deleted things by typing xxxx over them.) Move the cursor to the beginning of the first line, for example, and type xxxxxxx (seven x's) to delete "A very ". The result should look like this:
+
++---------------------------------------+
+|intelligent turtle         |
+|Found programming UNIX a hurdle    |
+|~                  |
+|~                  |
+|                   |
++---------------------------------------+
+Now you can insert new text, for example by typing:
+
+iA young <Esc>
+This begins an insert (the i), inserts the words "A young", and then exits insert mode (the final ). The result:
+
++---------------------------------------+
+|A young intelligent turtle     |
+|Found programming UNIX a hurdle    |
+|~                  |
+|~                  |
+|                   |
++---------------------------------------+
+DELETING A LINE
+
+To delete a whole line use the "dd" command. The following line will then move up to fill the gap:
+
++---------------------------------------+
+|Found programming UNIX a hurdle    |
+|~                  |
+|~                  |
+|~                  |
+|                   |
++---------------------------------------+
+DELETING A LINE BREAK
+
+In Vim you can join two lines together, which means that the line break between them is deleted. The "J" command does this. Take these two lines:
+
+A young intelligent
+turtle
+Move the cursor to the first line and press "J":
+
+A young intelligent turtle
+==============================================================================
+
+Undo and Redo
+Suppose you delete too much. Well, you can type it in again, but an easier way exists. The "u" command undoes the last edit. Take a look at this in action: After using "dd" to delete the first line, "u" brings it back. Another one: Move the cursor to the A in the first line:
+
+A young intelligent turtle
+Now type xxxxxxx to delete "A young". The result is as follows:
+
+ intelligent turtle
+Type "u" to undo the last delete. That delete removed the g, so the undo restores the character.
+
+g intelligent turtle
+The next u command restores the next-to-last character deleted:
+
+ng intelligent turtle
+The next u command gives you the u, and so on:
+
+ung intelligent turtle
+oung intelligent turtle
+young intelligent turtle
+ young intelligent turtle
+A young intelligent turtle
+
+Note:
+If you type "u" twice, and the result is that you get the same text
+back, you have Vim configured to work Vi compatible.  Look here to fix
+this: |not-compatible|.
+   This text assumes you work "The Vim Way".  You might prefer to use
+the good old Vi way, but you will have to watch out for small
+differences in the text then.
+REDO
+
+If you undo too many times, you can press CTRL-R (redo) to reverse the preceding command. In other words, it undoes the undo. To see this in action, press CTRL-R twice. The character A and the space after it disappear:
+
+young intelligent turtle
+There's a special version of the undo command, the "U" (undo line) command. The undo line command undoes all the changes made on the last line that was edited. Typing this command twice cancels the preceding "U".
+
+A very intelligent turtle
+  xxxx              Delete very
+
+A intelligent turtle
+          xxxxxx        Delete turtle
+
+A intelligent
+                Restore line with "U"
+A very intelligent turtle
+                Undo "U" with "u"
+A intelligent
+The "U" command is a change by itself, which the "u" command undoes and CTRL-R redoes. This might be a bit confusing. Don't worry, with "u" and CTRL-R you can go to any of the situations you had. More about that in section |32.2|.
+
+Reference: http://vimdoc.sourceforge.net/htmldoc/usr_02.html
+
+\section{Virtual Box}
+
+Virtual Box
+Export and Import VirtualBox VM images?
+Export
+Open VirtualBox and enter into the File option to choice Export Appliance...
+
+
+
+You will then get an assistance window to help you generating the image.
+
+Select the VM to export
+Enter the output file path and name
+
+
+You can choice a format, which I always leave the default OVF 1.
+
+Finally you can write metadata like Version and Description
+Now you have an OVA file that you can carry to whatever machine to use it.
+
+Import
+Open VirtualBox and enter into the File option to choice Import
+
+You will then get an assistance window to help you loading the image.
+
+Enter the path to the file that you have previously exported
+
+
+Then you can modify the settings of the VM like RAM size, CPU, etc.
+
+
+My recommendation on this is to enable the Reinitialize the MAC address of all the network cards option
+
+Press Import and done!
+Now you have cloned the VM from the host machine into another one
+
+Reference: https://askubuntu.com/questions/588426/how-to-export-and-import-virtualbox-vm-images
+
+Install Guest Additions
+Guest Additions installs on the guest system and includes device drivers and system applications that optimize performance of the machine. Launch the guest OS in VirtualBox and click on Devices and Install Guest Additions.
+
+
+
+The AutoPlay window opens on the guest OS and click on the Run VBox Windows Additions executable.
+
+
+
+Click yes when the UAC screen comes up.
+
+
+
+Now simply follow through the installation wizard.
+
+
+
+During the installation wizard you can choose the Direct3D acceleration if you would like it. Remember this is going to take up more of your Host OS’s resources and is still experimental possibly making the guest unstable.
+
+
+
+When the installation starts you will need to allow the Sun display adapters to be installed.
+
+
+
+After everything has completed a reboot is required.
+
+\section{VMWare}
+
+VMWare
+VMware Workstation is a program that allows you to run a virtual computer within your physical computer. The virtual computer runs as if it was its own machine. A virtual machine is great for trying out new operating systems such as Linux, visiting websites you don't trust, creating a computing environment specifically for children, testing the effects of computer viruses, and much more. You can even print and plug in USB drives. Read this guide to get the most out of VMware Workstation.
+
+Installing VMware Workstation
+
+
+1. Make sure your computer meets the system requirements. Because you will be running an operating system from within your own operating system, VMware Workstation has fairly high system requirements. If you don’t meet these, you may not be able to run VMware effectively. You must have a 64-bit processor. VMware supports Windows and Linux operating systems. You must have enough memory to run your operating system, the virtual operating system, and any programs inside that operating system. 1 GB is the minimum, but 3 or more is recommended. You must have a 16-bit or 32-bit display adapter. 3D effects will most likely not work well inside the virtual operating system, so gaming is not always efficient. You need at least 1.5 GB of free space to install VMware Workstation, along with at least 1 GB per operating system that you install.
+
+
+
+2. Download the VMware software. You can download the VMware installer from the Download Center on the VMware website. Select the newest version and click the link for the installer. You will need to login with your VMware username. You will be asked to read and review the license agreement before you can download the file. You can only have one version of VMware Workstation installed at a time.
+
+
+
+3. Install VMware Workstation. Once you have downloaded the file, right-click on the file and select “Run as administrator”. You will be asked to review the license again. Most users can use the Typical installation option. At the end of the installation, you will be prompted for your license key. Once the installation is finished, restart the computer. Part
+
+Installing an Operating System
+
+
+1. Open VMware. Installing a virtual operating system is much like installing it on a regular PC. You will need to have the installation disc or ISO image as well as any necessary licenses for the operating system that you want to install.
+
+You can install most distributions of Linux as well as any version of Windows.
+
+
+2. Click File. Select New Virtual Machine and then choose Typical. VMware will prompt you for the installation media. If it recognizes the operating system, it will enable Easy Installation:
+
+Physical disc – Insert the installation disc for the operating system you want to install and then select the drive in VMware.
+ISO image – Browse to the location of the ISO file on your computer.
+Install operating system later. This will create a blank virtual disk. You will need to manually install the operating system later.
+
+
+3. Enter in the details for the operating system. For Windows and other licensed operating systems, you will need to enter your product key. You will also need to enter your preferred username and a password if you want one. * If you are not using Easy Install, you will need to browse the list for the operating system you are installing.
+
+
+
+4. Name your virtual machine. The name will help you identify it on your physical computer. It will also help distinguish between multiple virtual computers running different operating systems.
+
+
+
+5. Set the disk size. You can allocate any amount of free space on your computer to the virtual machine to act as the installed operating system’s hard drive. Make sure to set enough to install any programs that you want to run in the virtual machine.
+
+
+
+6. Customize your virtual machine’s virtual hardware. You can set the virtual machine to emulate specific hardware by clicking the “Customize Hardware” button. This can be useful if you are trying to run an older program that only supports certain hardware. Setting this is optional.
+
+
+
+7. Set the virtual machine to start. Check the box labeled “Power on this virtual machine after creation” if you want the virtual machine to start up as soon as you finish making it. If you don’t check this box, you can select your virtual machine from the list in VMware and click the Power On button.
+
+
+
+8. Wait for your installation to complete. Once you’ve powered on the virtual machine for the first time, the operating system will begin to install automatically. If you provided all of the correct information during the setup of the virtual machine, then you should not have to do anything. If you didn’t enter your product key or create a username during the virtual machine setup, you will most likely be prompted during the installation of the operating system.
+
+
+
+9. Check that VMware Tools is installed. Once the operating system is installed, the program VMware Tools should be automatically installed. Check that it appears on the desktop or in the program files for the newly installed operating system.
+
+VMware tools are configuration options for your virtual machine, and keeps your virtual machine up to date with any software changes.
+
+Navigating VMware
+
+
+1. Start a virtual machine. To start a virtual machine, click the VM menu and select the virtual machine that you want to turn on. You can choose to start the virtual machine normally, or boot directly to the virtual BIOS.
+
+
+
+2. Stop a virtual machine. To stop a virtual machine, select it and then click the VM menu. Select the Power option.
+
+Power Off – The virtual machine turns off as if the power was cut out.
+Shut Down Guest – This sends a shutdown signal to the virtual machine which causes the virtual machine to shut down as if you had selected the shutdown option.
+You can also turn off the virtual machine by using the shutdown option in the virtual operating system.
+
+
+3. Move files between the virtual machine and your physical computer. Moving files between your computer and the virtual machine is as simple as dragging and dropping. Files can be moved in both directions between the computer and the virtual machine, and can also be dragged from one virtual machine to another.
+
+When you drag and drop, the original will stay in the original location and a copy will be created in the new location.
+You can also move files by copying and pasting.
+Virtual machines can connect to shared folders as well.
+
+
+4. Add a printer to your virtual machine. You can add any printer to your virtual machine without having to install any extra drivers, as long as it is already installed on your host computer.
+
+Select the virtual machine that you want to add the printer to.
+Click the VM menu and select Settings.
+Click the Hardware tab, and then click Add. This will start the Add Hardware wizard.
+Select Printer and then click Finish. Your virtual printer will be enabled the next time you turn the virtual machine on.
+
+
+5. Connect a USB drive to the virtual machine. Virtual machines can interact with a USB drive the same way that your normal operating system does. The USB drive cannot be accessed on both the host computer and the virtual machine at the same time.
+
+If the virtual machine is the active window, the USB drive will be automatically connected to the virtual machine when it is plugged in.
+If the virtual machine is not the active window or is not running, select the virtual machine and click the VM menu. Select Removable Devices and then click Connect. The USB drive will automatically connect to your virtual machine.
+
+
+6. Take a snapshot of a virtual machine. A snapshot is a saved state and will allow you to load the virtual machine to that precise moment as many times as you need.
+
+Select your virtual machine, click the VM menu, hover over Snapshot and select Take Snapshot.
+Give your Snapshot a name. You can also give it a description, though this is optional.
+Click OK to save the Snapshot.
+Load a saved Snapshot by clicking the VM menu and then selecting Snapshot. Choose the Snapshot you wish to load from the list and click Go To.
+
+
+7. Become familiar with keyboard shortcuts. A combination of the "Ctrl" and other keys are used to navigate virtual machines. For example, "Ctrl," "Alt" and "Enter" puts the current virtual machine in full screen mode or moves through multiple machines. "Ctrl," "Alt" and "Tab" will move between virtual machines when the mouse is being used by 1 machine.
+
