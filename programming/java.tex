@@ -1547,6 +1547,7 @@ A checked exception is an exception that occurs at the compile time, these are a
 
 For example, if you use FileReader class in your program to read data from a file, if the file specified in its constructor doesn't exist, then a FileNotFoundException occurs, and the compiler prompts the programmer to handle the exception.
 
+\begin{lstlisting}[language=Java]
 import java.io.File;
 import java.io.FileReader;
 
@@ -1557,6 +1558,8 @@ public class FilenotFound_Demo {
       FileReader fr = new FileReader(file);
    }
 }
+\end{lstlisting}
+
 If you try to compile the above program, you will get the following exceptions.
 
 C:\>javac FilenotFound_Demo.java
