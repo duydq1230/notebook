@@ -190,3 +190,964 @@ This initial phase of a data mining project focuses on understanding the project
 
 For example, your business problem might be: "How can I sell more of my product to customers?" You might translate this into a data mining problem such as: "Which customers are most likely to purchase the product?" A model that predicts who is most likely to purchase the product must be built on data that describes the customers who have purchased the product in the past. Before building the model, you must assemble the data that is likely to contain relationships between customers who have purchased the product and customers who have not purchased the product. Customer attributes might include age, number of children, years of residence, owners/renters, and so on.
 
+\subsection{Data Gathering}
+
+The data understanding phase involves data collection and exploration. As you take a closer look at the data, you can determine how well it addresses the business problem. You might decide to remove some of the data or add additional data. This is also the time to identify data quality problems and to scan for patterns in the data.
+
+The data preparation phase covers all the tasks involved in creating the case table you will use to build the model. Data preparation tasks are likely to be performed multiple times, and not in any prescribed order. Tasks include table, case, and attribute selection as well as data cleansing and transformation. For example, you might transform a DATE_OF_BIRTH column to AGE; you might insert the average income in cases where the INCOME column is null.
+
+Additionally you might add new computed attributes in an effort to tease information closer to the surface of the data. For example, rather than using the purchase amount, you might create a new attribute: "Number of Times Amount Purchase Exceeds $500 in a 12 month time period." Customers who frequently make large purchases may also be related to customers who respond or don't respond to an offer.
+
+Thoughtful data preparation can significantly improve the information that can be discovered through data mining.
+
+Data Sources
+Open Data
+
+wikipedia dumps: https://dumps.wikimedia.org/other/pagecounts-raw/
+
+\subsection{Data Preprocessing}
+
+The quality of the data and the amount of useful information it contains affect greatly how well an algorithm can learn. Hence, it is important to preprocess the dataset before using it. The most common preprocessing steps are: removing missing values, converting categorical data into shape suitable for machine learning algorithm and feature scaling.
+
+Missing Data
+Sometimes the samples in the dataset are missing some values and we want to deal with these missing values before passing it to the machine learning algorithm. There are a number of strategies we can follow
+
+Remove samples with missing values: This approach is by far the most convenient but we may end up removing too many samples and by that we would be losing valuable information that can help the machine learning algorithm.
+Imputing missing values: Instead of removing the entire sample we use interpolation to estimate the missing values. For example, we could substitute a missing value by the mean of the entire column.
+Categorical Data
+In general, features can be numerical (e.g. price, length, width, etc…) or categorical (e.g. color, size, etc..). Categorical features are further split into nominal and ordinal features.
+
+Ordinal features can be sorted and ordered. For example, size (small, medium, large), we can order these sizes large > medium > small. While nominal features do not have an order for example, color, it doesn’t make any sense to say that red is larger than blue.
+
+Most machine learning algorithm require that you convert categorical features into numerical values. One solution would to assign each value a different number starting from zero. (e.g. small à 0 ,medium à 1 ,large à 2)
+
+This works well for ordinal features but might cause problems with nominal features (e.g. blue à 0, white à 1, yellow à 2) because even though colors are not ordered the learning algorithm will assume that white is larger than blue and yellow is larger than white and this is not correct.
+
+To get around this problem is to use one-hot encoding, the idea is to create a new feature for each unique value of the nominal feature.
+
+
+
+In the above example, we converted the color feature into three new features Red, Green, Blue and we used binary values to indicate the color. For example, a sample with “Red” color is now encoded as (Red=1, Green=0, Blue=0)
+
+Feature Scaling
+Why have we do Feature Scaling?
+
+We have to predict the house prices base on 2 features:
+
+House sizes (feet2)
+Number of bedrooms in the house
+And we relized that house sizes are about 1000 times  the number of bedrooms. When features differ by orders of magnitude, first performing feature scaling can make gradient descent converge much more quickly.
+
+Perform Feature Scaling
+
+Subtract the mean value (the average value) of each feature from the dataset.
+After subtracting the mean, additionally scale (divide) the feature values by their respective "standard deviations."
+Function: x′=x−x¯σx′=x−x¯σ where xx is the original feature vector, x¯x¯ is the mean of that feature vector, and σσ is its standard deviation.
+Feature Scaling Function implementation in Octave
+
+function [X_norm, mu, sigma] = featureNormalize(X)
+X_norm = X;
+mu = zeros(1, size(X, 2)); % storing the mean value in mu
+sigma = zeros(1, size(X, 2)); % storing the standard deviation in sigma
+
+for i = 1:length(mu),
+mu(i) = mean(X(:,i));
+end;
+
+for i = 1:length(sigma),
+sigma(i) = std(X(:,i));
+end;
+
+X_norm = (X .- mu)./sigma;
+end
+Related Reading
+Introduction to Machine Learning
+
+\subsection{Model Building}
+
+In this phase, you select and apply various modeling techniques and calibrate the parameters to optimal values. If the algorithm requires data transformations, you will need to step back to the previous phase to implement them
+
+Create Model
+Test Model
+Evaluate & Interpret Model
+Some important questions
+
+Is at least one of predictors useful in predicting the response? (F-statistics)
+Do all the predictors help to explain Y, or is only a subset of the predictors useful? (all subsets or best subsets)
+How well does the model fit the data?
+Given a set of predictor values, what response value should we predict, and how accurate is our prediction?
+Create Model
+First thing first, start with simple and fast model, then you known how difficult the problem is.
+
+One import thing is create a well pipeline for your experiments, it is very helpful in turning features, model selection, save your experiment and write reports.
+
+Feature Selections
+After train model, some model will give active features (such as CRF), it is clue for you to feature selection. If amount active features is too small compared to amount features, it is the problem. In this case the better way to enhance is try reduce amount of features and see how well this set fit data. Keep in mind the more number of features is, the complex model is, and it will make your model over fitting.
+Storing the model
+Number of active features: 5566 (35383)
+Number of active attributes: 4343 (20722)
+example after training crf model with python-crfsuite
+Test Model
+This phase determines how well the model fit data. See Evaluation for details.
+
+What to do next
+In an interview Andrew Ng said about building machine learning model
+
+"I often make an analogy to building a rocket ship. A rocket ship is a giant engine together with a ton of fuel. Both need to be really big. If you have a lot of fuel and a tiny engine, you won’t get off the ground. If you have a huge engine and a tiny amount of fuel, you can lift up, but you probably won’t make it to orbit. So you need a big engine and a lot of fuel.
+
+The reason that machine learning is really taking off now is that we finally have the tools to build the big rocket engine — that is giant computers, that’s our rocket engine. And the fuel is the data. We finally are getting the data that we need."
+
+We need both big rocket engine and data to make our model works.
+
+Related Reading
+Inside The Mind That Built Google Brain: On Life, Creativity, And Failure, huffingtonpost.com
+
+\subsection{Evaluation}
+
+Training vs Test Data
+We typically split the input data into learning and testing datasets. The then run the machine learning algorithm on the learning dataset to generate the prediction model. Later, we use the test dataset to evaluate our model.
+
+
+
+It is important that the test data is separate from the one used in training otherwise we will be kind of cheating because may for example the generated model memorizes the data and hence if the test data is also part of the training data then our evaluation scores of the model will be higher than they actually are.
+
+The data is usually split 75% training and 25% data or 2/3 training and 1/3 testing. It is important to note that: the smaller the training set the more challenging it is for the algorithm to discover the rules.
+
+In addition, when splitting the dataset, you need to maintaining class proportions and population statistics otherwise we will have some classes that are under represented in the training dataset and over represented in the test dataset.
+
+For example, you may have 100 sample and a total of 80 samples are labeled with Class-A and the remaining 20 instances are labeled with Class-B. you want to make sure when splitting the data that you maintain this representation.
+
+One way to avoid this problem and to make sure that all classes are represented in both training and testing datasets is stratification. It is the process of rearranging the data as to ensure each set is a good representative of the whole. In our previous example, (80/20 samples), it is best to arrange the data such that in every set, each class comprises around 80:20 ratios of the two classes.
+
+Cross Validation
+A crucial step when building our machine learning model is to estimate its performance on that that the model hadn't seen before. We want to make sure that the model generalizes well to new unseen data.
+
+One case, the machine learning algorithm has different parameters and we want to tune these parameters to achieve the best performance. (Note: the parameters of the machine learning algorithm are called hyperparameters). Another case, sometimes we want to try out different algorithms and choose the best performing one. Below are some of the techniques used.
+
+Holdout Method
+We simply split the data into training and testing datasets. We train the algorithm on the training dataset to generate a model. In order, to evaluate different algorithms we use the testing data to evaluate each algorithm.
+
+However, if we reuse the same test dataset over and over again during algorithm selection, the test data has now come part of the training data. Hence, when we use the test data for the final evaluation the generated model is biased towards the test data and the performance score is optimistic.
+
+Holdout Validation
+As before, we split the data into training and testing dataset. Then, the training data is further split into training and validation sets.
+
+The training data is used to train different models. Then the validation data is used to compute performance of each of them and we select the best one. Finally, the model is then used for the test set to evaluate performance. The next figure illustrates this idea.
+
+
+
+However, because we use the validation set multiple times, Holdout validation is sensitive to how we partition the data and that is what K-fold cross validation tries to solve.
+
+K-fold cross validation
+Initially, we split the data into training and testing dataset. Furthermore, the training dataset is split into K chunks.
+
+Suppose we will use 5-fold cross validation, the training data set is split into 5 chunks and the training phase will take place over 5 iterations. In each iteration we use one chunk as the validation dataset while the rest of the chunk are grouped together to form the training dataset.
+
+This is very similar to Holdout validation except in each iteration the validation data is different and this removed the bias. Each iteration generates a score and the final score is the average score of all iteration. As before we select the best model and use the test data for the final performance evaluation.
+
+Related Readings
+
+Introduction to Machine Learning
+
+\section{Types of Machine Learning}
+
+There are three different types of machine learning: supervised, unsupervised and reinforcement learning. 4
+
+Supervised Learning
+The goal of supervised learning is to learn a model from labelled training data that allows us to make predictions about future data. For supervised machine learning to work we need to feed the algorithm two things: the input data and our knowledge about it labels).
+
+The spam filter example mentioned earlier is a good example of supervised learning; we have a bunch of emails (data) and we know whether each email is spam or not (labels).
+
+
+
+Supervised learning can be divided into two subcategories:
+
+Classification: It is used to predict categories or class labels based on past observations i.e. we have discrete variable you want to distinguish into discrete categorical outcome. For example, in the email spam filter system the output is discrete "spam" or "not spam".
+Regression: It is used to predict a continuous outcome. For example, to determine the price of houses and how it is affected by the number of rooms in that house. The input data is the house features (no. of rooms, location, size in square feet,) and the output is the price (the continuous outcome).
+Unsupervised Learning
+The goal of unsupervised learning is to discover hidden structure or patterns in unlabeled data and it can be divided into two subcategories
+
+Clustering: It is used to organize information into meaningful clusters (subgroups) without having prior knowledge of their meaning. For example, the figure below shows how we can use clustering to organize unlabeled data into groups based on their features.
+
+
+
+Dimensionality Reduction (Compression): It is used to reduce a higher dimension data into a lower dimension ones. To put it more clearly consider this example. A telescope has terabytes of data and not all of these data can be stored and so we can use dimensionality reduction to extract the most informative features of these data to be stored. Dimensionality reduction is also a good candidate to visualize data because if you have data in higher dimensions you can compress it to 2D or 3D to easily plot and visualize it.
+
+Reinforcement Learning
+The goal of reinforcement learning is to develop a system that improves its performance based on the interaction with a dynamic environment and there is a delayed feedback that act as a reward. i.e. reinforcement learning is learning by doing with a delayed reward. A classic example of reinforcement learning is a chess game, the computer decided a series of moves and the reward is the "win" or "lose" at the end the game.
+
+You might think that this is similar to supervised learning where the reward is basically a label for the data but the core difference is this feedback/reward is not the truth but it is a measure of how well the action to achieving a certain goal.
+
+Microsoft Azure Machine Learning 1
+
+
+Machine Learning Cheat Sheet for scikit-learn 2
+
+
+DLib C++ Library - Machine Learning Guide 3
+
+
+Challenges
+Very much features (> 100)
+Very much data (> 1e9 items)
+Text Data, Images, Videos
+Training Times
+Accuracy, Over Fitting
+Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio ↩
+
+Machine Learning Cheat Sheet (for scikit-learn) ↩
+
+DLib C++ Library - Machine Learning Guide ↩
+
+Introduction to Machine Learning ↩
+
+\section{How to learn a ML Algorithm?}
+
+1. Motivation
+
+Each algorithm have its own motivation. It may a simple example to see how it work
+
+2. Problem Definition
+
+Where can we apply this algorithm? How did it work in real world applications
+
+3. Mathematics Representation
+
+Problem Equations, notations
+
+We will discuss about mathematics representation of algorithm, notations we use for problem
+
+4. Algorithm
+
+We will discuss how to solve this mathematics problems
+
+5. Examples
+
+We will apply algorithm with a few examples (1-2 dimension is highly recommended, because we will plot these data and model easily)
+
+In this section, we can see how well (bad) algorithm works with these data
+
+6. Implementation Notice
+
+We will give some notes about implement this algorithm to real world problems. What case we want to apply this algorithm? What case we don't?
+
+7. Quiz
+
+One way to rethink about problem is doing quiz.
+
+8. Exercise
+
+\section{Machine Learning Algorithms}
+
+\subsection{Linear Regression}
+
+Linear Regression
+In-Out
+
+
+Input: Continuous Output: Continuous
+
+When to use 1
+Econometric Modeling
+Marketing Mix Model
+Customer Lifetime Value
+Examples
+Ex1. Linear Regression with Boston Dataset
+
+__author__ = 'rain'
+
+from sklearn.datasets import load_boston
+from sklearn.cross_validation import train_test_split
+from sklearn.linear_model import LinearRegression, Ridge
+boston = load_boston()
+data = boston['data']
+X, y = data[:, :-1], data[:, -1]
+X_train, X_test, y_train, y_test =
+  train_test_split(X, y, test_size=0.3)
+print boston['DESCR']
+clf_linear = LinearRegression()
+clf_linear.fit(X_train, y_train)
+linear_score = clf_linear.score(X_test, y_test)
+#-> 0.671
+print(clf_linear.coef_)
+print(clf_linear.intercept_)
+
+clf_ridge = Ridge(alpha=1.0)
+clf_ridge.fit(X_train, y_train)
+# 0.674
+ridge_score = clf_ridge.score(X_test, y_test)
+
+print y_test
+print clf_linear.predict(X_test)
+print clf_ridge.predict(X_test)
+Ex2. Linear Regression with market data set (coursera) ([python language="notebook"]/python)
+
+Logistic Regression
+
+
+In-Out 1
+In: continuos
+Out: True/False
+1. Hyposthesis Representation
+hθ(x)=g(θTx) where g(z)=11+e−z
+hθ(x)=g(θTx) where g(z)=11+e−z
+g(z)g(z) is sigmoid function or logistic function
+
+hθ(x)hθ(x) estimated probability of y=1y=1 given xx
+
+In spam detection problem, hθ(x)=0.7hθ(x)=0.7 means it's 70% chance this email is spam.
+
+2. Decision Boundary
+Logistic Regression
+
+3. Cost Function
+cost(hθ(x),y)=−ylog(hθ(x))−(1−y)log(1−hθ(x))
+cost(hθ(x),y)=−ylog(hθ(x))−(1−y)log(1−hθ(x))
+Loss Function
+
+J(θ)=1m∑i=1mcost(hθ(x(i)),y(i))=−1m∑i=1my(i)loghθ(x(i))+(1−y(i))log(1−hθ(x(i)))
+J(θ)=1m∑i=1mcost(hθ(x(i)),y(i))=−1m∑i=1my(i)loghθ(x(i))+(1−y(i))log(1−hθ(x(i)))
+4. Gradient Descent
+Gradient
+
+∂J(θ)∂θj=1m∑i=1m(hθ(x(i))−y(i))x(i)j
+∂J(θ)∂θj=1m∑i=1m(hθ(x(i))−y(i))xj(i)
+5. Predict
+p(θ,X)=hθ(X)≥0.5
+p(θ,X)=hθ(X)≥0.5
+6. Regularization
+6.1 Feature Mapping
+Cost Function
+
+mapFeature(x)=⎡⎣⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢1x1x2x21x1x2x22x31⋯x1x52x62⎤⎦⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥
+mapFeature(x)=[1x1x2x12x1x2x22x13⋯x1x25x26]
+6.2 Cost Function and Gradient
+Cost Function
+J(θ)=1m∑i=1m[−y(i)log(hθ(x(i)))−(1−y(i))log(1−hθ(x(i)))]+λ2m∑j=1nθ2j
+J(θ)=1m∑i=1m[−y(i)log(hθ(x(i)))−(1−y(i))log(1−hθ(x(i)))]+λ2m∑j=1nθj2
+Gradient
+
+∂J(θ)∂θj=1m∑mi=1(hθ(x(i))−y(i))x(i)j∂J(θ)∂θj=1m∑i=1m(hθ(x(i))−y(i))xj(i) for j=0j=0
+
+∂J(θ)∂θj=(1m∑mi=1(hθ(x(i))−y(i))x(i)j)+λmθj∂J(θ)∂θj=(1m∑i=1m(hθ(x(i))−y(i))xj(i))+λmθj for j≥1j≥1
+
+Code
+Bank Marketing Data Set
+
+import statsmodels.api as sm
+import pandas as pd
+from statsmodels.tools.tools import categorical
+from sklearn.preprocessing import LabelEncoder
+from sklearn.linear_model import LogisticRegression
+from sklearn.cross_validation import train_test_split
+from sklearn.metrics import confusion_matrix
+import numpy
+from sklearn.tree import DecisionTreeClassifier
+
+
+def get_data():
+    return pd.read_csv(&quot;./bank/bank-full.csv&quot;, header=0, sep=&quot;;&quot;)
+
+data = get_data()
+
+data.job = LabelEncoder().fit_transform(data.job)
+data.marital = LabelEncoder().fit_transform(data.marital)
+data.education = LabelEncoder().fit_transform(data.education)
+data.default = LabelEncoder().fit_transform(data.default)
+data.housing = LabelEncoder().fit_transform(data.housing)
+data.loan = LabelEncoder().fit_transform(data.loan)
+data.month = LabelEncoder().fit_transform(data.month)
+data.contact = LabelEncoder().fit_transform(data.contact)
+data.poutcome = LabelEncoder().fit_transform(data.poutcome)
+
+X = data.iloc[:, :-1]
+y = data.iloc[:, -1]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+
+clf = LogisticRegression()
+clf.fit(X_train, y_train)
+score = clf.score(X_test, y_test)
+
+print confusion_matrix(y_test, clf.predict(X_test))
+# [[11807   203]
+#  [ 1243   311]]
+# it's too bad
+
+Examples
+Affair Dataset, Logistic Regression with scikit-learn
+Linear Regression vs Logistic Regression vs Poisson Regression ↩
+
+\subsection{Classification}
+
+Classification
+
+
+Classification 1
+A very familiar example is the email spam-catching system: given a set of emails marked as spam and not-spam, it learns the characteristics of spam emails and is then able to process future email messages to mark them as spam or not-spam.
+
+The technique used in the above example of email spam-catching system is one of the most common machine learning techniques: classification (actually, statistical classification). More precisely it is a supervised statistical classification. Supervised because the system needs to be first trained using already classified training data as opposed to an unsupervised system where such training is not done.
+
+A supervised learning system that performs classification is known as a learner or, more commonly, a classifier.
+
+The classifier is first fed training data in which each item is already labeled with the correct label or class. This data is used to train the learning algorithm, which creates models that can then be used to label/classify similar data.
+
+Formally, given a set of input items,  and a set of labels/classes,  and training data is the label/class for $latex x_i$, a classifier is a mapping from X to Y $latex f(T, x) = y$.
+
+Binary Classification
+Algorithms 1
+Two-class SVM
+100 features, linear model
+
+Two-class Logistic Regression
+Fast training, linear model
+Two-class Bayes point machine
+Fast training, linear model
+Two-class random forest
+Accuracy, fast training
+Two-class boosted decision tree
+Accuracy, fast training
+Two-class neural network
+Accuracy, long training times
+Multiclass Classification
+
+
+Introduction 2
+In machine learning, multiclass or multinomial classification is the problem of classifying instances into one of the more than two classes (classifying instances into one of the two classes is called binary classification).
+
+While some classification algorithms naturally permit the use of more than two classes, others are by nature binary algorithms; these can, however, be turned into multinomial classifiers by a variety of strategies.
+
+Multiclass classification should not be confused with multi-label classification, where multiple labels are to be predicted for each instance.
+
+Algorithms 1
+Multiclass Logistic Regression
+Multiclass SVM
+Multiclass Neural Network
+Multiclass Decision Forest
+Multiclass Decision Jungle
+Confusion Matrix
+sklearn plot confusion matrix with labels 3
+
+import matplotlib.pyplot as plt
+def plot_confusion_matrix(cm, title='Confusion matrix', cmap=plt.cm.Blues, labels=None):
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    cax = ax.matshow(cm)
+    plt.title(title)
+    fig.colorbar(cax)
+    if labels:
+        ax.set_xticklabels([''] + labels)
+        ax.set_yticklabels([''] + labels)
+    plt.xlabel('Predicted')
+    plt.ylabel('True')
+    plt.show()
+
+
+Multilabel Classification
+
+
+Introduction 1
+In machine learning, multi-label classification and the strongly related problem of multi-output classification are variants of the classification problem where multiple target labels must be assigned to each instance. Multi-label classification should not be confused with multiclass classification, which is the problem of categorizing instances into one of more than two classes. Formally, multi-label learning can be phrased as the problem of finding a model that maps inputs x to binary vectors y, rather than scalar outputs as in the ordinary classification problem.
+
+There are two main methods for tackling the multi-label classification problem:[1] problem transformation methods and algorithm adaptation methods. Problem transformation methods transform the multi-label problem into a set of binary classification problems, which can then be handled using single-class classifiers. Algorithm adaptation methods adapt the algorithms to directly perform multi-label classification. In other words, rather than trying to convert the problem to a simpler problem, they try to address the problem in its full form.
+
+Implements
+Multiclass and multilabel algorithms
+SVM
+Multi-label classification ↩
+
+Multiclass classification ↩
+
+sklearn plot confusion matrix with labels ↩
+
+\subsection{Clustering}
+Using K-Means to cluster wine dataset
+Recently, I joined Cluster Analysis course in coursera. The content of first week is about Partitioning-Based Clustering Methods where I learned about some cluster algorithms based on distance such as K-Means, K-Medians and K-Modes. I would like to turn what I learn into practice so I write this post as an excercise of this course.
+
+In this post, I will use K-Means for clustering wine data set which I found in one of excellent posts about K-Mean in r-statistics website.
+
+Meet the data
+
+
+The wine data set contains the results of a chemical analysis of wines grown in a specific area of Italy. Three types of wine are represented in the 178 samples, with the results of 13 chemical analyses recorded for each sample. The Type variable has been transformed into a categoric variable.
+
+ data(wine, package=&quot;rattle&quot;)
+head(wine)
+
+#&gt;   Type Alcohol Malic  Ash Alcalinity Magnesium Phenols
+#&gt; 1    1   14.23  1.71 2.43       15.6       127    2.80
+#&gt; 2    1   13.20  1.78 2.14       11.2       100    2.65
+#&gt; 3    1   13.16  2.36 2.67       18.6       101    2.80
+#&gt; 4    1   14.37  1.95 2.50       16.8       113    3.85
+#&gt; 5    1   13.24  2.59 2.87       21.0       118    2.80
+#&gt; 6    1   14.20  1.76 2.45       15.2       112    3.27
+#&gt;   Flavanoids Nonflavanoids Proanthocyanins Color  Hue
+#&gt; 1       3.06          0.28            2.29  5.64 1.04
+#&gt; 2       2.76          0.26            1.28  4.38 1.05
+#&gt; 3       3.24          0.30            2.81  5.68 1.03
+#&gt; 4       3.49          0.24            2.18  7.80 0.86
+#&gt; 5       2.69          0.39            1.82  4.32 1.04
+#&gt; 6       3.39          0.34            1.97  6.75 1.05
+#&gt;   Dilution Proline
+#&gt; 1     3.92    1065
+#&gt; 2     3.40    1050
+#&gt; 3     3.17    1185
+#&gt; 4     3.45    1480
+#&gt; 5     2.93     735
+#&gt; 6     2.85    1450
+Explore and Preprocessing Data
+Let's see structure of wine data set
+
+ str(wine)
+
+#&gt; &apos;data.frame&apos;:  178 obs. of  14 variables:
+#&gt; $ Type           : Factor w/ 3 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+#&gt; $ Alcohol        : num  14.2 13.2 13.2 14.4 13.2 ...
+#&gt; $ Malic          : num  1.71 1.78 2.36 1.95 2.59 1.76 1.87 2.15 1.64 1.35 ...
+#&gt; $ Ash            : num  2.43 2.14 2.67 2.5 2.87 2.45 2.45 2.61 2.17 2.27 ...
+#&gt; $ Alcalinity     : num  15.6 11.2 18.6 16.8 21 15.2 14.6 17.6 14 16 ...
+#&gt; $ Magnesium      : int  127 100 101 113 118 112 96 121 97 98 ...
+#&gt; $ Phenols        : num  2.8 2.65 2.8 3.85 2.8 3.27 2.5 2.6 2.8 2.98 ...
+#&gt; $ Flavanoids     : num  3.06 2.76 3.24 3.49 2.69 3.39 2.52 2.51 2.98 3.15 ...
+#&gt; $ Nonflavanoids  : num  0.28 0.26 0.3 0.24 0.39 0.34 0.3 0.31 0.29 0.22 ...
+#&gt; $ Proanthocyanins: num  2.29 1.28 2.81 2.18 1.82 1.97 1.98 1.25 1.98 1.85 ...
+#&gt; $ Color          : num  5.64 4.38 5.68 7.8 4.32 6.75 5.25 5.05 5.2 7.22 ...
+#&gt; $ Hue            : num  1.04 1.05 1.03 0.86 1.04 1.05 1.02 1.06 1.08 1.01 ...
+#&gt; $ Dilution       : num  3.92 3.4 3.17 3.45 2.93 2.85 3.58 3.58 2.85 3.55 ...
+#&gt; $ Proline        : int  1065 1050 1185 1480 735 1450 1290 1295 1045 1045 ...
+Wine data set contains 1 categorical variables (label) and 13 numerical variables. But these numerical variables is not scaled, I use scale function for scaling and centering data and then assign it as training data.
+
+ data.train &lt;- scale(wine[-1])
+Data is already centered and scaled.
+
+ summary(data.train)
+#&gt;   Alcohol             Malic
+#&gt; Min.   :-2.42739   Min.   :-1.4290
+#&gt; 1st Qu.:-0.78603   1st Qu.:-0.6569
+#&gt; Median : 0.06083   Median :-0.4219
+#&gt; Mean   : 0.00000   Mean   : 0.0000
+#&gt; 3rd Qu.: 0.83378   3rd Qu.: 0.6679
+#&gt; Max.   : 2.25341   Max.   : 3.1004
+#&gt;      Ash             Alcalinity
+#&gt; Min.   :-3.66881   Min.   :-2.663505
+#&gt; 1st Qu.:-0.57051   1st Qu.:-0.687199
+#&gt; Median :-0.02375   Median : 0.001514
+#&gt; Mean   : 0.00000   Mean   : 0.000000
+#&gt; 3rd Qu.: 0.69615   3rd Qu.: 0.600395
+#&gt; Max.   : 3.14745   Max.   : 3.145637
+#&gt;   Magnesium          Phenols
+#&gt; Min.   :-2.0824   Min.   :-2.10132
+#&gt; 1st Qu.:-0.8221   1st Qu.:-0.88298
+#&gt; Median :-0.1219   Median : 0.09569
+#&gt; Mean   : 0.0000   Mean   : 0.00000
+#&gt; 3rd Qu.: 0.5082   3rd Qu.: 0.80672
+#&gt; Max.   : 4.3591   Max.   : 2.53237
+#&gt;   Flavanoids      Nonflavanoids
+#&gt; Min.   :-1.6912   Min.   :-1.8630
+#&gt; 1st Qu.:-0.8252   1st Qu.:-0.7381
+#&gt; Median : 0.1059   Median :-0.1756
+#&gt; Mean   : 0.0000   Mean   : 0.0000
+#&gt; 3rd Qu.: 0.8467   3rd Qu.: 0.6078
+#&gt; Max.   : 3.0542   Max.   : 2.3956
+#&gt; Proanthocyanins        Color
+#&gt; Min.   :-2.06321   Min.   :-1.6297
+#&gt; 1st Qu.:-0.59560   1st Qu.:-0.7929
+#&gt; Median :-0.06272   Median :-0.1588
+#&gt; Mean   : 0.00000   Mean   : 0.0000
+#&gt; 3rd Qu.: 0.62741   3rd Qu.: 0.4926
+#&gt; Max.   : 3.47527   Max.   : 3.4258
+#&gt;      Hue              Dilution
+#&gt; Min.   :-2.08884   Min.   :-1.8897
+#&gt; 1st Qu.:-0.76540   1st Qu.:-0.9496
+#&gt; Median : 0.03303   Median : 0.2371
+#&gt; Mean   : 0.00000   Mean   : 0.0000
+#&gt; 3rd Qu.: 0.71116   3rd Qu.: 0.7864
+#&gt; Max.   : 3.29241   Max.   : 1.9554
+#&gt;    Proline
+#&gt; Min.   :-1.4890
+#&gt; 1st Qu.:-0.7824
+#&gt; Median :-0.2331
+#&gt; Mean   : 0.0000
+#&gt; 3rd Qu.: 0.7561
+# &gt; Max.   : 2.963
+Model Fitting
+Now the fun part begins. I use NbClust function to determine what is the best number of clusteres k for K-Means
+
+ nc &lt;- NbClust(data.train,
+              min.nc=2, max.nc=15,
+              method=&quot;kmeans&quot;)
+barplot(table(nc$Best.n[1,]),
+        xlab=&quot;Numer of Clusters&quot;,
+        ylab=&quot;Number of Criteria&quot;,
+        main=&quot;Number of Clusters Chosen by 26 Criteria&quot;)
+
+
+According to the graph, we can find the best number of clusters is 3. Beside NbClust function which provides 30 indices for determing the number of clusters and proposes the best clustering scheme, we can draw the sum of square error (SSE) scree plot and look for a bend or elbow in this graph to determine appropriate k
+
+ wss &lt;- 0
+for (i in 1:15){
+  wss[i] &lt;-
+    sum(kmeans(data.train, centers=i)$withinss)
+}
+plot(1:15,
+  wss,
+  type=&quot;b&quot;,
+  xlab=&quot;Number of Clusters&quot;,
+  ylab=&quot;Within groups sum of squares&quot;)
+
+
+Both two methods suggest k=3 is best choice for us. It's reasonsable if we take notice that the original data set also contains 3 classes.
+
+Fit the model
+We now fit wine data to K-Means with k = 3
+
+ fit.km &lt;- kmeans(data.train, 3)
+Then interpret the result
+
+ fit.km
+
+#&gt; K-means clustering with 3 clusters of sizes 51, 65, 62
+#&gt;
+#&gt; Cluster means:
+#&gt;      Alcohol      Malic        Ash Alcalinity
+#&gt; 1  0.1644436  0.8690954  0.1863726  0.5228924
+#&gt; 2 -0.9234669 -0.3929331 -0.4931257  0.1701220
+#&gt; 3  0.8328826 -0.3029551  0.3636801 -0.6084749
+#&gt;     Magnesium     Phenols  Flavanoids Nonflavanoids
+#&gt; 1 -0.07526047 -0.97657548 -1.21182921    0.72402116
+#&gt; 2 -0.49032869 -0.07576891  0.02075402   -0.03343924
+#&gt; 3  0.57596208  0.88274724  0.97506900   -0.56050853
+#&gt;   Proanthocyanins      Color        Hue   Dilution
+#&gt; 1     -0.77751312  0.9388902 -1.1615122 -1.2887761
+#&gt; 2      0.05810161 -0.8993770  0.4605046  0.2700025
+#&gt; 3      0.57865427  0.1705823  0.4726504  0.7770551
+#&gt;      Proline
+#&gt; 1 -0.4059428
+#&gt; 2 -0.7517257
+#&gt; 3  1.1220202
+#&gt;
+#&gt; Clustering vector:
+#&gt;   [1] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+#&gt;  [26] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+#&gt;  [51] 3 3 3 3 3 3 3 3 3 2 2 1 2 2 2 2 2 2 2 2 2 2 2 3 2
+#&gt;  [76] 2 2 2 2 2 2 2 2 1 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 2
+#&gt; [101] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 2 2 3 2 2 2
+#&gt; [126] 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+#&gt; [151] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+#&gt; [176] 1 1 1
+#&gt;
+#&gt; Within cluster sum of squares by cluster:
+#&gt; [1] 326.3537 558.6971 385.6983
+#&gt;  (between_SS / total_SS =  44.8 %)
+#&gt;
+#&gt; Available components:
+#&gt;
+#&gt; [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;
+#&gt; [4] &quot;withinss&quot;     &quot;tot.withinss&quot; &quot;betweenss&quot;
+# &gt; [7] &quot;size&quot;         &quot;iter&quot;         &quot;ifault&quot
+The result shows information about cluster means, clustering vector, sum of square by cluster and available components. Let's do some visualizations to see how data set is clustered.
+
+First, I use plotcluster function from fpc package to draw discriminant projection plot
+
+ library(fpc)
+plotcluster(data.train, fit.km$cluster)
+
+
+We can see the data is clustered very well, there are no collapse between clusters. Next, we draw parallel coordinates plot to see how variables contributed in each cluster
+
+ library(MASS)
+parcoord(data.train, fit.km$cluster)
+
+
+We can extract some insights from above graph suc as black cluster contains wine with low flavanoids value, low proanthocyanins value, low hue value. Or green cluster contains wine which has dilution value higher than wine in red cluster.
+
+Evaluation
+Because the original data set wine also has 3 classes, it is reasonable if we compare these classes with 3 clusters fited by K-Means
+
+ confuseTable.km &lt;- table(wine$Type, fit.km$cluster)
+confuseTable.km
+#&gt;    1  2  3
+#&gt; 1  0  0 59
+#&gt; 2  3 65  3
+# &gt; 3 48  0
+We can see only 6 sample is missed. Let's use randIndex from flexclust to compare these two parititions - one from data set and one from result of clustering method.
+
+ library(flexclust)
+randIndex(ct.km)
+#&gt;      ARI
+#&gt; 0.897495
+It's quite close to 1 so K-Means is good model for clustering wine data set.
+
+References
+Choosing number of cluster in K-Means, http://stackoverflow.com/a/15376462/1036500
+K-means Clustering (from “R in Action”), http://www.r-statistics.com/2013/08/k-means-clustering-from-r-in-action/
+Color the cluster output in r,  http://stackoverflow.com/questions/15386960/color-the-cluster-output-in-r
+
+\subsection{Ensemble}
+
+Ensemble Algorithms 1
+Ensemble methods are models composed of multiple weaker models that are independently trained and whose predictions are combined in some way to make the overall prediction.
+
+Much effort is put into what types of weak learners to combine and the ways in which to combine them. This is a very powerful class of techniques and as such is very popular.
+
+Boosting
+Bootstrapped Aggregation (Bagging)
+AdaBoost
+Stacked Generalization (blending)
+Gradient Boosting Machines (GBM)
+Gradient Boosted Regression Trees (GBRT)
+Random Forest
+XGBoost
+XGBoost is short for eXtreme gradient boosting.
+
+Features 1
+Easy to use
+Easy to install
+Highly developed R/python for users
+Efficiency
+Automatic parallel computation on a single machine
+Can be run on a cluster.
+Accuracy
+Good results for most data sets
+Feasibility
+Customized object and evaluation
+Turnable parameters
+Xgboost Optimization 2
+You can use xgb.plot_important to decide how many features in your model.
+Use xgb.cv (example) instead of xgb.train with watchlist (example)
+https://www.kaggle.com/c/otto-group-product-classification-challenge/forums/t/12947/achieve-0-50776-on-the-leaderboard-in-a-minute-with-xgboost?page=5
+
+Installation
+Installation in Windows 64bit, Python 2.7, Anaconda
+
+git clone https://github.com/dmlc/xgboost
+git checkout 9bc3d16
+Open project in xgboost/windows with Visual Studio 2013
+In Visual Studio 2013, open Configuration Manager...,
+choose Release in Active solution configuration
+choose x64 in Active solution platform
+Rebuild xgboost, xgboost_wrapper
+Copy all file in xgboost/windows/x64/Release folder to xgboost/wrapper
+Go to xgboost/python-package, run command python setup.py install
+Check xgboost by running command python -c "import xgboost"
+Examples
+Multi class classification:
+
+Understanding XGBoost Model on Otto Dataset
+
+Resources
+http://www.slideshare.net/ShangxuanZhang/xgboost
+youtube, Kaggle Winning Solution Xgboost algorithm -- Let us learn from its author ↩
+
+Notes on Parameter Tuning ↩
+
+\subsection{Dimensionality Reduction}
+
+
+Dimensionality Reduction Algorithms
+Like clustering methods, dimensionality reduction seek and exploit the inherent structure in the data, but in this case in an unsupervised manner or order to summarise or describe data using less information.
+
+This can be useful to visualize dimensional data or to simplify data which can then be used in a supervized learning method. Many of these methods can be adapted for use in classification and regression.
+
+Principal Component Analysis (PCA)
+Principal Component Regression (PCR)
+Partial Least Squares Regression (PLSR)
+Sammon Mapping
+Multidimensional Scaling (MDS)
+Projection Pursuit
+Linear Discriminant Analysis (LDA)
+Mixture Discriminant Analysis (MDA)
+Quadratic Discriminant Analysis (QDA)
+Flexible Discriminant Analysis (FDA)
+t-SNE
+
+
+t-Distributed Stochastic Neighbor Embedding (t-SNE) 1 is a (prize-winning) technique for dimensionality reduction that is particularly well suited for the visualization of high-dimensional datasets. The technique can be implemented via Barnes-Hut approximations, allowing it to be applied on large real-world datasets. We applied it on data sets with up to 30 million examples. The technique and its variants are introduced in the following papers:
+
+L.J.P. van der Maaten. Accelerating t-SNE using Tree-Based Algorithms. Journal of Machine Learning Research 15(Oct):3221-3245, 2014. PDF [Supplemental material]
+L.J.P. van der Maaten and G.E. Hinton. Visualizing Non-Metric Similarities in Multiple Maps. Machine Learning 87(1):33-55, 2012. PDF
+L.J.P. van der Maaten. Learning a Parametric Embedding by Preserving Local Structure. In Proceedings of the Twelfth International Conference on Artificial Intelligence & Statistics (AI-STATS), JMLR W&CP 5:384-391, 2009. PDF
+L.J.P. van der Maaten and G.E. Hinton. Visualizing High-Dimensional Data Using t-SNE. Journal of Machine Learning Research 9(Nov):2579-2605, 2008. PDF [Supplemental material] [Talk]
+
+\subsection{Anomaly Detection}
+
+
+Motivation and Examples
+Algorithms
+Evaluation
+AD: Examples
+Problem motivation 1
+Anomaly detection is a reasonably commonly used type of machine learning application
+Can be thought of as a solution to an unsupervised learning problem
+But, has aspects of supervised learning
+What is anomaly detection?
+Imagine you're an aircraft engine manufacturer
+As engines roll off your assembly line you're doing QA
+Measure some features from engines (e.g. heat generated and vibration)
+You now have a dataset of x1 to xm (i.e. m engines were tested)
+Say we plot that dataset
+Next day you have a new engine
+An anomaly detection method is used to see if the new engine is anomalous (when compared to the previous engines)
+If the new engine looks like this;
+Probably OK - looks like the ones we've seen before
+But if the engine looks like this
+Uh oh! - this looks like an anomalous data-point
+More formally
+We have a dataset which contains normal (data)
+How we ensure they're normal is up to us
+In reality it's OK if there are a few which aren't actually normal
+Using that dataset as a reference point we can see if other examples are anomalous
+How do we do this?
+First, using our training dataset we build a model
+We can access this model using p(x)
+This asks, "What is the probability that example x is normal"
+Having built a model
+if $latex p(x_{test}) < \epsilon$ --> flag this as an anomaly
+if $latex p(x_{test}) \ge \epsilon$ --> this is OK
+ε is some threshold probability value which we define, depending on how sure we need/want to be
+We expect our model to (graphically) look something like this;
+i.e. this would be our model if we had 2D data
+Examples 1
+Fraud detection
+Users have activity associated with them, such as
+Length on time on-line
+Location of login
+Spending frequency
+Using this data we can build a model of what normal users' activity is like
+What is the probability of "normal" behavior?
+Identify unusual users by sending their data through the model
+Flag up anything that looks a bit weird
+Automatically block cards/transactions
+Manufacturing
+Already spoke about aircraft engine example
+Monitoring computers in data center
+If you have many machines in a cluster
+Computer features of machine
+$latex x_1$ = memory use
+$latex x_2$ = number of disk accesses/sec
+$latex x_3$ = CPU load
+In addition to the measurable features you can also define your own complex features
+$latex x_4$ = CPU load/network traffic
+If you see an anomalous machine
+Maybe about to fail
+Look at replacing bits from it
+
+\section{Recomendation System}
+ntroduction 2
+Two motivations for talking about recommender systems
+
+Important application of ML systems
+Many technology companies find recommender systems to be absolutely key
+Think about websites (amazon, Ebay, iTunes genius)
+Try and recommend new content for you based on passed purchase
+Substantial part of Amazon's revenue generation
+Improvement in recommender system performance can bring in more income
+Kind of a funny problem
+In academic learning, recommender systems receives a small amount of attention
+But in industry it's an absolutely crucial tool
+Talk about the big ideas in machine learning
+Not so much a technique, but an idea
+As soon, features are really important
+There's a big idea in machine learning that for some problems you can learn what a good set of features are
+So not select those features but learn them
+Recommender systems do this - try and identify the crucial and relevant features
+Example - predict movie ratings
+You're a company who sells movies
+You let users rate movies using a 1-5 star rating
+To make the example nicer, allow 0-5 (makes math easier)
+You have five movies
+And you have four users
+Admittedly, business isn't going well, but you're optimistic about the future as a result of your truly outstanding (if limited) inventory
+
+To introduce some notation
+
+$latex n_u$ - Number of users (called $?^{nu}$ occasionally as we can't subscript in superscript)
+$latex n_m$ - Number of movies
+$latex r(i, j)$ - 1 if user j has rated movie i (i.e. bitmap)
+$latex y(i,j)$ - rating given by user j to move i (defined only if $latex r(i,j) = 1$)
+So for this example
+$latex n_u = 4$
+$latex n_m = 5$
+Summary of scoring
+Alice and Bob gave good ratings to rom coms, but low scores to action films
+Carol and Dave game good ratings for action films but low ratings for rom coms
+We have the data given above
+The problem is as follows
+Given $latex r(i,j)$ and $latex y^{(i,j)}$ - go through and try and predict missing values (?s)
+Come up with a learning algorithm that can fill in these missing values
+KDD 2015 Tutorial: Shlomo Berkovsky and Jill Freyne, Web Personalisation and Recommender Systems
+
+1. Approaches 1
+
+
+Attribute-based Recommendations
+
+You like action movies, starring Clint Eastwood, you might like "Good, Bad and the Ugly" (Netflix)
+
+Item Hierachy
+
+You bought Printer you will also need ink (Bestbuy)
+
+Association Rules
+
+Content-Based Recommender Collaborative Filtering - Item-Item Similarity
+
+You like Godfather so you will like Scarface (Netflix)
+
+Collaborative Filtering - User-User Similarity
+
+People like you who bought beer also bought diapers (Target)
+
+Social+Interest Graph Based
+
+Your friends like Lady Gaga so you will like Lady Gaga (Facebook, Linkedin)
+
+Model Based
+
+Training SVM, LDA, SVD for implicit features.
+
+2. Challenges
+Kaggle Challenge: Million Song Dataset Challenge
+
+3. Articles
+How Big Data is used in Recommendation Systems to change our lives
+4. Recommendation Interface
+4.1 Type of Input
+predictions
+recommendations
+filtering
+organic vs explicit presentation
+4.2 Type of Output
+explicit
+implicit
+Apriori
+https://en.wikipedia.org/wiki/Apriori_algorithm
+
+https://github.com/asaini/Apriori
+
+Item item collaborative filtering
+Works when |U| >> |I|
+
+items dont change much
+RS: Examples
+Google News
+
+http://1.bp.blogspot.com/_7ZYqYi4xigk/TCuWLmXhdjI/AAAAAAAAGVI/umfi5tHpBr0/s1600/Google+News+Redesign+June+30+2010+AM+PT.jpg
+
+RS: Association Rules
+
+
+Content Based Recommendation
+User–User Collaborative Filtering
+User - User 1
+User user look simular in row space
+
+$p_{u, i} = \overline{r_u} + \frac{\sum_{u' \in N} s(u, u') (r_{u', i} - \overline{r_u'})}{\sum_{u' \in N}|s(u, u')|}&s=2$
+
+http://files.grouplens.org/papers/FnT%20CF%20Recsys%20Survey.pdf ↩
+
+mlclass lecture notes, Recommender Systems ↩
+
+
+
+
