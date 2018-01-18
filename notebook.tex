@@ -11,6 +11,8 @@
 \usepackage{eucal}
 \usepackage{mathtools}
 
+\usepackage{graphicx}
+\graphicspath{ {images/} }
 
 \usepackage{listings}
 \lstset{
@@ -21,6 +23,8 @@ breaklines=true,
 postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 inputencoding=utf8
 }
+\input{code.tex}
+
 
 \usepackage[makeindex]{imakeidx}
 \usepackage[plain]{cite}
@@ -47,7 +51,7 @@ urlcolor=cyan,
   \tableofcontents
   \addcontentsline{toc}{chapter}{\contentsname}
   \input{introduction.tex}
-  \input{programming.tex}
+  \input{programming/index.tex}
   \input{probabilistic.tex}
   \input{computer_science.tex}
   \input{data_science/index.tex}
