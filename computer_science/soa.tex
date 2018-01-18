@@ -1,0 +1,76 @@
+\chapter{Service-Oriented Architecture}
+
+View online \href{http://magizbox.com/training/computer_science/site/software_architecture/}{http://magizbox.com/training/computer_science/site/software_architecture/}
+
+A service-oriented architecture (SOA) is an architectural pattern in computer software design in which application components provide services to other components via a communications protocol, typically over a network. The principles of service-orientation are independent of any vendor, product or technology. 2
+
+
+
+Generally accepted view 1
+Boundaries are explicit
+Services are autonomous
+Services share schema and contract, not class
+Service compatibility is based on policy
+Microservices
+In computing, microservices is a software architecture style in which complex applications are composed of small, independent processes communicating with each other using language-agnostic APIs. These services are small building blocks, highly decoupled and focussed on doing a small task, facilitating a modular approach to system-building. One of concepts which integrates microservices as a software architecture style is dew computing. 1
+
+
+
+Properties 2
+Each running in its own process
+Communicating with lightweight mechanisms, often an HTTP resource API
+Build around business capabilities
+Independently deployable
+fully automated deployment
+Maybe in a different programming language and use different data storage technologies
+Monolith vs Microservice
+Monolith	Microservice
+Simplicity	Partial Deployment
+Consistency	Availability
+Inter-module refactoring	Preserve Modularity
+Multiple Platforms
+Benefits 4
+Their small size enables developers to be most productive.
+It's easy to comprehend and test each service.
+You can correctly handle failure of any dependent service.
+They reduce impact of correlated failures.
+Web Service
+RESTful API
+
+
+REST Client
+Sense (Beta)
+
+A JSON aware developer console to ElasticSearch.
+
+API Document and Client Generator
+http://swagger.io/swagger-editor/
+
+API Client
+CRUD Pet
+
+API 	 Client
+Method	URL	Body	Return Body	Method
+ GET	/pets	 	[Pet]	PetApi.list()
+ POST	/pets/	Pet	Pet	PetApi.create(pet)
+ GET	/pets/pet_id	 	Pet	PetApi.get(pet_id)
+ PUT	 /pets/pet_id	Pet	Pet	PetApi.update(pet_id, pet)
+ DELETE	/pets/pet_id	 	 	PetApi.delete(pet_id)
+
+
+CRUD Store
+
+GET /stores	StoreApi.list()
+...	...
+Relationships
+
+Many to many
+
+### Example [https://api.facebook.com/method/links.getStats?urls=%%URL%%&format=json](https://api.facebook.com/method/links.getStats?urls=%%URL%%&format=json)
+Microservices ↩
+
+Slide 11/42, Micro-servies ↩
+
+Martin Fowler, Microservices, youtube ↩
+
+Rick E. Osowski, Microservices in action, Part 1: Introduction to microservices, IBM developerworks ↩

@@ -1,0 +1,360 @@
+\chapter{Database}
+
+View online \href{http://magizbox.com/training/computer_science/site/database/}{http://magizbox.com/training/computer_science/site/database/}
+
+\section{Introduction}
+
+Relational DBMS: Oracle, MySQL, SQLite
+
+Key-value Stores: Redis, Memcached
+
+Document stores: MongoDB
+
+Graph: Neo4j
+
+Wide column stores: Cassandra, HBase
+
+Design and Modeling (a.k.a Data Definition)
+1.1 Schema
+A database schema of a database system is its structure described in a formal language supported by the database management system (DBMS) and refers to the organization of data as a blueprint of how a database is constructed (divided into database tables in the case of Relational Databases). The formal definition of database schema is a set of formulas (sentences) called integrity constraints imposed on a database. These integrity constraints ensure compatibility between parts of the schema. All constraints are expressible in the same language. A database can be considered a structure in realization of the database language. The states of a created conceptual schema are transformed into an explicit mapping, the database schema. This describes how real world entities are modeled in the database.
+
+1.1.1 Type
+In computer science and computer programming, a data type or simply type is a classification identifying one of various types of data, such as real, integer or Boolean, that determines the possible values for that type; the operations that can be done on values of that type; the meaning of the data; and the way values of that type can be stored.
+
+TEXT, INT, ENUM, TIMESTAMP
+
+1.2 Cardinality (a.k.a Relationship)
+Foreign key, Primary key
+
+1.2 Indexing
+A database index is a data structure that improves the speed of data retrieval operations on a database table at the cost of additional writes and storage space to maintain the index data structure. Indexes are used to quickly locate data without having to search every row in a database table every time a database table is accessed. Indexes can be created using one or more columns of a database table, providing the basis for both rapid random lookups and efficient access of ordered records. Why Indexing is important?
+
+Indexing in MySQL
+
+CREATE INDEX NameIndex ON Employee (name)
+SELECT * FROM Employee WHERE name = 'Ashish'
+2. Data Manipulation
+Create - Read - Update - Delete
+Create or add new entries
+Read, retrieve, search, or view existing entries * Update or edit existing entries * Delete/deactivate existing entries
+/* create */
+CREATE TABLE Guests ( id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, firstname VARCHAR(30) NOT NULL, lastname VARCHAR(30) NOT NULL, email VARCHAR(50), reg_date TIMESTAMP )
+/* create (insert) */
+INSERT INTO Guests (firstname, lastname, email) VALUES ('John', 'Doe', 'john@example.com')
+/* read */
+SELECT * FROM Guests WHERE id=1 /* update */ UPDATE Guests SET lastname='Doe' WHERE id=1
+/* delete */
+DELETE FROM Guests WHERE id=1`
+3. Data Retrieve & Transaction
+3.1 Data Retrieve
+SELECT, WHERE, FROM, LIMIT, JOIN, GROUP BY, HAVING
+
+Get user id, user name and number of post of this user
+
+SELECT user.id, user.name, COUNT(post.*) AS posts
+FROM user LEFT OUTER JOIN post ON post.owner_id=user.id GROUP BY user.id`
+Select user who only order one time.
+
+SELECT name, COUNT(name) AS c FROM orders GROUP BY name HAVING c = 1;
+Calculate the longest period (in days) that the company has gone without a hiring or firing anyone.
+
+SELECT x.date, MIN(y.date) y_date, DATEDIFF(MIN(y.date),x.date) days
+FROM ( SELECT hiredate date FROM employees UNION SELECT terminationdate FROM employees ) x
+JOIN ( SELECT hiredate date FROM employees UNION SELECT terminationdate FROM employees UNION SELECT CURDATE()) y
+ON y.date > x.date GROUP BY x.date ORDER BY days DESC LIMIT 1;
+Data Retrieve API
+
+API	Description
+get	get single item
+Get dog by id
+
+Dog.get(1)
+find
+find items
+
+@see collection.find()
+
+
+Find dog name "Max"
+
+ Dog.find({"name": "Max"})
+sort
+sort items
+
+@see cursor.sort
+
+Get 10 older dogs
+
+Dog.find().sort("age", {limit: 10})
+aggregate
+sum, min, max items
+
+@see collection.aggregate
+
+Get sum of dogs' age
+
+Dog.find().aggregate({
+  "sum_age":  {
+     $sum: "age"
+   }
+})
+3.2 Transaction
+A transaction symbolizes a unit of work performed within a database management system (or similar system) against a database, and treated in a coherent and reliable way independent of other transactions. A transaction generally represents any change in database. Example: Transfer 900$ from Account
+
+Bob to Alice
+
+start transaction
+select balance from Account where Account_Number='Bob';
+select balance from Account where Account_Number='Alice';
+update Account set balance=balance-900 here Account_Number='Bob' ;
+update Account set balance=balance+900 here Account_Number='Alice' ;
+commit; //if all sql queries succed rollback; //if any of Sql queries failed or error
+ACID Properties
+
+In computer science, ACID (Atomicity, Consistency, Isolation, Durability) is a set of properties that guarantee that database transactions are processed reliably. In the context of databases, a single logical operation on the data is called a transaction.
+
+For example, a transfer of funds from one bank account to another, even involving multiple changes such as debiting one account and crediting another, is a single transaction. ![][16]
+
+4. Backup and Restore
+Sometimes it is desired to bring a database back to a previous state (for many reasons, e.g., cases when the database is found corrupted due to a software error, or if it has been updated with erroneous data). To achieve this a backup operation is done occasionally or continuously, where each desired database state (i.e., the values of its data and their embedding in database's data structures) is kept within dedicated backup files (many techniques exist to do this effectively). When this state is needed, i.e., when it is decided by a database administrator to bring the database back to this state (e.g., by specifying this state by a desired point in time when the database was in this state), these files are utilized to restore that state.
+
+5. Migration
+In software engineering, schema migration (also database migration, database change management) refers to the management of incremental, reversible changes to relational database schemas. A schema migration is performed on a database whenever it is necessary to update or revert that database's schema to some newer or older version. Example: Android Migration by droid-migrate
+
+droid-migrate init -d my_database droid-migrate generate up droid-migrate generate down
+Example: Database Seeding with Laravel
+
+6. Active record pattern | Object-Relational Mapping (ORM)
+Object-relational mapping in computer science is a programming technique for converting data between incompatible type systems in object-oriented programming languages. This creates, in effect, a "virtual object database" that can be used from within the programming language. There are both free and commercial packages available that perform object-relational mapping, although some programmers opt to create their own ORM tools.
+
+Example
+
+php
+
+$employee = new Employee(); $employee->setName("Joe"); $employee->save();
+Android
+
+public class User {
+  @DatabaseField(id = true) String username;
+  @DatabaseField String password;
+  @DatabaseField String email;
+  @DatabaseField String alias;
+  public User() {} }
+Implementations
+
+Android: [ormlite-android]
+PHP: [Eloquent]
+
+\section{SQL}
+
+SQL
+SELECT * FROM WORLD
+
+
+INSERT INTO
+
+
+SELECT * FROM girls
+
+\section{MySQL}
+
+MySQL
+
+
+MySQL is an open-source relational database management system (RDBMS); in July 2013, it was the world's second most widely used RDBMS, and the most widely used open-source client–server model RDBMS. It is named after co-founder Michael Widenius's daughter, My. The SQL abbreviation stands for Structured Query Language. The MySQL development project has made its source code available under the terms of the GNU General Public License, as well as under a variety of proprietary agreements. MySQL was owned and sponsored by a single for-profit firm, the Swedish company MySQL AB, now owned by Oracle Corporation. For proprietary use, several paid editions are available, and offer additional functionality.
+
+MySQL: Docker
+Docker Run
+docker pull mysql
+docker run -d \
+  -p 3306:3306 \
+  --env MYSQL_ROOT_PASSWORD=docker \
+  --env MYSQL_DATABASE=docker \
+  --env MYSQL_USER=docker \
+  --env MYSQL_PASSWORD=docker \
+  mysql
+Note: On Windows, view your 0.0.0.0 IP by running below command line (or you can turn on Kitematic to view ip)
+
+Docker Compoose
+Step 1: Clone Docker Project
+
+git clone https://github.com/magizbox/docker-mysql.git
+mv docker-mysql mysql
+Step 2: Docker Compose
+
+version: "2"
+
+services:
+ mysql:
+  build: ./mysql/.
+  ports:
+   - 3306:3306
+  environment:
+   - MYSQL_ROOT_PASSWORD=docker
+   - MYSQL_DATABASE=docker
+   - MYSQL_USER=docker
+   - MYSQL_PASSWORD=docker
+  volumes:
+   - ./data/mysql:/var/lib/mysql
+Docker Folder
+mysql/
+├── config
+│   └── my.cnf
+└── Dockerfile
+Verify
+docker-machine ls
+NAME      ACTIVE   DRIVER       STATE     URL                         SWARM
+default   *        virtualbox   Running   tcp://192.168.99.100:2376
+You can add phpmyadmin to see mysql works
+
+ phpmyadmin:
+  image: phpmyadmin/phpmyadmin
+  links:
+   - mysql
+  environment:
+   - PMA_ARBITRARY=1
+  ports:
+   - 80:80
+See it works
+
+Go to localhost
+Login with Server=mysql, Username=docker, Password=docker
+
+\section{Redis}
+
+
+
+
+Redis is an open source (BSD licensed), in-memory data structure store, used as database, cache and message broker. 1
+
+It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs and geospatial indexes with radius queries.
+
+Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.
+
+Redis: Client
+Python Client
+pipy/redis
+
+Installation
+
+pip install redis
+Usage
+
+import redis
+r = redis.StrictRedis(host='localhost', port=6379, db=0)
+r.set('foo', 'bar')
+-> True
+
+r.get('foo')
+-> 'bar'
+
+r.delete('foo')
+
+# after delete
+r.get('foo')
+-> None
+Java Client
+https://redislabs.com/redis-java
+
+Redis: Docker
+Docker Run
+docker run -d -p 6379:6379 redis
+Docker Compose
+version: "2"
+
+services:
+ redis:
+  image: redis
+  ports:
+   - 6379:6379
+Redis.io ↩
+
+\section{MongoDB}
+
+MongoDB is an open-source document database that provides high performance, high availability, and automatic scaling.
+
+MongoDB provides high performance data persistence. In particular,
+
+Support for embedded data models reduces I/O activity on database system.
+Indexes support faster queries and can include keys from embedded documents and arrays.
+MongoDB is #1 in the Document Store according to db-engines
+
+Client
+Mongo Shell
+The mongo shell is an interactive JavaScript interface to MongoDB and is a component of the MongoDB package. You can use the mongo shell to query and update data as well as perform administrative operations.
+
+Start Mongo
+
+Once you have installed and have started MongoDB, connect the mongo shell to your running MongoDB instance. Ensure that MongoDB is running before attempting to launch the mongo shell.
+
+mongo
+Interact with mongo via shell
+
+# Show list database
+> show dbs
+
+# Create or use a database
+> use <database_name>
+> use test # example
+
+# List collection
+> show collections
+
+# Create or use a collection
+> db.<collection_name>
+> db.new_collection # example
+
+# Read document
+> db.new_collection.find()
+
+# Insert new document
+> db.new_collection.insertOne({"a": "b"})
+
+# Update document
+> db.new_collection.update({"a": "b"}, {$set: {"a": "bcd"}})
+
+# Remove document
+> db.new_collection.remove({"a": "b"})
+PyMongo - Python Client
+PyMongo is a Python distribution containing tools for working with MongoDB, and is the recommended way to work with MongoDB from Python. This documentation attempts to explain everything you need to know to use PyMongo.
+
+Installation
+We recommend using pip to install pymongo on all platforms:
+
+pip install pymongo
+Usage
+import pymongo
+# create connection
+client = pymongo.MongoClient('127.0.0.1', 27017)
+-> MongoClient(host=['127.0.0.1:27017'], document_class=dict, tz_aware=False, connect=True)
+
+# create database
+db = client.db_test
+-> Database(MongoClient(host=['127.0.0.1:27017'], document_class=dict, tz_aware=False, connect=True), u'db_test')
+
+# create collection (collection is the same with table in SQL)
+collection = db.new_collection
+
+# insert document to collection (document is the same with rows in SQL)
+db.collection.insert_one({"c": "d"})
+->  <pymongo.results.InsertOneResult at 0x7f7eab3c9f00>
+
+# read document of collection
+db.new_collection.find_one({"c": "d"})
+-> {u'_id': ObjectId('589a8195f23e627a973c4d3c'), u'c': u'd'}
+
+# update documents of collection
+db.new_collection.update(
+    { "c" : "d" },
+    { "$set": { "c": "def"}}
+)
+-> {u'n': 1, u'nModified': 1, u'ok': 1.0, 'updatedExisting': True}
+
+# remove document of collection
+db.new_collection.remove({"c": "def"})
+-> {u'n': 1, u'ok': 1.0}
+Docker
+Docker Run
+Run images and share port
+
+docker run -p 27017:27017 mongo:latest

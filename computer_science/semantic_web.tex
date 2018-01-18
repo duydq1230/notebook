@@ -1,0 +1,79 @@
+\chapter{Semantic Web}
+
+View online \href{http://magizbox.com/training/semantic_web/site/}{http://magizbox.com/training/semantic_web/site/}
+
+The Semantic Web is an extension of the Web through standards by the World Wide Web Consortium (W3C). The standards promote common data formats and exchange protocols on the Web, most fundamentally the Resource Description Framework (RDF).
+
+According to the W3C, "The Semantic Web provides a common framework that allows data to be shared and reused across application, enterprise, and community boundaries". The term was coined by Tim Berners-Lee for a web of data that can be processed by machines. While its critics have questioned its feasibility, proponents argue that applications in industry, biology and human sciences research have already proven the validity of the original concept.
+
+\section{Web 3.0}
+
+Tim Berners-Lee has described the semantic web as a component of "Web 3.0".
+
+People keep asking what Web 3.0 is. I think maybe when you've got an overlay of scalable vector graphics – everything rippling and folding and looking misty – on Web 2.0 and access to a semantic Web integrated across a huge space of data, you'll have access to an unbelievable data resource …
+
+— Tim Berners-Lee, 2006
+
+"Semantic Web" is sometimes used as a synonym for "Web 3.0", though the definition of each term varies.
+
+\section{RDF}
+
+\section{SPARQL}
+
+SPARQL (pronounced "sparkle", a recursive acronym for SPARQL Protocol and RDF Query Language) is an RDF query language, that is, a semantic query language for databases, able to retrieve and manipulate data stored in Resource Description Framework (RDF) format. It was made a standard by the RDF Data Access Working Group (DAWG) of the World Wide Web Consortium, and is recognized as one of the key technologies of the semantic web. On 15 January 2008, SPARQL 1.0 became an official W3C Recommendation, and SPARQL 1.1 in March, 2013.
+
+
+
+SPARQL allows for a query to consist of triple patterns, conjunctions, disjunctions, and optional patterns.
+
+A SPARQL query
+
+
+Anatomy of a query
+
+
+SPARQL has four query forms. These query forms use the solutions from pattern matching to form result sets or RDF graphs. The query forms are:
+
+SELECT
+Returns all, or a subset of, the variables bound in a query pattern match.
+CONSTRUCT
+Returns an RDF graph constructed by substituting variables in a set of triple templates.
+ASK
+Returns a boolean indicating whether a query pattern matches or not.
+DESCRIBE
+Returns an RDF graph that describes the resources found.
+Example
+
+Query
+Result
+Data
+# filename: ex008.rq
+
+PREFIX ab: <http://learningsparql.com/ns/addressbook#>
+
+SELECT ?person
+WHERE
+{ ?person ab:homeTel "(229) 276-5135"}
+Offline query example
+# GET CRAIG EMAILS
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <http://www.semanticweb.org/lananh/ontologies/2016/10/untitled-ontology-3#>
+
+SELECT ?craigEmail
+WHERE
+{ :craig :email ?craigEmail . }
+Online query example
+PREFIX ab: <http://learningsparql.com/ns/addressbook#>
+
+SELECT ?craigEmail
+WHERE
+{ ab:craig ab:email ?craigEmail . }
+Query in dbpedia.org
+Example
+
+SELECT * WHERE {
+ ?a ?b ?c .
+} LIMIT 20

@@ -1,0 +1,534 @@
+\chapter{Object Oriented Programming}
+
+View online \href{http://magizbox.com/training/object_oriented_programming/site/}{http://magizbox.com/training/object_oriented_programming/site/}
+
+Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects", which may contain data, in the form of fields, often known as attributes; and code, in the form of procedures, often known as methods. A feature of objects is that an object's procedures can access and often modify the data fields of the object with which they are associated (objects have a notion of "this" or "self"). In OOP, computer programs are designed by making them out of objects that interact with one another. There is significant diversity of OOP languages, but the most popular ones are class-based, meaning that objects are instances of classes, which typically also determine their type.
+
+Many of the most widely used programming languages (such as C++, Java, Python etc.) are multi-paradigm programming languages that support object-oriented programming to a greater or lesser degree, typically in combination with imperative, procedural programming. Significant object-oriented languages include Java, C++, C#, Python, PHP, Ruby, Perl, Delphi, Objective-C, Swift, Scala, Common Lisp, and Smalltalk.
+
+\section{OOP}
+
+Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects", which are data structures that contain data, in the form of fields, often known as attributes; and code, in the form of procedures, often known as methods. A distinguishing feature of objects is that an object's procedures can access and often modify the data fields of the object with which they are associated (objects have a notion of "this" or "self"). In OO programming, computer programs are designed by making them out of objects that interact with one another.[1][2] There is significant diversity in object-oriented programming, but most popular languages are class-based, meaning that objects are instances of classes, which typically also determines their type.
+1. A First Look
+Procedural vs Object Oriented 1
+
+Procedural Approach
+
+Focus is on procedures
+All data is shared: no protection
+More difficult to modify
+Hard to manage complexity
+Advantages of Object Orientation
+
+People think in terms of object
+OO models map to reality
+OO models are: Easy to develop & Easy to understand.
+2. Principles
+encapsulation, inheritance, abstraction, polymorphism 2
+
+ Fundamental Principles of OOP In order for a programming language to be object-oriented, it has to enable working with classes and objects as well as the implementation and use of the fundamental object-oriented principles and concepts: inheritance, abstraction, encapsulation and polymorphism.
+
+2.1 Encapsulation 3 4 5
+
+Encapsulation is the packing of data and functions into a single component. The features of encapsulation are supported using classes in most object-oriented programming languages, although other alternatives also exist. It allows selective hiding of properties and methods in an object by building an impenetrable wall to protect the code from accidental corruption.
+
+What it do? We will learn to hide unnecessary details in our classes and provide a clear and simple interface for working with them.
+
+
+
+Example: A popular example you’ll hear for encapsulation is driving a car. Do you need to know exactly how every aspect of a car works (engine, carburettor, alternator, and so on)? No - you need to know how to use the steering wheel, brakes, accelerator, and so on.
+
+2.2 Inheritance 6 7
+
+Inheritance is when an object or class is based on another object (prototypal inheritance) or class (class-based inheritance), using the same implementation (inheriting from an object or class) specifying implementation to maintain the same behavior (realizing an interface; inheriting behavior).
+
+inherit everything, add data or functionality, override functions, super
+
+What it do? We will explain how class hierarchies improve code readability and enable the reuse of functionality.
+
+
+
+Example: A real-world example of inheritance is genetic inheritance. We all receive genes from both our parents that then define who we are. We share qualities of both our parents, and yet at the same time are different from them.
+
+
+
+Example: we might classify different kinds of vehicles according to the inheritance hierarchy. Moving down the hierarchy, each kind of vehicle is both more specialized than its parent (and all of its ancestors) and more general than its children (and all of its descendants). A wheeled vehicle inherits properties common to all vehicles (it holds one or more people and carries them from place to place) but has an additional property that makes it more specialized (it has wheels). A car inherits properties common to all wheeled vehicles, but has additional, more specialized properties (four wheels, an engine, a body, and so forth). The inheritance relationship can be viewed as an is-a relationship. In this relationship, the objects become more specialized the lower in the hierarchy you go.
+
+
+
+Look at the image above you will get a point.8 Yes, the derived class can access base class properties and still the derived class has its own properties.
+
+2.3 Abstraction
+
+In computer science, abstraction is a technique for managing complexity of computer systems. It works by establishing a level of complexity on which a person interacts with the system, suppressing the more complex details below the current level. The programmer works with an idealized interface (usually well defined) and can add additional levels of functionality that would otherwise be too complex to handle.
+
+What it do? We will learn how to work through abstractions: to deal with objects considering their important characteristics and ignore all other details.
+
+
+
+Example: You'll never buy a "device", but always buy something more specific : iPhone, Samsung Galaxy, Nokia 3310... Here, iPhone, Samsung Galaxy and Nokia 3310 are concrete things, device is abstract.
+
+2.4 Polymorphism 9
+
+Polymorphism is the provision of a single interface to entities of different types. A polymorphic type is one whose operations can also be applied to values of some other type, or types.
+
+What it do? We will explain how to work in the same manner with different objects, which define a specific implementation of some abstract behavior.
+
+
+
+Example: All animal can speak, but dogs woof, cats meow, and ducks quack
+
+There are two types of polymorphism
+
+
+
+Overloading (compile time polymorphism): methods have the same name but different parameters.
+Overriding (run time polymorphism): the implementation given in base class is replaced with that in sub class.
+
+
+Example 10: Let us Consider Car example for discussing the polymorphism. Take any brand like Ford, Honda, Toyota, BMW, Benz etc., Everything is of type Car. But each have their own advanced features and more advanced technology involved in their move behavior.
+
+3. Concepts
+Learn Object Oriented Programming though Mario Game
+
+[embed]https://www.youtube.com/watch?v=HBbzYKMfx5Y[/embed]
+
+How Mario get 1up
+
+
+
+3.1. Object 11
+
+Objects are key to understanding object-oriented technology. Look around right now and you'll find many examples of real-world objects: your dog, your desk, your television set, your bicycle.
+In mario world, Mario is an object.
+
+  Goomba is an object.  Koopa is also an object. Even a coin and a pile  are objects
+
+Software objects are conceptually similar to real-world objects: they too consist of state and related behavior. An object stores its state in fields (variables in some programming languages) and exposes its behavior through methods (functions in some programming languages). Methods operate on an object's internal state and serve as the primary mechanism for object-to-object communication. Hiding internal state and requiring all interaction to be performed through an object's methods is known as data encapsulation — a fundamental principle of object-oriented programming.
+In Mario world, Mario  has some fields like position (which indicate where Mario stands), state (which indicate whether Mario alive), and some methods like walk , fire or jump.
+
+Goomba  has some fields like position (which indicate where Goomba stands), state (which indicate whether Goomba die), and direction (which indicate the direction Goomba moves). Goomba has move method, and jumped_on method (which occurs when it is jumped on by Mario) (Poor Goomba!)
+
+Mario Objects, real scene
+
+3.2 Class 12
+
+In the real world, you'll often find many individual objects all of the same kind. There may be thousands of other bicycles in existence, all of the same make and model. Each bicycle was built from the same set of blueprints and therefore contains the same components. In object-oriented terms, we say that your bicycle is an instance of the class of objects known as bicycles. A class is the blueprint from which individual objects are created.
+
+In Mario world, each coin object come from Coin class, and every Koomba come from Koomba class
+
+
+
+3.3. Inheritance 13
+
+Inheritance is a mechanism in OOP to design two or more entities that are different but share many common features.
+
+Feature common to all classes are defined in the superclass
+The classes that inherit common features from the superclass are called subclasses
+In Mario World, Goomba and Koopa is in
+
+AND MANY, MANY MORE
+
+
+
+3.4. Association, Aggregation and Composition
+
+13
+
+
+
+Association:
+
+Whenever two objects are related with each other the relationshiop is called association between object
+
+Aggregation:
+
+Aggregation is specialized from of association. In aggregation objects have their own life-cycle but there is ownership and child object can not belongs to another parent object. But this is only an ownership not the life-cycle control of child control through parent object.
+
+Example: Student and Teacher, Person and address
+
+Composition
+
+Composition is again specialize form of aggregation and we can call this as `life and death`` relationship. It is a strong type of aggregation. Child object does not have their life-cycle and if parent object is deleted, all child object will also be deleted.
+
+Example: House and room
+
+3.5 Polymorphism 13
+
+Polymorphism indicates the meaning of "many forms"
+
+Polynorphism present a method that can have many definitions. Polymorphism is related to "over loading" and "over ridding".
+
+Overloading indicates a method can have different definitions by defining different type of parameters.
+
+[code] getPrice(): void getPrice(string name): void [/code]
+
+3.6 Abstraction 13
+
+Abstraction is the process of modelling only relevant features
+
+Hide unnecessary details which are irrelevant for current purpose.
+Reduces complexity and aids understanding.
+
+Abstraction provides the freedom to defer implementation decisions by avoiding commitments to details.
+
+3.7 Interface 13
+
+An interface is a contract consisting of group of related function prototypes whose usage is defined but whose implementation is not:
+
+An interface definition specifies the interface's member functions, called methods, their return types, the number and types of parameters and what they must do.
+
+These is no implementation associated with an interface.
+
+4. Coupling and Cohesion
+13
+
+4.1 Coupling
+Coupling defines how dependent one object on another object (that is uses).
+
+Coupling is a measure of strength of connection between any two system components. The more any one components knows about other components, the tighter (worse) the coupling is between those components.
+
+4.2 Cohesion
+Cohesion defines how narrowly defined an object is. Functional cohesion refers measures how strongly objects are related.
+
+Cohesion is a measure of how logically related the parts of an individual components are to each other, and to the overall components. The more logically related the parts of components are to each other higher (better) the cohesion of that components.
+
+4.3 Object Oriented Design
+Low coupling and tight cohesion is good object oriented design.
+
+Challenge
+Object
+Task 1: With boiler plate code, make an gif image (32x32) Mario fire ball and jump to get coins
+
+5. NEXT
+Design Principles
+Design Patterns
+
+\section{UML}
+
+The Unified Modeling Language (UML) is a general-purpose, developmental, modeling language in the field of software engineering, that is intended to provide a standard way to visualize the design of a system.
+
+http://www.yuml.me/
+Use UML with IntellIJ: UML Designer
+Architecture
+1
+
+
+
+Design of a system consists of classes, interfaces and collaboration. UML provides class diagram, object diagram to support this.
+Implementation defines the components assembled together to make a complete physical system. UML component diagram is used to support implementation perspective.
+Process defines the flow of the system. So the same elements as used in Design are also used to support this perspective.
+Deployment represents the physical nodes of the system that forms the hardware. UML deployment diagram is used to support this perspective.
+Modelling Types
+2
+
+
+
+Diagrams
+Usecase Diagram
+3 4 5
+
+A use case diagram at its simplest is a representation of a user's interaction with the system that shows the relationship between the user and the different use cases in which the user is involved.
+
+A use case diagram can identify the different types of users of a system and the different use cases and will often be accompanied by other types of diagrams as well.
+
+
+
+
+Use case diagrams depict:
+
+Use cases. A use case describes a sequence of actions that provide something of measurable value to an actor and is drawn as a horizontal ellipse. (example)
+Actors. An actor is a person, organization, or external system that plays a role in one or more interactions with your system. Actors are drawn as stick figures. (example)
+Associations. Associations between actors and use cases are indicated in use case diagrams by solid lines. An association exists whenever an actor is involved with an interaction described by a use case. Associations are modeled as lines connecting use cases and actors to one another, with an optional arrowhead on one end of the line. The arrowhead is often used to indicating the direction of the initial invocation of the relationship or to indicate the primary actor within the use case. The arrowheads are typically confused with data flow and as a result I avoid their use. (example)
+Extend: Extend is a directed relationship that specifies how and when the behavior defined in usually supplementary (optional) extending use case can be inserted into the behavior defined in the extended use case. (example)
+Include is a directed relationship between two use cases which is used to show that behavior of the included use case (the addition) is inserted into the behavior of the including (the base) use case. (example)
+System boundary boxes (optional). You can draw a rectangle around the use cases, called the system boundary box, to indicates the scope of your system. Anything within the box represents functionality that is in scope and anything outside the box is not. System boundary boxes are rarely used, although on occasion I have used them to identify which use cases will be delivered in each major release of a system. (example)
+Packages (optional). Packages are UML constructs that enable you to organize model elements (such as use cases) into groups. Packages are depicted as file folders and can be used on any of the UML diagrams, including both use case diagrams and class diagrams. I use packages only when my diagrams become unwieldy, which generally implies they cannot be printed on a single page, to organize a large diagram into smaller ones. (example)
+Class Diagram
+6
+
+In software engineering, a class diagram in the Unified Modeling Language (UML) is a type of static structure diagram that describes the structure of a system by showing the system's classes, their attributes, operations (or methods), and the relationships among objects.
+
+
+
+3.3.1 UML Association 9 10
+
+
+Association
+
+Association is reference based relationship between two classes. Here a class A holds a class level reference to class B. Association can be represented by a line between these classes with an arrow indicating the navigation direction. In case arrow is on the both sides, association has bidirectional navigation.
+
+
+
+Aggregation
+
+Aggregation (shared aggregation) is a "weak" form of aggregation when part instance is independent of the composite:
+
+the same (shared) part could be included in several composites, and
+if composite is deleted, shared parts may still exist.
+Shared aggregation is shown as binary association decorated with a hollow diamond as a terminal adornment at the aggregate end of the association line. The diamond should be noticeably smaller than the diamond notation for N-ary associations. Shared aggregation is shown as binary association decorated with a hollow diamond.
+
+
+
+Composition
+
+Composition (composite aggregation) is a "strong" form of aggregation. Composition requirements/features listed in UML specification are:
+
+it is a whole/part relationship,
+it is binary association
+part could be included in at most one composite (whole) at a time, and
+if a composite (whole) is deleted, all of its composite parts are "normally" deleted with it.
+Note, that UML does not define how, when and specific order in which parts of the composite are created. Also, in some cases a part can be removed from a composite before the composite is deleted, and so is not necessarily deleted as part of the composite.
+
+
+
+Aggregation vs Composition
+
+11
+
+
+
+Sequence Diagram
+7
+
+A Sequence diagram is an interaction diagram that shows how processes operate with one another and in what order. It is a construct of a Message Sequence Chart.
+
+A sequence diagram shows object interactions arranged in time sequence.
+
+It depicts the objects and classes involved in the scenario and the sequence of messages exchanged between the objects needed to carry out the functionality of the scenario. Sequence diagrams are typically associated with use case realizations in the Logical View of the system under development. Sequence diagrams are sometimes called event diagrams or event scenarios.
+
+
+
+Activity Diagram
+8
+
+Activity diagrams are graphical representations of workflows of stepwise activities and actions with support for choice, iteration and concurrency. In the Unified Modeling Language, activity diagrams are intended to model both computational and organizational processes (i.e. workflows). Activity diagrams show the overall flow of control.
+
+
+
+UML - Architecture ↩
+
+UML - Modeling Types ↩
+
+UML - Use Case Diagrams ↩
+
+Use Case Diagram ↩
+
+UML Association Between Actor and Use Case ↩
+
+Class diagram ↩
+
+Sequence diagram ↩
+
+Activity diagram ↩
+
+Aggregation ↩
+
+UML Class Diagram: Association, Aggregation and Composition ↩
+
+Lecture Notes on Object-Oriented Programming: Object Oriented Aggregation ↩
+
+
+\section{SOLID}
+
+SOLID Principles
+In computer programming, SOLID (single responsibility, open-closed, Liskov substitution, interface segregation and dependency inversion) is a mnemonic acronym introduced by Michael Feathers for the "first five principles" named by Robert C. Martin in the early 2000s that stands for five basic principles of object-oriented programming and design. The intention is that these principles, when applied together, will make it more likely that a programmer will create a system that is easy to maintain and extend over time. The principles of SOLID are guidelines that can be applied while working on software to remove code smells by providing a framework through which the programmer may refactor the software's source code until it is both legible and extensible. It is part of an overall strategy of agile and Adaptive Software Development.
+
+"Dependency Management is an issue that most of us have faced. Whenever we bring up on our screens a nasty batch of tangled legacy code, we are experiencing the results of poor dependency management. Poor dependency management leads to code that is hard to change, fragile, and non-reusable."
+
+Uncle Bob talk about several different design smells in the PPP book, all relating to dependency management. On the other hand, when dependencies are well managed, the code remains flexible, robust, and reusable. So dependency management, and therefore these principles, are at the foundation of the -ilities that software developers desire.
+
+SRP - Single Responsibility
+A class should have one, and only one, reason to change.
+
+A class should have only a single responsibility (i.e. only one potential change in the software's specification should be able to affect the specification of the class)
+
+Original Paper
+
+OCP - Open/Closed
+You should be able to extend a classes behavior, without modifying it.
+
+Software entities … should be open for extension, but closed for modification.”
+
+Original Paper
+
+LSP - Liskov Substitution
+Derived classes must be substitutable for their base classes.
+
+Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program. See also design by contract.
+
+Original Paper
+
+ISP - Interface Segregation
+Make fine grained interfaces that are client specific.
+
+Many client-specific interfaces are better than one general-purpose interface.
+
+Original Paper
+
+DIP - Dependency Inversion
+Depend on abstractions, not on concretions.
+
+One should “depend upon abstractions, not concretions.”
+
+Original Paper
+
+References
+The Principles of OOD
+
+\section{Design Patterns}
+
+Design Patterns
+
+
+Creational design patterns
+These design patterns are all about class instantiation. This pattern can be further divided into class-creation patterns and object-creational patterns. While class-creation patterns use inheritance effectively in the instantiation process, object-creation patterns use delegation effectively to get the job done.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Structural design patterns
+These design patterns are all about Class and Object composition. Structural class-creation patterns use inheritance to compose interfaces. Structural object-patterns define ways to compose objects to obtain new functionality.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Behavioral design patterns
+These design patterns are all about Class's objects communication. Behavioral patterns are those patterns that are most specifically concerned with communication between objects.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Design Pattern Q&A
+Examples of GoF Design Patterns in Java's core libraries
+Dependency Injection vs Factory Pattern
+What is Inversion of Control?
+What is so bad about singletons?
+What is the basic difference between Factory and Abstract Factory Patterns?
+When would you use the Builder Pattern?
+What is the difference between Builder Design pattern and Factory Design pattern?
+How do the Proxy, Decorator, Adapter, and Bridge Patterns differ?
+Abstract Factory Pattern
+Creates an instance of several families of classes
+Intuitive 1
+
+
+Volkswagen Transparent Factory in Dresden
+
+What is it? 2
+The abstract factory pattern provides a way to encapsulate a group of individual factories that have a common theme without specifying their concrete classes.
+
+In normal usage, the client software creates a concrete implementation of the abstract factory and then uses the generic interface of the factory to create the concrete objects that are part of the theme. The client doesn't know (or care) which concrete objects it gets from each of these internal factories, since it uses only the generic interfaces of their products.
+
+This pattern separates the details of implementation of a set of objects from their general usage and relies on object composition, as object creation is implemented in methods exposed in the factory interface.
+
+Design
+
+
+Example Code
+
+
+The most interesting factories in the world ↩
+Abstract factory pattern ↩
+Observer Pattern
+Intuitive
+
+
+
+Definition 1
+The observer pattern is a software design pattern in which an object, called the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods. It is mainly used to implement distributed event handling systems. The Observer pattern is also a key part in the familiar model–view–controller (MVC) architectural pattern. The observer pattern is implemented in numerous programming libraries and systems, including almost all GUI toolkits.
+Structure 2
+
+
+Subject
+
+knows its observers. Any number of Observer objects may observe a subject.
+provides an interface for attaching and detaching Observer objects
+Observer
+
+defines an updating interface for objects that should be notified of changes in a subject.
+ConcreteSubject
+
+stores state of interest to ConcreteObserver objects.
+sends a notification to its observers when its state changes.
+ConcreteObserver
+
+maintains a reference to a ConcreteSubject object.
+stores state that should stay consistent with the subject's.
+implements the Observer updating interface to keep its state consistent with the subject's.
+Examples
+Example 1: Blog Manager Application
+
+In this application, each user is an Observer, each blog is a Subject. When a blog post a new article (state change), user get an update. When users get update, they update their articles.
+
+[code lang="java"] Blog sportBlog = new Blog("SPORT"); User user1 = new User("Fan1"); User user2 = new User("Fan2");
+
+sportBlog.attach(user1); sportBlog.attach(user2);
+
+sportBlog.post(new Article("football")); sportBlog.post(new Article("swimming")); user1.getArticles(); user2.getArticles();
+
+sportBlog.detach(user1);` [/code]
+
+Real Implementations
+Broadcast Receiver 3 4 on Android
+
+More Articles
+http://javapapers.com/design-patterns/observer-design-pattern/
+Comparison
+Observer/Observable pattern vs Publisher/Subscriber pattern 5
+Observer/Observable pattern is mostly implemented in a synchronous way, i.e. the observable calls the appropriate method of all its observers when some event occurs. The Publisher/Subscriber pattern is mostly implemented in an asynchronous way (using message queue).
+In the Observer/Observable pattern, the observers are aware of the observable. Whereas, in Publisher/Subscriber, publishers and subscribers don't need to know each other. They simply communicate with the help of message queues.
+Observer pattern ↩
+
+Broadcast Receiver ↩
+
+Design Patterns: Elements of Reusable Object-Oriented Software ↩
+
+Which design patterns are used on Android? ↩
+
+stackoverflow, Difference between Observer, Pub/Sub, and Data Binding ↩
+
+
