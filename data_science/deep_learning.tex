@@ -1,0 +1,74 @@
+\chapter{Học sâu}
+
+\section{Tài liệu Deep Learning}
+
+Lang thang thế nào lại thấy trang này \href{https://www.microsoft.com/en-us/research/wp-content/uploads/2017/02/DL_Reading_List.pdf}{My Reading List for Deep Learning!} của một anh ở Microsoft. Trong đó, (đương nhiên) có Deep Learning của thánh Yoshua Bengio, có một vụ hay nữa là bài review "Deep Learning" của mấy thánh Yann Lecun, Yoshua Bengio, Geoffrey Hinton trên tạp chí Nature. Ngoài ra còn có nhiều tài liệu hữu ích khác.
+
+\section{Các layer trong deep learning}
+
+\subsection{Sparse Layers}
+
+\href{http://pytorch.org/docs/master/nn.html#embedding}{nn.Embedding} (\href{http://pytorch.org/tutorials/beginner/nlp/word_embeddings_tutorial.html}{hướng dẫn})
+
+★ grep code: \href{https://github.com/Shawn1993/cnn-text-classification-pytorch/blob/master/model.py#L18}{Shawn1993/cnn-text-classification-pytorch}
+
+Đóng vai trò như một lookup table, map một word với dense vector tương ứng
+
+\subsection{Convolution Layers}
+
+\index{convolution}
+
+\href{http://pytorch.org/docs/master/nn.html#conv1d}{nn.Conv1d}, \href{http://pytorch.org/docs/master/nn.html#conv2d}{nn.Conv2d}, \href{http://pytorch.org/docs/master/nn.html#conv3d}{nn.Conv3d})
+
+★ grep code: \href{https://github.com/Shawn1993/cnn-text-classification-pytorch/blob/master/model.py#L20-L24}{Shawn1993/cnn-text-classification-pytorch}, \href{https://github.com/galsang/CNN-sentence-classification-pytorch/blob/master/model.py#L36-L38}{galsang/CNN-sentence-classification-pytorch}
+
+Các tham số trong Convolution Layer
+
+* \textit{kernel\_size} (hay là filter size)
+
+Đối với NLP, $kernel\_size$ thường bằng $region\_size * word\_dim$ (đối với conv1d) hay ($region\_size$, $word\_dim$) đối với conv2d
+
+<small>Quá trình tạo feature map đối với region size bằng 2</small>
+![](https://media.giphy.com/media/l2QE2y1UQP7vIgiti/giphy.gif)
+
+* `in_channels`, `out_channels` (là số lượng `feature maps`)
+
+Kênh (channels) là các cách nhìn (view) khác nhau đối với dữ liệu. Ví dụ, trong ảnh thường có 3 kênh RGB (red, green, blue), có thể áp dụng convolution giữa các kênh. Với văn bản cũng có thể có các kênh khác nhau, như khi có các kênh sử dụng các word embedding khác nhau (word2vec, GloVe), hoặc cùng một câu nhưng biểu diễn ở các ngôn ngữ khác nhau.
+
+* `stride`
+
+Định nghĩa bước nhảy của filter.
+
+![](http://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/11/Screen-Shot-2015-11-05-at-10.18.08-AM-1024x251.png)
+
+Hình minh họa sự khác biệt giữa các feature map đối với stride=1 và stride=2. Feature map đối với stride = 1 có kích thước là 5, feature map đối với stride = 3 có kích thước là 3. Stride càng lớn thì kích thước của feature map càng nhỏ.
+
+Trong bài báo của Kim 2014, `stride = 1` đối với `nn.conv2d` và `stride = word_dim` đối với `nn.conv1d`
+
+Toàn bộ tham số của mạng CNN trong bài báo Kim 2014,
+
+![](http://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/11/Screen-Shot-2015-11-06-at-8.03.47-AM.png)
+
+| Description         | Values          |
+|---------------------|-----------------|
+| input word vectors  | Google word2vec |
+| filter region size  | (3, 4, 5)       |
+| feature maps        | 100             |
+| activation function | ReLU            |
+| pooling             | 1-max pooling   |
+| dropout rate        | 0.5             |
+| $latex l&amp;s=2$2 norm constraint  | 3               |
+
+Đọc thêm:
+
+* [Lecture 13: Convolutional Neural Networks (for NLP). CS224n-2017](http://web.stanford.edu/class/cs224n/lectures/cs224n-2017-lecture13-CNNs.pdf)
+* [DeepNLP-models-Pytorch - 8. Convolutional Neural Networks](https://nbviewer.jupyter.org/github/DSKSD/DeepNLP-models-Pytorch/blob/master/notebooks/08.CNN-for-Text-Classification.ipynb)
+* [A Sensitivity Analysis of (and Practitioners’ Guide to) Convolutional Neural Networks for Sentence Classification. Zhang 2015](https://arxiv.org/pdf/1510.03820.pdf)
+
+**BTS**
+
+22/11/2017 - Phải nói quyển này hơi nặng so với mình. Nhưng thôi cứ cố gắng vậy.
+24/11/2017 - Từ hôm nay, mỗi ngày sẽ ghi chú một phần (rất rất nhỏ) về Deep Learning [tại đây](https://docs.google.com/document/d/1KxDrw5s6uYHNLda7t0rhp0RM_TlUGxydQ-Qi1JOPFr8/edit?usp=sharing)
+
+[^1]: [Understanding Convolutional Neural Networks for NLP](http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp)
+[^2]: [http://pytorch.org/docs/master/nn.html](http://pytorch.org/docs/master/nn.html)

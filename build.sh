@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
+
+
 pdflatex -file-line-error -interaction=nonstopmode -synctex=1 -output-format=pdf -output-directory=out -aux-directory=auxil notebook.tex
+
+makeindex out/notebook.idx
 
 bibtex out/notebook.aux
 

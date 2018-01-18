@@ -1,0 +1,99 @@
+This is makeindex, version 2.15 [TeX Live 2015] (kpathsea + Thai support).
+Scanning input file notebook.tex...
+!! Input index error (file = notebook.tex, line = 1):
+   -- Unknown index keyword \documentclass[14pt,a4paper,oneside].
+!! Input index error (file = notebook.tex, line = 3):
+   -- Unknown index keyword \usepackage[T1].
+!! Input index error (file = notebook.tex, line = 4):
+   -- Unknown index keyword \usepackage[utf8].
+!! Input index error (file = notebook.tex, line = 5):
+   -- Unknown index keyword \usepackage[utf8].
+!! Input index error (file = notebook.tex, line = 6):
+   -- Unknown index keyword \usepackage[vietnam].
+!! Input index error (file = notebook.tex, line = 8):
+   -- Unknown index keyword \usepackage[unicode].
+!! Input index error (file = notebook.tex, line = 9):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = notebook.tex, line = 10):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = notebook.tex, line = 11):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = notebook.tex, line = 12):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = notebook.tex, line = 14):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = notebook.tex, line = 15):
+   -- Unknown index keyword \lstset.
+!! Input index error (file = notebook.tex, line = 16):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = notebook.tex, line = 17):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = notebook.tex, line = 18):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = notebook.tex, line = 19):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = notebook.tex, line = 20):
+   -- Unknown index keyword postbreak=\mbox.
+!! Input index error (file = notebook.tex, line = 21):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = notebook.tex, line = 22):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = notebook.tex, line = 24):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = notebook.tex, line = 25):
+   -- Unknown index keyword \usepackage[plain].
+!! Input index error (file = notebook.tex, line = 26):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = notebook.tex, line = 28):
+   -- Unknown index keyword \hypersetup.
+!! Input index error (file = notebook.tex, line = 29):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = notebook.tex, line = 30):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = notebook.tex, line = 31):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = notebook.tex, line = 32):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = notebook.tex, line = 33):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = notebook.tex, line = 35):
+   -- Unknown index keyword \title.
+!! Input index error (file = notebook.tex, line = 36):
+   -- Unknown index keyword \author.
+!! Input index error (file = notebook.tex, line = 37):
+   -- Unknown index keyword \date.
+!! Input index error (file = notebook.tex, line = 38):
+   -- Unknown index keyword %\usepackage.
+!! Input index error (file = notebook.tex, line = 39):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = notebook.tex, line = 41):
+   -- Unknown index keyword \begin.
+!! Input index error (file = notebook.tex, line = 44):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = notebook.tex, line = 46):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = notebook.tex, line = 48):
+   -- Unknown index keyword \input.
+!! Input index error (file = notebook.tex, line = 49):
+   -- Unknown index keyword \input.
+!! Input index error (file = notebook.tex, line = 50):
+   -- Unknown index keyword \input.
+!! Input index error (file = notebook.tex, line = 51):
+   -- Unknown index keyword \input.
+!! Input index error (file = notebook.tex, line = 52):
+   -- Unknown index keyword \input.
+!! Input index error (file = notebook.tex, line = 53):
+   -- Unknown index keyword \input.
+!! Input index error (file = notebook.tex, line = 54):
+   -- Unknown index keyword \index.
+!! Input index error (file = notebook.tex, line = 55):
+   -- Unknown index keyword \bibliography.
+!! Input index error (file = notebook.tex, line = 56):
+   -- Unknown index keyword \bibliographystyle.
+!! Input index error (file = notebook.tex, line = 58):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = notebook.tex, line = 59):
+   -- Unknown index keyword \end.
+done (0 entries accepted, 47 rejected).
+Nothing written in notebook.ind.
+Transcript written in notebook.ilg.

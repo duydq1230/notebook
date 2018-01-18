@@ -11,6 +11,7 @@
 \usepackage{eucal}
 \usepackage{mathtools}
 
+
 \usepackage{listings}
 \lstset{
 basicstyle=\ttfamily,
@@ -21,6 +22,7 @@ postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 inputencoding=utf8
 }
 
+\usepackage[makeindex]{imakeidx}
 \usepackage[plain]{cite}
 \usepackage{natbib}
 
@@ -34,23 +36,26 @@ urlcolor=cyan,
 \title{Ghi chú của một coder}
 \author{Vũ Anh}
 \date{Tháng 01 năm 2018}
-\usepackage{index}
+%\usepackage{index}
+\makeindex
 
 \begin{document}
 
-  \makeindex
+
   \maketitle
 
   \tableofcontents
-
+  \addcontentsline{toc}{chapter}{\contentsname}
   \input{introduction.tex}
   \input{programming.tex}
   \input{probabilistic.tex}
   \input{computer_science.tex}
-  \input{data_science.tex}
+  \input{data_science/index.tex}
   \input{other.tex}
-
-
   \bibliography{mybib}{}
   \bibliographystyle{ksfh_nat}
+  \addcontentsline{toc}{part}{Tài liệu}
+%  \addcontentsline{toc}{part}{\refname}
+  \printindex
+  \addcontentsline{toc}{part}{Chỉ mục}
 \end{document}
