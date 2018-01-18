@@ -45,6 +45,11 @@
 \contentsline {section}{\numberline {3.18}IDE & Debugging}{49}{section.3.18}
 \contentsline {section}{\numberline {3.19}Package Manager}{51}{section.3.19}
 \contentsline {section}{\numberline {3.20}Environment}{52}{section.3.20}
+\contentsline {subsection}{\numberline {3.20.1}Create}{53}{subsection.3.20.1}
+\contentsline {subsection}{\numberline {3.20.2}Clone}{53}{subsection.3.20.2}
+\contentsline {subsection}{\numberline {3.20.3}List}{53}{subsection.3.20.3}
+\contentsline {subsection}{\numberline {3.20.4}Remove}{54}{subsection.3.20.4}
+\contentsline {subsection}{\numberline {3.20.5}Share}{54}{subsection.3.20.5}
 \contentsline {section}{\numberline {3.21}Module}{54}{section.3.21}
 \contentsline {section}{\numberline {3.22}Production}{56}{section.3.22}
 \contentsline {section}{\numberline {3.23}Qu\IeC {\h a}n l\IeC {\'y} g\IeC {\'o}i v\IeC {\'\ohorn }i Anaconda}{56}{section.3.23}
