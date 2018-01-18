@@ -1,0 +1,437 @@
+\chapter{Xử lý ngôn ngữ tự nhiên}
+
+View online \href{http://magizbox.com/training/natural_language_processing/site/}{http://magizbox.com/training/natural_language_processing/site/}
+
+**05/01/2018**: "điên đầu" với Sphinx và HTK
+
+HTK thì đã bỏ rồi vì quá lằng nhằng.
+
+Sphinx thì setup được đối với dữ liệu nhỏ rồi. Nhưng không thể làm nó hoạt động với dữ liệu của VIVOS. Chắc hôm nay sẽ switch sang Kaldi vậy.
+
+**26/12/2017**: Automatic Speech Recognition 100
+
+Sau mấy ngày "vật lộn" với code base của Truong Do, thì cuối cùng cũng produce voice được. Cảm giác rất thú vị. Quyết định làm luôn ASR. Tìm mãi chẳng thấy code base đâu (chắc do lĩnh vực mới nên không có kinh nghiệm). May quá lại có bạn frankydotid có project về nhận diện tiếng Indonesia ở [github](https://github.com/frankydotid/Indonesian-Speech-Recognition). Trong README.md bạn đấy bảo là phải cần đọc HTK Book. Tốt quá đang cần cơ bản.
+
+**20/12/2017**: Text to speech 100
+
+Cảm ơn project rất hay của [bạn Truong Do ở vais](https://vais.vn/vi/tai-ve/hts_for_vietnamese/), nếu không có project này chắc mình phải mất rất nhiều thời gian mới có được phiên bản text to speech đầu tiên.
+
+Tóm lại thì việc sinh ra tiếng nói từ text gồm 4 giai đoạn
+
+1. Sinh ra features từ file wav sử dụng tool sptk
+2. Tạo một lab, trong đó có dữ liệu huấn luyện (những đặc trưng của âm thanh được trích xuất từ bước 1), text đầu vào
+3. Sử dụng htk để train dữ liệu từ thư mục lab, đầu ra là một model
+4. Sử dụng model để sinh ra output với text đầu vào, dùng hts_engine để decode, kết quả được wav files.
+
+Phù. 4 bước đơn giản thế này thôi mà không biết. Lục cả internet ra mãi chẳng hiểu, cuối cùng file phân tích file `train.sh` của bạn Truong Do mới hiểu. Ahihi
+
+**24/11/2017**: Nhánh của Trí tuệ nhân tạo mà hiện tại mình đang theo đuổi. Project hiện tại là [underthesea](https://github.com/magizbox/underthesea). Với mục đích là xây dựng một toolkit cho xử lý ngôn ngữ tự nhiên tiếng Việt.
+
+
+Natural language processing (NLP) is a field of computer science, artificial intelligence, and computational linguistics concerned with the interactions between computers and human (natural) languages.
+
+\section{Introduction to Natural Language Processing}
+
+Natural language processing (NLP) is a field of computer science, artificial intelligence, and computational linguistics concerned with the interactions between computers and human (natural) languages.
+
+NLP is related to the area of human–computer interaction. Many challenges in NLP involve: natural language understanding, enabling computers to derive meaning from human or natural language input; and others involve natural language generation.
+
+The input and output of an NLP system can be either speech or written text.
+
+Components of NLP
+
+There are two components of NLP as given
+
+Natural Language Understanding (NLU): this task mapping the given input in natural language into useful representations and analyzing different aspects of the language.
+Natural Language Generation (NLG): In the process of producing meaningful phrases and sentences in the form of natural language form some internal representation. It involves text planning retrieve the relevant content from knowledge base, sentence planning choose required words, forming meaningful phrases, setting tone of the sentence, text realization map sentence plan into sentence structure.
+Difficulties
+
+Natural Language has an extremely rich form and structure. It is very ambiguous. There can be different levels of ambiguity
+
+Lexical ambiguity: it is at very primitive level such as word-level. For example, treating the word “board” as noun or verb?
+Syntax level ambiguity: A sentence be parsed in different ways. For example, “He lifted the beetle with the red cap?” - did he use cap to lift the beetle or he lifted a beetle that had red cap?
+Referential ambiguity: referring to something using pronouns. For example, Rima went to Gauri. She said “I am tired”. - Exactly who is tired?
+One input can mean different meanings.
+Many inputs can mean the same thing.
+
+\section{Natural Language Processing Tasks}
+
+The analysis of natural language is broken into various board levels such as phonological, morphological, syntactic, semantic, pragmatic and discourse analysis.
+
+
+
+Phonological Analysis
+Phonology is analysis of spoken language. Therefore, it deals with speech recognition and generation. The core task of speech recognition and generation system is to take an acoustic waveform as input and produce as output, a string of words. The phonology is a part of natural language analysis, which deals with it. The area of computational linguistics that deals with speech analysis is computational phonology
+
+Example: Hans Rosling’s shortest TED talk
+
+Original Sound
+
+0:00
+/ 0:52
+
+
+
+Text	X means unknown but the world is pretty known it’s seven billion people have seven stones. One billion can save money to fly abroad on holiday every year. One billion can save money to keep a car or buy a car. And then three billion they save money to pay the by be a bicycle or perhaps a two-wheeler. And two billion they are busy saving money to buy shoes. In the future they will get rich and these people we move over here, these people will move over here, we will have two billion more in the world like this and the question is whether the rich people over there are prepared to be integrated in the world with 10 bilions people.
+Auto generated sound
+
+0:00
+/ 0:36
+
+
+
+Morphological Analysis
+It is the most elementary phase of NLP. It deals with the word formation. In this phase, individual words are analyzed according to their components called “morphemes”. In addition, non-word taken such as punctuation, etc. are separated from words. Morpheme is basic grammatical building block that makes words.
+
+
+
+The study of word structure is refereed to as morphology. In natural language processing, it is done in morphological analysis. The task of breaking a word into its morphemes is called morphological parsing. A morpheme is defined as minimal meaningful unit in a language, which cannot be further broken into smaller units.
+
+Example: word fox consists a single morpheme, as it cannot be further resolved into smaller units. Whereas word cats consists two morphemes, the morpheme “cat” and morpheme “s” indicating plurality.
+
+Here we defined the term meaningful. Though cat can be broken in “c” and “at”, but these do not relate with word “cat” in any sense. Thus word “cat” will be dealt with as minimum meaningful unit.
+
+Morphemes are traditionally divided into two types
+
+(i) “free morphemes”, that are able to act as words in isolation (e.g., “thing”, “permanent”, “local”)
+(ii) “bound morphemes”, that can operate only as part of other words (e.g., “is” ‘ing’ etc) The morpheme, which forms the center part of the world, is also called “stem”. In English, a word can be made up of one or more morphemes, e.g.,
+word - thing           -> stem “think”
+word - localize        -> stem “local”, suffix “ize”
+word - denationalize   -> prefix “de”, stem “nation”, suffix “al”, “ize”
+The computational tool to perform morphological parsing is finite state transducer. A transducer performs it by mapping between the two sets of symbols, and a finite state transducer does it with finite automaton. A transducer normally consists of four parts: recognizer, generator, translator, and relator. The output of the transducer becomes a set of morphemes.
+
+Lexical Analysis
+In this phase of natural language analysis, validity of words according to lexicon is checked. Lexicon stands for dictionary. It is a collection of all possible valid words of language along with their meaning.
+
+In NLP, the first stage of processing input text is to scan each word in sentence and compute (or look-up) all the relevant linguistic information about that word. The lexicon provides the necessary rules and data for carrying out the first stage analysis.
+
+The details of words, like their type (noun, verb and adverb, and other details of nouns and verb, etc.) are checked.
+
+
+
+Lexical analysis is dividing the whole chunk of text into paragraphs, sentences, and words.
+
+Syntactic Analysis
+Syntax refers to the study of formal relationships between words of sentences. In this phase the validity of a sentence according to grammar rules is checked. To perform the syntactic analysis, the knowledge of grammar and parsing is required. Grammar is formal specification of rules allowable in the language, and parsing is a method of analyzing a sentence to determine its structure according to grammar. The most common grammar used for syntactic analysis for natural languages are context free grammar (CFG) also called phase structure grammar and definite clause grammar. These grammars are described in detail in a separate actions.
+
+
+
+Syntactic analysis is done using parsing. Two basic parsing techniques are: top-down parsing and bottom-up parsing.
+
+Semantic Analysis
+In linguistics, semantic analysis is the process of relating syntactic structures, from the levels of phrases, clauses, sentences and paragraphs to the level of the writing as a whole, to their language-independent meanings. It also involves removing features specific to particular linguistic and cultural contexts, to the extent that such a project is possible.
+
+The elements of idiom and figurative speech, being cultural, are often also converted into relatively invariant meanings in semantic analysis. Semantics, although related to pragmatics, is distinct in that the former deals with word or sentence choice in any given context, while pragmatics considers the unique or particular meaning derived from context or tone. To reiterate in different terms, semantics is about universally coded meaning, and pragmatics the meaning encoded in words that is then interpreted by an audience
+
+Discourse Analysis
+The meaning of any sentence depends upon the meaning of the sentence just before it. In addition, it also brings about the meaning of immediately succeeding sentence.
+
+Topics of discourse analysis include:
+
+The various levels or dimensions of discourse, such as sounds, gestures, syntrax, the lexicon, style, rhetoric, meanings, speech acts, moves, strategies, turns, and other aspects of interaction
+Genres of discourse (various types of discourse in politics, the media, education, science, business, etc.)
+The relations between text (discourse) and context
+The relations between discourse and power
+The relations between discourse and interaction
+The relations between discourse and cognition and memory
+Pragmatic Analysis
+During this, what was said is re-interpreted on what it actually meant. It involves deriving those aspects of language which require real world knowledge.
+
+Sentiment Analysis
+MetaMind, @RichardSocher
+
+Named Entity Recognition
+KDD 2015 Tutorial: Automatic Entity Recognition and Typing from Massive Text Corpora - A Phrase and Network Mining Approach
+
+Relationship Extraction
+AlchemyAPI
+
+\section{Natural Language Processing Applications}
+
+Information Retrieval (IR)
+Information retrieval (IR) is the activity of obtaining information resources relevant to an information need from a collection of information resources. Searches can be based on metadata or on full-text (or other content-based) indexing.
+
+Information Extraction (IE)
+Information extraction (IE) is the task of automatically extracting structured information from unstructured and/or semi-structured machine-readable documents. In most of the cases this activity concerns processing human language texts by means of natural language processing (NLP).
+
+Machine Translation
+Machine translation, sometimes referred to by the abbreviation MT (not to be confused with computer-aided translation, machine-aided human translation (MAHT) or interactive translation) is a sub-field of computational linguistics that investigates the use of software to translate text or speech from one language to another.
+
+Question Answering (QA)
+Question answering (QA) is a computer science discipline within the fields of information retrieval and natural language processing (NLP), which is concerned with building systems that automatically answer questions posed by humans in a natural language.
+
+\section{Spelling Correction}
+
+For instance, we may wish to retrieve documents containing the term carrot when the user types the query carot. Google reports (http://www.google.com/jobs/britney.html) that the following are all treated as misspellings of the query britney spears: britian spears, britney’s spears, brandy spears and prittany spears
+
+We look at two steps to solving this problem: the first based on edit distance and the second based on k-gram overlap. Before getting into the algorithmic details of these methods, we first review how search engines provide spell-correction as part of a user experience.
+
+Implementing spelling correction
+There are two basic principles underlying most spelling correction algorithms.
+
+Of various alternative correct spellings for a mis-spelled query, choose the nearest one. This demands that we have a notion of nearness or proximity between a pair of queries.
+When two correctly spelled queries are tied (or nearly tied), select the one that is more common. For instance, grunt and grant both seem equally plausible as corrections for grnt. Then, the algorithm should choose the more common of grunt and grant as the correction. The simplest notion of more common is to consider the number of occurrences of the term in the collection; thus if grunt occurs more often than grant, it would be the chosen correction. A different notion of more common is employed in many search engines, especially on the web. The idea is to use the correction that is most common among queries typed in by other users. The idea here is that if grunt is typed as a query more often than grant, then it is more likely that the user who typed grnt intended to type the query grunt.
+Corpus
+Birkbeck spelling error corpus
+
+References
+How to Write a Spelling Corrector. Peter Norvig. 2007
+Statistical Natural Language Processing in Python. Peter Norvig. 2007
+Spelling correction. Introduction to Information Retrieval. 2008
+
+\section{Word Vectors}
+
+Discrete Representation
+Use a taxonomy like WordNet that has hypernyms (is-a) relationships
+
+from nltk.corpus import wordnet as wn
+panda = wn.synset("panda.n.01")
+hyper = lambda s: s.hypernyms()
+list(panda.closure(hyper))
+[Synset(‘procyonid.n.01’),
+Synset(‘carnivore.n.01’),
+Synset(‘placental.n.01’),
+Synset(‘mammal.n.01’),
+Synset(‘vertebrate.n.01’),
+Synset(‘chordate.n.01’),
+Synset(‘animal.n.01’),
+Synset(‘organism.n.01’),
+Synset(‘living_thing.n.01’),
+Synset(‘whole.n.02’),
+Synset(‘object.n.01’),
+Synset(‘physical_entity.n.01’),
+Synset(‘entity.n.01’)]
+wn.synsets("good")
+[Synset(‘good.n.01’),
+Synset(‘good.n.02’),
+Synset(‘good.n.03’),
+Synset(‘commodity.n.01’),
+Synset(‘good.a.01’),
+Synset(‘full.s.06’),
+Synset(‘good.a.03’),
+Synset(‘estimable.s.02’),
+Synset(‘beneficial.s.01’),
+...
+wn.synsets("bad")
+[Synset(‘bad.n.01’),
+Synset(‘bad.a.01’),
+Synset(‘bad.s.02’),
+Synset(‘bad.s.03’),
+Synset(‘bad.s.04’),
+Synset(‘regretful.a.01’),
+Synset(‘bad.s.06’),
+Synset(‘bad.s.07’),
+Synset(‘bad.s.08’),
+...
+Problems with this discrete representation
+
+Great as resource but missing nuances, e.g. synonyms: adept, expert, good, practiced, proficient, skillful?
+Missing new words (impossible to keep up to date): wicked, badass, nifty, crack, ace, wizard, genius, ninjia
+Subjective
+Requires human labor to create and adapt
+Hard to compute accurate word similarity
+Word2Vec
+Word2vec is a group of related models that are used to produce word embeddings. These models are shallow, two-layer neural networks that are trained to reconstruct linguistic contexts of words. Word2vec takes as its input a large corpus of text and produces a vector space, typically of several hundred dimensions, with each unique word in the corpus being assigned a corresponding vector in the space. Word vectors are positioned in the vector space such that words that share common contexts in the corpus are located in close proximity to one another in the space.
+
+Word2vec was created by a team of researchers led by Tomas Mikolov at Google. The algorithm has been subsequently analysed and explained by other researchers. Embedding vectors created using the Word2vec algorithm have many advantages compared to earlier algorithms like Latent Semantic Analysis.
+
+Main Idea of Word2Vec
+
+Instead of capturing cooccurrence counts directly,,
+Predict surrounding words of every word
+Both are quite similar, see “Glove: Global Vectors for Word Representation” by Pennington et at. (2014) and Levy and Goldberg (2014)... more later.
+Faster and can easily incorporate a new sentence/document or add a word to the vocabulary.
+Detail of Word2Vec
+
+Predict surrounding words in a window of length m of every word.
+Objective function: Maximize the log probability of any context word given the current cenetr word:
+J(θ)=1T∑t=1T∑−m≤j≤m,j≠0log p(wt+j|wt)
+J(θ)=1T∑t=1T∑−m≤j≤m,j≠0log p(wt+j|wt)
+where θθ represents all variables we optimize
+
+Predict surrounding words in a window of length m of every word
+For p(wt+j|wt)p(wt+j|wt) the simplest first formulation is
+p(o|c)=exp(uTovc)∑Ww=1exp(uTwvc)
+p(o|c)=exp(uoTvc)∑w=1Wexp(uwTvc)
+where o is the outside (or output) word id, c is the center word id, u and v are “center” and “outside” vectors of o and c
+
+Every word has two vectors!
+This is essentially “dynamic” logistic regression
+Linear Relationships in word2vec
+
+These representations are very good at encoding dimensions of similarity!
+
+Analogies testing dimensions of similarity can be solved quite well just by doing vector subtraction in the embedding space
+Syntactically
+
+xapple−xapples≈xcar−xcars≈xfamily−xfamiliesxapple−xapples≈xcar−xcars≈xfamily−xfamilies
+Similarly for verb and adjective morphological forms
+Semantically (Semeval 2012 task 2)
+
+xshirt−xclothing≈xchair−xfurniturexshirt−xclothing≈xchair−xfurniture
+xking−xman≈xqueen−xwomanxking−xman≈xqueen−xwoman
+GloVe
+Project
+
+Highlights
+Training
+Model Overview
+GloVe is an unsupervised learning algorithm for obtaining vector representations for words. Training is performed on aggregated global word-word co-occurrence statistics from a corpus, and the resulting representations showcase interesting linear substructures of the word vector space.
+
+Pre-trained Model
+fastText
+
+Pre-trained word vectors for 294 languages, trained on Wikipedia using fastText. These vectors in dimension 300 were obtained using the skip-gram model described in Bojanowski et al. (2016) with default parameters.
+
+glove
+
+Pre-trained word vectors. This data is made available under the Public Domain Dedication and License v1.0 whose full text can be found at: http://www.opendatacommons.org/licenses/pddl/1.0/.
+
+Language: English
+
+Wikipedia 2014 + Gigaword 5 (6B tokens, 400K vocab, uncased, 50d, 100d, 200d, & 300d vectors, 822 MB download): glove.6B.zip
+Common Crawl (42B tokens, 1.9M vocab, uncased, 300d vectors, 1.75 GB download): glove.42B.300d.zip
+Common Crawl (840B tokens, 2.2M vocab, cased, 300d vectors, 2.03 GB download): glove.840B.300d.zip
+Twitter (2B tweets, 27B tokens, 1.2M vocab, uncased, 25d, 50d, 100d, & 200d vectors, 1.42 GB download): glove.twitter.27B.zip
+word2vec-GoogleNews-vectors
+
+Language: English
+
+Pre-trained Google News corpus (3 billion running words) word vector model (3 million 300-dimension English word vectors).
+
+Word Analogies
+Test for linear relationships, examined by Mikolov et at. (2014)
+
+Suggested Readings
+Simple Word Vector representations: word2vec, GloVe. cs224d.stanford.edu. Last Accessed: 2017-02-01.
+FastText and Gensim word embeddings. rare-technologies.com. Last Accessed: 2016-08-31.
+Distributed Representations of Words and Phrases and their Compositionality. papers.nips.cc. Last Accessed: 2013-12-05.
+Efficient Estimation of Word Representations in Vector Space. arxiv.org. Last Accessed: 2013-01-16
+
+\section{Conditional Random Fields in Name Entity Recognition}
+
+In this tutorial, I will write about how to using CRF++ to train your data for name entity recognition task.
+
+Environment:
+
+Ubuntu 14.04
+Install CRF++
+Download CRF++-0.58.tar.gz
+
+Extact CRF++-0.58.tar.gz file
+
+Navigate to the location of extracted folder through
+
+Install CRF++ from source
+
+./configure
+make
+sudo make install
+ldconfig
+Congratulations! CRF++ is install
+
+crf_learn
+Training CRF
+To train a CRF using CRF++, you need 2 things:
+
+A template file: where you define features to be considered for training
+A training data file: where you have data in CoNLL format
+crf_learn -t template_file train_data_file model
+
+crf_learn -t template train.txt model
+A binary of model is produce.
+
+To test this model, on a testing data
+
+crf_test -m model testfile > output.txt
+
+crf_test -m model test.txt > output.txt
+References
+Conditional Random Fields : Installing CRF++ on Ubuntu
+Conditional Random Fields Training and Testing using CRF++
+
+\section{Entity Linking}
+
+In natural language processing, entity linking, named entity linking (NEL), named entity disambiguation (NED), named entity recognition and disambiguation (NERD) or named entity normalization (NEN) is the task of determining the identity of entities mentioned in text. More precise, it is the task of linking entity mentions to entries in a knowledge base (e.g., DBpedia, Wikipedia)
+
+Entity linking requires a knowledge base containing the entities to which entity mentions can be linked. A popular choice for entity linking on open domain text are knowledge-bases based on Wikipedia, in which each page is regarded as a named entity. NED using Wikipedia entities has been also called wikification (see Wikify! an early entity linking system] ). A knowledge base may also be induced automatically from training text or manually built.
+
+NED is different from named entity recognition (NER) in that NER identifies the occurrence or mention of a named entity in text but it does not identify which specific entity it is
+
+Examples
+Example 1:
+
+For example, given the sentence “Paris is the capital of France”, the idea is to determine that “Paris” refers to the city of Paris and not to Paris Hilton or any other entity that could be referred as “Paris”.
+
+
+
+Example 2:
+
+Give the sentence “In Second Debate, Donald Trump and HIllary Clinton Spar in Bitter, Personal Terms”, the idea is to determine that “Donald Trump” refer to an American politician, and “Hillary Clinton” refer to 67th United States Secretary of State from 2009 to 2013.
+
+
+
+Architecture
+
+
+Mention detection: Identification of text snippets that can potentially be linked to entities
+Candidate selection: Generating a set of candidate entities for each mention
+Disambiguation: Selecting a single entity (or none) for each mention, based on the context
+Mention detection
+
+
+Goal: Detect all “linkable” phrases
+
+Challenges:
+
+Recall oriented: Do not miss any entity that should be link
+Find entity name variants (e.g. “jlo” is name variant of [Jennifer Lopez])
+Filter out inappropriate ones (e.g. “new york” matches >2k different entities)
+COMMON APPROACH
+Build a dictionary of entity surface forms
+entities with all names variants
+Check all document n-grams against the dictionary
+the value of n is set typically between 6 and 8
+Filter out undesired entities
+Can be done here or later in the pipeline
+Examples
+
+
+
+Candidate Selection
+
+
+Goal: Narrow down the space of disambiguation possibilities
+
+Balances between precision and recall (effectiveness vs. efficiency)
+
+Often approached as ranking problem: keeping only candidates above a score/rank threshold for downstream processing.
+
+COMMONNESS
+Perform the ranking of candidate entities based on their overall popularity, i.e., “most command sense”
+
+
+
+Examples
+
+
+
+Commonness can be pre-computed and stored in the entity surface form dictionary. Follows a power law with a long tail of extremely unlikely senses; entities at the tail end of distribution can be safely discarded (e.g., 0.001 is sensible threshold)
+
+
+
+Disambiguation
+
+
+Baseline approach: most common sense
+
+Consider additional types of evidence: prior importance of entities and mentions, contextual similarity between the text surrounding the mention and the candidate entity, coherence among all entity linking decisions in the document.
+
+Combine these signals: using supervised learning or graph-based approaches
+
+Optionally perform pruning: reject low confidence or semantically meaning less annotations.
+
+References
+“Entity Linking”. wikipedia
+“Entity Linking”. Krisztian Balog, University of Stavanger, 10th Russian Summer School in Information Retrieval. 2016
+“An End-to-End Entity Linking Approach for Tweets”. Ikuya Yamada, Hideaki Takeda, Yoshiyasu Takefuji. 2015

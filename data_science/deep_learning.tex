@@ -1,5 +1,99 @@
 \chapter{Học sâu}
 
+View online \href{http://magizbox.com/training/deep_learning/site/}{http://magizbox.com/training/deep_learning/site/}
+
+Deep Learning is a new area of Machine Learning research, which has been introduced with the objective of moving Machine Learning closer to one of its original goals: Artificial Intelligence.
+
+\section{Get Started}
+
+Tensorflow
+Install tensorflow in Windows
+Anaconda
+Anaconda is the leading open data science platform powered by Python. The open source version of Anaconda is a high performance distribution of Python and R and includes over 100 of the most popular Python, R and Scala packages for data science.
+
+Step 1: Download the Anaconda installer
+
+Step 2: Double click the Anaconda installer and follow the prompts to install to the default location.
+
+After a successful installation you will see output like this:
+
+
+
+CUDA Toolkit 8.0
+The NVIDIA CUDA Toolkit provides a comprehensive development environment for C and C++ developers building GPU-accelerated applications. The CUDA Toolkit includes a compiler for NVIDIA GPUs, math libraries, and tools for debugging and optimizing the performance of your applications. You’ll also find programming guides, user manuals, API reference, and other documentation to help you get started quickly accelerating your application with GPUs.
+
+Step 1: Verify the system has a CUDA-capable GPU.
+
+Step 2: Download the NVIDIA CUDA Toolkit.
+
+Step 3: Install the NVIDIA CUDA Toolkit.
+
+Step 4: Test that the installed software runs correctly and communicates with the hardware.
+
+
+
+cuDNN
+The NVIDIA CUDA Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks. cuDNN provides highly tuned implementations for standard routines such as forward and backward convolution, pooling, normalization, and activation layers. cuDNN is part of the NVIDIA Deep Learning SDK.
+
+Step 1: Register an NVIDIA developer account
+
+Step 2: Download cuDNN v5.1, you will get file like that cudnn-8.0-windows7-x64-v5.1.zip
+
+
+
+Step 3: Copy CUDNN files to CUDA install
+
+Extract your cudnn-8.0-windows7-x64-v5.1.zip file, and copy files to corresponding CUDA folder
+
+In my environment, CUDA installed in C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0, you must copy append three folders bin, include, lib
+
+
+
+Install Tensorflow Package
+CPU TensorFlow environment
+
+conda create --name tensorflow python=3.5
+activate tensorflow
+conda install -y jupyter scipy
+pip install tensorflow
+GPU TensorFlow environment
+
+conda create --name tensorflow-gpu python=3.5
+activate tensorflow-gpu
+conda install -y jupyter scipy
+pip install tensorflow-gpu
+word2vec Example
+Step 1: Download word2vec example from github
+
+$ dir
+
+02/06/2017 11:45 DIR .
+02/06/2017 11:45 DIR ..
+02/06/2017 10:12 9,144 word2vec_basic.py
+Step 2: Run word2vec_basic example
+
+$ activate tensorflow-gpu
+$ python word2vec_basic.py
+
+Found and verified text8.zip
+Data size 17005207
+Most common words (+UNK) [['UNK', 418391], ('the', 1061396), ('of', 593677), ('and', 416629), ('one', 411764)]
+Sample data [5241, 3082, 12, 6, 195, 2, 3136, 46, 59, 156] ['anarchism', 'originated', 'as', 'a', 'term', 'of', 'abuse',
+'first', 'used', 'against']
+3082 originated -> 5241 anarchism
+3082 originated -> 12 as
+12 as -> 6 a
+12 as -> 3082 originated
+6 a -> 195 term
+6 a -> 12 as
+195 term -> 2 of
+195 term -> 6 a
+Initialized
+Average loss at step 0 : 288.173675537
+Nearest to its: nasl, tinkering, derivational, yachts, emigrated, fatalism, kingston, kochi,
+Nearest to into: streetcars, neglecting, deutschlands, lecture, realignment, bligh, donau, medalists,
+Nearest to state: canterbury, exceptions, disaffection, crete, westernmost, earthly, organize, richland,
+
 \section{Tài liệu Deep Learning}
 
 Lang thang thế nào lại thấy trang này \href{https://www.microsoft.com/en-us/research/wp-content/uploads/2017/02/DL_Reading_List.pdf}{My Reading List for Deep Learning!} của một anh ở Microsoft. Trong đó, (đương nhiên) có Deep Learning của thánh Yoshua Bengio, có một vụ hay nữa là bài review "Deep Learning" của mấy thánh Yann Lecun, Yoshua Bengio, Geoffrey Hinton trên tạp chí Nature. Ngoài ra còn có nhiều tài liệu hữu ích khác.
@@ -64,6 +158,78 @@ Toàn bộ tham số của mạng CNN trong bài báo Kim 2014,
 * [Lecture 13: Convolutional Neural Networks (for NLP). CS224n-2017](http://web.stanford.edu/class/cs224n/lectures/cs224n-2017-lecture13-CNNs.pdf)
 * [DeepNLP-models-Pytorch - 8. Convolutional Neural Networks](https://nbviewer.jupyter.org/github/DSKSD/DeepNLP-models-Pytorch/blob/master/notebooks/08.CNN-for-Text-Classification.ipynb)
 * [A Sensitivity Analysis of (and Practitioners’ Guide to) Convolutional Neural Networks for Sentence Classification. Zhang 2015](https://arxiv.org/pdf/1510.03820.pdf)
+
+\section{Recurrent Neural Networks}
+
+What are RNNs?
+The idea behind RNNs is to make use of sequential information. In a traditional neural network we assume that all inputs (and outputs) are independent of each other. But for many tasks that’s a very bad idea. If you want to predict the next word in a sentence you better know which words came before it. RNNs are called recurrent because they perform the same task for every element of a sequence, with the output being depended on the previous computations. Another way to think about RNNs is that they have a “memory” which captures information about what has been calculated so far. In theory RNNs can make use of information in arbitrarily long sequences, but in practice they are limited to looking back only a few steps (more on this later). Here is what a typical RNN looks like:
+
+
+
+A recurrent neural network and the unfolding in time of the computation involved in its forward computation
+
+A recurrent neural network and the unfolding in time of the computation involved in its forward computation. Source: Nature The above diagram shows a RNN being unrolled (or unfolded) into a full network. By unrolling we simply mean that we write out the network for the complete sequence. For example, if the sequence we care about is a sentence of 5 words, the network would be unrolled into a 5-layer neural network, one layer for each word. The formulas that govern the computation happening in a RNN are as follows:
+
+xtxt is the input at time step tt. For example, x1x1 could be a one-hot vector corresponding to the second word of a sentence.
+stst is the hidden state at time step tt. It’s the “memory” of the network. stst is calculated based on the previous hidden state and the input at the current step: st=f(Uxt+Wst−1)st=f(Uxt+Wst−1). The function ff usually is a nonlinearity such as tanh or ReLU. s−1s−1, which is required to calculate the first hidden state, is typically initialized to all zeroes.
+otot is the output at step tt. For example, if we wanted to predict the next word in a sentence it would be a vector of probabilities across our vocabulary. ot=softmax(Vst)ot=softmax(Vst).
+There are a few things to note here:
+
+You can think of the hidden state stst as the memory of the network. stst captures information about what happened in all the previous time steps. The output at step otot is calculated solely based on the memory at time tt. As briefly mentioned above, it’s a bit more complicated in practice because stst typically can’t capture information from too many time steps ago.
+Unlike a traditional deep neural network, which uses different parameters at each layer, a RNN shares the same parameters (UU, VV, WW above) across all steps. This reflects the fact that we are performing the same task at each step, just with different inputs. This greatly reduces the total number of parameters we need to learn.
+The above diagram has outputs at each time step, but depending on the task this may not be necessary. For example, when predicting the sentiment of a sentence we may only care about the final output, not the sentiment after each word. Similarly, we may not need inputs at each time step. The main feature of an RNN is its hidden state, which captures some information about a sequence.
+What can RNNs do?
+RNNs have shown great success in many NLP tasks. At this point I should mention that the most commonly used type of RNNs are LSTMs, which are much better at capturing long-term dependencies than vanilla RNNs are. But don’t worry, LSTMs are essentially the same thing as the RNN we will develop in this tutorial, they just have a different way of computing the hidden state. We’ll cover LSTMs in more detail in a later post. Here are some example applications of RNNs in NLP (by non means an exhaustive list).
+
+Language Modeling and Generating Text
+Given a sequence of words we want to predict the probability of each word given the previous words. Language Models allow us to measure how likely a sentence is, which is an important input for Machine Translation (since high-probability sentences are typically correct). A side-effect of being able to predict the next word is that we get a generative model, which allows us to generate new text by sampling from the output probabilities. And depending on what our training data is we can generate all kinds of stuff. In Language Modeling our input is typically a sequence of words (encoded as one-hot vectors for example), and our output is the sequence of predicted words. When training the network we set ot=xt+1ot=xt+1 since we want the output at step tt to be the actual next word.
+
+Research papers about Language Modeling and Generating Text:
+
+Recurrent neural network based language model
+Extensions of Recurrent neural network based language model
+Generating Text with Recurrent Neural Networks
+Machine Translation
+Machine Translation is similar to language modeling in that our input is a sequence of words in our source language (e.g. German). We want to output a sequence of words in our target language (e.g. English). A key difference is that our output only starts after we have seen the complete input, because the first word of our translated sentences may require information captured from the complete input sequence.
+
+RNN for Machine Translation
+
+
+
+RNN for Machine Translation. Image Source: http://cs224d.stanford.edu/lectures/CS224d-Lecture8.pdf
+
+Research papers about Machine Translation:
+
+A Recursive Recurrent Neural Network for Statistical Machine Translation
+Sequence to Sequence Learning with Neural Networks
+Joint Language and Translation Modeling with Recurrent Neural Networks
+Speech Recognition
+Given an input sequence of acoustic signals from a sound wave, we can predict a sequence of phonetic segments together with their probabilities.
+
+Research papers about Speech Recognition:
+
+Towards End-to-End Speech Recognition with Recurrent Neural Networks
+Generating Image Descriptions
+Together with convolutional Neural Networks, RNNs have been used as part of a model to generate descriptions for unlabeled images. It’s quite amazing how well this seems to work. The combined model even aligns the generated words with features found in the images.
+
+
+
+Deep Visual-Semantic Alignments for Generating Image Descriptions. Source: http://cs.stanford.edu/people/karpathy/deepimagesent/
+
+Training RNNs
+Training a RNN is similar to training a traditional Neural Network. We also use the backpropagation algorithm, but with a little twist. Because the parameters are shared by all time steps in the network, the gradient at each output depends not only on the calculations of the current time step, but also the previous time steps. For example, in order to calculate the gradient at t=4t=4 we would need to backpropagate 3 steps and sum up the gradients. This is called Backpropagation Through Time (BPTT). If this doesn’t make a whole lot of sense yet, don’t worry, we’ll have a whole post on the gory details. For now, just be aware of the fact that vanilla RNNs trained with BPTT have difficulties learning long-term dependencies (e.g. dependencies between steps that are far apart) due to what is called the vanishing/exploding gradient problem. There exists some machinery to deal with these problems, and certain types of RNNs (like LSTMs) were specifically designed to get around them.
+
+RNN Extensions
+Over the years researchers have developed more sophisticated types of RNNs to deal with some of the shortcomings of the vanilla RNN model. We will cover them in more detail in a later post, but I want this section to serve as a brief overview so that you are familiar with the taxonomy of models.
+
+Bidirectional RNNs are based on the idea that the output at time t may not only depend on the previous elements in the sequence, but also future elements. For example, to predict a missing word in a sequence you want to look at both the left and the right context. Bidirectional RNNs are quite simple. They are just two RNNs stacked on top of each other. The output is then computed based on the hidden state of both RNNs.
+
+Deep (Bidirectional) RNNs are similar to Bidirectional RNNs, only that we now have multiple layers per time step. In practice this gives us a higher learning capacity (but we also need a lot of training data).
+
+Deep Bidirectional RNN LSTM networks are quite popular these days and we briefly talked about them above. LSTMs don’t have a fundamentally different architecture from RNNs, but they use a different function to compute the hidden state. The memory in LSTMs are called cells and you can think of them as black boxes that take as input the previous state ht−1ht−1 and current input xtxt. Internally these cells decide what to keep in (and what to erase from) memory. They then combine the previous state, the current memory, and the input. It turns out that these types of units are very efficient at capturing long-term dependencies. LSTMs can be quite confusing in the beginning but if you’re interested in learning more this post has an excellent explanation.
+
+Conclusion
+So far so good. I hope you’ve gotten a basic understanding of what RNNs are and what they can do. In the next post we’ll implement a first version of our language model RNN using Python and Theano. Please leave questions in the comments!
 
 **BTS**
 
