@@ -180,21 +180,39 @@
 \contentsline {section}{\numberline {23.3}SPARQL}{197}{section.23.3}
 \contentsline {part}{IV\hspace {1em}Khoa h\IeC {\d o}c d\IeC {\~\uhorn } li\IeC {\d \ecircumflex }u}{199}{part.4}
 \contentsline {chapter}{\numberline {24}H\IeC {\d o}c m\IeC {\'a}y}{200}{chapter.24}
-\contentsline {chapter}{\numberline {25}H\IeC {\d o}c s\IeC {\^a}u}{203}{chapter.25}
-\contentsline {section}{\numberline {25.1}T\IeC {\`a}i li\IeC {\d \ecircumflex }u Deep Learning}{203}{section.25.1}
-\contentsline {section}{\numberline {25.2}C\IeC {\'a}c layer trong deep learning}{203}{section.25.2}
-\contentsline {subsection}{\numberline {25.2.1}Sparse Layers}{203}{subsection.25.2.1}
-\contentsline {subsection}{\numberline {25.2.2}Convolution Layers}{203}{subsection.25.2.2}
-\contentsline {chapter}{\numberline {26}X\IeC {\h \uhorn } l\IeC {\'y} ng\IeC {\^o}n ng\IeC {\~\uhorn } t\IeC {\d \uhorn } nhi\IeC {\^e}n}{205}{chapter.26}
-\contentsline {chapter}{\numberline {27}Nh\IeC {\d \acircumflex }n d\IeC {\d a}ng ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{206}{chapter.27}
-\contentsline {chapter}{\numberline {28}Ph\IeC {\^a}n lo\IeC {\d a}i v\IeC {\u a}n b\IeC {\h a}n}{210}{chapter.28}
-\contentsline {chapter}{\numberline {29}Pytorch}{211}{chapter.29}
-\contentsline {part}{V\hspace {1em}Linh tinh}{213}{part.5}
-\contentsline {chapter}{\numberline {30}Nghi\IeC {\^e}n c\IeC {\'\uhorn }u}{214}{chapter.30}
-\contentsline {chapter}{\numberline {31}Ngh\IeC {\`\ecircumflex } l\IeC {\d \acircumflex }p tr\IeC {\`\i }nh}{216}{chapter.31}
-\contentsline {chapter}{\numberline {32}Latex}{217}{chapter.32}
-\contentsline {chapter}{\numberline {33}Ch\IeC {\`a}o h\IeC {\`a}ng}{219}{chapter.33}
-\contentsline {chapter}{\numberline {34}Ph\IeC {\'a}t tri\IeC {\h \ecircumflex }n ph\IeC {\`\acircumflex }n m\IeC {\`\ecircumflex }m}{220}{chapter.34}
-\contentsline {chapter}{\numberline {35}Ph\IeC {\uhorn }\IeC {\ohorn }ng ph\IeC {\'a}p l\IeC {\`a}m vi\IeC {\d \ecircumflex }c}{221}{chapter.35}
-\contentsline {part}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u}{223}{chapter*.5}
-\contentsline {part}{Ch\IeC {\h i} m\IeC {\d u}c}{224}{chapter*.6}
+\contentsline {chapter}{\numberline {25}H\IeC {\d o}c s\IeC {\^a}u}{204}{chapter.25}
+\contentsline {section}{\numberline {25.1}T\IeC {\`a}i li\IeC {\d \ecircumflex }u Deep Learning}{204}{section.25.1}
+\contentsline {section}{\numberline {25.2}C\IeC {\'a}c layer trong deep learning}{204}{section.25.2}
+\contentsline {subsection}{\numberline {25.2.1}Sparse Layers}{204}{subsection.25.2.1}
+\contentsline {subsection}{\numberline {25.2.2}Convolution Layers}{204}{subsection.25.2.2}
+\contentsline {chapter}{\numberline {26}X\IeC {\h \uhorn } l\IeC {\'y} ng\IeC {\^o}n ng\IeC {\~\uhorn } t\IeC {\d \uhorn } nhi\IeC {\^e}n}{206}{chapter.26}
+\contentsline {chapter}{\numberline {27}Nh\IeC {\d \acircumflex }n d\IeC {\d a}ng ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{207}{chapter.27}
+\contentsline {chapter}{\numberline {28}Ph\IeC {\^a}n lo\IeC {\d a}i v\IeC {\u a}n b\IeC {\h a}n}{211}{chapter.28}
+\contentsline {chapter}{\numberline {29}Pytorch}{212}{chapter.29}
+\contentsline {chapter}{\numberline {30}Big Data}{214}{chapter.30}
+\contentsline {section}{\numberline {30.1}Distribution Storage}{214}{section.30.1}
+\contentsline {subsection}{\numberline {30.1.1}HDFS}{214}{subsection.30.1.1}
+\contentsline {subsection}{\numberline {30.1.2}HBase}{214}{subsection.30.1.2}
+\contentsline {section}{\numberline {30.2}Distribution Computing}{216}{section.30.2}
+\contentsline {subsection}{\numberline {30.2.1}Apache Spark}{216}{subsection.30.2.1}
+\contentsline {section}{\numberline {30.3}Components}{216}{section.30.3}
+\contentsline {subsection}{\numberline {30.3.1}Ambari}{216}{subsection.30.3.1}
+\contentsline {subsection}{\numberline {30.3.2}Kibana}{217}{subsection.30.3.2}
+\contentsline {subsection}{\numberline {30.3.3}Logstash}{217}{subsection.30.3.3}
+\contentsline {subsection}{\numberline {30.3.4}Elasticsearch}{217}{subsection.30.3.4}
+\contentsline {subsection}{\numberline {30.3.5}Neo4J}{220}{subsection.30.3.5}
+\contentsline {section}{\numberline {30.4}Web Crawling}{221}{section.30.4}
+\contentsline {subsection}{\numberline {30.4.1}Introduction}{221}{subsection.30.4.1}
+\contentsline {subsection}{\numberline {30.4.2}Scrapy}{223}{subsection.30.4.2}
+\contentsline {subsection}{\numberline {30.4.3}Apache Nutch}{223}{subsection.30.4.3}
+\contentsline {subsubsection}{Architecture}{227}{section*.5}
+\contentsline {subsubsection}{Config}{228}{section*.6}
+\contentsline {part}{V\hspace {1em}Linh tinh}{233}{part.5}
+\contentsline {chapter}{\numberline {31}Nghi\IeC {\^e}n c\IeC {\'\uhorn }u}{234}{chapter.31}
+\contentsline {chapter}{\numberline {32}Ngh\IeC {\`\ecircumflex } l\IeC {\d \acircumflex }p tr\IeC {\`\i }nh}{236}{chapter.32}
+\contentsline {chapter}{\numberline {33}Latex}{237}{chapter.33}
+\contentsline {chapter}{\numberline {34}Ch\IeC {\`a}o h\IeC {\`a}ng}{239}{chapter.34}
+\contentsline {chapter}{\numberline {35}Ph\IeC {\'a}t tri\IeC {\h \ecircumflex }n ph\IeC {\`\acircumflex }n m\IeC {\`\ecircumflex }m}{240}{chapter.35}
+\contentsline {chapter}{\numberline {36}Ph\IeC {\uhorn }\IeC {\ohorn }ng ph\IeC {\'a}p l\IeC {\`a}m vi\IeC {\d \ecircumflex }c}{241}{chapter.36}
+\contentsline {part}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u}{243}{chapter*.7}
+\contentsline {part}{Ch\IeC {\h i} m\IeC {\d u}c}{244}{chapter*.8}

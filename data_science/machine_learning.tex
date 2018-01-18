@@ -6,6 +6,13 @@
 \end{itemize}
 
 
+Machine Learning
+Machine learning is a branch of science that deals with programming the systems in such a way that they automatically learn and improve with experience. Here, learning means recognizing and understanding the input data and making wise decisions based on the supplied data.
+
+We can think of machine learning as approach to automate tasks like predictions or modelling. For example, consider an email spam filter system, instead of having programmers manually looking at the emails and coming up with spam rules. We can use a machine learning algorithm and feed it input data (emails) and it will automatically discover rules that are powerful enough to distinguish spam emails.
+
+Machine learning is used in many application nowadays like spam detection in emails or movie recommendation systems that tells you movies that you might like based on your viewing history. The nice and powerful thing about machine learning is: It learns when it gets more data and hence it gets more and more powerful the more data we give them.
+
 **Có bao nhiêu thuật toán Machine Learning?**
 
 Có rất nhiều thuật toán Machine Learning, bài viết [Điểm qua các thuật toán Machine Learning hiện đại](https://ongxuanhong.wordpress.com/2015/10/22/diem-qua-cac-thuat-toan-machine-learning-hien-dai/) của Ông Xuân Hồng tổng hợp khá nhiều thuật toán. Theo đó, các thuật toán Machine Learning được chia thành các nhánh lớn như `regression`, `bayesian`, `regularization`, `decision tree`, `instance based`, `dimesionality reduction`, `clustering`, `deep learning`, `neural networks`, `associated rule`, `ensemble`... Ngoài ra thì còn có các cheatsheet của [sklearn](http://scikit-learn.org/stable/tutorial/machine_learning_map/index.html).
@@ -129,3 +136,57 @@ Toàn bộ tham số của mạng CNN trong bài báo Kim 2014,
 
 [^1]: [Understanding Convolutional Neural Networks for NLP](http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp)
 [^2]: [http://pytorch.org/docs/master/nn.html](http://pytorch.org/docs/master/nn.html)
+
+\section{Machine Learning Process}
+
+The good life is a process, not a state of being. It is a direction not a destination.
+
+Carl Rogers
+
+
+
+I searched a framework fit for every data mining task, I found a good one from an article of Oracle.
+
+And here is my summary. The data mining process has 4 steps:
+
+Step 1. Problem Definition
+
+This initial phase of a data mining project focuses on understanding the project objectives and requirements. Once you have specified the project from a business perspective, you can formulate it as a data mining problem and develop a preliminary implementation plan.
+
+Step 2. Data Gathering & Preparation
+
+The data understanding phase involves data collection and exploration. As you take a closer look at the data, you can determine how well it addresses the business problem. You might decide to remove some of the data or add additional data. This is also the time to identify data quality problems and to scan for patterns in the data.
+
+ Data Access
+ Data Sampling
+
+ Data Transformation
+
+Data in the real world is dirty [3]. They are often incomplete (lacking attribute values, lacking certain attributes of interest, or containing only aggregate data), noisy (containing errors or outliers), inconsistent (containing discrepancies in codes or names). Step 3. Model Building In this phase, you select and apply various modeling techniques and calibrate the parameters to optimal values. If the algorithm requires data transformations, you will need to step back to the previous phase to implement them
+
+ Create Model
+ Test Model
+
+  Evaluate & Interpret Model
+
+Some important questions [2]:
+
+Is at least one of predictors useful in predicting the response? (F-statistics)
+Do all the predictors help to explain Y, or is only a subset of the predictors useful? (all subsets or best subsets)
+How well does the model fit the data?
+Given a set of predictor values, what response value should we predict, and how accurate is our prediction?
+Step 4. Knowledge Deployment Knowledge deployment is the use of data mining within a target environment. In the deployment phase, insight and actionable information can be derived from data.
+Model Apply
+Custom Reports
+External Applications
+References
+The Data Mining Process, Oracle
+Trevor Hastie and Rob Tibshirani, Model Selection and Qualitative Predictors, URL:https://www.youtube.com/watch?v=3T6RXmIHbJ4
+Nguyen Hung Son, Data cleaning and Data preprocessing, URL:http://www.mimuw.edu.pl/~son/datamining/DM/4-preprocess.pdf
+
+\subsection{Problem Definition}
+
+This initial phase of a data mining project focuses on understanding the project objectives and requirements. Once you have specified the project from a business perspective, you can formulate it as a data mining problem and develop a preliminary implementation plan.
+
+For example, your business problem might be: "How can I sell more of my product to customers?" You might translate this into a data mining problem such as: "Which customers are most likely to purchase the product?" A model that predicts who is most likely to purchase the product must be built on data that describes the customers who have purchased the product in the past. Before building the model, you must assemble the data that is likely to contain relationships between customers who have purchased the product and customers who have not purchased the product. Customer attributes might include age, number of children, years of residence, owners/renters, and so on.
+

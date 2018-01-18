@@ -1,0 +1,1922 @@
+\chapter{Big Data}
+
+View online \href{http://magizbox.com/training/bigdata/site/}{http://magizbox.com/training/bigdata/site/}
+
+Big Data Q&A
+1. What is "Big Data"? 1
+https://www.youtube.com/watch?v=TzxmjbL-i4Y
+
+2. How big is big data? 2
+
+
+3. How much data is "Big Data"? 3
+
+
+4. What are characteristics of "Big Data"? 4
+
+
+5. What is big data ecosystem? 5
+
+
+6. What is big data landscape 6
+
+
+7. What are benefits of big data? 7
+
+
+https://www.youtube.com/watch?v=TzxmjbL-i4Y ↩ ↩
+
+http://scoop.intel.com/what-happens-in-an-internet-minute/ ↩ ↩
+
+http://www.quora.com/How-much-data-is-Big-Data ↩ ↩
+
+https://en.wikipedia.org/wiki/Big_data#Characteristics ↩ ↩
+
+http://www.clearpeaks.com/blog/big-data/big-data-ecosystem-spark-and-tableau ↩ ↩
+
+https://vladimerbotsvadze.wordpress.com/2015/01/28/the-big-data-landscape-technology-businessintelligence-analytics/ ↩ ↩
+
+http://blog.galaxyweblinks.com/big-data-with-bigger-benefits/ ↩ ↩
+
+\section{Distribution Storage}
+
+\subsection{HDFS}
+
+The Hadoop Distributed File System (HDFS) — a subproject of the Apache Hadoop project—is a distributed, highly fault-tolerant file system designed to run on low-cost commodity hardware. HDFS provides high-throughput access to application data and is suitable for applications with large data sets. This article explores the primary features of HDFS and provides a high-level view of the HDFS architecture.
+: sequenceiq/hadoop-docker
+
+Big Data Stack: HDFS, Kibana, ElasticSearch, Neo4J, Apache Spark
+
+\subsection{HBase}
+
+Apache HBase™ is the Hadoop database, a distributed, scalable, big data store. Download Apache HBase™ Click here to download Apache HBase™.
+
+
+1. When Would I Use Apache HBase? 1
+HBase isn’t suitable for every problem.
+
+First, make sure you have enough data. If you have hundreds of millions or billions of rows, then HBase is a good candidate. If you only have a few thousand/million rows, then using a traditional RDBMS might be a better choice due to the fact that all of your data might wind up on a single node (or two) and the rest of the cluster may be sitting idle.
+
+Second, make sure you can live without all the extra features that an RDBMS provides (e.g., typed columns, secondary indexes, transactions, advanced query languages, etc.) An application built against an RDBMS cannot be "ported" to HBase by simply changing a JDBC driver, for example. Consider moving from an RDBMS to HBase as a complete redesign as opposed to a port.
+
+Third, make sure you have enough hardware. Even HDFS doesn’t do well with anything less than 5 DataNodes (due to things such as HDFS block replication which has a default of 3), plus a NameNode.
+
+HBase can run quite well stand-alone on a laptop - but this should be considered a development configuration only.
+
+2. Features 2
+Linear and modular scalability.
+Strictly consistent reads and writes.
+Automatic and configurable sharding of tables
+Automatic failover support between RegionServers.
+Convenient base classes for backing Hadoop MapReduce jobs with Apache HBase tables.
+Easy to use Java API for client access.
+Block cache and Bloom Filters for real-time queries.
+Query predicate push down via server side Filters
+Thrift gateway and a REST-ful Web service that supports XML, Protobuf, and binary data encoding options
+Extensible jruby-based (JIRB) shell
+Support for exporting metrics via the Hadoop metrics subsystem to files or Ganglia; or via JMX
+3. Architecture
+
+
+HBase Shell
+[code lang="shell"]
+
+list all table
+list [/code]
+
+Up & Running
+1. Download
+HBase 0.94.27 (HBase 0.98 won't work)
+
+[code lang="shell"] wget https://www.apache.org/dist/hbase/hbase-0.94.27/hbase-0.94.27.tar.gz tar -xzf hbase-0.94.27.tar.gz [/code]
+
+2. Setup
+1. edit $HBASE_ROOT/conf/hbase-site.xml and add
+
+[code lang="xml"] hbase.rootdir file:///full/path/to/where/the/data/should/be/stored hbase.cluster.distributed false [/code]
+
+3. Verify
+Go to http://localhost:60010 to see if HBase is running.
+
+When Should I Use HBase? ↩
+HBase ↩
+Config HBase Remote
+1. Change /etc/hosts
+[code] 127.0.0.1 [username] [server_ip] hbase.io [/code]
+
+Example
+
+[code] 127.0.0.1 crawler 192.168.0.151 hbase.io [/code]
+
+2. Change hostname
+[code] hostname hbase.io [/code]
+
+3. Change region servers
+Edit $HBASE_ROOT/conf/regionservers
+
+[code] hbase.io [/code]
+
+4. Change $HABSE_ROOT/conf/hbase-site.xml
+[code lang="xml" title="hbase-site.xml"] <?xml-stylesheet type="text/xsl" href="configuration.xsl"?> hbase.rootdir file:///home/username/Downloads/hbase/data hbase.cluster.distributed false hbase.zookeeper.quorum hbase.io zookeeper.znode.parent /hbase-unsecure hbase.rpc.timeout 2592000000 [/code]
+
+Docker
+HBase 0.94
+
+Image: https://github.com/Banno/docker-hbase-standalone
+
+[code] docker run -d -p 2181:2181 -p 60000:60000 -p 60010:60010 -p 60020:60020 -p 60030:60030 banno/hbase-standalone [/code]
+
+Compose
+
+[code] hbase.vmware: build: ./docker-hbase-standalone/. command: "/opt/hbase/hbase-0.94.15-cdh4.7.0/bin/hbase master start" hostname: hbase.vmware ports: - 2181:2181 - 60000:60000 - 60010:60010 - 60020:60020 - 60030:60030 volumes: - ./docker-hbase-standalone/hbase-0.94.15-cdh4.7.0:/opt/hbase/hbase-0.94.15-cdh4.7.0 - ./data/hbase:/tmp/hbase-root/hbase /code]
+
+\section{Distribution Computing}
+
+\subsection{Apache Spark}
+
+
+
+
+Apache Spark is an open-source cluster computing framework originally developed in the AMPLab at UC Berkeley. In contrast to Hadoop's two-stage disk-based MapReduce paradigm, Spark's in-memory primitives provide performance up to 100 times faster for certain applications. By allowing user programs to load data into a cluster's memory and query it repeatedly, Spark is well-suited to machine learning algorithms.
+Installation
+Requirements: Hadoop, YARN
+
+Install Hadoop
+
+Insatll YARN
+
+Install Java
+
+Verification
+Tutorial
+From Pandas to Apache Spark’s DataFrame
+
+Big Data Stack: HDFS, Kibana, ElasticSearch, Neo4J, Apache Spark
+
+Apache Spark: Tutorials
+Beginners Guide: Apache Spark Machine Learning with Large Data
+
+
+Spark and Spark Streaming Unit Testing Recipes for Running Spark Streaming Applications in Production- Databricks
+
+Spark Streaming
+
+
+Spark and Spark Streaming Unit Testing Recipes for Running Spark Streaming Applications in Production- Databricks
+
+\section{Components}
+
+\subsection{Ambari}
+
+The Apache Ambari project is aimed at making Hadoop management simpler by developing software for provisioning, managing, and monitoring Apache Hadoop clusters. Ambari provides an intuitive, easy-to-use Hadoop management web UI backed by its RESTful APIs.
+
+Ambari enables System Administrators to:
+
+Provision a Hadoop Cluster
+
+Ambari provides a step-by-step wizard for installing Hadoop services across any number of hosts.
+Ambari handles configuration of Hadoop services for the cluster.
+Manage a Hadoop Cluster
+
+Ambari provides central management for starting, stopping, and reconfiguring Hadoop services across the entire cluster.
+Monitor a Hadoop Cluster
+
+Ambari provides a dashboard for monitoring health and status of the Hadoop cluster.
+Ambari leverages Ambari Metrics System for metrics collection.
+Ambari leverages Ambari Alert Framework for system alerting and will notify you when your attention is needed (e.g., a node goes down, remaining disk space is low, etc).
+Ambari enables Application Developers and System Integrators to:
+
+Easily integrate Hadoop provisioning, management, and monitoring capabilities to their own applications with the Ambari REST APIs.
+Docker
+
+
+Receipts:
+
+Image: sequenceiq/ambari (git)
+Multinode cluster with Ambari 1.7.0 1
+Get the docker images
+
+[code] docker pull sequenceiq/ambari:1.7.0 [/code]
+
+Get ambari-functions [code] curl -Lo .amb j.mp/docker-ambari-170 && . .amb [/code]
+
+Create your cluster – automated
+
+[code] amb-deploy-cluster 3 [/code]
+
+Multinode cluster with Ambari 1.7.0 ↩
+
+\subsection{Kibana}
+
+Kibana is an open source data visualization plugin for Elasticsearch. It provides visualization capabilities on top of the content indexed on an Elasticsearch cluster. Users can create bar, line and scatter plots, or pie charts and maps on top of large volumes of data.
+
+\subsection{Logstash}
+
+https://www.digitalocean.com/community/tutorials/how-to-use-logstash-and-kibana-to-centralize-logs-on-centos-6
+
+\subsection{Elasticsearch}
+
+
+Elasticsearch is a search server based on Lucene. It provides a distributed, multitenant-capable full-text search engine with a RESTful web interface and schema-free JSON documents. Elasticsearch is developed in Java and is released as open source under the terms of the Apache License. Elasticsearch is the second most popular enterprise search engine
+1. Basic Concenpts
+Relational Database	Elasticsearch
+Database	Index
+Table	Type
+Row	Document
+Column	Field
+Schema	Mapping
+2. Index & Query
+Get all indices
+/_stats
+Search API 1
+Search All
+/bank/_search?q=*
+hits.hits – actual array of search results (defaults to first 10 documents)
+
+Query Language
+elasticsearch provides a full Query DSL based on JSON to define queries.
+
+curl -XPOST /bank/_search
+// match all, limit 10 offset 10
+{
+  "query": { "match_all": {} },
+  "from": 10,
+  "size": 10
+}
+
+// select fields
+{
+  "query": { "match_all": {} },
+  _source: ["account_number", "balance"]
+  "size": 10
+}
+
+// where account equals 20
+{
+  "query": { "match": { "account_number": 20 } }
+}
+Filter
+
+curl -XPOST elastic:9200/index/type/_search -d '
+{
+  "query" : {
+    "filtered" :
+    {
+      "query" : { "term" : { "feature" : 1 } } ,
+      "filter" : {
+        "and" : [
+          {
+            "range": {
+              "_timestamp": {
+                "from": 1441964671000,
+                "to": 1441964672000
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+Sort
+
+curl -XPOST elastic:9200/index/type/_search -d '
+{
+  "query" : {
+    "filtered" :
+    {
+      "query" : { "term" : { "feature" : 1 } } ,
+      "filter" : {
+        "and" : [
+          {
+            "range": {
+              "_timestamp": {
+                "from": 1441964671000,
+                "to": 1441964672000
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+3. Mapping
+Timestamp 2
+Enable and store timestamp
+
+curl -XPOST localhost:9200/test
+{
+"mappings" : {
+    "_default_":{
+        "_timestamp" : {
+            "enabled" : true,
+            "store" : true
+        }
+    }
+  }
+}'
+Relationships Management 3 4
+Inner Object
+
+👍 Easy, fast, performant
+👎 No need for special queries
+☛ Only applicable when one-to-one relationships are maintained
+Nested
+
+👍 Nested docs are stored in the same Lucene block as each other, which helps read/query performance. Reading a nested doc is faster than the equivalent parent/child.
+👎 Updating a single field in a nested document (parent or nested children) forces ES to reindex the entire nested document. This can be very expensive for large nested docs
+👎 “Cross referencing” nested documents is impossible
+☛ Best suited for data that does not change frequently
+Parent/Child
+
+👍 Updating a child doc does not affect the parent or any other children, which can potentially save a lot of indexing on large docs
+👎 Children are stored separately from the parent, but are routed to the same shard. So parent/children are slightly less performance on read/query than nested
+👎 Parent/child mappings have a bit extra memory overhead, since ES maintains a “join” list in memory
+👎 Sorting/scoring can be difficult with Parent/Child since the Has Child/Has Parent operations can be opaque at times
+Denormalization
+
+👍 You get to manage all the relations yourself!
+👎 Most flexible, most administrative overhead
+☛ May be more or less performant depending on your setup
+4. Backup
+Elastic Dump 5
+Tools for moving and saving indicies.
+
+bin/elasticdump
+  --input=http://localhost:9200/index_1
+  --output=http://localhost:9200/index_1_backup
+  --type=data
+  --scrollTime=100
+Alias 6
+curl -XPOST 'http://localhost:9200/_aliases' -d '
+{
+    &quot;actions&quot; : [
+        { &quot;remove&quot; : { &quot;index&quot; : &quot;test1&quot;, &quot;alias&quot; : &quot;alias1&quot; } },
+        { &quot;add&quot; : { &quot;index&quot; : &quot;test1&quot;, &quot;alias&quot; : &quot;alias2&quot; } }
+    ]
+}'
+5. Module Scripting 7
+Ranking
+Rank #2 from DB-Engines Ranking of Search Engines
+
+The Search API ↩
+http://stackoverflow.com/a/17146144/772391 ↩
+http://stackoverflow.com/a/23407367/772391 ↩
+https://www.elastic.co/guide/en/elasticsearch/guide/current/modeling-your-data.html ↩
+https://github.com/taskrabbit/elasticsearch-dump ↩
+https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-aliases.html ↩
+https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-scripting.html ↩
+Elasticsearch tutorial series 1: Metric Aggregations with Social Network Data
+Table of content
+
+Avg, Max, Min, Sum Aggregation
+Cardinality Aggregation
+Stats Aggregation
+Extended Stats Aggregation
+Percentile Aggregation
+Percentile Ranks Aggregation
+Top hits Aggregation
+Avg, Max, Min, Sum, Count Aggregation
+Doc: Avg Aggregation, Doc: Max Aggregation, Doc: Min Aggregation
+
+Get max, min, avg, sum, count about number of likes, shares, comments
+
+Request
+
+POST /facebook_crawler/post/_search
+{"aggs":{"sum_like":{"sum":{"field":"num_like"}},"min_like":{"min":{"field":"num_like"}},"avg_like":{"avg":{"field":"num_like"}},"max_like":{"max":{"field":"num_like"}},"sum_share":{"sum":{"field":"num_share"}},"min_share":{"min":{"field":"num_share"}},"avg_share":{"avg":{"field":"num_share"}},"max_share":{"max":{"field":"num_share"}},"sum_comment":{"sum":{"field":"num_comment"}},"min_comment":{"min":{"field":"num_comment"}},"avg_comment":{"avg":{"field":"num_comment"}},"max_comment":{"max":{"field":"num_comment"}}}}
+Request
+
+{
+"aggregations": {
+      "avg_comment": {
+         "value": 75.23860589812332
+      },
+      "min_like": {
+         "value": 0
+      },
+      "avg_like": {
+         "value": 1761974365266098.2
+      },
+      "sum_like": {
+         "value": 3238508883359088600
+      },
+      "max_share": {
+         "value": 30407
+      },
+      "max_comment": {
+         "value": 11000
+      },
+      "sum_share": {
+         "value": 117844
+      },
+      "max_like": {
+         "value": 2751488761761411000
+      },
+      "avg_share": {
+         "value": 250.19957537154988
+      },
+      "sum_comment": {
+         "value": 28064
+      },
+      "min_comment": {
+         "value": 2
+      },
+      "min_share": {
+         "value": 1
+      }
+   }
+}
+Cardinality Aggregation
+Cardinality Aggregation
+
+Get total of users
+
+Request
+
+POST /facebook_crawler/post/_search
+{
+    "aggs" : {
+        "num_authors" : { "cardinality" : { "field" : "from.fb_id" } }
+    }
+}
+Response
+
+{
+   "aggregations": {
+      "num_authors": {
+         "value": 7385
+      }
+   }
+}
+Stats Aggregation
+Doc: Stats Aggregation
+
+Basic Stats of like, share & comment
+
+Request
+
+POST /facebook_crawler/post/_search
+{
+    "aggs" : {
+        "shares" : { "stats" : { "field" : "num_share" } },
+        "likes" : { "stats" : { "field" : "num_like" } },
+        "comments" : { "stats" : { "field" : "num_comment" } }
+    }
+}
+Response
+
+{
+   "aggregations": {
+      "shares": {
+         "count": 471,
+         "min": 1,
+         "max": 30407,
+         "avg": 250.19957537154988,
+         "sum": 117844
+      },
+      "comments": {
+         "count": 373,
+         "min": 2,
+         "max": 11000,
+         "avg": 75.23860589812332,
+         "sum": 28064
+      },
+      "likes": {
+         "count": 1838,
+         "min": 0,
+         "max": 2751488761761411000,
+         "avg": 1761974365266098.2,
+         "sum": 3238508883359088600
+      }
+   }
+}
+Extended Stats Aggregation
+Extended Stats Aggregation
+
+Stats of like, share & comment with more metrics, such as sum, std_deviation, std_deviation_bounds, variance
+
+Request
+
+POST /facebook_crawler/post/_search
+{
+    "aggs" : {
+        "like_stats" : { "extended_stats" : { "field" : "num_like" } },
+        "share_stats" : { "extended_stats" : { "field" : "num_share" } },
+        "comment_stats" : { "extended_stats" : { "field" : "num_comment" } }
+    }
+}
+Response
+
+{
+   "aggregations": {
+      "like_stats": {
+         "count": 1838,
+         "min": 0,
+         "max": 2751488761761411000,
+         "avg": 1761974365266098.2,
+         "sum": 3238508883359088600,
+         "sum_of_squares": 7.667542671405507e+36,
+         "variance": 4.168572634260795e+33,
+         "std_deviation": 64564484310345070,
+         "std_deviation_bounds": {
+            "upper": 130890942985956240,
+            "lower": -127366994255424050
+         }
+      },
+      "share_stats": {
+         "count": 471,
+         "min": 1,
+         "max": 30407,
+         "avg": 250.19957537154988,
+         "sum": 117844,
+         "sum_of_squares": 1769467022,
+         "variance": 3694230.367812983,
+         "std_deviation": 1922.0380765773043,
+         "std_deviation_bounds": {
+            "upper": 4094.2757285261587,
+            "lower": -3593.8765777830586
+         }
+      },
+      "comment_stats": {
+         "count": 373,
+         "min": 2,
+         "max": 11000,
+         "avg": 75.23860589812332,
+         "sum": 28064,
+         "sum_of_squares": 131531392,
+         "variance": 346970.2299304962,
+         "std_deviation": 589.0417896299856,
+         "std_deviation_bounds": {
+            "upper": 1253.3221851580945,
+            "lower": -1102.844973361848
+         }
+      }
+   }
+}
+Percentiles Aggregation
+Doc: Percentiles Aggregation
+
+Comment, Like, Share Percentiles
+
+Request
+
+POST /facebook_crawler/post/_search
+{"aggs":{"like_percentiles":{"percentiles":{"field":"num_like"}},"share_percentiles":{"percentiles":{"field":"num_share"}},"comment_percentiles":{"percentiles":{"field":"num_comment"}}}}
+Response
+
+{
+"aggregations": {
+      "like_percentiles": {
+         "values": {
+            "1.0": 0,
+            "5.0": 0,
+            "25.0": 4,
+            "50.0": 18.35,
+            "75.0": 72.53579545454545,
+            "95.0": 71343.74999999999,
+            "99.0": 4338260523723.276
+         }
+      },
+      "comment_percentiles": {
+         "values": {
+            "1.0": 2,
+            "5.0": 2,
+            "25.0": 5,
+            "50.0": 10,
+            "75.0": 26,
+            "95.0": 139.39999999999998,
+            "99.0": 1000
+         }
+      },
+      "share_percentiles": {
+         "values": {
+            "1.0": 1,
+            "5.0": 1,
+            "25.0": 1,
+            "50.0": 4,
+            "75.0": 25,
+            "95.0": 251.5,
+            "99.0": 5560.3
+         }
+      }
+   }
+}
+Like Percentiles with custom percents
+
+Request
+
+POST /facebook_crawler/post/_search
+{
+   "aggs": {
+      "share_percentiles": {
+         "percentiles": {
+            "field": "num_share",
+            "percents": [0, 10, 80, 90, 95]
+         }
+      }
+   }
+}
+Response
+
+{
+   "aggregations": {
+      "share_percentiles": {
+         "values": {
+            "0.0": 1,
+            "10.0": 1,
+            "80.0": 37.33333333333333,
+            "90.0": 97,
+            "95.0": 251.5
+         }
+      }
+   }
+}
+Percentile Ranks Aggregation
+Doc: Percentile Ranks Aggregation
+
+How like, share, comment distribute
+
+Request
+
+POST /facebook_crawler/post/_search
+{
+   "aggs": {
+      "like_percentile_ranks": {
+         "percentile_ranks": {
+            "field": "num_like",
+            "values": [10, 100, 1000, 10000, 1000000, 10000000]
+         }
+      },
+      "share_percentile_ranks": {
+         "percentile_ranks": {
+            "field": "num_share",
+            "values": [10, 100, 1000, 10000, 1000000, 10000000]
+         }
+      },
+      "comment_percentile_ranks": {
+         "percentile_ranks": {
+            "field": "num_comment",
+            "values": [10, 100, 1000, 10000, 1000000, 10000000]
+         }
+      }
+   }
+}
+Response
+
+{
+   "aggregations": {
+      "share_percentile_ranks": {
+         "values": {
+            "10.0": 60.438782731776364,
+            "100.0": 89.91507430997878,
+            "1000.0": 97.37406386327386,
+            "10000.0": 99.31579836222765,
+            "1000000.0": 100,
+            "1.0E7": 100
+         }
+      },
+      "like_percentile_ranks": {
+         "values": {
+            "10.0": 39.281828073993466,
+            "100.0": 79.39530545624125,
+            "1000.0": 90.98349676683587,
+            "10000.0": 94.14527905373414,
+            "1000000.0": 95.9014681663581,
+            "1.0E7": 96.57661015941164
+         }
+      },
+      "comment_percentile_ranks": {
+         "values": {
+            "10.0": 49.865951742627345,
+            "100.0": 92.18395545473294,
+            "1000.0": 98.92761394101876,
+            "10000.0": 99.56773202397807,
+            "1000000.0": 100,
+            "1.0E7": 100
+         }
+      }
+   }
+}
+As we can see, only 0.7% posts have more than 10k shares, onley 0.04% posts have more than 10k comment, but there is an odd here. 4.1% posts have more than 1M like (WHAT!!!). We can spot some strange here.
+
+Top hits Aggregation
+Doc: Top hits Aggregation
+
+Example
+
+Request
+
+Response
+
+{
+
+An Aggregation
+Doc: Link
+
+Config
+elasticsearch.yml
+
+discovery.zen.minimum_master_nodes: 1
+discovery.zen.ping.multicast.enabled: false
+discovery.zen.ping.unicast.hosts: ["localhost"]
+
+network.host: 0.0.0.0
+http.cors.enabled: true
+http.cors.allow-origin: '*'
+script.inline: on
+script.indexed: on
+Docker
+Image
+
+https://hub.docker.com/r/_/elasticsearch/
+
+Run
+
+docker run -d -v "$PWD/esdata":/usr/share/elasticsearch/data elasticsearch
+Docker Folder
+
+elasticsearch/
+├── config
+│   └── elasticsearch.yml
+└── Dockerfile
+Dockerfile
+
+FROM elasticsearch:2.2.0
+
+ADD config/elasticsearch.yml /elasticsearch/config/elasticsearch.yml
+Compose
+
+elasticsearch:
+    build: ./elasticsearch/.
+    ports:
+       - 9200:9200
+       - 9300:9300
+    volumes:
+       - ./data/elasticsearch:/usr/share/elasticsearch/data
+Elasticsearch: Search Ignore Accents
+The ICU 1 2 analysis plug-in for Elasticsearch uses the International Components for Unicode (ICU) libraries to provide a rich set of tools for dealing with Unicode. These include the icu_tokenizer, which is particularly useful for Asian languages, and a number of token filters that are essential for correct matching and sorting in all languages other than English.
+
+Step 1: Install ICU-Plugin 3
+cd /usr/share/elasticsearch
+sudo bin/plugin install analysis-icu
+Step 2: Create an analyzer setting:
+"settings": {
+      "analysis": {
+         "analyzer": {
+            "vnanalysis": {
+               "tokenizer": "icu_tokenizer",
+               "filter": [
+                  "icu_folding",
+                  "icu_normalizer"
+               ]
+            }
+         }
+      }
+   }
+Step 3: Create your index, create a field with type string and analyzer is vnanalysis you have created
+"key": {
+     "type": "string",
+     "analyzer": "vnanalysis"
+}
+Step 4: Search with sense
+POST /your_index/your_doc_type/_search
+{
+   "query": {
+      "match": {
+         "key": "kiem tra"
+      }
+   }
+}
+ES: Import CSV to Elasticsearch
+https://gist.github.com/clemsos/8668698
+
+Install lastest Elasticdump with NVM
+As a matter of best practice we’ll update our packages:
+
+apt-get update
+The build-essential package should already be installed, however, we’re going still going to include it in our command for installation:
+
+apt-get install build-essential libssl-dev
+To install or update nvm, you can use the install script using cURL:
+
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+if you have below problem or after you type nvm ls-remote command it result N/A: curl: (77) error setting certificate verify locations: CAfile: /etc/pki/tls/certs/ca-bundle.crt CApath: none
+
+head to this 1:
+
+or Wget:
+
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+Don't forget to restart your terminal
+
+Then you use the following command to list available versions of nodejs
+
+nvm ls-remote
+To download, compile, and install the latest v5.0.x release of node, do this:
+
+nvm install 5.0
+And then in any new shell just use the installed version:
+
+nvm use 5.0
+Or you can just run it:
+
+nvm run 5.0 --version
+Or, you can run any arbitrary command in a subshell with the desired version of node:
+
+nvm exec 4.2 node --version
+You can also get the path to the executable to where it was installed:
+
+nvm which 5.0
+Node Version Manager
+
+how to solve https problem ↩
+
+ICU plug-in Github ↩
+
+Installing the ICU plug-in ↩
+
+\subsection{Neo4J}
+
+version: 2.3.1
+
+Neo4j is an open-source graph database, implemented in Java. The developers describe Neo4j as "embedded, disk-based, fully transactional Java persistence engine that stores data structured in graphs rather than in tables". Neo4j is the most popular graph database.
+
+Installation
+
+Docker
+Docker Image: https://hub.docker.com/r/library/neo4j/
+
+Run these below command to open neo4j
+
+# clone datahub project
+git clone https://github.com/magizbox/datahub.git
+
+# change folder to datahub directory
+cd datahub
+
+# set your config in docker-compose.yml
+
+# run docker
+docker-compose up
+
+Cypher
+
+Schema Discovery
+List all nodes label, list all relation type
+
+> START n=node(*) RETURN distinct labels(n)
+
+> match n-[r]-() return distinct type(r)
+UI Way: Click to Overtab in Neo4j Browser
+
+Sample 10 entities
+> MATCH (n:Entity) RETURN n, rand() as random ORDER BY random LIMIT 10
+Group By
+http://www.markhneedham.com/blog/2013/02/17/neo4jcypher-sql-style-group-by-functionality/
+
+Graph Algorithms
+
+shortestPath, dijkstra
+
+POST http://localhost:7474/db/data/node/72/paths
+
+Headers
+Accept: application/json
+Authorization: Basic bmVvNGo6cGFzc3dk
+
+Body
+{
+  "to" : "http://localhost:7474/db/data/node/77",
+  "max_depth" : 5,
+  "relationships" : {
+    "type" : "FRIEND",
+    "direction" : "out"
+  },
+  "algorithm" : "shortestPath"
+}
+Graph Analystic
+
+pagerank, closeness_centrality, betweenness_centrality, triangle_count, connected_components, strongly_connected_components
+
+Client
+
+In this article you will know how to connect to neo4j database from python.
+
+Python Client
+We can use Py2neo to connect to neo4j from python.
+
+Py2neo is a client library and comprehensive toolkit for working with Neo4j from within Python applications and from the command line. The core library has no external dependencies and has been carefully designed to be easy and intuitive to use.
+
+Snippets to connect, create, add nodes, add relationship and update property
+
+from py2neo import authenticate, Graph, Node, Relationship
+# connect to graph
+authenticate("localhost:7474", "neo4j", "passwd")
+graph = Graph("http://localhost:7474/db/data/")
+
+# create unique
+graph.schema.create_uniqueness_constraint('Person', 'name')
+
+# add nodes
+graph.create(Node.cast('Person', {"name": "Alice"}))
+graph.create(Node.cast('Person', {"name": "Bob"}))
+
+# add relationship
+source = graph.merge_one("Person", "name", "Alice")
+target = graph.merge_one("Person", "name", "Bob")
+graph.create_unique(Relationship(source, "FRIEND", target))
+
+# update property
+alice = graph.merge_one("Person", "name", "Alice")
+alice["age"] = 30
+alice.push()
+
+\section{Web Crawling}
+
+\subsection{Introduction}
+
+Web Crawler
+Static Crawler
+
+Apache Nutch
+Dynamic Crawler
+
+nutch-selenium
+Intelligent Extractor
+
+boilerpipe
+Web Content Extraction Through Machine Learning
+Priority Crawler, Social Crawler
+
+Features a crawler must provide
+We list the desiderata for web crawlers in two categories: features that web crawlers must provide, followed by features they should provide.
+
+Robustness:
+
+The Web contains servers that create spider traps, which are generators of web pages that mislead crawlers into getting stuck fetching an infinite number of pages in a particular domain. Crawlers must be designed to be resilient to such traps. Not all such traps are malicious; some are the inadvertent side-effect of faulty website development.
+
+Politeness:
+
+Web servers have both implicit and explicit policies regulating the rate at which a crawler can visit them. These politeness policies must be respected.
+
+Features a crawler should provide
+Distributed The crawler should have the ability to execute in a distributed fashion across multiple machines.
+
+Scalable
+
+The crawler architecture should permit scaling up the crawl rate by adding extra machines and bandwidth.
+
+Performance and efficiency
+
+The crawl system should make efficient use of various system resources including processor, storage and network bandwidth.
+
+Quality
+
+Given that a significant fraction of all web pages are of poor utility for serving user query needs, the crawler should be biased towards fetching ``useful'' pages first.
+
+Freshness
+
+In many applications, the crawler should operate in continuous mode: it should obtain fresh copies of previously fetched pages. A search engine crawler, for instance, can thus ensure that the search engine's index contains a fairly current representation of each indexed web page. For such continuous crawling, a crawler should be able to crawl a page with a frequency that approximates the rate of change of that page.
+
+Extensible
+
+Crawlers should be designed to be extensible in many ways - to cope with new data formats, new fetch protocols, and so on. This demands that the crawler architecture be modular.
+
+Crawling
+The basic operation of any hypertext crawler (whether for the Web, an intranet or other hypertext document collection) is as follows.
+
+The crawler begins with one or more URLs that constitute a seed set. It picks a URL from this seed set, then fetches the web page at that URL.
+The fetched page is then parsed, to extract both the text and the links from the page (each of which points to another URL).
+The extracted text is fed to a text indexer.
+The extracted links (URLs) are then added to a URL frontier, which at all times consists of URLs whose corresponding pages have yet to be fetched by the crawler.
+Initially, the URL frontier contains the seed set; as pages are fetched, the corresponding URLs are deleted from the URL frontier. The entire process may be viewed as traversing the web graph. In continuous crawling, the URL of a fetched page is added back to the frontier for fetching again in the future.
+This seemingly simple recursive traversal of the web graph is complicated by the many demands on a practical web crawling system: the crawler has to be distributed, scalable, efficient, polite, robust and extensible while fetching pages of high quality. We examine the effects of each of these issues. Our treatment follows the design of the Mercator crawler that has formed the basis of a number of research and commercial crawlers. As a reference point, fetching a billion pages (a small fraction of the static Web at present) in a month-long crawl requires fetching several hundred pages each second. We will see how to use a multi-threaded design to address several bottlenecks in the overall crawler system in order to attain this fetch rate.
+
+Before proceeding to this detailed description, we reiterate for readers who may attempt to build crawlers of some basic properties any non-professional crawler should satisfy:
+
+Only one connection should be open to any given host at a time.
+A waiting time of a few seconds should occur between successive requests to a host.
+Politeness restrictions should be obeyed.
+
+A New Approach to Dynamic Crawler
+Build a crawler system for dynamic websites is not easy task. While you can use a web browser automator (like selenium), or event when you can integrate selenium with nutch (by using nutch-selenium). These solutions are still hard to develop, hard to test and hard to manage sessions because we still "translate" our process to languages (such as java or python)
+
+I suppose a new approach for this problem. Instead of using a web browser automator, we can inject native javascript codes into browser (via extension or add-on).The advantages of this approach is we can easily inject third party libraries (like jquery (for dom selector), Run.js (for complicated process) and APIs that supported by browsers). And we can take advance of debugging tool and testing framework in javascript world.
+
+If you want to know about more details, feel free to contact me.
+
+\subsection{Scrapy}
+
+Scrapy
+An open source and collaborative framework for extracting the data you need from websites. In a fast, simple, yet extensible way.
+
+Build and run your web spiders
+$ pip install scrapy
+$ cat > myspider.py <<EOF
+import scrapy
+
+class BlogSpider(scrapy.Spider):
+    name = 'blogspider'
+    start_urls = ['https://blog.scrapinghub.com']
+
+    def parse(self, response):
+        for title in response.css('h2.entry-title'):
+            yield {'title': title.css('a ::text').extract_first()}
+
+        next_page = response.css('div.prev-post > a ::attr(href)').extract_first()
+        if next_page:
+            yield scrapy.Request(response.urljoin(next_page), callback=self.parse)
+EOF
+$ scrapy runspider myspider.py
+Deploy them to Scrapy Cloud
+$ shub login
+Insert your Scrapinghub API Key: <API_KEY>
+
+# Deploy the spider to Scrapy Cloud
+
+$ shub deploy
+
+# Schedule the spider for execution
+ shub schedule blogspider
+Spider blogspider scheduled, watch it running here:
+https://app.scrapinghub.com/p/26731/job/1/8
+
+# Retrieve the scraped data
+$ shub items 26731/1/8
+{"title": "Improved Frontera: Web Crawling at Scale with Python 3 Support"}
+{"title": "How to Crawl the Web Politely with Scrapy"}
+...
+
+\subsection{Apache Nutch}
+
+Highly extensible, highly scalable Web crawler 1 Nutch is a well matured, production ready Web crawler. Nutch 1.x enables fine grained configuration, relying on Apache Hadoop™ data structures, which are great for batch processing.
+
+History
+
+
+Usecases
+
+
+1. Features 1
+1. Transparency Nutch is open source, so anyone can see how the ranking algorithms work. With commercial search engines, the precise details of the algorithms are secret so you can never know why a particular search result is ranked as it is. Furthermore, some search engines allow rankings to be based on payments, rather than on the relevance of the site's contents. Nutch is a good fit for academic and government organizations, where the perception of fairness of rankings may be more important.
+
+2. Understanding We don't have the source code to Google, so Nutch is probably the best we have. It's interesting to see how a large search engine works. Nutch has been built using ideas from academia and industry: for instance, core parts of Nutch are currently being re-implemented to use the MapReduce.
+
+Map Reduce distributed processing model, which emerged from Google Labs last year. And Nutch is attractive for researchers who want to try out new search algorithms, since it is so easy to extend.
+
+3. Extensibility Don't like the way other search engines display their results? Write your own search engine--using Nutch! Nutch is very flexible: it can be customized and incorporated into your application. For developers, Nutch is a great platform for adding search to heterogeneous collections of information, and being able to customize the search interface, or extend the out-of-the-box functionality through the plugin mechanism. For example, you can integrate it into your site to add a search capability.
+
+Process 5
+0. initialize CrawlDb, inject seed URLs Repeat generate-fetch-update cycle n times:
+
+1. The Injector takes all the URLs of the nutch.txt file and adds them to the CrawlDB. As a central part of Nutch, the CrawlDB maintains information on all known URLs (fetch schedule, fetch status, metadata, …).
+
+2. Based on the data of CrawlDB, the Generator creates a fetchlist and places it in a newly created Segment directory.
+
+3. Next, the Fetcher gets the content of the URLs on the fetchlist and writes it back to the Segment directory. This step usually is the most time-consuming one.
+
+4. Now the Parser processes the content of each web page and for example omits all html tags. If the crawl functions as an update or an extension to an already existing one (e.g. depth of 3), the Updater would add the new data to the CrawlDB as a next step.
+
+5. Before indexing, all the links need to be inverted by Link Inverter, which takes into account that not the number of outgoing links of a web page is of interest, but rather the number of inbound links. This is quite similar to how Google PageRank works and is important for the scoring function. The inverted links are saved in the Linkdb.
+
+6-7. Using data from all possible sources (CrawlDB, LinkDB and Segments), the Indexer creates an index and saves it within the Solr directory. For indexing, the popular Lucene library is used. Now, the user can search for information regarding the crawled web pages via Solr.
+
+Installation
+Requirements
+
+1. OpenJDK 7
+
+2. Nutch 2.3 RC (yes, you need 2.3, 2.2 will not work)
+
+wget https://archive.apache.org/dist/nutch/2.3/apache-nutch-2.3-src.tar.gz
+tar -xzf apache-nutch-2.3-src.tar.gz
+3. HBase 0.94.27 (HBase 0.98 won't work)
+
+wget https://www.apache.org/dist/hbase/hbase-0.94.27/hbase-0.94.27.tar.gz
+tar -xzf hbase-0.94.27.tar.gz
+4. ElasticSearch 1.7
+
+wget https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.7.0.tar.gz
+tar -xzf elasticsearch-1.7.0.tar.gz
+Other Options: nutch-2.3, hbase-0.94.26, ElasticSearch 1.4
+
+Setup HBase
+1. edit $HBASE_ROOT/conf/hbase-site.xml and add
+
+<configuration>
+    <property>
+        <name>hbase.rootdir</name>
+        <value>file:///full/path/to/where/the/data/should/be/stored</value>
+    </property>
+    <property>
+        <name>hbase.cluster.distributed</name>
+        <value>false</value>
+    </property>
+</configuration>
+2. edit $HBASE_ROOT/conf/hbase-env.sh and enable JAVA_HOME and set it to the proper path:
+
+-# export JAVA_HOME=/usr/java/jdk1.6.0/
++export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/
+This step might seem redundant, but even with JAVA_HOME being set in my shell, HBase just didn't recognize it.
+
+3. kick off HBase:
+
+$ $HBASE_ROOT/bin/start-hbase.sh
+Configure Nutch
+1. Enable the HBase dependency in $NUTCH_ROOT/ivy/ivy.xml by uncommenting the line
+
+<dependency org="org.apache.gora" name="gora-hbase" rev="0.5" conf="*->default" />
+2. Configure the HBase adapter by editing the $NUTCH_ROOT/conf/gora.properties
+
+-#gora.datastore.default=org.apache.gora.mock.store.MockDataStore
++gora.datastore.default=org.apache.gora.hbase.store.HBaseStore
+3. Build Nutch
+
+$ cd $NUTCH_ROOT && ant clean && ant runtime
+This can take a while and creates $NUTCH_ROOT/runtime/local.
+
+4. configure Nutch by editing $NUTCH_ROOT/runtime/local/conf/nutch-site.xml
+
+<configuration>
+    <property>
+        <name>http.agent.name</name>
+        <value>mycrawlername</value>
+        <!-- this can be changed to something more sane if you like -->
+    </property>
+    <property>
+        <name>http.robots.agents</name>
+        <value>mycrawlername</value>
+        <!-- this is the robot name we're looking for in robots.txt files -->
+    </property>
+    <property>
+        <name>storage.data.store.class</name>
+        <value>org.apache.gora.hbase.store.HBaseStore</value>
+    </property>
+    <property>
+        <name>plugin.includes</name>
+        <!-- do \*\*NOT\*\* enable the parse-html plugin, if you want proper HTML parsing. Use something like parse-tika! -->
+        <value>
+            protocol-httpclient|urlfilter-regex|parse-(text|tika|js)|index-(basic|anchor)|query-(basic|site|url)|response-(json|xml)|summary-basic|scoring-opic|urlnormalizer-(pass|regex|basic)|indexer-elastic
+        </value>
+    </property>
+    <property>
+        <name>db.ignore.external.links</name>
+        <value>true</value>
+        <!-- do not leave the seeded domains (optional) -->
+    </property>
+    <property>
+        <name>elastic.host</name>
+        <value>localhost</value>
+        <!-- where is ElasticSearch listening -->
+    </property>
+</configuration>
+or you configure Nutch by editing $NUTCH_ROOT/runtime/local/conf/nutch-site.xml
+
+<configuration>
+    <property>
+        <name>plugin.includes</name>
+        <!-- do \*\*NOT\*\* enable the parse-html plugin, if you want proper HTML parsing. Use something like parse-tika! -->
+        <value>
+            protocol-http|protocol-httpclient|urlfilter-regex|
+parse-(text|tika|js)|index-(basic|anchor)|query-(basic|site|url)|response-(json|xml)|
+summary-basic|scoring-opic|urlnormalizer-(pass|regex|basic)|indexer-elastic|
+index-metadata|index-more
+        </value>
+    </property>
+    <property>
+        <name>db.ignore.external.links</name>
+        <value>true</value>
+        <!-- do not leave the seeded domains (optional) -->
+    </property>
+
+
+<!-- elasticsearch index properties -->
+<property>
+  <name>elastic.host</name>
+  <value>localhost</value>
+  <description>The hostname to send documents to using TransportClient.
+  Either host and port must be defined or cluster.
+  </description>
+</property>
+
+<property>
+  <name>elastic.port</name>
+  <value>9300</value>
+  <description>
+  The port to connect to using TransportClient.
+  </description>
+</property>
+<property>
+  <name>elastic.index</name>
+  <value>nutch</value>
+  <description>
+  The name of the elasticsearch index. Will normally be autocreated if it
+  doesn't exist.
+  </description>
+</property>
+<!-- end index -->
+</configuration>
+5. configure HBase integration by editing $NUTCH_ROOT/runtime/local/conf/hbase-site.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <property>
+      <name>hbase.rootdir</name>
+      <value>file:///full/path/to/where/the/data/should/be/stored</value>
+      <!-- same path as you've given for HBase above -->
+   </property>
+   <property>
+      <name>hbase.cluster.distributed</name>
+      <value>false</value>
+   </property>
+</configuration>
+or you configure HBase integration by editing $NUTCH_ROOT/runtime/local/conf/hbase-site.xml:
+
+<configuration>
+  <property>
+    <name>hbase.rootdir</name>
+    <value>file:///$PATH/database</value>
+  </property>
+  <property>
+    <name>hbase.cluster.distributed</name>
+    <value>false</value>
+  </property>
+  <property>
+    <name>hbase.zookeeper.quorum</name>
+    <value>hbase.io</value>
+  </property>
+  <property>
+    <name>zookeeper.znode.parent</name>
+    <value>/hbase-unsecure</value>
+  </property>
+  <property>
+    <name>hbase.rpc.timeout</name>
+    <value>2592000000</value>
+  </property>
+</configuration>
+That's it. Everything is now setup to crawl websites.
+
+Run Nutch
+1. Create an empty directory. Add a textfile containing a list of seed URLs
+
+$ mkdir seed
+$ echo "https://www.website.com" >> seed/urls.txt
+$ echo "https://www.another.com" >> seed/urls.txt
+$ echo "https://www.example.com" >> seed/urls.txt
+Inject them into Nutch by giving a file URL (!)
+
+$ $NUTCH_ROOT/runtime/local/bin/nutch inject file:///path/to/seed/
+2. Generate a new set of URLs to fetch.
+
+This is is based on both the injected URLs as well as outdated URLs in the Nutch crawl db.
+
+$ $NUTCH_ROOT/runtime/local/bin/nutch generate -topN 10
+The above command will create job batches for 10 URLs.
+
+3. Fetch the URLs. We are not clustering, so we can simply fetch all batches:
+
+$ $NUTCH_ROOT/runtime/local/bin/nutch fetch -all
+4. Now we parse all fetched pages:
+
+$ $NUTCH_ROOT/runtime/local/bin/nutch parse -all
+5. Last step: Update Nutch's internal database:
+
+$ $NUTCH_ROOT/runtime/local/bin/nutch updatedb -all
+On the first run, this will only crawl the injected URLs. The procedure above is supposed to be repeated regulargy to keep the index up to date.
+
+6. Putting Documents into ElasticSearch
+
+$ $NUTCH_ROOT/runtime/local/bin/nutch index -all
+Configuration
+Crawl nutch via proxy
+
+Change $NUTCH_ROOT/runtime/local/conf/nutch-site.xml
+
+<configuration>
+    <property>
+        <name>http.proxy.host</name>
+        <value>192.168.80.1</value>
+        <description>The proxy hostname. If empty, no proxy is used.</description>
+    </property>
+    <property>
+        <name>http.proxy.port</name>
+        <value>port</value>
+        <description>The proxy port.</description>
+    </property>
+    <property>
+        <name>http.proxy.username</name>
+        <value>username</value>
+        <description>Username for proxy. This will be used by 'protocol-httpclient', if the proxy server requests basic,
+            digest
+            and/or NTLM authentication. To use this, 'protocol-httpclient' must be present in the value of
+            'plugin.includes'
+            property. NOTE: For NTLM authentication, do not prefix the username with the domain, i.e. 'susam' is correct
+            whereas
+            'DOMAINsusam' is incorrect.
+        </description>
+    </property>
+    <property>
+        <name>http.proxy.password</name>
+        <value>password</value>
+        <description>Password for proxy. This will be used by 'protocol-httpclient', if the proxy server requests basic,
+            digest
+            and/or NTLM authentication. To use this, 'protocol-httpclient' must be present in the value of
+            'plugin.includes'
+            property.
+        </description>
+    </property>
+</configuration>
+Nutch Plugins
+Extension Points
+In writing a plugin, you're actually providing one or more extensions of the existing extension-points . The core Nutch extension-points are themselves defined in a plugin, the NutchExtensionPoints plugin (they are listed in the NutchExtensionPoints plugin.xml file). Each extension-point defines an interface that must be implemented by the extension. The core extension points are:
+
+Point	Description	Example
+IndexWriter	Writes crawled data to a specific indexing backends (Solr, ElasticSearch, a CVS file, etc.).
+IndexingFilter	Permits one to add metadata to the indexed fields. All plugins found which implement this extension point are run sequentially on the parse (from javadoc).
+Parser	Parser implementations read through fetched documents in order to extract data to be indexed. This is what you need to implement if you want Nutch to be able to parse a new type of content, or extract more data from currently parseable content.
+HtmlParseFilter	Permits one to add additional metadata to HTML parses (from javadoc).
+Protocol	Protocol implementations allow Nutch to use different protocols (ftp, http, etc.) to fetch documents.
+URLFilter	URLFilter implementations limit the URLs that Nutch attempts to fetch. The RegexURLFilter distributed with Nutch provides a great deal of control over what URLs Nutch crawls, however if you have very complicated rules about what URLs you want to crawl, you can write your own implementation.
+URLNormalizer	Interface used to convert URLs to normal form and optionally perform substitutions.
+ScoringFilter	A contract defining behavior of scoring plugins. A scoring filter will manipulate scoring variables in CrawlDatum and in resulting search indexes. Filters can be chained in a specific order, to provide multi-stage scoring adjustments.
+SegmentMergeFilter	Interface used to filter segments during segment merge. It allows filtering on more sophisticated criteria than just URLs. In particular it allows filtering based on metadata collected while parsing page.
+Getting Nutch to Use a Plugin
+In order to get Nutch to use a given plugin, you need to edit your conf/nutch-site.xml file and add the name of the plugin to the list of plugin.includes. Additionally we are required to add the various build configurations to build.xml in the plugin directory.
+
+Develop nutch plugins
+Project structure of a plugin
+plugin-name
+  plugin.xml
+  build.xml
+  ivy.xml
+  src
+    org
+      apache
+        nutch
+          indexer
+            uml-meta # source folder
+              URLMetaIndexingFilter.java
+          scoring
+            uml-meta # source folder
+              URLMetaScoringFilter.java
+  test
+    org
+      apache
+        nutch
+          indexer
+            uml-meta # test folder
+              URLMetaIndexingFilterTest.java
+          scoring
+            uml-meta # test folder
+              URLMetaScoringFilterTest.java
+Follow this link to read develop nutch plugins
+
+\subsubsection{Architecture}
+
+Architectures
+
+
+Data Structure
+The web database is a specialized persistent data structure for mirroring the structure and properties of the web graph being crawled. It persists as long as the web graph that is being crawled (and re-crawled) exists, which may be months or years. The WebDB is used only by the crawler and does not play any role during searching. The WebDB stores two types of entities: pages and links.
+
+A page represents a page on the Web, and is indexed by its URL and the MD5 hash of its contents. Other pertinent information is stored, too, including
+
+the number of links in the page (also called outlinks);
+fetch information (such as when the page is due to be refetched);
+the page's score, which is a measure of how important the page is (for example, one measure of importance awards high scores to pages that are linked to from many other pages).
+A link represents a link from one web page (the source) to another (the target). In the WebDB web graph, the nodes are pages and the edges are links.
+
+A segment is a collection of pages fetched and indexed by the crawler in a single run. The fetchlist for a segment is a list of URLs for the crawler to fetch, and is generated from the WebDB. The fetcher output is the data retrieved from the pages in the fetchlist. The fetcher output for the segment is indexed and the index is stored in the segment. Any given segment has a limited lifespan, since it is obsolete as soon as all of its pages have been re-crawled. The default re-fetch interval is 30 days, so it is usually a good idea to delete segments older than this, particularly as they take up so much disk space. Segments are named by the date and time they were created, so it's easy to tell how old they are.
+
+The index is the inverted index of all of the pages the system has retrieved, and is created by merging all of the individual segment indexes. Nutch uses Lucene for its indexing, so all of the Lucene tools and APIs are available to interact with the generated index. Since this has the potential to cause confusion, it is worth mentioning that the Lucene index format has a concept of segments, too, and these are different from Nutch segments. A Lucene segment is a portion of a Lucene index, whereas a Nutch segment is a fetched and indexed portion of the WebDB.
+
+View gora-hbase-mapping.xml for more details
+
+\subsubsection{Config}
+
+Config nutch run intellij
+Copy file
+
+copy all the files in the runtime/conf on out/test/apache-Nutch-2.3 and out/production/apache-Nutch-2.3
+
+add these lines to file $NUTCH_SRC/out/test/nutch-site.xml
+
+<property>
+   <name>plugin.folders</name>
+   <value><nutch_src>/build/plugins</value>
+ </property>
+Run nutch in intellij
+Run->Edit Configurations...->add path agrs:path to file list links crawler
+Dev Nutch in Intellij
+Receipts: IntellIJ 14, Apache Nutch 2.3
+
+1. Get Nutch source
+
+wget http://www.eu.apache.org/dist/nutch/2.3/apache-nutch-2.3-src.tar.gz
+tar -xzf apache-nutch-2.3-src.tar.gz
+2. Import Nutch source in IntellIJ
+
+[wonderplugin_slider id="1"]
+
+3. Get Dependencies by Ant
+
+[wonderplugin_slider id="3"]
+
+4. Import Dependencies to IntellIJ
+
+[wonderplugin_slider id="4"]
+
+Nutch Dev
+1.Intasll java in ubuntu
+
+-Downloads java version .zip
+
+ http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
+-Create folder jvm
+
+ sudo mkdir /usr/lib/jvm/
+-Cd to folder downloads java version .zip
+
+ sudo mv jdk1.7.0_x/ /usr/lib/jvm/jdk1.7.0_x
+-Run command line
+
+  sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.7.0_x/jre/bin/java 0
+-Tets version java
+
+  java -version
+2.Intasll ant in ubuntu
+
+-Downloads ant
+
+http://ant.apache.org/manualdownload.cgi
+-Add path ant vao file environment
+
+ sudo nano /etc/environment
+ $ANT_ROOT/bin
+-Run command line
+
+source /etc/environment
+ant -version
+3.Intasll hbase in ubuntu
+
+-Downloads and extract hbase 0.94.27
+
+  https://archive.apache.org/dist/hbase/hbase-0.94.27/
+-Edit file $HABSE_ROOT/conf/hbase-site.xml
+
+ <configuration>
+  <property>
+    <name>hbase.rootdir</name>
+    <value>file:///$PATH_DATA_BASE/database</value>
+  </property>
+  <property>
+    <name>hbase.cluster.distributed</name>
+    <value>false</value>
+  </property>
+  <property>
+    <name>hbase.zookeeper.quorum</name>
+    <value>hbase.io</value>
+  </property>
+  <property>
+    <name>zookeeper.znode.parent</name>
+    <value>/hbase-unsecure</value>
+  </property>
+  <property>
+    <name>hbase.rpc.timeout</name>
+    <value>2592000000</value>
+  </property>
+</configuration>
+-Edit file $HBASE_ROOT/conf/hbase-env.sh
+
+  export JAVA_HOME=$PATH_JAVA_HOME
+-Edit file $HBASE_ROOT/conf/regionservers
+
+hbase.io.nutch
+-Edit file hosts in ubuntu
+
+  sudo nano /etc/hosts
+  {ip} hbase.io.nutch
+-Edit file hostname in ubuntu
+
+ sudo nano /etc/hostname
+ hbase.io.nutch
+-Run and stop hbase in ubuntu
+
+ Run hbase : cd $HBASE_ROOT/bin ./start-hbase.sh
+ Stop hbase: cd $HBASE_ROOT/bin ./stop-hbase.sh
+*Error in intasll hbase
+
+- Error regionserver localhost(Edit file hosts and file host name)
+- Error client no remote server intasll hbase(Turn off file firewall)
+4.Build nutch in ant
+
+-Downloads and extract nutch
+
+  http://nutch.apache.org/
+-Edit file $NUTCH_ROOT/ivy/ivy.xml
+
+ <dependency org="org.apache.gora" name="gora-hbase" rev="0.5"
+conf="*->default" />
+-Edit file $NUTCH_ROOT/ivy/ivysettings.xml
+
+ #<property name="repo.maven.org"
+ #   value="http://repo1.maven.org/maven2/"
+ #  override="false"/>
+
+<property name = "repo.maven.org"
+   value = "http://maven.oschina.net/content/groups/public/"
+   override = "false" />
+-Edit file $NUTCH_ROOT/conf/nutch-site.xml
+
+<configuration>
+<property>
+   <name>plugin.folders</name>
+   <value>$NUTCH_ROOT/build/plugins</value>
+ </property>
+<property>
+        <name>http.agent.name</name>
+        <value>mycrawlername</value>
+        <!-- this can be changed to something more sane if you like -->
+    </property>
+    <property>
+        <name>http.robots.agents</name>
+        <value>mycrawlername</value>
+        <!-- this is the robot name we're looking for in robots.txt files -->
+    </property>
+    <property>
+        <name>storage.data.store.class</name>
+        <value>org.apache.gora.hbase.store.HBaseStore</value>
+    </property>
+    <property>
+        <name>plugin.includes</name>
+        <!-- do \*\*NOT\*\* enable the parse-html plugin, if you want proper HTML parsing. Use something like parse-tika! -->
+        <value>
+            protocol-http|protocol-httpclient|urlfilter-regex|parse-(text|tika|js)|index-(basic|anchor)|query-(basic|site|url)|response-(json|xml)|summary-basic|scoring-opic|urlnormalizer-(pass|regex|basic)|indexer-elastic|index-metadata|index-more
+        </value>
+    </property>
+    <property>
+        <name>db.ignore.external.links</name>
+        <value>true</value>
+        <!-- do not leave the seeded domains (optional) -->
+    </property>
+
+
+<!-- elasticsearch index properties -->
+<property>
+  <name>elastic.host</name>
+  <value>localhost</value>
+  <description>The hostname to send documents to using TransportClient.
+  Either host and port must be defined or cluster.
+  </description>
+</property>
+
+<property>
+  <name>elastic.port</name>
+  <value>9300</value>
+  <description>
+  The port to connect to using TransportClient.
+  </description>
+</property>
+<property>
+  <name>elastic.index</name>
+  <value>nutch</value>
+  <description>
+  The name of the elasticsearch index. Will normally be autocreated if it
+  doesn't exist.
+  </description>
+</property>
+<!-- end index -->
+
+<property>
+        <name>http.proxy.host</name>
+        <value>192.168.80.1</value>
+    </property>
+    <property>
+        <name>http.proxy.port</name>
+        <value>8080</value>
+    </property>
+    <property>
+        <name>http.proxy.username</name>
+        <value>user1</value>
+    </property>
+    <property>
+        <name>http.proxy.password</name>
+        <value>user1</value>
+    </property>
+</configuration>
+-Edit file file $NUTCH_ROOT/conf/gora.property
+
+ gora.datastore.default=org.apache.gora.hbase.store.HBaseStore
+-Build nucth
+
+ ant runtime
+ or
+ ant eclipse -verbose
+-Create file links
+
+-Run nutch
+
+ cd $NUTCH_ROOT/runtime/local/bin
+ run inject : ./nutch inject file:///$PATH_LIKNS
+ run generate : ./nutch generate -topN 10
+ run fetch : ./nutch fetch -all
+ run parse : ./nutch parse -all
+ run updatedb : ./nutch updatedb -all
+-Downloads and extract elastic
+
+ https://www.elastic.co/downloads/elasticsearch
+-Run elastic
+
+cd $ELASTIC/bin
+./elasticsearch
+-Index data in elastic
+
+ cd $NUTCH_ROOT/runtime/bin
+ run index : ./nutch index -all
+5.Run nutch intellij
+
+Change $NUTCH_ROOT/runtime/local/conf/hbase-site.xml
+
+<configuration>
+<property>
+<name>hbase.rootdir</name>
+<value>file:///home/hainv/Downloads/crawler/data</value>
+</property>
+<property>
+<name>hbase.cluster.distributed</name>
+<value>false</value>
+</property>
+<property>
+<name>hbase.zookeeper.quorum</name>
+<value>hbase.io</value>
+</property>
+<property>
+<name>zookeeper.znode.parent</name>
+<value>/hbase-unsecure</value>
+</property>
+<property>
+<name>hbase.rpc.timeout</name>
+<value>2592000000</value>
+</property>
+</configuration>
+Nutch plugin intellij
+1.Structure nutch :[1]
+2.Run nutch intellij
+Downloads nucth2.3:http://nutch.apache.org/downloads.html Editing file $NUTCH_ROOT/ivy/ivysettings.xml
+
+<ivysettings>
+  <property name="oss.sonatype.org"
+    value="http://oss.sonatype.org/content/repositories/releases/"
+    override="false"/>
+  <property name = "repo.maven.org"
+      value = "http://maven.oschina.net/content/groups/public/"
+      override = "false" />
+  <property name="repository.apache.org"
+    value="https://repository.apache.org/content/repositories/snapshots/"
+    override="false"/>
+  <property name="maven2.pattern"
+    value="[organisation]/[module]/[revision]/[module]-[revision]"/>
+  <property name="maven2.pattern.ext"
+    value="${maven2.pattern}.[ext]"/>
+  <!-- pull in the local repository -->
+  <include url="${ivy.default.conf.dir}/ivyconf-local.xml"/>
+  <settings defaultResolver="default"/>
+  <resolvers>
+    <ibiblio name="maven2"
+      root="${repo.maven.org}"
+      pattern="${maven2.pattern.ext}"
+      m2compatible="true"
+      />
+    <ibiblio name="apache-snapshot"
+      root="${repository.apache.org}"
+      changingPattern=".*-SNAPSHOT"
+      m2compatible="true"
+      />
+    <ibiblio name="restlet"
+      root="http://maven.restlet.org"
+      pattern="${maven2.pattern.ext}"
+      m2compatible="true"
+      />
+     <ibiblio name="sonatype"
+      root="${oss.sonatype.org}"
+      pattern="${maven2.pattern.ext}"
+      m2compatible="true"
+      />
+
+    <chain name="default" dual="true">
+      <resolver ref="local"/>
+      <resolver ref="maven2"/>
+      <resolver ref="sonatype"/>
+      <resolver ref="apache-snapshot"/>
+    </chain>
+    <chain name="internal">
+      <resolver ref="local"/>
+    </chain>
+    <chain name="external">
+      <resolver ref="maven2"/>
+      <resolver ref="sonatype"/>
+    </chain>
+    <chain name="external-and-snapshots">
+      <resolver ref="maven2"/>
+      <resolver ref="apache-snapshot"/>
+      <resolver ref="sonatype"/>
+    </chain>
+    <chain name="restletchain">
+      <resolver ref="restlet"/>
+    </chain>
+  </resolvers>
+  <modules>
+    <module organisation="org.apache.nutch" name=".*" resolver="internal"/>
+    <module organisation="org.restlet" name=".*" resolver="restletchain"/>
+    <module organisation="org.restlet.jse" name=".*" resolver="restletchain"/>
+  </modules>
+</ivysettings>
+Editing file $NUTCH_ROOT/ivy/ivy.xml
+
+<dependency org="org.apache.gora" name="gora-hbase" rev="0.5" conf="*->default" />
+Editing file $NUCTH_ROOT/conf/gora.properties
+
+gora.datastore.default=org.apache.gora.hbase.store.HBaseStore
+Editing file $NUTCH_ROOT/conf/nutch_site.xml
+
+<configuration>
+<property>
+   <name>plugin.folders</name>
+   <value>$NUTCH_ROOT/build/plugins</value>
+ </property>
+<property>
+        <name>http.agent.name</name>
+        <value>mycrawlername</value>
+        <!-- this can be changed to something more sane if you like -->
+    </property>
+    <property>
+        <name>http.robots.agents</name>
+        <value>mycrawlername</value>
+        <!-- this is the robot name we're looking for in robots.txt files -->
+    </property>
+    <property>
+        <name>storage.data.store.class</name>
+        <value>org.apache.gora.hbase.store.HBaseStore</value>
+    </property>
+    <property>
+        <name>plugin.includes</name>
+        <!-- do \*\*NOT\*\* enable the parse-html plugin, if you want proper HTML parsing. Use something like parse-tika! -->
+        <value>
+            protocol-httpclient|urlfilter-regex|parse-(text|tika|js)|index-(basic|anchor)|query-(basic|site|url)|response-(json|xml)|summary-basic|scoring-opic|urlnormalizer-(pass|regex|basic)|indexer-elastic
+        </value>
+    </property>
+    <property>
+        <name>db.ignore.external.links</name>
+        <value>true</value>
+        <!-- do not leave the seeded domains (optional) -->
+    </property>
+    <property>
+        <name>elastic.host</name>
+        <value>localhost</value>
+        <!-- where is ElasticSearch listening -->
+    </property>
+
+<property>
+        <name>http.proxy.host</name>
+        <value>192.168.80.1</value>
+        <description>The proxy hostname. If empty, no proxy is used.</description>
+    </property>
+    <property>
+        <name>http.proxy.port</name>
+        <value>8080</value>
+        <description>The proxy port.</description>
+    </property>
+    <property>
+        <name>http.proxy.username</name>
+        <value>user1</value>
+        <description>Username for proxy. This will be used by 'protocol-httpclient', if the proxy server requests basic,
+            digest
+            and/or NTLM authentication. To use this, 'protocol-httpclient' must be present in the value of
+            'plugin.includes'
+            property. NOTE: For NTLM authentication, do not prefix the username with the domain, i.e. 'susam' is correct
+            whereas
+            'DOMAINsusam' is incorrect.
+        </description>
+    </property>
+    <property>
+        <name>http.proxy.password</name>
+        <value>user1</value>
+        <description>Password for proxy. This will be used by 'protocol-httpclient', if the proxy server requests basic,
+            digest
+            and/or NTLM authentication. To use this, 'protocol-httpclient' must be present in the value of
+            'plugin.includes'
+            property.
+        </description>
+    </property>
+</configuration>
+Editing file $NUCTH_ROOT/conf/hbase-site.xml
+
+<configuration>
+    <property>
+        <name>hbase.rootdir</name>
+        <value>file:///home/rombk/Downloads/database</value>
+    </property>
+    <property>
+        <name>hbase.cluster.distributed</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>hbase.zookeeper.quorum</name>
+        <value>hbase.io</value>
+    </property>
+    <property>
+        <name>zookeeper.znode.parent</name>
+        <value>/hbase-unsecure</value>
+    </property>
+    <property>
+        <name>hbase.rpc.timeout</name>
+        <value>2592000000</value>
+    </property>
+</configuration>
+Run terminal
+
+ ant eclipse -verbose
+Import nucth intellij
+
+
+3.Run plugin creativecommons
+Sample plugins that parse and index Creative Commons medadata.1 Step 1. Create folder creativecommons in path $NUTCH_HOME/out/test/
+
+Step 2. Create file nutch-site.xml in folder $NUTCH_HOME/out/test/creativecommons and add content
+
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!-- Put site-specific property overrides in this file. -->
+<configuration>
+<property>
+   <name>plugin.folders</name>
+   <value>$NUTCH_HOME/build/plugins</value>
+ </property>
+<property>
+   <name>http.agent.name</name>
+   <value>mycrawlername</value>
+<!-- this can be changed to something more sane if you like -->
+</property>
+<property>
+   <name>http.robots.agents</name>
+   <value>mycrawlername</value>
+<!-- this is the robot name we're looking for in robots.txt files -->
+</property>
+<property>
+   <name>storage.data.store.class</name>
+   <value>org.apache.gora.hbase.store.HBaseStore</value>
+</property>
+<property>
+   <name>plugin.includes</name>
+  <!-- do \*\*NOT\*\* enable the parse-html plugin, if you want proper HTML parsing. Use something like parse-tika! -->
+  <value>indexer-elastic|creativecommons|parse-html</value>
+</property>
+<property>
+   <name>db.ignore.external.links</name>
+   <value>true</value>
+<!-- do not leave the seeded domains (optional) -->
+</property>
+<property>
+   <name>elastic.host</name>
+   <value>localhost</value>
+<!-- where is ElasticSearch listening -->
+</property>
+<!-- config proxy-->
+<property>
+   <name>http.proxy.host</name>
+   <value><hosts></value>
+   <description>The proxy hostname. If empty, no proxy is used.</description>
+</property>
+<property>
+   <name>http.proxy.port</name>
+   <value><port></value>
+   <description>The proxy port.</description>
+</property>
+<property>
+   <name>http.proxy.username</name>
+   <value><user1></value>
+   <description>Username for proxy. This will be used by 'protocol-httpclient', if the proxy server requests basic,
+digest
+and/or NTLM authentication. To use this, 'protocol-httpclient' must be present in the value of
+'plugin.includes'
+property. NOTE: For NTLM authentication, do not prefix the username with the domain, i.e. 'susam' is correct
+whereas
+'DOMAINsusam' is incorrect.
+     </description>
+</property>
+<property>
+   <name>http.proxy.password</name>
+   <value><user1></value>
+   <description>Password for proxy. This will be used by 'protocol-httpclient', if the proxy server requests basic,
+digest
+and/or NTLM authentication. To use this, 'protocol-httpclient' must be present in the value of
+'plugin.includes'
+property.
+    </description>
+</property>
+</configuration>
+2.Run plugin feed
+Plugin feed parsing of rss Error : Parsing of RSS feeds fails (tejasp) [2] and read file $NUTCH_ROOT/CHANFES.txt
+
