@@ -1,5 +1,7 @@
 \chapter{Python}
 
+Hướng dẫn online tại \href{http://magizbox.com/training/python/site/}{http://magizbox.com/training/python/site/}
+
 \section{Giới thiệu}
 
 \begin{item}
@@ -523,7 +525,8 @@ for gets values by calling next() implicitly
 
 \section{Cấu trúc dữ liệu}
 
-Number
+\subsection{Number}
+
 Basic Operation
 
 \begin{lstlisting}[language=Python]
@@ -533,6 +536,2586 @@ Basic Operation
 abs(-5)
 \end{lstlisting}
 
+\subsection{Collection}
+
+In this post I will cover 4 most popular data types in python list, tuple, set, dictionary
+
+List
+The most basic data structure in Python is the sequence. Each element of a sequence is assigned a number - its position or index. The first index is zero, the second index is one, and so forth.
+
+The list is a most versatile datatype available in Python which can be written as a list of comma-separated values (items) between square brackets. Important thing about a list is that items in a list need not be of the same type.
+
+Usage
+
+A list keeps order, dict and set don't: when you care about order, therefore, you must use list (if your choice of containers is limited to these three, of course)
+Most Popular Operations
+
+Create a list
+a = ["a", "b", 3]
+Access values in list
+a[1]
+Updated List
+a[0] = 5
+Delete list elements
+del a[1]
+Reverse a list
+a[::-1]
+Itertools
+[a + b for (a, b) in itertools.product(x, y)]
+Select random elements in list
+random.choice(x)
+random.sample(x, 3)
+Create a list
+a = [1, 2, 3]
+# [1, 2, 3]
+Access values in list
+list1 = ['physics', 'chemistry', 1997, 2000]
+list2 = [1, 2, 3, 4, 5, 6, 7 ]
+
+print list1[0]   # physics
+
+print list2[1:5] # [2, 3, 4, 5]
+Updated lists
+list = ['physics', 'chemistry', 1997, 2000]
+print list[2] # 1997
+
+list[2] = 2001
+print list[2] # 2001
+Delete list elements
+list1 = ['physics', 'chemistry', 1997, 2000];
+
+print list1
+# ['physics', 'chemistry', 1997, 2000]
+
+del list1[2]
+
+print list1
+# ['physics', 'chemistry', 2000]
+Reverse a list
+[1, 3, 2][::-1]
+# [2, 3, 1]
+Itertools
+import itertools
+
+x = [1, 2, 3]
+y = [2, 4, 5]
+
+[a + b for (a, b) in itertools.product(x, y)]
+# [3, 5, 6, 4, 6, 7, 5, 7, 8]
+Select random elements in list
+import random
+
+x = [13, 23, 14, 52, 6, 23]
+
+random.choice(x) # 52
+
+random.sample(x, 3) # [23, 14, 52]
+Tuples
+A tuple is a sequence of immutable Python objects. Tuples are sequences, just like lists. The differences between tuples and lists are, the tuples cannot be changed unlike lists and tuples use parentheses, whereas lists use square brackets.
+
+Usage
+
+Tuples have structure, lists have order
+Tuples being immutable there is also a semantic distinction that should guide their usage. Tuples are heterogeneous data structures (i.e., their entries have different meanings), while lists are homogeneous sequences
+Most Popular Operations
+
+Create a tuple
+t = ("a", 1, 2)
+Accessing Values in Tuples
+t[0], t[1:]
+Updating Tuples
+Not allowed
+Create a tuple
+tup1 = ('physics', 'chemistry', 1997, 2000);
+tup2 = (1, 2, 3, 4, 5 );
+tup3 = "a", "b", "c", "d";
+tup4 = ()
+tup5 = (50, )
+Accessing Values in Tuples
+#!/usr/bin/python
+
+tup1 = ('physics', 'chemistry', 1997, 2000);
+tup2 = (1, 2, 3, 4, 5, 6, 7 );
+
+tup1[0]
+# physics
+
+tup2[1:5]
+[2, 3, 4, 5]
+Updating Tuples
+Tuples are immutable which means you cannot update or change the values of tuple elements. You are able to take portions of existing tuples to create new tuples as the following example demonstrates
+
+tup1 = (12, 34.56);
+tup2 = ('abc', 'xyz');
+
+# Following action is not valid for tuples
+# tup1[0] = 100;
+
+# So let's create a new tuple as follows
+tup3 = tup1 + tup2;
+print tup3
+Set
+Sets are lists with no duplicate entries.
+
+The sets module provides classes for constructing and manipulating unordered collections of unique elements. Common uses include membership testing, removing duplicates from a sequence, and computing standard math operations on sets such as intersection, union, difference, and symmetric difference.
+
+Usage
+
+set forbids duplicates, list does not: also a crucial distinction.
+Most Popular Operations
+
+Create a set
+x = set(["Postcard", "Radio", "Telegram"])
+Add elements to a set
+x.add("Mobile")
+Remove elements to a set
+x.remove("Radio")
+Subset
+y.issubset(x)
+Intersection
+x.intersection(y)
+Difference between two sets
+x.difference(y)
+Create a set
+x = set(["Postcard", "Radio", "Telegram"])
+x
+# set(['Postcard', 'Telegram', 'Radio'])
+Add elements to a set
+x = set(["Postcard", "Radio", "Telegram"])
+x.add("Mobile")
+x
+# set(['Postcard', 'Telegram', 'Mobile', 'Radio'])
+Remove elements to a set
+x = set(["Postcard", "Radio", "Telegram"])
+x.remove("Radio")
+x
+# set(['Postcard', 'Telegram'])
+Subset
+x = set(["a","b","c","d"])
+y = set(["c","d"])
+y.issubset(x)
+# True
+Intersection
+x = set(["a","b","c","d"])
+y = set(["c","d"])
+x.intersection(y)
+# set(['c', 'd'])
+Difference between two sets
+x = set(["Postcard", "Radio", "Telegram"])
+y = set(["Radio","Television"])
+x.difference(y)
+# set(['Postcard', 'Telegram'])
+Dictionary
+Each key is separated from its value by a colon (:), the items are separated by commas, and the whole thing is enclosed in curly braces. An empty dictionary without any items is written with just two curly braces, like this: {}.
+
+Keys are unique within a dictionary while values may not be. The values of a dictionary can be of any type, but the keys must be of an immutable data type such as strings, numbers, or tuples.
+
+Usage
+
+dict associates with each key a value, while list and set just contain values: very different use cases, obviously.
+Most Popular Operations
+
+Create a dictionary
+d = {"a": 1, "b": 2, "c": 3}
+Update dictionary
+d["a"] = 4
+Delete dictionary elements
+del d["a"]
+Create a dictionary
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+
+print "dict['Name']: ", dict['Name']
+print "dict['Age']: ", dict['Age']
+Update dictionary
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+
+dict['Age'] = 8; # update existing entry
+dict['School'] = "DPS School"; # Add new entry
+
+
+print "dict['Age']: ", dict['Age']
+print "dict['School']: ", dict['School']
+Delete dictionary elements
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+
+del dict['Name']; # remove entry with key 'Name'
+dict.clear();     # remove all entries in dict
+del dict ;        # delete entire dictionary
+
+print "dict['Age']: ", dict['Age']
+print "dict['School']: ", dict['School']
+Related Readings
+Python Lists, tutorialspoint.com
+Python Dictionary, tutorialspoint.com
+Python Dictionary Methods, guru99
+In Python, when to use a Dictionary, List or Set?, stackoverflow
+What's the difference between lists and tuples?, stackoverflow
+
+\subsection{String}
+
+Format
+'{0}, {1}, {2}'.format('a', 'b', 'c')
+# 'a, b, c'
+Regular Expressions
+The aim of this chapter of our Python tutorial is to present a detailed led and descriptive introduction into regular expressions. This introduction will explain the theoretical aspects of regular expressions and will show you how to use them in Python scripts.
+
+Regular Expressions are used in programming languages to filter texts or textstrings. It's possible to check, if a text or a string matches a regular expression.
+
+There is an aspect of regular expressions which shouldn't go unmentioned: The syntax of regular expressions is the same for all programming and script languages, e.g. Python, Perl, Java, SED, AWK and even X#.
+
+Functions
+match function
+This function attempts to match RE pattern to string with optional flags.
+
+re.match(pattern, string, flags=0)
+Example
+
+import re
+
+line = "Cats are smarter than dogs"
+
+matched_object = re.match(r'(.*) are (.*?) .*', line, re.M | re.I)
+
+if matched_object:
+    print "matched_object.group()  : ", matched_object.group()
+    print "matched_object.group(1) : ", matched_object.group(1)
+    print "matched_object.group(2) : ", matched_object.group(2)
+else:
+    print "No match!!"
+When the code is executed, it produces following results
+
+matched_object.group()  :  Cats are smarter than dogs
+matched_object.group(1) :  Cats
+matched_object.group(2) :  smarter
+search function
+This function searches for first occurrence of RE pattern within stirng with optional flags
+
+re.search(pattern, string, flags=0)
+Example
+
+#!/usr/bin/python
+import re
+
+line = "Cats are smarter than dogs"
+
+search_object = re.search(r'dogs', line, re.M | re.I)
+if search_object:
+    print "search --> search_object.group() : ", search_object.group()
+else:
+    print "Nothing found!!"
+When the code is executed, it produces following results
+
+search --> search_object.group() :  dogs
+sub function
+This method replaces all occurrences of the RE pattern in string with repl, substituting all occurrences unless max provided. This method returns modified string.
+
+re.sub(pattern, repl, string, max=0)
+Example
+
+#!/usr/bin/python
+import re
+
+phone = "2004-959-559 # This is Phone Number"
+
+# Delete Python-style comments
+num = re.sub(r'#.*$', "", phone)
+print "Phone Num : ", num
+
+# Remove anything other than digits
+num = re.sub(r'\D', "", phone)
+print "Phone Num : ", num
+When the code is executed, it produces following results
+
+Phone Num :  2004-959-559
+Phone Num :  2004959559
+Tokens Cheatsheet
+Character Classes
+.	any character except newline
+/go.gle/
+google goggle gogle
+\w \d \s	word, digit, whitespace
+/\w/
+AaYyz09 ?!
+/\d/
+012345 aZ?
+/\s/
+0123456789 abcd?/
+\W \D \S	not word, digit, whitespace
+/\W/
+abcded   1234 ?>
+/\D/
+abc 12345 ?<.
+/\S/
+abc   123?  <.
+[abc]	any of a, b or c
+/analy[sz]e/
+analyse analyze analyxe
+[^abc]	not a, b or c
+/analy[^sz]e/
+analyse analyze analyxe
+[a-g]	character between a & g
+/[2-4]/
+demo1 demo2 demo3 demo4 demo5
+Quantifiers & Alternation
+a* a+ a?	0 or more, 1 or more, 0 or 1
+/go*gle/
+gogle gogle google gooooogle hgle
+/go+gle/
+ggle gogle google gooooogle hgle
+/go?gle/
+ggle gogle google gooooogle hgle
+a{5}, a{2,}	exactly five, two or more
+/go{5}gle/
+gogle gogle google gooooogle hgle
+/go{2,}gle/
+gogle gogle google gooooogle hgle
+a{1,3}	between one & three
+/go{1,3}gle/
+gogle gogle google gooogle gooooogle hgle
+a+? a{2,}?	match as few as possible
+/a+?/
+a aa aaaaaa
+/a{2,}?/
+a aa aaaaaa
+ab|cd	match ab or cd
+/demo|example/
+demo example example1
+Anchors
+^abc$	start / end of the string
+/^abc$/
+abc
+/^abc/
+abc abc
+/abc$/
+abc abc
+\b \B	word, not-word boundary
+/\bis\b/
+This island is beautiful.
+/\Bcat\B/
+cat certificate
+Escaped characters
+\. \* \\	escaped special characters
+/\./
+username@exampe.com 300.000 USD
+/\*/
+abc@&%$*123
+/\\/
+abc@&%$\\123
+\t \n \r	tab, linefeed, carriage return
+/\t/
+abc	def
+/ab\n/
+ab
+/\r/
+abc@&%$\\123
+\u00A9	unicode escaped ©
+/\u00A9/
+Copyright©2017 - All rights reserved
+Groups and Lockaround
+(abc)	capture group
+/(demo|example)[0-9]/
+demo1example4demo
+\1	backreference to group #1
+/(abc|def)=\1/
+abc=abc def=defabc=def
+(?:abc)	non-capturing group
+/(?:abc){3}/
+abcabcabc abcabc
+(?=abc)	positive lookahead
+/t(?=s)/
+tttssstttss
+(?!abc)	negative lookahead
+/t(?!s)/
+tttssstttss
+(?<=abc)	positive lookbehind
+/(?<=foo)bar/
+foobar fuubar
+(?<!abc)	negative lookbehind
+/(?<!foo)bar/
+foobar fuubar
+Related Readings
+
+Online regex tester and debugger: PHP, PCRE, Python, Golang and JavaScript, regex101.com
+RegExr: Learn, Build, & Test RegEx, regexr.com
+
+\subsection{Datetime}
+
+Print current time
+
+from datetime import datetime
+datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+# '2015-12-29 14:02:27'
+Get current time
+
+import datetime
+datetime.datetime.now()
+# datetime(2009, 1, 6, 15, 8, 24, 78915)
+Unixtime
+
+import time
+int(time.time())
+Measure time elapsed
+
+import time
+
+start = time.time()
+print("hello")
+end = time.time()
+print(end - start)
+Moment
+Dealing with dates in Python shouldn't have to suck.
+
+Installation
+
+pip install moment
+Usage
+
+import moment
+from datetime import datetime
+
+# Create a moment from a string
+moment.date("12-18-2012")
+
+# Create a moment with a specified strftime format
+moment.date("12-18-2012", "%m-%d-%Y")
+
+# Moment uses the awesome dateparser library behind the scenes
+moment.date("2012-12-18")
+
+# Create a moment with words in it
+moment.date("December 18, 2012")
+
+# Create a moment that would normally be pretty hard to do
+moment.date("2 weeks ago")
+
+# Create a future moment that would otherwise be really difficult
+moment.date("2 weeks from now")
+
+# Create a moment from the current datetime
+moment.now()
+
+# The moment can also be UTC-based
+moment.utcnow()
+
+# Create a moment with the UTC time zone
+moment.utc("2012-12-18")
+
+# Create a moment from a Unix timestamp
+moment.unix(1355875153626)
+
+# Create a moment from a Unix UTC timestamp
+moment.unix(1355875153626, utc=True)
+
+# Return a datetime instance
+moment.date(2012, 12, 18).date
+
+# We can do the same thing with the UTC method
+moment.utc(2012, 12, 18).date
+
+# Create and format a moment using Moment.js semantics
+moment.now().format("YYYY-M-D")
+
+# Create and format a moment with strftime semantics
+moment.date(2012, 12, 18).strftime("%Y-%m-%d")
+
+# Update your moment's time zone
+moment.date(datetime(2012, 12, 18)).locale("US/Central").date
+
+# Alter the moment's UTC time zone to a different time zone
+moment.utcnow().timezone("US/Eastern").date
+
+# Set and update your moment's time zone. For instance, I'm on the
+# west coast, but want NYC's current time.
+moment.now().locale("US/Pacific").timezone("US/Eastern")
+
+# In order to manipulate time zones, a locale must always be set or
+# you must be using UTC.
+moment.utcnow().timezone("US/Eastern").date
+
+# You can also clone a moment, so the original stays unaltered
+now = moment.utcnow().timezone("US/Pacific")
+future = now.clone().add(weeks=2)
+Related Readings
+How to get current time in Python, stackoverflow
+Does Python's time.time() return the local or UTC timestamp?, stackoverflow
+Measure time elapsed in Python?, stackoverflow
+momnet, https://github.com/zachwill/moment
+
+\subsection{Object}
+
+Convert dict to object
+Elegant way to convert a normal Python dict with some nested dicts to an object
+
+class Struct:
+    def __init__(self, **entries):
+        self.__dict__.update(entries)
+Then, you can use
+
+> args = {'a': 1, 'b': 2}
+> s = Struct(**args)
+> s
+< __main__.Struct instance at 0x01D6A738 >
+> s.a
+1
+> s.b
+2
+Related Readings
+
+stackoverflow, Convert Python dict to object?
+
+\section{Object Oriented Programming}
+
+Object Oriented Programming
+Python has been an object-oriented language since it existed. Because of this, creating and using classes and objects are downright easy. This chapter helps you become an expert in using Python's object-oriented programming support.
+
+If you do not have any previous experience with object-oriented (OO) programming, you may want to consult an introductory course on it or at least a tutorial of some sort so that you have a grasp of the basic concepts.
+
+Classes and Objects
+Classes can be thought of as blueprints for creating objects. When I define a BankAccount class using the class keyword, I haven't actually created a bank account. Instead, what I've created is a sort of instruction manual for constructing "bank account" objects. Let's look at the following example code:
+
+class BankAccount:
+    id = None
+    balance = 0
+
+    def __init__(self, id, balance=0):
+        self.id = id
+        self.balance = balance
+
+    def __get_balance(self):
+        return self.balance
+
+    def withdraw(self, amount):
+        self.balance = self.balance - amount
+
+    def deposit(self, amount):
+        self.balance = self.balance + amount
+
+john = BankAccount(1, 1000.0)
+john.withdraw(100.0)
+The class BankAccount line does not create a new bank account. That is, just because we've defined a BankAcount doesn't mean we've created on; we've merely outlined the blueprint to create a BankAccount object. To do so, we call the class's __init__ method with the proper number of arguments (minus self, which we'll get to in a moment)
+
+So, to use the "blueprint" that we crated by defining the class BankAccount (which is used to create BankAccount objects), we call the class name almost as if it were a function: john = BankAccount(1, 1000.0). This line simple say "use the BankAccount blueprint to create me a new object, which I'll refer to as john".
+
+The john object, known as an instance, is the realized version of the BankAccount class. Before we called BankAccount(), no BankAccount object existed. We can, of course, create as many BankAccount objects as we'd like. There is still, however, only one BankAccount class, regardless of how many instances of the class we create.
+
+self
+So what's with that self parameter to all of the BankAccount methods? What is it? Why, it's the instance, of course! Put another way, a method like withdraw defines the instructions for withdrawing money from some abstract customer's account. Calling john.withdraw(100) puts those instructions to use on the john instance.
+
+So when we say def withdraw(self, amount):, we're saying, "here's how you withdraw money from a BankAccount object (which we'll call self) and a dollar figure (which we'll call amount). self is the instance of the BankAccount that  withdraw is being called on. That's not me making analogies, either. john.withdraw(100.0) is just shorthand for BankAccount.withdraw(john, 100.0), which is perfectly valid (if not often seen) code.
+
+Constructors: __init__
+self may make sense for other methods, but what about __init__? When we call __init__, we're in the process of creating an object, so how can there already be a self? Python allows us to extend the self pattern to when objects are constructed as well, even though it doesn't exactly fit. Just imagine that john = (1, 1000.0) is the same as calling john = BankAccount(john, 1, 1000.0); the john that's passed in is also made the result.
+
+This is why when we call __init__, we initialize objects by saying things like self.id = id. Remember, since self is the instance, this is equivalent to saying john.id = id, which is the same as john.id= 1. Similarly, self.balance = balance is the same as john.balance = 1000.0. After these two lines, we consider the BankAccount object "initialized" and ready for use.
+
+Be careful what you __init__
+After __init__ has finished, the caller can rightly assume that the object is ready to use. That is, after john = BankAccount(1, 1000.0), we can start making deposit and withdraw calls on john; john is a fully-initialized object.
+
+Inheritance
+While Object-oriented Programming is useful as a modeling tool, it truly gains power when the concept of inheritance is introduced. Inheritance is the process by which a "child" class derives the data and behavior of a "parent" class. An example will definitely help us here.
+
+Imagine we run a car dealership. We sell all types of vehicles, from motorcycles to trucks. We set ourselves apart from the competition by our prices. Specifically, how we determine the price of a vehicle on our lot: $5,000 x number of wheels a vehicle has. We love buying back our vehicles as well. We offer a flat rate - 10% of the miles driven on the vehicle. For trucks, that rate is $10,000. For cars, $8,000. For motorcycles, $4,000.
+
+If we wanted to create a sales system for our dealership using Object-oriented techniques, how would we do so? What would the objects be? We might have a Sale class, a Customer class, an Inventory class, and so forth, but we'd almost certainly have a Car, Truck, and Motorcycle class.
+
+What would these classes look like? Using what we've learned, here's a possible implementation of the Car class:
+
+class Car(object):
+    def __init__(self, wheels, miles, make, model, year, sold_on):
+        self.wheels = wheels
+        self.miles = miles
+        self.make = make
+        self.model = model
+        self.year = year
+        self.sold_on = sold_on
+
+    def sale_price(self):
+        if self.sold_on is not None:
+            return 0.0  # Already sold
+        return 5000.0 * self.wheels
+
+    def purchase_price(self):
+        if self.sold_on is None:
+            return 0.0  # Not yet sold
+        return 8000 - (.10 * self.miles)
+OK, that looks pretty reasonable. Of course, we would likely have a number of other methods on the class, but I've shown two of particular interest to us: sale_price and purchase_price. We'll see why these are important in a bit.
+
+Now that we've got the Car class, perhaps we should create a Truck class? Let's follow the same pattern we did for car:
+
+class Truck(object):
+    def __init__(self, wheels, miles, make, model, year, sold_on):
+        self.wheels = wheels
+        self.miles = miles
+        self.make = make
+        self.model = model
+        self.year = year
+        self.sold_on = sold_on
+
+    def sale_price(self):
+        if self.sold_on is not None:
+            return 0.0  # Already sold
+        return 5000.0 * self.wheels
+
+    def purchase_price(self):
+        if self.sold_on is None:
+            return 0.0  # Not yet sold
+        return 10000 - (.10 * self.miles)
+Wow. That's almost identical to the car class. One of the most important rules of programming (in general, not just when dealing with objects) is "DRY" or "Don't Repeat Yourself. We've definitely repeated ourselves here. In fact, the Car and Truck classes differ only by a single character (aside from comments).
+
+So what gives? Where did we go wrong? Our main problem is that we raced straight to the concrete: Car and Truck are real things, tangible objects that make intuitive sense as classes. However, they share so much data and functionality in common that it seems there must be an abstraction we can introduce here. Indeed there is: the notion of Vehicle.
+
+Abstract Classes
+A Vehicle is not a real-world object. Rather, it is a concept that some real-world objects (like cars, trucks, and motorcycles) embody. We would like to use the fact that each of these objects can be considered a vehicle to remove repeated code. We can do that by creating a Vehicle class:
+
+class Vehicle(object):
+    base_sale_price = 0
+
+    def __init__(self, wheels, miles, make, model, year, sold_on):
+        self.wheels = wheels
+        self.miles = miles
+        self.make = make
+        self.model = model
+        self.year = year
+        self.sold_on = sold_on
+
+
+    def sale_price(self):
+        if self.sold_on is not None:
+            return 0.0  # Already sold
+        return 5000.0 * self.wheels
+
+    def purchase_price(self):
+        if self.sold_on is None:
+            return 0.0  # Not yet sold
+        return self.base_sale_price - (.10 * self.miles)
+Now we can make the Car and Truck class inherit from the Vehicle class by replacing object in the line class Car(object). The class in parenthesis is the class that is inherited from (object essentially means "no inheritance". We'll discuss exactly why we write that in a bit).
+
+We can now define Car and Truck in a very straightforward way:
+
+class Car(Vehicle):
+
+    def __init__(self, wheels, miles, make, model, year, sold_on):
+        self.wheels = wheels
+        self.miles = miles
+        self.make = make
+        self.model = model
+        self.year = year
+        self.sold_on = sold_on
+        self.base_sale_price = 8000
+
+
+class Truck(Vehicle):
+
+    def __init__(self, wheels, miles, make, model, year, sold_on):
+        self.wheels = wheels
+        self.miles = miles
+        self.make = make
+        self.model = model
+        self.year = year
+        self.sold_on = sold_on
+        self.base_sale_price = 10000
+Object
+Convert dict to object
+
+class Struct:
+    def __init__(self, **entries):
+        self.__dict__.update(entries)
+Then, you can use
+
+> args = {'a': 1, 'b': 2}
+> s = Struct(**args)
+> s
+< __main__.Struct instance at 0x01D6A738 >
+> s.a
+1
+> s.b
+2
+Suggested Readings
+Improve Your Python: Python Classes and Object Oriented Programming
+stackoverflow, Convert Python dict to object?
+Why are Python's 'private' methods not actually private?
+
+\subsection{Metaclasses}
+
+Metaclasses
+Python, Classes, and Objects
+Most readers are aware that Python is an object-oriented language. By object-oriented, we mean that Python can define classes, which bundle data and functionality into one entity. For example, we may create a class IntContainer which stores an integer and allows certain operations to be performed:
+
+class IntContainer(object):
+    def __init__(self, i):
+        self.i = int(i)
+
+    def add_one(self):
+        self.i += 1
+ic = IntContainer(2)
+ic.add_one()
+print(ic.i)
+3
+This is a bit of a silly example, but shows the fundamental nature of classes: their ability to bundle data and operations into a single object, which leads to cleaner, more manageable, and more adaptable code. Additionally, classes can inherit properties from parents and add or specialize attributes and methods. This object-oriented approach to programming can be very intuitive and powerful.
+
+What many do not realize, though, is that quite literally everything in the Python language is an object.
+
+For example, integers are simply instances of the built-in int type:
+
+print type(1)
+<type 'int'>
+To emphasize that the int type really is an object, let's derive from it and specialize the __add__ method (which is the machinery underneath the + operator):
+
+(Note: We'll used the super syntax to call methods from the parent class: if you're unfamiliar with this, take a look at this StackOverflow question).
+
+class MyInt(int):
+    def __add__(self, other):
+        print "specializing addition"
+        return super(MyInt, self).__add__(other)
+
+i = MyInt(2)
+print(i + 2)
+specializing addition
+4
+Using the + operator on our derived type goes through our __add__ method, as expected. We see that int really is an object that can be subclassed and extended just like user-defined classes. The same is true of floats, lists, tuples, and everything else in the Python language. They're all objects.
+
+Down the Rabbit Hole: Classes as Objects
+We said above that everything in python is an object: it turns out that this is true of classes themselves. Let's look at an example.
+
+We'll start by defining a class that does nothing
+
+class DoNothing(object):
+    pass
+If we instantiate this, we can use the type operator to see the type of object that it is:
+
+d = DoNothing()
+type(d)
+__main__.DoNothing
+We see that our variable d is an instance of the class __main__.DoNothing.
+
+We can do this similarly for built-in types:
+
+L = [1, 2, 3]
+type(L)
+list
+A list is, as you may expect, an object of type list.
+
+But let's take this a step further: what is the type of DoNothing itself?
+
+type(DoNothing)
+type
+The type of DoNothing is type. This tells us that the class DoNothing is itself an object, and that object is of type type.
+
+It turns out that this is the same for built-in datatypes:
+
+type(tuple), type(list), type(int), type(float)
+(type, type, type, type)
+What this shows is that in Python, classes are objects, and they are objects of type type.  type is a metaclass: a class which instantiates classes. All new-style classes in Python are instances of the type metaclass, including type itself:
+
+type(type)
+type
+Yes, you read that correctly: the type of type is type. In other words, type is an instance of itself. This sort of circularity cannot (to my knowledge) be duplicated in pure Python, and the behavior is created through a bit of a hack at the implementation level of Python.
+
+Metaprogramming: Creating Classes on the Fly
+Now that we've stepped back and considered the fact that classes in Python are simply objects like everything else, we can think about what is known as metaprogramming. You're probably used to creating functions which return objects. We can think of these functions as an object factory: they take some arguments, create an object, and return it. Here is a simple example of a function which creates an int object:
+
+def int_factory(s):
+    i = int(s)
+    return i
+
+i = int_factory('100')
+print(i)
+100
+This is overly-simplistic, but any function you write in the course of a normal program can be boiled down to this: take some arguments, do some operations, and create & return an object. With the above discussion in mind, though, there's nothing to stop us from creating an object of type type (that is, a class), and returning that instead -- this is a metafunction:
+
+def class_factory():
+    class Foo(object):
+        pass
+    return Foo
+
+F = class_factory()
+f = F()
+print(type(f))
+<class '__main__.Foo'>
+Just as the function int_factory constructs an returns an instance of int, the function class_factory constructs and returns an instance of type: that is, a class.
+
+But the above construction is a bit awkward: especially if we were going to do some more complicated logic when constructing Foo, it would be nice to avoid all the nested indentations and define the class in a more dynamic way. We can accomplish this by instantiating Foo from type directly:
+
+def class_factory():
+    return type('Foo', (), {})
+
+F = class_factory()
+f = F()
+print(type(f))
+<class '__main__.Foo'>
+In fact, the construct
+
+class MyClass(object):
+    pass
+is identical to the construct
+
+MyClass = type('MyClass', (), {})
+MyClass is an instance of type type, and that can be seen explicitly in the second version of the definition. A potential confusion arises from the more common use of type as a function to determine the type of an object, but you should strive to separate these two uses of the keyword in your mind: here type is a class (more precisely, a metaclass), and MyClass is an instance of type.
+
+The arguments to the type constructor are: type(name, bases, dct) - name is a string giving the name of the class to be constructed - bases is a tuple giving the parent classes of the class to be constructed - dct is a dictionary of the attributes and methods of the class to be constructed
+
+So, for example, the following two pieces of code have identical results:
+
+class Foo(object):
+    i = 4
+
+class Bar(Foo):
+    def get_i(self):
+        return self.i
+
+b = Bar()
+print(b.get_i())
+4
+Foo = type('Foo', (), dict(i=4))
+
+Bar = type('Bar', (Foo,), dict(get_i = lambda self: self.i))
+
+b = Bar()
+print(b.get_i())
+4
+This perhaps seems a bit over-complicated in the case of this contrived example, but it can be very powerful as a means of dynamically creating new classes on-the-fly.
+
+Making Things Interesting: Custom Metaclasses
+Now things get really fun. Just as we can inherit from and extend a class we've created, we can also inherit from and extend the type metaclass, and create custom behavior in our metaclass.
+
+Example 1: Modifying Attributes
+Let's use a simple example where we want to create an API in which the user can create a set of interfaces which contain a file object. Each interface should have a unique string ID, and contain an open file object. The user could then write specialized methods to accomplish certain tasks. There are certainly good ways to do this without delving into metaclasses, but such a simple example will (hopefully) elucidate what's going on.
+
+First we'll create our interface meta class, deriving from type:
+
+class InterfaceMeta(type):
+    def __new__(cls, name, parents, dct):
+        # create a class_id if it's not specified
+        if 'class_id' not in dct:
+            dct['class_id'] = name.lower()
+
+        # open the specified file for writing
+        if 'file' in dct:
+            filename = dct['file']
+            dct['file'] = open(filename, 'w')
+
+        # we need to call type.__new__ to complete the initialization
+        return super(InterfaceMeta, cls).__new__(cls, name, parents, dct)
+Notice that we've modified the input dictionary (the attributes and methods of the class) to add a class id if it's not present, and to replace the filename with a file object pointing to that file name.
+
+Now we'll use our InterfaceMeta class to construct and instantiate an Interface object:
+
+Interface = InterfaceMeta('Interface', (), dict(file='tmp.txt'))
+
+print(Interface.class_id)
+print(Interface.file)
+interface
+<open file 'tmp.txt', mode 'w' at 0x21b8810>
+This behaves as we'd expect: the class_id class variable is created, and the file class variable is replaced with an open file object. Still, the creation of the Interface class using InterfaceMeta directly is a bit clunky and difficult to read. This is where __metaclass__ comes in and steals the show. We can accomplish the same thing by defining Interface this way:
+
+class Interface(object):
+    __metaclass__ = InterfaceMeta
+    file = 'tmp.txt'
+
+print(Interface.class_id)
+print(Interface.file)
+interface
+<open file 'tmp.txt', mode 'w' at 0x21b8ae0>
+by defining the __metaclass__ attribute of the class, we've told the class that it should be constructed using InterfaceMeta rather than using type. To make this more definite, observe that the type of Interface is now InterfaceMeta:
+
+type(Interface)
+__main__.InterfaceMeta
+Furthermore, any class derived from Interface will now be constructed using the same metaclass:
+
+class UserInterface(Interface):
+    file = 'foo.txt'
+
+print(UserInterface.file)
+print(UserInterface.class_id)
+<open file 'foo.txt', mode 'w' at 0x21b8c00>
+userinterface
+This simple example shows how metaclasses can be used to create powerful and flexible APIs for projects. For example, the Django project makes use of these sorts of constructions to allow concise declarations of very powerful extensions to their basic classes.
+
+Example 2: Registering Subclasses
+Another possible use of a metaclass is to automatically register all subclasses derived from a given base class. For example, you may have a basic interface to a database and wish for the user to be able to define their own interfaces, which are automatically stored in a master registry.
+
+You might proceed this way:
+
+class DBInterfaceMeta(type):
+    # we use __init__ rather than __new__ here because we want
+    # to modify attributes of the class *after* they have been
+    # created
+    def __init__(cls, name, bases, dct):
+        if not hasattr(cls, 'registry'):
+            # this is the base class.  Create an empty registry
+            cls.registry = {}
+        else:
+            # this is a derived class.  Add cls to the registry
+            interface_id = name.lower()
+            cls.registry[interface_id] = cls
+
+        super(DBInterfaceMeta, cls).__init__(name, bases, dct)
+Our metaclass simply adds a registry dictionary if it's not already present, and adds the new class to the registry if the registry is already there. Let's see how this works:
+
+class DBInterface(object):
+    __metaclass__ = DBInterfaceMeta
+
+print(DBInterface.registry)
+{}
+Now let's create some subclasses, and double-check that they're added to the registry:
+
+class FirstInterface(DBInterface):
+    pass
+
+class SecondInterface(DBInterface):
+    pass
+
+class SecondInterfaceModified(SecondInterface):
+    pass
+
+print(DBInterface.registry)
+{'firstinterface': <class '__main__.FirstInterface'>, 'secondinterface': <class '__main__.SecondInterface'>, 'secondinterfacemodified': <class '__main__.SecondInterfaceModified'>}
+It works as expected! This could be used in conjunction with a function that chooses implementations from the registry, and any user-defined Interface-derived objects would be automatically accounted for, without the user having to remember to manually register the new types.
+
+Conclusion: When Should You Use Metaclasses?
+I've gone through some examples of what metaclasses are, and some ideas about how they might be used to create very powerful and flexible APIs. Although metaclasses are in the background of everything you do in Python, the average coder rarely has to think about them.
+
+But the question remains: when should you think about using custom metaclasses in your project? It's a complicated question, but there's a quotation floating around the web that addresses it quite succinctly:
+
+Metaclasses are deeper magic than 99% of users should ever worry about. If you wonder whether you need them, you don’t (the people who actually need them know with certainty that they need them, and don’t need an explanation about why).
+
+– Tim Peters
+
+In a way, this is a very unsatisfying answer: it's a bit reminiscent of the wistful and cliched explanation of the border between attraction and love: "well, you just... know!"
+
+But I think Tim is right: in general, I've found that most tasks in Python that can be accomplished through use of custom metaclasses can also be accomplished more cleanly and with more clarity by other means. As programmers, we should always be careful to avoid being clever for the sake of cleverness alone, though it is admittedly an ever-present temptation.
+
+I personally spent six years doing science with Python, writing code nearly on a daily basis, before I found a problem for which metaclasses were the natural solution. And it turns out Tim was right:
+
+I just knew.
+
+\subsection{Design Patterns}
+
+Design Patterns
+Singleton
+Non-thread-safe
+Paul Manta's implementation of singletons
+
+@Singleton
+class Foo:
+   def __init__(self):
+       print 'Foo created'
+
+f = Foo() # Error, this isn't how you get the instance of a singleton
+
+f = Foo.Instance() # Good. Being explicit is in line with the Python Zen
+g = Foo.Instance() # Returns already created instance
+
+print f is g # True
+
+class Singleton:
+    """
+    A non-thread-safe helper class to ease implementing singletons.
+    This should be used as a decorator -- not a metaclass -- to the
+    class that should be a singleton.
+
+    The decorated class can define one `__init__` function that
+    takes only the `self` argument. Also, the decorated class cannot be
+    inherited from. Other than that, there are no restrictions that apply
+    to the decorated class.
+
+    To get the singleton instance, use the `Instance` method. Trying
+    to use `__call__` will result in a `TypeError` being raised.
+
+    """
+
+    def __init__(self, decorated):
+        self._decorated = decorated
+
+    def Instance(self):
+        """
+        Returns the singleton instance. Upon its first call, it creates a
+        new instance of the decorated class and calls its `__init__` method.
+        On all subsequent calls, the already created instance is returned.
+
+        """
+        try:
+            return self._instance
+        except AttributeError:
+            self._instance = self._decorated()
+            return self._instance
+
+    def __call__(self):
+        raise TypeError('Singletons must be accessed through `Instance()`.')
+
+    def __instancecheck__(self, inst):
+        return isinstance(inst, self._decorated)
+Thread safe
+werediver's implementation of singletons. A thread safe implementation of singleton pattern in Python. Based on tornado.ioloop.IOLoop.instance() approach.
+
+import threading
+
+# Based on tornado.ioloop.IOLoop.instance() approach.
+# See https://github.com/facebook/tornado
+class SingletonMixin(object):
+    __singleton_lock = threading.Lock()
+    __singleton_instance = None
+
+    @classmethod
+    def instance(cls):
+        if not cls.__singleton_instance:
+            with cls.__singleton_lock:
+                if not cls.__singleton_instance:
+                    cls.__singleton_instance = cls()
+        return cls.__singleton_instance
+
+class A(SingletonMixin):
+    pass
+
+class B(SingletonMixin):
+    pass
+
+if __name__ == '__main__':
+    a, a2 = A.instance(), A.instance()
+    b, b2 = B.instance(), B.instance()
+
+    assert a is a2
+    assert b is b2
+    assert a is not b
+
+    print('a:  %s\na2: %s' % (a, a2))
+    print('b:  %s\nb2: %s' % (b, b2))
+Suggested Readings
+Is there a simple, elegant way to define singletons?
+
+\section{File System & IO}
+
+JSON
+Write json file with pretty format and unicode
+
+import json
+import io
+
+data = {
+    "menu": {
+        "header": "Sample Menu",
+        "items": [
+            {"id": "Open"},
+            {"id": "OpenNew", "label": "Open New"},
+            None,
+            {"id": "Help"},
+            {"id": "About", "label": "About Adobe CVG Viewer..."}
+        ]
+    }}
+
+with io.open("sample_json.json", "w", encoding="utf8") as f:
+    content = json.dumps(data, indent=4, sort_keys=True, ensure_ascii=False)
+    f.write(unicode(content))
+Result
+
+{
+    "menu": {
+        "header": "Sample Menu",
+        "items": [
+            {
+                "id": "Open"
+            },
+            {
+                "id": "OpenNew",
+                "label": "Open New"
+            },
+            null,
+            {
+                "id": "Help"
+            },
+            {
+                "id": "About",
+                "label": "About Adobe CVG Viewer..."
+            }
+        ]
+    }
+}
+Read json file
+
+import json
+from pprint import pprint
+
+with open('sample_json.json') as data_file:
+    data = json.load(data_file)
+
+pprint(data)
+Result
+
+{u'menu': {u'header': u'Sample Menu',
+           u'items': [{u'id': u'Open'},
+                      {u'id': u'OpenNew', u'label': u'Open New'},
+                      None,
+                      {u'id': u'Help'},
+                      {u'id': u'About',
+                       u'label': u'About Adobe CVG Viewer...'}]}}
+Related Reading
+
+Parsing values from a JSON file in Python, stackoverflow
+How do I write JSON data to a file in Python?, stackoverflow
+XML
+Write xml file with lxml package
+
+import lxml.etree as ET
+# root declaration
+root = ET.Element('catalog')
+# insert comment
+comment = ET.Comment(' this is a xml sample file ')
+root.insert(1, comment)
+# book element
+book = ET.SubElement(root, 'book', id="bk001")
+# book data
+author = ET.SubElement(book, 'author')
+author.text = "Gambardella, Matthew"
+title = ET.SubElement(book, 'title')
+title.text = "XML Developer's Guide"
+# write xml to file
+tree = ET.ElementTree(root)
+tree.write("sample_book.xml", pretty_print=True, xml_declaration=True, encoding='utf-8')
+Result
+
+<?xml version='1.0' encoding='UTF-8'?>
+<catalog>
+  <!-- this is a xml sample file -->
+  <book id="bk001">
+    <author>Gambardella, Matthew</author>
+    <title>XML Developer's Guide</title>
+  </book>
+</catalog>
+Read xml file with lxml package
+
+from lxml import etree as ET
+
+tree = ET.parse("sample_book.xml")
+root = tree.getroot()
+book = root.find('book')
+print "Book Information"
+print "ID     :", book.attrib["id"]
+print "Author :", book.find('author').text
+print "Title  :", book.find('title').text
+Result
+
+Book Information
+ID     : bk001
+Author : Gambardella, Matthew
+Title  : XML Developer's Guide
+
+\section{Operating System}
+
+File Operations
+Copy folder 1
+
+import shutil
+shutil.copyfile("src", "dst")
+CLI
+shutil — High-level file operations ↩
+
+\section{Networking}
+
+
+REST
+JSON 1 2
+GET
+
+import requests
+url = "http://localhost:8080/messages"
+response = requests.get(url)
+data = response.json()
+POST 3
+
+import requests
+import json
+
+url = "http://localhost:8080/messages"
+data = {'sender': 'Alice', 'receiver': 'Bob', 'message': 'Hello!'}
+headers = {
+  'Content-type': 'application/json',
+  'Accept': 'application/json'}
+r = requests.post(url, data=json.dumps(data), headers=headers)
+
+\section{Concurrency and Parallelism}
+
+Running several threads is similar to running several different programs concurrently, but with the following benefits
+
+Multiple threads within a process share the same data space with the main thread and can therefore share information or communicate with each other more easily than if they were separate processes.
+Threads sometimes called light-weight processes and they do not require much memory overhead; they are cheaper than processes.
+A thread has a beginning, an execution sequence, and a conclusion. It has an instruction pointer that keeps track of where within its context it is currently running.
+
+It can be pre-empted (interrupted)
+It can temporarily be put on hold (also known as sleeping) while other threads are running - this is called yielding.
+Starting a New Thread
+To spawn another thread, you need to call following method available in thread module:
+
+thread.start_new_thread ( function, args[, kwargs] )
+This method call enables a fast and efficient way to create new threads in both Linux and Windows.
+
+The method call returns immediately and the child thread starts and calls function with the passed list of args. When function returns, the thread terminates.
+
+Here, args is a tuple of arguments; use an empty tuple to call function without passing any arguments. kwargs is an optional dictionary of keyword arguments.
+
+Example
+
+#!/usr/bin/python
+
+import thread
+import time
+
+# Define a function for the thread
+def print_time( threadName, delay):
+   count = 0
+   while count < 5:
+      time.sleep(delay)
+      count += 1
+      print "%s: %s" % ( threadName, time.ctime(time.time()) )
+
+# Create two threads as follows
+try:
+   thread.start_new_thread( print_time, ("Thread-1", 2, ) )
+   thread.start_new_thread( print_time, ("Thread-2", 4, ) )
+except:
+   print "Error: unable to start thread"
+
+while 1:
+   pass
+When the above code is executed, it produces the following result
+
+Thread-1: Thu Jan 22 15:42:17 2009
+Thread-1: Thu Jan 22 15:42:19 2009
+Thread-2: Thu Jan 22 15:42:19 2009
+Thread-1: Thu Jan 22 15:42:21 2009
+Thread-2: Thu Jan 22 15:42:23 2009
+Thread-1: Thu Jan 22 15:42:23 2009
+Thread-1: Thu Jan 22 15:42:25 2009
+Thread-2: Thu Jan 22 15:42:27 2009
+Thread-2: Thu Jan 22 15:42:31 2009
+Thread-2: Thu Jan 22 15:42:35 2009
+Although it is very effective for low-level threading, but the thread module is very limited compared to the newer threading module.
+
+The Threading Module
+The newer threading module included with Python 2.4 provides much more powerful, high-level support for threads than the thread module discussed in the previous section.
+
+The threading module exposes all the methods of the thread module and provides some additional methods:
+
+threading.activeCount(): Returns the number of thread objects that are active.
+threading.currentThread(): Returns the number of thread objects in the caller's thread control.
+threading.enumerate(): Returns a list of all thread objects that are currently active.
+In addition to the methods, the threading module has the Thread class that implements threading. The methods provided by the Thread class are as follows:
+
+run(): The run() method is the entry point for a thread.
+start(): The start() method starts a thread by calling the run method.
+join([time]): The join() waits for threads to terminate.
+isAlive(): The isAlive() method checks whether a thread is still executing.
+getName(): The getName() method returns the name of a thread.
+setName(): The setName() method sets the name of a thread.
+Creating Thread Using Threading Module
+To implement a new thread using the threading module, you have to do the following −
+
+Define a new subclass of the Thread class.
+Override the init(self [,args]) method to add additional arguments.
+Then, override the run(self [,args]) method to implement what the thread should do when started.
+Once you have created the new Thread subclass, you can create an instance of it and then start a new thread by invoking the start(), which in turn calls run() method.
+
+Example
+
+#!/usr/bin/python
+
+import threading
+import time
+
+exitFlag = 0
+
+class myThread (threading.Thread):
+    def __init__(self, threadID, name, counter):
+        threading.Thread.__init__(self)
+        self.threadID = threadID
+        self.name = name
+        self.counter = counter
+    def run(self):
+        print "Starting " + self.name
+        print_time(self.name, self.counter, 5)
+        print "Exiting " + self.name
+
+def print_time(threadName, delay, counter):
+    while counter:
+        if exitFlag:
+            threadName.exit()
+        time.sleep(delay)
+        print "%s: %s" % (threadName, time.ctime(time.time()))
+        counter -= 1
+
+# Create new threads
+thread1 = myThread(1, "Thread-1", 1)
+thread2 = myThread(2, "Thread-2", 2)
+
+# Start new Threads
+thread1.start()
+thread2.start()
+
+print "Exiting Main Thread"
+When the above code is executed, it produces the following result
+
+Starting Thread-1
+Starting Thread-2
+Exiting Main Thread
+Thread-1: Thu Mar 21 09:10:03 2013
+Thread-1: Thu Mar 21 09:10:04 2013
+Thread-2: Thu Mar 21 09:10:04 2013
+Thread-1: Thu Mar 21 09:10:05 2013
+Thread-1: Thu Mar 21 09:10:06 2013
+Thread-2: Thu Mar 21 09:10:06 2013
+Thread-1: Thu Mar 21 09:10:07 2013
+Exiting Thread-1
+Thread-2: Thu Mar 21 09:10:08 2013
+Thread-2: Thu Mar 21 09:10:10 2013
+Thread-2: Thu Mar 21 09:10:12 2013
+Exiting Thread-2
+Synchronizing Threads
+The threading module provided with Python includes a simple-to-implement locking mechanism that allows you to synchronize threads. A new lock is created by calling the Lock() method, which returns the new lock.
+
+The acquire(blocking) method of the new lock object is used to force threads to run synchronously. The optional blocking parameter enables you to control whether the thread waits to acquire the lock.
+
+If blocking is set to 0, the thread returns immediately with a 0 value if the lock cannot be acquired and with a 1 if the lock was acquired. If blocking is set to 1, the thread blocks and wait for the lock to be released.
+
+The release() method of the new lock object is used to release the lock when it is no longer required.
+
+Example
+
+#!/usr/bin/python
+
+import threading
+import time
+
+class myThread (threading.Thread):
+    def __init__(self, threadID, name, counter):
+        threading.Thread.__init__(self)
+        self.threadID = threadID
+        self.name = name
+        self.counter = counter
+    def run(self):
+        print "Starting " + self.name
+        # Get lock to synchronize threads
+        threadLock.acquire()
+        print_time(self.name, self.counter, 3)
+        # Free lock to release next thread
+        threadLock.release()
+
+def print_time(threadName, delay, counter):
+    while counter:
+        time.sleep(delay)
+        print "%s: %s" % (threadName, time.ctime(time.time()))
+        counter -= 1
+
+threadLock = threading.Lock()
+threads = []
+
+# Create new threads
+thread1 = myThread(1, "Thread-1", 1)
+thread2 = myThread(2, "Thread-2", 2)
+
+# Start new Threads
+thread1.start()
+thread2.start()
+
+# Add threads to thread list
+threads.append(thread1)
+threads.append(thread2)
+
+# Wait for all threads to complete
+for t in threads:
+    t.join()
+print "Exiting Main Thread"
+When the above code is executed, it produces the following result
+
+Starting Thread-1
+Starting Thread-2
+Starting Thread-3
+Thread-1 processing One
+Thread-2 processing Two
+Thread-3 processing Three
+Thread-1 processing Four
+Thread-2 processing Five
+Exiting Thread-3
+Exiting Thread-1
+Exiting Thread-2
+Exiting Main Thread
+Related Readings
+"Python Multithreaded Programming". www.tutorialspoint.com. N.p., 2016. Web. 13 Dec. 2016.
+"An Introduction To Python Concurrency". dabeaz.com. N.p., 2016. Web. 14 Dec. 2016.
+
+\section{Event Based Programming}
+
+Introduction: pydispatcher 1 2
+PyDispatcher provides the Python programmer with a multiple-producer-multiple-consumer signal-registration and routing infrastructure for use in multiple contexts. The mechanism of PyDispatcher started life as a highly rated recipe in the Python Cookbook. The project aims to include various enhancements to the recipe developed during use in various applications. It is primarily maintained by Mike Fletcher. A derivative of the project provides the Django web framework's "signal" system.
+
+Used by Django community
+
+Usage 1
+# To set up a function to receive signals:
+from pydispatch import dispatcher
+
+SIGNAL = 'my-first-signal'
+
+
+def handle_event(sender):
+    """Simple event handler"""
+    print 'Signal was sent by', sender
+
+
+dispatcher.connect(handle_event, signal=SIGNAL, sender=dispatcher.Any)
+
+# The use of the Any object allows the handler to listen for messages
+# from any Sender or to listen to Any message being sent.
+# To send messages:
+first_sender = object()
+second_sender = {}
+
+
+def main():
+    dispatcher.send(signal=SIGNAL, sender=first_sender)
+    dispatcher.send(signal=SIGNAL, sender=second_sender)
+
+    # Which causes the following to be printed:
+
+    # Signal was sent by <object object at 0x196a090>
+    # Signal was sent by {}
+Messaging
+Conda link Docker link Github - pubSubService Github - pubSubClient Pypi link
+
+Python Publish - Subscribe Pattern Implementation:
+
+Step by Step to run PubSub:
+Step 1: Pull pubsub image from docker hub & run it:
+docker pull hunguyen/pubsub:latest
+docker run -d -p 8000:8000 hunguyen/pubsub
+Step 2: To run client first install pyconfiguration from conda
+conda install -c rain1024 pyconfiguration
+Step 3: Install pubSubClient package from conda
+conda install -c hunguyen pubsubclient
+Step 4: Create config.json file
+{
+  "PUBLISH_SUBSCRIBE_SERVICE": "http://api.service.com"
+}
+Step 5: Run pubsubclient
+# create and register or sync a publisher
+publisher = Publisher('P1')
+# create a new topic
+topic = Topic('A')
+# create an event of a topic
+event = Event(topic)
+# publisher publishes an event
+publisher.publish(event)
+# create and register or sync a subscriber
+subscriber = Subscriber('S1')
+# subscriber subscribes to a topic
+subscriber.subscribe(topic)
+# subscriber get all new events by time stamp of topics which it has subscribed
+events = subscriber.get_events()
+pydispatcher ↩
+
+stackoverflow, Recommended Python publish/subscribe/dispatch module? ↩
+
+\section{Web Development}
+
+Django 1
+Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of Web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source.
+
+Project Folder Structure
+
+project_folder/
+├── your_project_name/
+│   ├── your_project_name/
+│   │   ├── static/
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── views.py
+└   └── manage.py
+Create (and use) REST API in 5 (+1) steps 1 2
+Step 1: Install dependencies
+pip install django
+pip install djangorestframework
+pip install markdown             # Markdown support for the browsable API.
+pip install django-filter        # Filtering support
+pip install django-cors-headers  # CORS support
+Step 2: Create project
+django-admin startproject your_project_name
+Step 3: Config apps 3
+Add 'your_project_name', 'rest_framework' to your INSTALLED_APPS setting in your_project_name/settings.py file
+
+INSTALLED_APPS = (
+    ...
+    'your_project_name'
+    'rest_framework',
+)
+Step 4: Model, View, Route 6
+Step 4.1: Create model and serializer
+You can go to Django: Model field reference page for more fields.
+
+Step 4.1.1: Create Task class in your_project_name/models.py file
+from django.db import models
+
+class Task(models.Model):
+    content = models.CharField(max_length=30)
+    status = models.CharField(max_length=30)
+Step 4.1.2: Create TaskSerializer class in your_project_name/serializers.py file
+from your_project_name.models import Task
+from rest_framework import serializers
+
+class TaskSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Task
+        fields = ('id', 'content', 'status')
+Step 4.1.3: Create table in database 4
+python manage.py syncdb
+With django 1.9
+
+python manage.py makemigrations your_project_name
+python manage.py migrate
+Step 4.2: Create TaskViewSet class in your_project_name/views.py file
+from your_project_name.models import Task
+from your_project_name.serializers import TaskSerializer
+from rest_framework import viewsets
+
+class TaskViewSet(viewsets.ModelViewSet):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+Step 4.3: Config route 5
+Change your_project_name/urls.py file
+
+from django.conf.urls import include, url
+from django.contrib import admin
+from rest_framework import routers
+from your_project_name.views import TaskViewSet
+
+router = routers.DefaultRouter()
+router.register(r'api/tasks', TaskViewSet)
+admin.autodiscover()
+
+urlpatterns = [
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+]
+Step 5: Run Server
+python manage.py runserver
+Step 6. Use API
+Step 6.1: Create a new task
+curl -i -X POST -H "Content-Type:application/json" http://localhost:8000/api/tasks -d '{
+  "content": "a",
+  "status": "INIT"
+}'
+Step 6.2: List all tasks
+curl http://localhost:8000/api/tasks
+Step 6.3: Get detail of task 1
+curl http://localhost:8000/api/tasks/1
+Step 6.4: Delete task 1
+curl -i -X DELETE http://localhost:8000/api/tasks/1
+Step 7: CORS
+Known Error: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'null' is therefore not allowed access.
+
+Step 7.1: Install corsheader app
+Add module corsheaders to your_project_name/settings.py
+
+INSTALLED_APPS = (
+    ...
+    'corsheaders',
+    ...
+)
+Step 7.2 Add middleware classes
+Add middleware_classes to your_project_name/settings.py
+
+MIDDLEWARE_CLASSES = (
+    ...
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    ...
+)
+Step 7.3 Configuration CORS Setting
+Option 1: Allow All
+
+Add this line to your_project_name/settings.py
+
+CORS_ORIGIN_ALLOW_ALL: True
+Step 8: https
+You can use https://github.com/teddziuba/django-sslserver
+
+Unicode
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    )
+}
+Step 9: Paging
+Add this module setting to your_project_name/settings.py
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+}
+
+API:
+
+
+GET <>/?limit=<limit>&offset=<offset>
+
+Step 10: Search by field in
+import this to your viewsets.py
+
+
+from rest_framework import filters
+
+add this to your viewsets class
+
+
+filter_backends = (filters.SearchFilter, )
+search_fields = ('<field>','<field>',)
+
+One-to-Many Relationship 7
+from django.db import models
+
+class User(models.Model):
+    name = models.TextField()
+
+    def __str__(self):
+        return "{} - {}".format(str(self.id), self.name)
+
+
+class Task(models.Model):
+    name = models.TextField()
+    assign = models.ForeignKey(User, on_delete=models.CASCADE)
+Starting with Mysql
+Add this database settings to your_project_name/settings.py
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': '[DB_NAME]',
+        'USER': '[DB_USER]',
+        'PASSWORD': '[PASSWORD]',
+        'HOST': '[HOST]',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+    }
+}
+
+Install this module to your virtual environment
+
+
+conda install mysql-python #if you are using virtual environment
+
+pip install mysql-python #if you using are root environment
+
+Custom View 8
+from rest_framework import mixins
+
+
+class CreateModelMixin(object):
+    """
+    Create a model instance.
+    """
+    def create(self, request, *args, **kwargs):
+        event = request.data
+        try:
+            event['time'] = int(time.time())
+        except Exception, e:
+            print 'Set Time Error'
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+    def get_success_headers(self, data):
+        try:
+            return {'Location': data[api_settings.URL_FIELD_NAME]}
+        except (TypeError, KeyError):
+            return {}
+
+class YourViewSet(CreateModelMixin,
+                  mixins.RetrieveModelMixin,
+                  mixins.UpdateModelMixin,
+                  mixins.DestroyModelMixin,
+                  mixins.ListModelMixin,
+                  GenericViewSet):
+    queryset = YourModel.objects.all()
+    serializer_class = YourModelSerializer
+Logging settings
+Here is an example, put this settings dict into your settings.py file:
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'filters': {
+        'special': {
+            '()': 'project.logging.SpecialFilter',
+            'foo': 'bar',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'filters': ['special']
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'myproject.custom': {
+            'handlers': ['console', 'mail_admins'],
+            'level': 'INFO',
+            'filters': ['special']
+        }
+    }
+}
+
+Python: Build Python API Client package
+Step 1: Write document on Swagger Editor1
+Step 2: Genenrate Client --> Python --> save python-client.zip
+Step 3: Extract zip
+Step 4: Open project in Pycharm rename project directory, project name, swagger_client package
+Step 5: 2
+mkdir conda
+cd conda
+git clone https://github.com/hunguyen1702/condaBuildLocalTemplate.git
+mv condaBuildLocalTemplate your_package_name
+rm -rf .git README.md
+Step 6: Edit meta.yaml file in your_package folder
+6.1 Follow instruction inside meta.yaml
+6.2 Replace these line
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+with:
+requirements:
+  build:
+    - python
+    - setuptools
+    - six
+    - certifi
+    - python-dateutil
+  run:
+    - python
+    - six
+    - certifi
+    - python-dateutil
+Step 7:
+cd ..
+conda build your_package
+Step 8:
+mkdir channel
+cd channel
+conda convert --platform all ~/anaconda/conda-bld/linux-64/your_package_0.1.0-py27_0.tar.bz2
+Step 9: Create virtual-env
+name: your_env_name
+dependencies:
+- certifi=2016.2.28=py27_0
+- openssl=1.0.2h=0
+- pip=8.1.2=py27_0
+- python=2.7.11=0
+- python-dateutil=2.5.3=py27_0
+- readline=6.2=2
+- setuptools=20.7.0=py27_0
+- six=1.10.0=py27_0
+- tk=8.5.18=0
+- wheel=0.29.0=py27_0
+- zlib=1.2.8=0
+- pip:
+  - urllib3==1.15.1
+Step 10: Install:
+conda install --use-local your_package
+Django ↩
+
+Writing your first Django app, part 1 ↩
+
+Django REST framework: Installation ↩
+
+Django: Migrations ↩
+
+Building a Simple REST API for Mobile Applications ↩
+
+Django: Models ↩
+
+How to show object details in Django Rest Framework browseable API? ↩
+
+rest_framework:mixins ↩
+
+\section{Logging}
+
+logging 1 2 3
+levels, attributes references
+
+The logging library takes a modular approach and offers several categories of components: loggers, handlers, filters, and formatters.
+
+Loggers expose the interface that application code directly uses.
+Handlers send the log records (created by loggers) to the appropriate destination.
+Filters provide a finer grained facility for determining which log records to output.
+Formatters specify the layout of log records in the final output.
+Step 0: Project structure
+
+code/
+├── main.py
+├── config
+├   └── logging.conf
+└── logs
+    └── app.log
+Step 1: Create file logging.conf
+
+[loggers]
+keys=root
+
+[handlers]
+keys=consoleHandler,fileHandler
+
+[formatters]
+keys=formatter
+
+[logger_root]
+level=DEBUG
+handlers=consoleHandler,fileHandler
+
+[handler_consoleHandler]
+class=StreamHandler
+level=DEBUG
+formatter=formatter
+args=(sys.stdout,)
+
+[handler_fileHandler]
+class=FileHandler
+level=DEBUG
+formatter=formatter
+args = ('logs/app.log','a')
+
+[formatter_formatter]
+format=%(asctime)s - %(name)s - %(levelname)s - %(message)s
+datefmt=
+Step 2: Load config and create logger
+
+In main.py
+
+import logging.config
+
+# load logging config
+logging.config.fileConfig('config/logging.conf')
+Step 3: In your application code
+
+logging.getLogger().debug('debug message')
+logging.getLogger().info('info message')
+logging.getLogger().warn('warn message')
+logging.getLogger().error('error message')
+logging.getLogger().critical('critical message')
+More Resources
+
+Introduction to Logging
+Quick and simple usage of python log
+Python: Logging module ↩
+
+Python: Logging cookbook ↩
+
+Python: Logging guide ↩
+
+\section{Configuration}
+
+pyconfiguration
+
+Installation
+conda install -c rain1024 pyconfiguration
+Usage
+Step 1: Create config.json file
+
+{
+  "SERVICE_URL": "http://api.service.com"
+}
+Step 2: Add these code to main.py file
+
+from pyconfiguration import Configuration
+Configuration.load('config.json')
+print Configuration.SERVICE_URL
+
+> http://api.service.com
+References: What's the best practice using a settings file 1
+
+What's the best practice using a settings file in Python? ↩
+
+\section{Command Line}
+
+Command Line Arguments
+There are the following modules in the standard library:
+
+The getopt module is similar to GNU getopt.
+The optparse module offers object-oriented command line option parsing.
+Here is an example that uses the latter from the docs:
+
+from optparse import OptionParser
+
+parser = OptionParser()
+parser.add_option("-f", "--file", dest="filename",
+                  help="write report to FILE", metavar="FILE")
+parser.add_option("-q", "--quiet",
+                  action="store_false", dest="verbose", default=True,
+                  help="don't print status messages to stdout")
+
+(options, args) = parser.parse_args()
+optparse supports (among other things):
+
+Multiple options in any order.
+Short and long options.
+Default values.
+Generation of a usage help message.
+Suggest Reading
+Command Line Arguments In Python
+
+\section{Testing}
+
+Testing your code is very important.
+
+Getting used to writing testing code and running this code in parallel is now considered a good habit. Used wisely, this method helps you define more precisely your code’s intent and have a more decoupled architecture.
+
+Unittest
+unittest is the batteries-included test module in the Python standard library. Its API will be familiar to anyone who has used any of the JUnit/nUnit/CppUnit series of tools.
+
+The Basics
+Creating test cases is accomplished by subclassing unittest.TestCase.
+
+import unittest
+
+def fun(x):
+    return x + 1
+
+class MyTest(unittest.TestCase):
+    def test(self):
+        self.assertEqual(fun(3), 4)
+Skipping tests
+Unittest supports skipping individual test methods and even whole classes of tests. In addition, it supports marking a test as an “expected failure,” a test that is broken and will fail, but shouldn’t be counted as a failure on a .code TestResult.
+
+Skipping a test is simply a matter of using the skip() decorator or one of its conditional variants.
+
+import sys
+import unittest
+
+class MyTestCase(unittest.TestCase):
+
+    @unittest.skip("demonstrating skipping")
+    def test_nothing(self):
+        self.fail("shouldn't happen")
+
+    @unittest.skipIf(mylib.__version__ < (1, 3),
+                     "not supported in this library version")
+    def test_format(self):
+        # Tests that work for only a certain version of the library.
+        pass
+
+    @unittest.skipUnless(sys.platform.startswith("win"), "requires Windows")
+    def test_windows_support(self):
+        # windows specific testing code
+        pass
+Tox
+tox aims to automate and standardize testing in Python. It is part of a larger vision of easing the packaging, testing and release process of Python software.
+
+Tox is a generic virtualenv management and test command line tool you can use for:
+
+checking your package installs correctly with different Python versions and interpreters
+running your tests in each of the environments, configuring your test tool of choice
+acting as a frontend to Continuous Integration servers, greatly reducing boilerplate and merging CI and shell-based testing.
+Installation
+
+You can install tox with pip using the following command
+
+$ pip install tox
+Setup default environment in Windows with conda
+
+$ conda create -p C:\python27 python=2.7
+$ conda create -p C:\python34 python=3.4
+Related Readings
+Testing Your Code, The Hitchhiker's Guide to Python
+unittest — Unit testing framework, docs.python.org
+Is it possible to use tox with conda-based Python installations?, stackoverflow
+
+\section{IDE & Debugging}
+
+Today, I write some notes about my favorite Python IDE - PyCharm. I believe it's a good one for developing python, which supports git, vim, etc. This list below contains my favorite features.
+
+Pycharm Features
+Intelligent Editor
+Navigation
+Graphical Debugger
+Refactorings
+Code Inspections
+Version Control Integration
+Scientific Tools
+Intelligent Editor
+PyCharm provides smart code completion, code inspections, on-the-fly error highlighting and quick-fixes, along with automated code refactorings and rich navigation capabilities.
+
+
+
+Syntax Highlighting
+
+Read your code easier with customizable colors for Python code and Django templates. Choose from several predefined color themes.
+
+Auto-Identation and code formating
+
+Automatic indents are inserted on new line. Indent verification and code re-formatting are compliant with project code-style settings.
+
+Configurable code styles
+
+Select a predefined coding style to apply to your code style configuration for various supported languages.
+
+Code completion
+
+Code completion for keywords, classes, variables, etc. as you type or via Ctrl+Space. Editor suggestions are context-aware and offer the most appropriate options.
+
+Keyboard shortcuts: Tab, Alt+Enter
+
+Code selection and comments
+
+Select a block of code and expand it to an expression, to a line, to a logical block of code, and so on with shortcuts. Single keystroke to comment/uncomment the current line or selection.
+
+Code formatter
+
+Code formatter with code style configuration and other features help you write neat code that's easy to support. PyCharm contains built-in PEP-8 for Python and other standards compliant code formatting for supported languages.
+
+Code snippets and templates
+
+Save time using advanced customizable and parametrized live code templates and snippets.
+
+
+
+Keyboard shortcuts check.if ENTER
+
+if check:
+  type_something
+Code folding
+
+Code folding, auto-insertion of braces, brackets & quotes, matching brace/bracket highlighting, etc.
+
+On-the-fly error highlighting
+
+Errors are shown as you type. The integrated spell-checker verifies your identifiers and comments for misspellings.
+
+Multiple carets and selections
+
+With multiple carets, you can edit several locations in your file at the same time.
+
+Keyboard shortcuts: SHIFT + F6
+
+Code analysis
+
+Numerous code inspections verify Python code as you type and also allow inspecting the whole project for possible errors or code smells.
+
+Quick-fixes
+
+Quick-fixes for most inspections make it easy to fix or improve the code instantly. Alt+Enter shows appropriate options for each inspection.
+
+Keyboard shortcuts: F2
+
+Duplicated code detector
+
+Smart duplicated code detector analyzes your code and searches for copy/pasted code. You'll be presented with a list of candidates for refactoring—and with the help of refactorings it's easy to keep your code dry.
+
+Configurable language injections
+
+Natively edit non-Python code embedded into string literals, with code completion, error-highlighting, and other coding assistance features.
+
+Code auto generation
+
+Code auto-generation from usage with quick-fixes; docstrings and the code matching verification, plus autoupdate on refactoring. Automatic generation of a docstring stub (reStructuredText, Epytext, Google, and NumPy).
+
+Intention actions
+
+Intention actions help you apply automated changes to code that is correct, to improve it or to make your coding routine easier.
+
+Searching
+
+Keyboard shortcuts: Double Shift (search everywhere)
+
+Navigation
+Shortcuts
+
+Keyboard shortcuts: ALT + SHIFT + UP/DOWN (move line up and down)
+
+Graphical Debugger
+PyCharm provides extensive options for debugging your Python/Django and JavaScript code:
+
+Set breakpoints right inside the editor and define hit conditions
+Inspect context-relevant local variables and user-defined watches, including arrays and complex objects, and edit values on the fly
+Set up remote debugging using remote interpreters
+Evaluate an expression in runtime and collect run-time type statistics for better autocompletion and code inspections
+Attach to a running process
+Debug Django templates
+
+
+Inline Debugger
+
+With an inline debugger, all live debugging data are shown directly in the editor, with variable values integrated into the editor's look-and-feel. Variable values can be viewed in the source code, right next to their usages.
+
+Step into My Code
+
+Use Step into My Code to stay focused on your code: the debugger will only step through your code bypassing any library sources.
+
+Multi-process debugging
+
+PyCharm can debug applications that spawn multiple Python processes, such as Django applications that don't run in --no-reload mode, or applications using many other Web frameworks that use a similar approach to code auto-reloading.
+
+Run/Debug configurations
+
+Every script/test or debugger execution creates a special 'Run/Debug Configuration' that can be edited and used later. Run/Debug Configurations can be shared with project settings for use by the whole team.
+
+Workspace
+Custom Scheme
+Go to File - Settings... then Editor - Colors Fonts
+
+Now you can change your scheme, I like Darcular
+
+https://confluence.jetbrains.com/download/attachments/51945983/appearance3.png?version=1&modificationDate=1372843959000
+
+IPython Support
+PyCharm supports usage of IPython magic commands.
+
+http://i.stack.imgur.com/aTEW2.png
+
+Vim Support
+You can configure PyCharm to work as a Vim editor
+
+https://confluence.jetbrains.com/download/attachments/51946537/vim4.png?version=1&modificationDate=1370956971000
+
+Keyboard Shortcuts: Ctrl+Shift+V (paste)
+
+\section{Package Manager}
+
+py2exe
+py2exe is a Python Distutils extension which converts Python scripts into executable Windows programs, able to run without requiring a Python installation.Spice
+
+Installation
+# py2exe
+conda install -c https://conda.anaconda.org/clinicalgraphics cg-py2exe
+Build 1
+python setup.py py2exe
+# build PyQT
+python setup.py py2exe --includes sip
+Known Issues
+Error: Microsoft Visual C++ 10.0 is required (Unable to find vcvarsall.bat) (link)
+
+How to fix
+
+Step 1: Install Visual Studio 2015
+
+Step 2:
+
+set VS100COMNTOOLS=%VS140COMNTOOLS%
+
+\section{Environment}
+
+Environment Management
+Similar to pip, conda is an open source package and environment management system 1. Anaconda is a data science platform that comes with a lot of packages. It uses conda at the core. Unlike Anaconda, Miniconda doesn't come with any installed packages by default. Note that for miniconda, everytime you open up a terminal, conda won’t automatically be available. Run the command below to use conda within miniconda.
+
+Conda
+Let’s first start by checking if conda is installed.
+
+\begin{lstlisting}[language=bash]
+$ conda --version
+
+conda 4.2.12
+To see the full documentation for any command, type the command followed by --help. For example, to learn about the conda update command:
+
+$ conda update --help
+Once it has been confirmed that conda has been installed, we will now make sure that it is up to date.
+
+$ conda update conda
+
+Using Anaconda Cloud api site https://api.anaconda.org
+Fetching package metadata: ....
+.Solving package specifications: .........
+
+Package plan for installation in environment //anaconda:
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    conda-env-2.6.0            |                0          601 B
+    ruamel_yaml-0.11.14        |           py27_0         184 KB
+    conda-4.2.12               |           py27_0         376 KB
+    ------------------------------------------------------------
+                                           Total:         560 KB
+
+The following NEW packages will be INSTALLED:
+
+    ruamel_yaml: 0.11.14-py27_0
+
+The following packages will be UPDATED:
+
+    conda:       4.0.7-py27_0 --> 4.2.12-py27_0
+    conda-env:   2.4.5-py27_0 --> 2.6.0-0
+    python:      2.7.11-0     --> 2.7.12-1
+    sqlite:      3.9.2-0      --> 3.13.0-0
+
+Proceed ([y]/n)? y
+
+Fetching packages ...
+conda-env-2.6. 100% |################################| Time: 0:00:00 360.78 kB/s
+ruamel_yaml-0. 100% |################################| Time: 0:00:00   5.53 MB/s
+conda-4.2.12-p 100% |################################| Time: 0:00:00   5.84 MB/s
+Extracting packages ...
+[      COMPLETE      ]|###################################################| 100%
+Unlinking packages ...
+[      COMPLETE      ]|###################################################| 100%
+Linking packages ...
+[      COMPLETE      ]|###################################################| 100%
+Environments
+Create
+In order to manage environments, we need to create at least two so you can move or switch between them. To create a new environment, use the conda create command, followed by any name you wish to call it:
+
+# create new environment
+conda create -n <your_environment> python=2.7.11
+Clone
+Make an exact copy of an environment by creating a clone of it. Here we will clone snowflakes to create an exact copy named flowers:
+
+conda create --name flowers --clone snowflakes
+List
+List all environments
+
+Now you can use conda to see which environments you have installed so far. Use the conda environment info command to find out
+
+$ conda info -e
+
+conda environments:
+snowflakes            /home/username/miniconda/envs/snowflakes
+bunnies               /home/username/miniconda/envs/bunnies
+Verify current environment
+
+Which environment are you using right now – snowflakes or bunnies? To find out, type the command:
+
+conda info --envs
+Remove
+If you didn’t really want an environment named flowers, just remove it as follows:
+
+conda remove --name flowers --all
+Share
+You may want to share your environment with another person, for example, so they can re-create a test that you have done. To allow them to quickly reproduce your environment, with all of its packages and versions, you can give them a copy of your environment.yml file.
+
+Export the environment file
+
+To enable another person to create an exact copy of your environment, you will export the active environment file.
+
+conda env export > environment.yml
+Use environment from file
+
+Create a copy of another developer’s environment from their environment.yml file:
+
+conda env create -f environment.yml
+# remove environment
+conda remove -n <your_environemnt> --all
+\end{lstlisting}
+
+\section{Module}
+
+
+Create Public Module
+conda, pypi, github
+
+Step 0/4: Check your package name
+Go to https://pypi.python.org/pypi/your_package_name to see your package name is valid
+
+Step 1/4: Make your module 1
+1.1 pip install cookiecutter
+
+1.2 cookiecutter https://github.com/audreyr/cookiecutter-pypackage.git
+
+1.3 Fill all necessary information
+
+full_name [Audrey Roy Greenfeld]:
+email [aroy@alum.mit.edu]:
+github_username [audreyr]:
+project_name [Python Boilerplate]:
+project_slug []:
+project_short_description:
+release_date []:
+pypi_username []:
+year [2016]:
+version [0.1.0]:
+use_pypi_deployment_with_travis [y]:
+It will create a directory
+
+|- LICENSE
+|- README.md
+|- TODO.md
+|- docs
+|   |-- conf.py
+|   |-- generated
+|   |-- index.rst
+|   |-- installation.rst
+|   |-- modules.rst
+|   |-- quickstart.rst
+|   |-- sandman.rst
+|- requirements.txt
+|- your_package
+|   |-- __init__.py
+|   |-- your_package.py
+|   |-- test
+|       |-- models.py
+|       |-- test_your_package.py
+|- setup.py
+Step 2/4: Git
+Step 3/4: Pypi 3
+1. Create your Pypi Account
+
+2. Create a .pypirc configuration file in $HOME directory
+
+[distutils]
+index-servers =
+  pypi
+
+[pypi]
+repository=https://pypi.python.org/pypi
+username=your_username
+password=your_password
+3. Change your MANIFEST.in
+
+recursive-include project_folder *
+4. Upload your package to PyPI
+
+python setup.py register -r pypi
+python setup.py sdist upload -r pypi
+Step 4/4: Conda 2
+1. Install conda tools
+
+conda install conda-build
+conda install anaconda-client
+2. Build a simple package with conda skeleton pypi
+
+cd your_package_folder
+mkdir conda
+cd conda
+conda skeleton pypi your_package
+This creates a directory named your_package and three skeleton files in that directory
+
+|- your_package
+|   |-- bld.bat
+|   |-- meta.yaml
+|   |-- build.sh
+3. Build your package
+
+conda build your_package
+
+# convert to all platform
+conda convert -f --platform all
+  C:\Anaconda\conda-bld\win-64\your_package-0.1.1-py27_0.tar.bz2
+4. Upload packages to Anaconda
+
+anaconda login
+anaconda upload linux-32/your_package.tar.bz2
+anaconda upload linux-64/your_package.tar.bz2
+anaconda upload win-32/your_package.tar.bz2
+anaconda upload win-64/your_package.tar.bz2
+Create Private Module
+Step 1: Make your module 1
+1.1 pip install cookiecutter
+
+1.2 cookiecutter https://github.com/audreyr/cookiecutter-pypackage.git
+
+1.3 Fill all necessary information
+
+full_name [Audrey Roy Greenfeld]:
+email [aroy@alum.mit.edu]:
+github_username [audreyr]:
+project_name [Python Boilerplate]:
+project_slug []:
+project_short_description:
+release_date []:
+pypi_username []:
+year [2016]:
+version [0.1.0]:
+use_pypi_deployment_with_travis [y]:
+Step 2: Build your module
+Change your MANIFEST.in
+
+recursive-include project_folder *
+Build your module with setup.py
+
+cd your_project_folder
+
+# build local
+python setup.py build
+> It will create a new folder in
+> $PYTHON_HOME/Lib/sites-packages/your_project_name-0.1.0-py2.7.egg
+
+# build distribution
+python setup.py sdist
+> It will create a zip file in $PROJECT_FOLDER/dist
+Step 3: Usage your module
+In the same machine
+
+import your_project_name
+In other machine
+
+Python: Build & Install Local Package with Conda
+Here is a step by step tutorial about building a local module package & install it from a custom channel 1
+
+Step 1: Make a setup folder for your package with cookkiecutter
+on terminal:
+
+
+mkdir build
+cd build
+pip install cookiecutter
+cookiecutter https://github.com/audreyr/cookiecutter-pypackage.git
+
+Fill all necessary information
+
+full_name [Audrey Roy Greenfeld]:
+email [aroy@alum.mit.edu]:
+github_username [audreyr]:
+project_name [Python Boilerplate]:
+project_slug []:
+project_short_description:
+release_date []:
+pypi_username []:
+year [2016]:
+version [0.1.0]:
+use_pypi_deployment_with_travis [y]:
+It will create a directory
+
+|- LICENSE
+|- README.md
+|- TODO.md
+|- docs
+|   |-- conf.py
+|   |-- generated
+|   |-- index.rst
+|   |-- installation.rst
+|   |-- modules.rst
+|   |-- quickstart.rst
+|   |-- sandman.rst
+|- requirements.txt
+|- your_package
+|   |-- __init__.py
+|   |-- your_package.py
+|   |-- test
+|       |-- models.py
+|       |-- test_your_package.py
+|- setup.py
+Copy your real package into directory above & replace the package has been generated by cookkiecutter
+
+Add this line to MANIFEST.in
+
+recursive-include project_folder *
+Step 2: Build conda package
+mkdir conda
+cd conda
+mkdir channel
+git clone https://github.com/hunguyen1702/condaBuildLocalTemplate.git
+mv condaBuildLocalTemplate your_package_name #Which ones you have filled in `project_name` above
+cd your_package_name
+rm -rf .git README.md
+Edit the file meta.yaml with the instruction inside it
+cd ..
+conda build your_package_name
+Step 3: Create custom channel and install from local package
+Create a channel directory
+
+cd channel
+Convert your_package you've built to all platform
+
+conda convert --platform all ~/anaconda/conda-bld/linux-64/your_package_0.1.0-py27_0.tar.bz2
+and this will create:
+
+channel/
+linux-64/
+   package-1.0-0.tar.bz2
+linux-32/
+   package-1.0-0.tar.bz2
+osx-64/
+   package-1.0-0.tar.bz2
+win-64/
+   package-1.0-0.tar.bz2
+win-32/
+   package-1.0-0.tar.bz2
+Register your package to your new channel
+
+cd ..
+conda index channel/linux-64 channel/osx-64 channel/win-64
+Veriy your new channel
+
+conda search -c file://path/to/channel/ --override-channels
+If you see your_package's appearance, so it's worked
+
+After that if you want to install that package from local, run this command:
+
+
+conda install --use-local your_package
+
+and when you want to create environment with local package from file, you just have export environment to .yml file and add this channels section before the dependencies section:
+
+
+channels:
+- file://path/to/your/channel/
+
+\section{Production}
+
+Production with docker
+Base Image: magizbox/conda2.7/
+
+Docker Folder
+
+your_app/
+├── app
+│   ├── config
+│   └── main.py
+├── Dockerfile
+└── run.sh
+Dockerfile
+
+FROM magizbox/conda2.7:4.0
+
+ADD ./app /app
+ADD ./run.sh /run.sh
+
+RUN conda env create -f environment.yml
+run.sh
+
+source activate your_environment
+
+cd /app
+
+python main.py
+Compose
+
+ service:
+  build: ./service-app
+  command: 'bash run.sh'
+Note: an other python conda with lower version (such as 3.5), will occur error when install requests package
 
 \section{Quản lý gói với Anaconda}
 
