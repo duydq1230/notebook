@@ -60,8 +60,10 @@
 \contentsline {section}{\numberline {6.6}Conditional Random Fields in Name Entity Recognition}{58}{section.6.6}
 \contentsline {section}{\numberline {6.7}Entity Linking}{58}{section.6.7}
 \contentsline {chapter}{\numberline {7}Nh\IeC {\d \acircumflex }n d\IeC {\d a}ng ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{60}{chapter.7}
-\contentsline {section}{\numberline {7.1}Hidden Markov Model}{63}{section.7.1}
-\contentsline {section}{\numberline {7.2}Likelihood Computation}{64}{section.7.2}
+\contentsline {section}{\numberline {7.1}C\IeC {\'a}c th\IeC {\`a}nh ph\IeC {\`\acircumflex }n c\IeC {\h u}a h\IeC {\d \ecircumflex } th\IeC {\'\ocircumflex }ng nh\IeC {\d \acircumflex }n d\IeC {\d a}ng ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{60}{section.7.1}
+\contentsline {section}{\numberline {7.2}Qu\IeC {\'a} tr\IeC {\`\i }nh hu\IeC {\'\acircumflex }n luy\IeC {\d \ecircumflex }n}{61}{section.7.2}
+\contentsline {section}{\numberline {7.3}Hidden Markov Model}{63}{section.7.3}
+\contentsline {section}{\numberline {7.4}Likelihood Computation}{64}{section.7.4}
 \contentsline {chapter}{\numberline {8}T\IeC {\h \ocircumflex }ng h\IeC {\d \ohorn }p ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{65}{chapter.8}
 \contentsline {chapter}{\numberline {9}Ph\IeC {\^a}n lo\IeC {\d a}i v\IeC {\u a}n b\IeC {\h a}n}{66}{chapter.9}
 \contentsline {chapter}{\numberline {10}Pytorch}{67}{chapter.10}
@@ -81,8 +83,8 @@
 \contentsline {subsection}{\numberline {11.4.1}Introduction}{76}{subsection.11.4.1}
 \contentsline {subsection}{\numberline {11.4.2}Scrapy}{78}{subsection.11.4.2}
 \contentsline {subsection}{\numberline {11.4.3}Apache Nutch}{78}{subsection.11.4.3}
-\contentsline {subsubsection}{Architecture}{82}{section*.8}
-\contentsline {subsubsection}{Config}{83}{section*.9}
-\contentsline {part}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u}{88}{chapter*.10}
-\contentsline {part}{Ch\IeC {\h i} m\IeC {\d u}c}{89}{chapter*.11}
-\contentsline {part}{Ghi ch\IeC {\'u}}{90}{chapter*.12}
+\contentsline {subsubsection}{Architecture}{82}{section*.9}
+\contentsline {subsubsection}{Config}{83}{section*.10}
+\contentsline {part}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u}{88}{chapter*.11}
+\contentsline {part}{Ch\IeC {\h i} m\IeC {\d u}c}{89}{chapter*.12}
+\contentsline {part}{Ghi ch\IeC {\'u}}{90}{chapter*.13}

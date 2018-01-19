@@ -1,17 +1,17 @@
 \chapter{Nhận dạng tiếng nói}
 
-\diary{26/12/2017 - Automatic Speech Recognition 100. Sau mấy ngày "vật lộn" với code base của Truong Do, thì cuối cùng cũng produce voice được. Cảm giác rất thú vị. Quyết định làm luôn ASR. Tìm mãi chẳng thấy code base đâu (chắc do lĩnh vực mới nên không có kinh nghiệm). May quá lại có bạn frankydotid có project về nhận diện tiếng Indonesia ở \href{https://github.com/frankydotid/Indonesian-Speech-Recognition}{github}. Trong README.md bạn đấy bảo là phải cần đọc HTK Book. Tốt quá đang cần cơ bản.}
 
 \diary{19/01/2018: Hôm nay thực sự quá mệt với bạn Kaldi. Mãi không thể decode với các thuộc tính LDA-MLLT được? Hỏi mãi ở kaldi-help mà không có reply}
 
-\dinary{05/01/2018 - "điên đầu" với Sphinx và HTK. HTK thì đã bỏ rồi vì quá lằng nhằng. Sphinx thì setup được đối với dữ liệu nhỏ rồi. Nhưng không thể làm nó hoạt động với dữ liệu của VIVOS. Chắc hôm nay sẽ switch sang Kaldi vậy.}
+\diary{05/01/2018 - "điên đầu" với Sphinx và HTK. HTK thì đã bỏ rồi vì quá lằng nhằng. Sphinx thì setup được đối với dữ liệu nhỏ rồi. Nhưng không thể làm nó hoạt động với dữ liệu của VIVOS. Chắc hôm nay sẽ switch sang Kaldi vậy.}
 
+\diary{26/12/2017 - Automatic Speech Recognition 100. Sau mấy ngày "vật lộn" với code base của Truong Do, thì cuối cùng cũng produce voice được. Cảm giác rất thú vị. Quyết định làm luôn ASR. Tìm mãi chẳng thấy code base đâu (chắc do lĩnh vực mới nên không có kinh nghiệm). May quá lại có bạn frankydotid có project về nhận diện tiếng Indonesia ở \href{https://github.com/frankydotid/Indonesian-Speech-Recognition}{github}. Trong README.md bạn đấy bảo là phải cần đọc HTK Book. Tốt quá đang cần cơ bản.}
 
 Trong hệ thống nhận dạng tiếng nói, tín hiệu âm thanh được thu thập như những mẫu phù hợp cho quá trình xử lý của máy tính và được đưa vào quá trình nhận diện. Đầu ra của hệ thống là một câu phụ đề của câu nói.
 
 Nhận dạng tiếng nói là một nhiệm vụ phức tạp và hệ thống tốt nhất trong nhận dạng tiếng nói rất phức tạp. Có rất nhiều cách tiếp cận cho mỗi thành phần. Trong phần này, người viết chỉ muốn đưa ra một cái nhìn tổng thể về nhận dạng tiếng nói, các khó khăn chính, các thành phần cơ bản, chức năng và tương tác của chúng trong một hệ thống nhận dạng tiếng nói.
 
-\noindent Các thành phần của hệ thống nhận dạng tiếng nói
+\section{Các thành phần của hệ thống nhận dạng tiếng nói}
 
 \includegraphics[width=10cm]{data_science/speech_recognition/asr_components}
 
@@ -19,9 +19,11 @@ Trong bước thứ nhất, trích rút thông tin \textit{Feature Extraction}, 
 
 \definition{mô hình âm học}{Trong module phân loại, các vector đặc trưng được ánh xạ với các pattern, được gọi là \textbf{mô hình âm học} (acoustic model). Mô hình học thường là HMM được train với toàn bộ từ, hay âm như là một đơn vị ngôn ngữ.}
 
-\definition{Từ điển phát âm}{
+\definition{từ điển phát âm}{
 Từ điển phát âm (pronunciation dictionary) định nghĩa cách kết hợp âm cho các ký tự. Nó có thể chứa cách phát âm khác nhau cho cùng một từ. Bảng 1 hiển thị chính xác một từ điển. Từ (graphme) ở cột bên trái ứng với cách phát âm (các âm) ở cột bên phải (các ký tự âm trong bảng được dùng phổ biến đối với tiếng Anh)
 }
+
+Ví dụ một phần của từ điển âm học tiếng Anh trong thực tế
 
 \begin{tabular}{ | l | l | }
   \hline
@@ -34,7 +36,9 @@ Từ điển phát âm (pronunciation dictionary) định nghĩa cách kết h�
   INCREDIBLE & ih n k r eh d ah b ah l \\ \hline
 \end{tabular}
 
-\textit{Mô hình ngôn ngữ} (language model) chứa các thông tin về cú pháp. Mục tiêu để dự đoán khả năng một từ xuất hiện sau các từ khác trong một ngôn ngữ. Nói cách khác, xác xuất để một từ k xảy ra sau khi k-1 từ sau đó được định nghĩa bởi $P(w_k | w_{k-1}, w_{k-2}, ..., w_1)$
+\definition{mô hình ngôn ngữ}{
+\textit{Mô hình ngôn ngữ} (language model) chứa các thông tin về cú pháp. Mục tiêu để dự đoán khả năng một từ xuất hiện sau các từ khác trong một ngôn ngữ. Nói cách khác, xác xuất để một từ $k$ xảy ra sau khi $k-1$ từ trước đó được định nghĩa bởi $P(w_k | w_{k-1}, w_{k-2}, ..., w_1)$
+}
 
 \textbf{Mô hình hóa sub-word với HMMs}
 
@@ -44,25 +48,25 @@ Trong thực tế, khi nhận dạng một âm phụ thuộc rất nhiều vào 
 
 ![](http://www.igi.tugraz.at/lehre/CI/SS08/tutorials/ASR/img10.gif)
 
-### Quá trình huấn luyện
+\section{Quá trình huấn luyện}
 
-**Huấn luyện các mô hình monophone**
+\textbf{Huấn luyện các mô hình monophone}
 
 Một mô hình monophone là một mô hình âm học, trong đó không chứa thông tin ngữ cảnh về các âm trước và sau. Nó được sử dụng như thành phần cơ bản cho các mô hình triphone - mô hình sử dụng những thông tin về ngữ cảnh.
 
 Việc huấn luyện sử dụng framework Gaussian Mixture Model/Hidden Markov Model.
 
-**Dóng hàng âm thanh trong mô hình âm học**
+\textbf{Dóng hàng âm thanh trong mô hình âm học}
 
 Các tham số trong mô hình âm học được tính toán trong quá trình huấn luyện; tuy nhiên, quá trình này có thể được tối ưu hóa bởi việc lặp lại quá trình huấn luyện và dòng hàng. Còn lại là huấn luyện Viterbi (liên quan đến phương pháp này, nhưng dùng nhiều khối lượng tính toán hơn là thuật toán Forward-Backward và Expectation Maximization). Bằng cách dóng hàng âm thanh - phụ đề với mô hình âm học hiện tại, các thuật toán huấn luyện có thể sử dụng kết quả này để cải thiện và hiệu chỉnh tham số của mô hình. Do đó, mỗi quá trình huấn luyện sẽ theo bởi một bước dóng hàng trong đó âm thanh và văn bản được dóng hàng lại.
 
-**Huấn luyện các mô hình triphone**
+\textbf{Huấn luyện các mô hình triphone}
 
 Trong khi các mô hình monophone đơn giản biểu diễn các đặc trưng âm thanh như một đơn âm, trong khi các âm vị sẽ thay đổi đáng kể phụ thuộc vào ngữ cảnh. Mô hình triphone thể hiện một âm trong ngữ cảnh với hai âm bên cạnh.
 
-Đến đây, một vấn đề là không phải tất cả các đơn vị triphone được thể hiện trong dữ liệu huấn luyên. Có tất cả (# of phonemes)^3 triphone, nhưng chỉ có một tập thực sự tồn tại trong dữ liệu. Hơn nữa, các đơn vị xảy ra nhiều lần trong dữ liệu đưa ra kết quả thống kê tốt hơn trong dữ liệu. Một nhóm cây quyết định phân chia các triphones vào các nhóm, mục đích giảm thiểu tham số và đưa ra quyết định tốt hơn.
+Đến đây, một vấn đề là không phải tất cả các đơn vị triphone được thể hiện trong dữ liệu huấn luyên. Có tất cả $\textnormal(\# of phonemes)^3$ triphone, nhưng chỉ có một tập thực sự tồn tại trong dữ liệu. Hơn nữa, các đơn vị xảy ra nhiều lần trong dữ liệu đưa ra kết quả thống kê tốt hơn trong dữ liệu. Một nhóm cây quyết định phân chia các triphones vào các nhóm, mục đích giảm thiểu tham số và đưa ra quyết định tốt hơn.
 
-**Dóng hàng các mô hình âm học và huấn luyện lại các mô hình triphone**
+\textbf{Dóng hàng các mô hình âm học và huấn luyện lại các mô hình triphone}
 
 Lặp lại các bước dòng hàng âm thanh và huấn luyện các mô hình triphone với các thuật toán huấn luyện để hiệu chỉnh mô hình. Các phương pháp phổ biến là delta+delta-delta, LDA-MLLT và SAT. Các giải thuật dóng hàng bao gồm dóng hàng cho từng người nói và FMLLR.
 
