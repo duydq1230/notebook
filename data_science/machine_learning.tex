@@ -55,7 +55,7 @@ with convex optimization
 ```
 
 Mình tự hỏi tại sao logistic regression lại là linear, trong khi nó có sử dụng hàm logit (nonlinear)? Tìm hiểu hóa ra cũng có bạn hỏi giống mình trên [stats.stackexchange.com](https://stats.stackexchange.com/questions/93569/why-is-logistic-regression-a-linear-classifier). Ngoài câu trả lời trên stats.stackexchange, đọc một số cái khác [Generalized Linear Models, SPSS Statistics 22.0.0](https://www.ibm.com/support/knowledgecenter/en/SSLVMB_22.0.0/com.ibm.spss.statistics.help/spss/advanced/idh_idd_genlin_typeofmodel.htm)
- và [6.1 - Introduction to Generalized Linear Models, Analysis of Discrete Data, Pennsylvania State University](https://onlinecourses.science.psu.edu/stat504/node/216) cũng vẫn chưa hiểu lắm.
+và [6.1 - Introduction to Generalized Linear Models, Analysis of Discrete Data, Pennsylvania State University](https://onlinecourses.science.psu.edu/stat504/node/216) cũng vẫn chưa hiểu lắm.
 
 Hiện tại chỉ hiểu là các lớp model này chỉ có thể hoạt động trên các tập linear separable, có lẽ do việc map input x, luôn có một liên kết linear $latex wx$, trước khi đưa vào hàm non-linear.
 
@@ -115,15 +115,15 @@ Toàn bộ tham số của mạng CNN trong bài báo Kim 2014,
 
 ![](http://d3kbpzbmcynnmx.cloudfront.net/wp-content/uploads/2015/11/Screen-Shot-2015-11-06-at-8.03.47-AM.png)
 
-| Description         | Values          |
+| Description | Values |
 |---------------------|-----------------|
-| input word vectors  | Google word2vec |
-| filter region size  | (3, 4, 5)       |
-| feature maps        | 100             |
-| activation function | ReLU            |
-| pooling             | 1-max pooling   |
-| dropout rate        | 0.5             |
-| $latex l&amp;s=2$2 norm constraint  | 3               |
+| input word vectors | Google word2vec |
+| filter region size | (3, 4, 5)       |
+| feature maps | 100 |
+| activation function | ReLU |
+| pooling | 1-max pooling |
+| dropout rate | 0.5 |
+| $latex l&amp;s=2$2 norm constraint | 3 |
 
 Đọc thêm:
 
@@ -146,7 +146,6 @@ The good life is a process, not a state of being. It is a direction not a destin
 Carl Rogers
 
 
-
 I searched a framework fit for every data mining task, I found a good one from an article of Oracle.
 
 And here is my summary. The data mining process has 4 steps:
@@ -159,17 +158,17 @@ Step 2. Data Gathering & Preparation
 
 The data understanding phase involves data collection and exploration. As you take a closer look at the data, you can determine how well it addresses the business problem. You might decide to remove some of the data or add additional data. This is also the time to identify data quality problems and to scan for patterns in the data.
 
- Data Access
- Data Sampling
+Data Access
+Data Sampling
 
- Data Transformation
+Data Transformation
 
 Data in the real world is dirty [3]. They are often incomplete (lacking attribute values, lacking certain attributes of interest, or containing only aggregate data), noisy (containing errors or outliers), inconsistent (containing discrepancies in codes or names). Step 3. Model Building In this phase, you select and apply various modeling techniques and calibrate the parameters to optimal values. If the algorithm requires data transformations, you will need to step back to the previous phase to implement them
 
- Create Model
- Test Model
+Create Model
+Test Model
 
-  Evaluate & Interpret Model
+Evaluate & Interpret Model
 
 Some important questions [2]:
 
@@ -228,7 +227,6 @@ This works well for ordinal features but might cause problems with nominal featu
 To get around this problem is to use one-hot encoding, the idea is to create a new feature for each unique value of the nominal feature.
 
 
-
 In the above example, we converted the color feature into three new features Red, Green, Blue and we used binary values to indicate the color. For example, a sample with “Red” color is now encoded as (Red=1, Green=0, Blue=0)
 
 Feature Scaling
@@ -238,7 +236,7 @@ We have to predict the house prices base on 2 features:
 
 House sizes (feet2)
 Number of bedrooms in the house
-And we relized that house sizes are about 1000 times  the number of bedrooms. When features differ by orders of magnitude, first performing feature scaling can make gradient descent converge much more quickly.
+And we relized that house sizes are about 1000 times the number of bedrooms. When features differ by orders of magnitude, first performing feature scaling can make gradient descent converge much more quickly.
 
 Perform Feature Scaling
 
@@ -310,7 +308,6 @@ Training vs Test Data
 We typically split the input data into learning and testing datasets. The then run the machine learning algorithm on the learning dataset to generate the prediction model. Later, we use the test dataset to evaluate our model.
 
 
-
 It is important that the test data is separate from the one used in training otherwise we will be kind of cheating because may for example the generated model memorizes the data and hence if the test data is also part of the training data then our evaluation scores of the model will be higher than they actually are.
 
 The data is usually split 75% training and 25% data or 2/3 training and 1/3 testing. It is important to note that: the smaller the training set the more challenging it is for the algorithm to discover the rules.
@@ -337,7 +334,6 @@ As before, we split the data into training and testing dataset. Then, the traini
 The training data is used to train different models. Then the validation data is used to compute performance of each of them and we select the best one. Finally, the model is then used for the test set to evaluate performance. The next figure illustrates this idea.
 
 
-
 However, because we use the validation set multiple times, Holdout validation is sensitive to how we partition the data and that is what K-fold cross validation tries to solve.
 
 K-fold cross validation
@@ -361,7 +357,6 @@ The goal of supervised learning is to learn a model from labelled training data 
 The spam filter example mentioned earlier is a good example of supervised learning; we have a bunch of emails (data) and we know whether each email is spam or not (labels).
 
 
-
 Supervised learning can be divided into two subcategories:
 
 Classification: It is used to predict categories or class labels based on past observations i.e. we have discrete variable you want to distinguish into discrete categorical outcome. For example, in the email spam filter system the output is discrete "spam" or "not spam".
@@ -372,10 +367,10 @@ The goal of unsupervised learning is to discover hidden structure or patterns in
 Clustering: It is used to organize information into meaningful clusters (subgroups) without having prior knowledge of their meaning. For example, the figure below shows how we can use clustering to organize unlabeled data into groups based on their features.
 
 
-
 Dimensionality Reduction (Compression): It is used to reduce a higher dimension data into a lower dimension ones. To put it more clearly consider this example. A telescope has terabytes of data and not all of these data can be stored and so we can use dimensionality reduction to extract the most informative features of these data to be stored. Dimensionality reduction is also a good candidate to visualize data because if you have data in higher dimensions you can compress it to 2D or 3D to easily plot and visualize it.
 
 Reinforcement Learning
+
 The goal of reinforcement learning is to develop a system that improves its performance based on the interaction with a dynamic environment and there is a delayed feedback that act as a reward. i.e. reinforcement learning is learning by doing with a delayed reward. A classic example of reinforcement learning is a chess game, the computer decided a series of moves and the reward is the "win" or "lose" at the end the game.
 
 You might think that this is similar to supervised learning where the reward is basically a label for the data but the core difference is this feedback/reward is not the truth but it is a measure of how well the action to achieving a certain goal.
@@ -439,23 +434,34 @@ One way to rethink about problem is doing quiz.
 
 8. Exercise
 
-\section{Machine Learning Algorithms}
 
-\subsection{Linear Regression}
+\section{Linear Regression}
 
-Linear Regression
-In-Out
+\index{hồi quy tuyến tính|see {linear regression}}
+\definition{linear regression}{
+Hồi quy tuyến tính, là thuật toán machine learning cơ bản nhất, áp dụng trên dữ liệu số
+}
 
+\noindent\textbf{In-Out}
 
-Input: Continuous Output: Continuous
+\begin{itemize}
+  \item Đầu vào: Continuous
+  \item Đầu ra: Continuous
+\end{itemize}
 
-When to use 1
-Econometric Modeling
-Marketing Mix Model
-Customer Lifetime Value
-Examples
-Ex1. Linear Regression with Boston Dataset
+\noindent \textbf{When to use}
 
+\begin{itemize}
+  \item Econometric Modeling
+  \item Marketing Mix Model
+  \item Customer Lifetime Value
+\end{itemize}
+
+\noindent \textbf{Examples}
+
+\noindent Ex. Linear Regression with Boston Dataset
+
+\begin{lstlisting}[language=Python]
 __author__ = 'rain'
 
 from sklearn.datasets import load_boston
@@ -465,7 +471,7 @@ boston = load_boston()
 data = boston['data']
 X, y = data[:, :-1], data[:, -1]
 X_train, X_test, y_train, y_test =
-  train_test_split(X, y, test_size=0.3)
+train_test_split(X, y, test_size=0.3)
 print boston['DESCR']
 clf_linear = LinearRegression()
 clf_linear.fit(X_train, y_train)
@@ -482,47 +488,65 @@ ridge_score = clf_ridge.score(X_test, y_test)
 print y_test
 print clf_linear.predict(X_test)
 print clf_ridge.predict(X_test)
-Ex2. Linear Regression with market data set (coursera) ([python language="notebook"]/python)
+\end{lstlisting}
+
+\section{Logistic Regression}
+
+\index{hồi quy logistic|see {logistic regression}}
+\definition{logistic regression}{
+Mô hình đơn giản nhất của việc phân lớp, dựa vào hàm logistic
+}
+
+\noindent\textbf{In-Out}
+
+\begin{itemize}
+  \item Đầu vào: continuos
+  \item Đầu ra: True/False
+\end{itemize}
+
+\noindent\textbf{Hyposthesis Representation}
+
+$$h_\theta (x) = g(\theta^Tx) \textnormal{ trong đó } g(z)=\frac{1}{1+e^{−z}}$$
+
+$g(z)$ là hàm sigmoid hay hàm logistic
+
+$h_\theta (x)$ estimated probability of y=1  given $x$
+
+\text{In spam detection problem, hθ(x)=0.7 means it's 70\% chance this email is spam.}
+
+
+\noindent\textbf{Decision Boundary}
 
 Logistic Regression
 
+\noindent\textbf{Cost Function}
 
-In-Out 1
-In: continuos
-Out: True/False
-1. Hyposthesis Representation
-hθ(x)=g(θTx) where g(z)=11+e−z
-hθ(x)=g(θTx) where g(z)=11+e−z
-g(z)g(z) is sigmoid function or logistic function
-
-hθ(x)hθ(x) estimated probability of y=1y=1 given xx
-
-In spam detection problem, hθ(x)=0.7hθ(x)=0.7 means it's 70% chance this email is spam.
-
-2. Decision Boundary
-Logistic Regression
-
-3. Cost Function
 cost(hθ(x),y)=−ylog(hθ(x))−(1−y)log(1−hθ(x))
 cost(hθ(x),y)=−ylog(hθ(x))−(1−y)log(1−hθ(x))
+
 Loss Function
 
-J(θ)=1m∑i=1mcost(hθ(x(i)),y(i))=−1m∑i=1my(i)loghθ(x(i))+(1−y(i))log(1−hθ(x(i)))
-J(θ)=1m∑i=1mcost(hθ(x(i)),y(i))=−1m∑i=1my(i)loghθ(x(i))+(1−y(i))log(1−hθ(x(i)))
-4. Gradient Descent
+$$J(θ)=1m∑i=1mcost(hθ(x(i)),y(i))=−1m∑i=1my(i)loghθ(x(i))+(1−y(i))log(1−hθ(x(i)))$$
+
+\noindent\textbf{Gradient Descent}
+
 Gradient
 
-∂J(θ)∂θj=1m∑i=1m(hθ(x(i))−y(i))x(i)j
-∂J(θ)∂θj=1m∑i=1m(hθ(x(i))−y(i))xj(i)
-5. Predict
-p(θ,X)=hθ(X)≥0.5
-p(θ,X)=hθ(X)≥0.5
-6. Regularization
+$$∂J(θ)∂θj=1m∑i=1m(hθ(x(i))−y(i))x(i)j$$
+
+\noindent\textbf{Predict}
+
+$$p(θ,X)=hθ(X)≥0.5$$
+
+\noindent\textbf{Regularization}
+
 6.1 Feature Mapping
+
 Cost Function
 
 mapFeature(x)=⎡⎣⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢⎢1x1x2x21x1x2x22x31⋯x1x52x62⎤⎦⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥⎥
 mapFeature(x)=[1x1x2x12x1x2x22x13⋯x1x25x26]
+
 6.2 Cost Function and Gradient
 Cost Function
 J(θ)=1m∑i=1m[−y(i)log(hθ(x(i)))−(1−y(i))log(1−hθ(x(i)))]+λ2m∑j=1nθ2j
@@ -533,9 +557,9 @@ Gradient
 
 ∂J(θ)∂θj=(1m∑mi=1(hθ(x(i))−y(i))x(i)j)+λmθj∂J(θ)∂θj=(1m∑i=1m(hθ(x(i))−y(i))xj(i))+λmθj for j≥1j≥1
 
-Code
-Bank Marketing Data Set
+\noindent Example: Bank Marketing Data Set
 
+\begin{lstlisting}[language=Python]
 import statsmodels.api as sm
 import pandas as pd
 from statsmodels.tools.tools import categorical
@@ -548,7 +572,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 
 def get_data():
-    return pd.read_csv(&quot;./bank/bank-full.csv&quot;, header=0, sep=&quot;;&quot;)
+  return pd.read_csv("./bank/bank-full.csv", header=0, sep=",")
 
 data = get_data()
 
@@ -572,20 +596,15 @@ clf.fit(X_train, y_train)
 score = clf.score(X_test, y_test)
 
 print confusion_matrix(y_test, clf.predict(X_test))
-# [[11807   203]
-#  [ 1243   311]]
-# it's too bad
+# [[11807 203]
+#  [ 1243 311]]
+\end{lstlisting}
 
-Examples
-Affair Dataset, Logistic Regression with scikit-learn
-Linear Regression vs Logistic Regression vs Poisson Regression ↩
+\noindent Examples: Affair Dataset, Logistic Regression with scikit-learn
+Linear Regression vs Logistic Regression vs Poisson Regression
 
-\subsection{Classification}
+\section{Classification}
 
-Classification
-
-
-Classification 1
 A very familiar example is the email spam-catching system: given a set of emails marked as spam and not-spam, it learns the characteristics of spam emails and is then able to process future email messages to mark them as spam or not-spam.
 
 The technique used in the above example of email spam-catching system is one of the most common machine learning techniques: classification (actually, statistical classification). More precisely it is a supervised statistical classification. Supervised because the system needs to be first trained using already classified training data as opposed to an unsupervised system where such training is not done.
@@ -594,9 +613,9 @@ A supervised learning system that performs classification is known as a learner 
 
 The classifier is first fed training data in which each item is already labeled with the correct label or class. This data is used to train the learning algorithm, which creates models that can then be used to label/classify similar data.
 
-Formally, given a set of input items,  and a set of labels/classes,  and training data is the label/class for $latex x_i$, a classifier is a mapping from X to Y $latex f(T, x) = y$.
+Formally, given a set of input items, and a set of labels/classes, and training data is the label/class for $latex x_i$, a classifier is a mapping from X to Y $latex f(T, x) = y$.
 
-Binary Classification
+\section{Binary Classification}
 Algorithms 1
 Two-class SVM
 100 features, linear model
@@ -622,38 +641,48 @@ While some classification algorithms naturally permit the use of more than two c
 Multiclass classification should not be confused with multi-label classification, where multiple labels are to be predicted for each instance.
 
 Algorithms 1
+
+
 Multiclass Logistic Regression
 Multiclass SVM
 Multiclass Neural Network
 Multiclass Decision Forest
 Multiclass Decision Jungle
+
 Confusion Matrix
+
 sklearn plot confusion matrix with labels 3
 
+
+\begin{lstlisting}[language=Python]
 import matplotlib.pyplot as plt
-def plot_confusion_matrix(cm, title='Confusion matrix', cmap=plt.cm.Blues, labels=None):
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
-    cax = ax.matshow(cm)
-    plt.title(title)
-    fig.colorbar(cax)
-    if labels:
-        ax.set_xticklabels([''] + labels)
-        ax.set_yticklabels([''] + labels)
-    plt.xlabel('Predicted')
-    plt.ylabel('True')
-    plt.show()
+def plot_confusion_matrix(cm,
+                          title='Confusion matrix',
+                          cmap=plt.cm.Blues, labels=None):
+  fig = plt.figure()
+  ax = fig.add_subplot(111)
+  cax = ax.matshow(cm)
+  plt.title(title)
+  fig.colorbar(cax)
+if labels:
+  ax.set_xticklabels([''] + labels)
+  ax.set_yticklabels([''] + labels)
+plt.xlabel('Predicted')
+plt.ylabel('True')
+plt.show()
+\end{lstlisting}
 
 
-Multilabel Classification
+\section{Multilabel Classification}
 
+Introduction
 
-Introduction 1
 In machine learning, multi-label classification and the strongly related problem of multi-output classification are variants of the classification problem where multiple target labels must be assigned to each instance. Multi-label classification should not be confused with multiclass classification, which is the problem of categorizing instances into one of more than two classes. Formally, multi-label learning can be phrased as the problem of finding a model that maps inputs x to binary vectors y, rather than scalar outputs as in the ordinary classification problem.
 
 There are two main methods for tackling the multi-label classification problem:[1] problem transformation methods and algorithm adaptation methods. Problem transformation methods transform the multi-label problem into a set of binary classification problems, which can then be handled using single-class classifiers. Algorithm adaptation methods adapt the algorithms to directly perform multi-label classification. In other words, rather than trying to convert the problem to a simpler problem, they try to address the problem in its full form.
 
 Implements
+
 Multiclass and multilabel algorithms
 SVM
 Multi-label classification ↩
@@ -662,7 +691,7 @@ Multiclass classification ↩
 
 sklearn plot confusion matrix with labels ↩
 
-\subsection{Clustering}
+\section{Clustering}
 Using K-Means to cluster wine dataset
 Recently, I joined Cluster Analysis course in coursera. The content of first week is about Partitioning-Based Clustering Methods where I learned about some cluster algorithms based on distance such as K-Means, K-Medians and K-Modes. I would like to turn what I learn into practice so I write this post as an excercise of this course.
 
@@ -673,129 +702,138 @@ Meet the data
 
 The wine data set contains the results of a chemical analysis of wines grown in a specific area of Italy. Three types of wine are represented in the 178 samples, with the results of 13 chemical analyses recorded for each sample. The Type variable has been transformed into a categoric variable.
 
- data(wine, package=&quot;rattle&quot;)
+
+\begin{lstlisting}[language=Python]
+data(wine, package=&quot;rattle&quot;)
 head(wine)
 
-#&gt;   Type Alcohol Malic  Ash Alcalinity Magnesium Phenols
-#&gt; 1    1   14.23  1.71 2.43       15.6       127    2.80
-#&gt; 2    1   13.20  1.78 2.14       11.2       100    2.65
-#&gt; 3    1   13.16  2.36 2.67       18.6       101    2.80
-#&gt; 4    1   14.37  1.95 2.50       16.8       113    3.85
-#&gt; 5    1   13.24  2.59 2.87       21.0       118    2.80
-#&gt; 6    1   14.20  1.76 2.45       15.2       112    3.27
-#&gt;   Flavanoids Nonflavanoids Proanthocyanins Color  Hue
-#&gt; 1       3.06          0.28            2.29  5.64 1.04
-#&gt; 2       2.76          0.26            1.28  4.38 1.05
-#&gt; 3       3.24          0.30            2.81  5.68 1.03
-#&gt; 4       3.49          0.24            2.18  7.80 0.86
-#&gt; 5       2.69          0.39            1.82  4.32 1.04
-#&gt; 6       3.39          0.34            1.97  6.75 1.05
-#&gt;   Dilution Proline
-#&gt; 1     3.92    1065
-#&gt; 2     3.40    1050
-#&gt; 3     3.17    1185
-#&gt; 4     3.45    1480
-#&gt; 5     2.93     735
-#&gt; 6     2.85    1450
+ Type Alcohol Malic Ash Alcalinity Magnesium Phenols
+ 1 1 14.23 1.71 2.43 15.6 127 2.80
+ 2 1 13.20 1.78 2.14 11.2 100 2.65
+ 3 1 13.16 2.36 2.67 18.6 101 2.80
+ 4 1 14.37 1.95 2.50 16.8 113 3.85
+ 5 1 13.24 2.59 2.87 21.0 118 2.80
+ 6 1 14.20 1.76 2.45 15.2 112 3.27
+ Flavanoids Nonflavanoids Proanthocyanins Color Hue
+ 1 3.06 0.28 2.29 5.64 1.04
+ 2 2.76 0.26 1.28 4.38 1.05
+ 3 3.24 0.30 2.81 5.68 1.03
+ 4 3.49 0.24 2.18 7.80 0.86
+ 5 2.69 0.39 1.82 4.32 1.04
+ 6 3.39 0.34 1.97 6.75 1.05
+ Dilution Proline
+ 1 3.92 1065
+ 2 3.40 1050
+ 3 3.17 1185
+ 4 3.45 1480
+ 5 2.93 735
+ 6 2.85 1450
 Explore and Preprocessing Data
 Let's see structure of wine data set
 
- str(wine)
+\begin{lstlisting}[language=R]
+str(wine)
 
-#&gt; &apos;data.frame&apos;:  178 obs. of  14 variables:
-#&gt; $ Type           : Factor w/ 3 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;: 1 1 1 1 1 1 1 1 1 1 ...
-#&gt; $ Alcohol        : num  14.2 13.2 13.2 14.4 13.2 ...
-#&gt; $ Malic          : num  1.71 1.78 2.36 1.95 2.59 1.76 1.87 2.15 1.64 1.35 ...
-#&gt; $ Ash            : num  2.43 2.14 2.67 2.5 2.87 2.45 2.45 2.61 2.17 2.27 ...
-#&gt; $ Alcalinity     : num  15.6 11.2 18.6 16.8 21 15.2 14.6 17.6 14 16 ...
-#&gt; $ Magnesium      : int  127 100 101 113 118 112 96 121 97 98 ...
-#&gt; $ Phenols        : num  2.8 2.65 2.8 3.85 2.8 3.27 2.5 2.6 2.8 2.98 ...
-#&gt; $ Flavanoids     : num  3.06 2.76 3.24 3.49 2.69 3.39 2.52 2.51 2.98 3.15 ...
-#&gt; $ Nonflavanoids  : num  0.28 0.26 0.3 0.24 0.39 0.34 0.3 0.31 0.29 0.22 ...
-#&gt; $ Proanthocyanins: num  2.29 1.28 2.81 2.18 1.82 1.97 1.98 1.25 1.98 1.85 ...
-#&gt; $ Color          : num  5.64 4.38 5.68 7.8 4.32 6.75 5.25 5.05 5.2 7.22 ...
-#&gt; $ Hue            : num  1.04 1.05 1.03 0.86 1.04 1.05 1.02 1.06 1.08 1.01 ...
-#&gt; $ Dilution       : num  3.92 3.4 3.17 3.45 2.93 2.85 3.58 3.58 2.85 3.55 ...
-#&gt; $ Proline        : int  1065 1050 1185 1480 735 1450 1290 1295 1045 1045 ...
+ &apos;data.frame&apos;: 178 obs. of 14 variables:
+ $ Type : Factor w/ 3 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+ $ Alcohol : num 14.2 13.2 13.2 14.4 13.2 ...
+ $ Malic : num 1.71 1.78 2.36 1.95 2.59 1.76 1.87 2.15 1.64 1.35 ...
+ $ Ash : num 2.43 2.14 2.67 2.5 2.87 2.45 2.45 2.61 2.17 2.27 ...
+ $ Alcalinity : num 15.6 11.2 18.6 16.8 21 15.2 14.6 17.6 14 16 ...
+ $ Magnesium : int 127 100 101 113 118 112 96 121 97 98 ...
+ $ Phenols : num 2.8 2.65 2.8 3.85 2.8 3.27 2.5 2.6 2.8 2.98 ...
+ $ Flavanoids : num 3.06 2.76 3.24 3.49 2.69 3.39 2.52 2.51 2.98 3.15 ...
+ $ Nonflavanoids : num 0.28 0.26 0.3 0.24 0.39 0.34 0.3 0.31 0.29 0.22 ...
+ $ Proanthocyanins: num 2.29 1.28 2.81 2.18 1.82 1.97 1.98 1.25 1.98 1.85 ...
+ $ Color : num 5.64 4.38 5.68 7.8 4.32 6.75 5.25 5.05 5.2 7.22 ...
+ $ Hue : num 1.04 1.05 1.03 0.86 1.04 1.05 1.02 1.06 1.08 1.01 ...
+ $ Dilution : num 3.92 3.4 3.17 3.45 2.93 2.85 3.58 3.58 2.85 3.55 ...
+ $ Proline : int 1065 1050 1185 1480 735 1450 1290 1295 1045 1045 ...
+\end{lstlisting}
+
 Wine data set contains 1 categorical variables (label) and 13 numerical variables. But these numerical variables is not scaled, I use scale function for scaling and centering data and then assign it as training data.
 
- data.train &lt;- scale(wine[-1])
+data.train &lt;- scale(wine[-1])
 Data is already centered and scaled.
 
- summary(data.train)
-#&gt;   Alcohol             Malic
-#&gt; Min.   :-2.42739   Min.   :-1.4290
-#&gt; 1st Qu.:-0.78603   1st Qu.:-0.6569
-#&gt; Median : 0.06083   Median :-0.4219
-#&gt; Mean   : 0.00000   Mean   : 0.0000
-#&gt; 3rd Qu.: 0.83378   3rd Qu.: 0.6679
-#&gt; Max.   : 2.25341   Max.   : 3.1004
-#&gt;      Ash             Alcalinity
-#&gt; Min.   :-3.66881   Min.   :-2.663505
-#&gt; 1st Qu.:-0.57051   1st Qu.:-0.687199
-#&gt; Median :-0.02375   Median : 0.001514
-#&gt; Mean   : 0.00000   Mean   : 0.000000
-#&gt; 3rd Qu.: 0.69615   3rd Qu.: 0.600395
-#&gt; Max.   : 3.14745   Max.   : 3.145637
-#&gt;   Magnesium          Phenols
-#&gt; Min.   :-2.0824   Min.   :-2.10132
-#&gt; 1st Qu.:-0.8221   1st Qu.:-0.88298
-#&gt; Median :-0.1219   Median : 0.09569
-#&gt; Mean   : 0.0000   Mean   : 0.00000
-#&gt; 3rd Qu.: 0.5082   3rd Qu.: 0.80672
-#&gt; Max.   : 4.3591   Max.   : 2.53237
-#&gt;   Flavanoids      Nonflavanoids
-#&gt; Min.   :-1.6912   Min.   :-1.8630
-#&gt; 1st Qu.:-0.8252   1st Qu.:-0.7381
-#&gt; Median : 0.1059   Median :-0.1756
-#&gt; Mean   : 0.0000   Mean   : 0.0000
-#&gt; 3rd Qu.: 0.8467   3rd Qu.: 0.6078
-#&gt; Max.   : 3.0542   Max.   : 2.3956
-#&gt; Proanthocyanins        Color
-#&gt; Min.   :-2.06321   Min.   :-1.6297
-#&gt; 1st Qu.:-0.59560   1st Qu.:-0.7929
-#&gt; Median :-0.06272   Median :-0.1588
-#&gt; Mean   : 0.00000   Mean   : 0.0000
-#&gt; 3rd Qu.: 0.62741   3rd Qu.: 0.4926
-#&gt; Max.   : 3.47527   Max.   : 3.4258
-#&gt;      Hue              Dilution
-#&gt; Min.   :-2.08884   Min.   :-1.8897
-#&gt; 1st Qu.:-0.76540   1st Qu.:-0.9496
-#&gt; Median : 0.03303   Median : 0.2371
-#&gt; Mean   : 0.00000   Mean   : 0.0000
-#&gt; 3rd Qu.: 0.71116   3rd Qu.: 0.7864
-#&gt; Max.   : 3.29241   Max.   : 1.9554
-#&gt;    Proline
-#&gt; Min.   :-1.4890
-#&gt; 1st Qu.:-0.7824
-#&gt; Median :-0.2331
-#&gt; Mean   : 0.0000
-#&gt; 3rd Qu.: 0.7561
-# &gt; Max.   : 2.963
+\begin{lstlisting}[language=R]
+summary(data.train)
+ Alcohol Malic
+ Min. :-2.42739 Min. :-1.4290
+ 1st Qu.:-0.78603 1st Qu.:-0.6569
+ Median : 0.06083 Median :-0.4219
+ Mean : 0.00000 Mean : 0.0000
+ 3rd Qu.: 0.83378 3rd Qu.: 0.6679
+ Max. : 2.25341 Max. : 3.1004
+ Ash Alcalinity
+ Min. :-3.66881 Min. :-2.663505
+ 1st Qu.:-0.57051 1st Qu.:-0.687199
+ Median :-0.02375 Median : 0.001514
+ Mean : 0.00000 Mean : 0.000000
+ 3rd Qu.: 0.69615 3rd Qu.: 0.600395
+ Max. : 3.14745 Max. : 3.145637
+ Magnesium Phenols
+ Min. :-2.0824 Min. :-2.10132
+ 1st Qu.:-0.8221 1st Qu.:-0.88298
+ Median :-0.1219 Median : 0.09569
+ Mean : 0.0000 Mean : 0.00000
+ 3rd Qu.: 0.5082 3rd Qu.: 0.80672
+ Max. : 4.3591 Max. : 2.53237
+ Flavanoids Nonflavanoids
+ Min. :-1.6912 Min. :-1.8630
+ 1st Qu.:-0.8252 1st Qu.:-0.7381
+ Median : 0.1059 Median :-0.1756
+ Mean : 0.0000 Mean : 0.0000
+ 3rd Qu.: 0.8467 3rd Qu.: 0.6078
+ Max. : 3.0542 Max. : 2.3956
+ Proanthocyanins Color
+ Min. :-2.06321 Min. :-1.6297
+ 1st Qu.:-0.59560 1st Qu.:-0.7929
+ Median :-0.06272 Median :-0.1588
+ Mean : 0.00000 Mean : 0.0000
+ 3rd Qu.: 0.62741 3rd Qu.: 0.4926
+ Max. : 3.47527 Max. : 3.4258
+ Hue Dilution
+ Min. :-2.08884 Min. :-1.8897
+ 1st Qu.:-0.76540 1st Qu.:-0.9496
+ Median : 0.03303 Median : 0.2371
+ Mean : 0.00000 Mean : 0.0000
+ 3rd Qu.: 0.71116 3rd Qu.: 0.7864
+ Max. : 3.29241 Max. : 1.9554
+ Proline
+ Min. :-1.4890
+ 1st Qu.:-0.7824
+ Median :-0.2331
+ Mean : 0.0000
+ 3rd Qu.: 0.7561
+# &gt; Max. : 2.963
+\end{lstlisting}
+
+
 Model Fitting
 Now the fun part begins. I use NbClust function to determine what is the best number of clusteres k for K-Means
 
- nc &lt;- NbClust(data.train,
-              min.nc=2, max.nc=15,
-              method=&quot;kmeans&quot;)
+nc &lt;- NbClust(data.train,
+min.nc=2, max.nc=15,
+method=&quot;kmeans&quot;)
 barplot(table(nc$Best.n[1,]),
-        xlab=&quot;Numer of Clusters&quot;,
-        ylab=&quot;Number of Criteria&quot;,
-        main=&quot;Number of Clusters Chosen by 26 Criteria&quot;)
+xlab=&quot;Numer of Clusters&quot;,
+ylab=&quot;Number of Criteria&quot;,
+main=&quot;Number of Clusters Chosen by 26 Criteria&quot;)
 
 
 According to the graph, we can find the best number of clusters is 3. Beside NbClust function which provides 30 indices for determing the number of clusters and proposes the best clustering scheme, we can draw the sum of square error (SSE) scree plot and look for a bend or elbow in this graph to determine appropriate k
 
- wss &lt;- 0
+wss &lt;- 0
 for (i in 1:15){
-  wss[i] &lt;-
-    sum(kmeans(data.train, centers=i)$withinss)
+wss[i] &lt;-
+sum(kmeans(data.train, centers=i)$withinss)
 }
 plot(1:15,
-  wss,
-  type=&quot;b&quot;,
-  xlab=&quot;Number of Clusters&quot;,
-  ylab=&quot;Within groups sum of squares&quot;)
+wss,
+type=&quot;b&quot;,
+xlab=&quot;Number of Clusters&quot;,
+ylab=&quot;Within groups sum of squares&quot;)
 
 
 Both two methods suggest k=3 is best choice for us. It's reasonsable if we take notice that the original data set also contains 3 classes.
@@ -803,61 +841,61 @@ Both two methods suggest k=3 is best choice for us. It's reasonsable if we take 
 Fit the model
 We now fit wine data to K-Means with k = 3
 
- fit.km &lt;- kmeans(data.train, 3)
+fit.km &lt;- kmeans(data.train, 3)
 Then interpret the result
 
- fit.km
+fit.km
 
-#&gt; K-means clustering with 3 clusters of sizes 51, 65, 62
-#&gt;
-#&gt; Cluster means:
-#&gt;      Alcohol      Malic        Ash Alcalinity
-#&gt; 1  0.1644436  0.8690954  0.1863726  0.5228924
-#&gt; 2 -0.9234669 -0.3929331 -0.4931257  0.1701220
-#&gt; 3  0.8328826 -0.3029551  0.3636801 -0.6084749
-#&gt;     Magnesium     Phenols  Flavanoids Nonflavanoids
-#&gt; 1 -0.07526047 -0.97657548 -1.21182921    0.72402116
-#&gt; 2 -0.49032869 -0.07576891  0.02075402   -0.03343924
-#&gt; 3  0.57596208  0.88274724  0.97506900   -0.56050853
-#&gt;   Proanthocyanins      Color        Hue   Dilution
-#&gt; 1     -0.77751312  0.9388902 -1.1615122 -1.2887761
-#&gt; 2      0.05810161 -0.8993770  0.4605046  0.2700025
-#&gt; 3      0.57865427  0.1705823  0.4726504  0.7770551
-#&gt;      Proline
-#&gt; 1 -0.4059428
-#&gt; 2 -0.7517257
-#&gt; 3  1.1220202
-#&gt;
-#&gt; Clustering vector:
-#&gt;   [1] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-#&gt;  [26] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-#&gt;  [51] 3 3 3 3 3 3 3 3 3 2 2 1 2 2 2 2 2 2 2 2 2 2 2 3 2
-#&gt;  [76] 2 2 2 2 2 2 2 2 1 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 2
-#&gt; [101] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 2 2 3 2 2 2
-#&gt; [126] 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#&gt; [151] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#&gt; [176] 1 1 1
-#&gt;
-#&gt; Within cluster sum of squares by cluster:
-#&gt; [1] 326.3537 558.6971 385.6983
-#&gt;  (between_SS / total_SS =  44.8 %)
-#&gt;
-#&gt; Available components:
-#&gt;
-#&gt; [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;
-#&gt; [4] &quot;withinss&quot;     &quot;tot.withinss&quot; &quot;betweenss&quot;
-# &gt; [7] &quot;size&quot;         &quot;iter&quot;         &quot;ifault&quot
+ K-means clustering with 3 clusters of sizes 51, 65, 62
+
+ Cluster means:
+ Alcohol Malic Ash Alcalinity
+ 1 0.1644436 0.8690954 0.1863726  0.5228924
+ 2 -0.9234669 -0.3929331 -0.4931257 0.1701220
+ 3 0.8328826 -0.3029551 0.3636801 -0.6084749
+ Magnesium Phenols Flavanoids Nonflavanoids
+ 1 -0.07526047 -0.97657548 -1.21182921 0.72402116
+ 2 -0.49032869 -0.07576891 0.02075402 -0.03343924
+ 3 0.57596208 0.88274724 0.97506900 -0.56050853
+ Proanthocyanins Color Hue   Dilution
+ 1 -0.77751312 0.9388902 -1.1615122 -1.2887761
+ 2 0.05810161 -0.8993770 0.4605046 0.2700025
+ 3 0.57865427 0.1705823 0.4726504 0.7770551
+      Proline
+ 1 -0.4059428
+ 2 -0.7517257
+ 3 1.1220202
+
+ Clustering vector:
+   [1] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+  [26] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+  [51] 3 3 3 3 3 3 3 3 3 2 2 1 2 2 2 2 2 2 2 2 2 2 2 3 2
+  [76] 2 2 2 2 2 2 2 2 1 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 2
+ [101] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 2 2 3 2 2 2
+ [126] 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ [151] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ [176] 1 1 1
+
+ Within cluster sum of squares by cluster:
+ [1] 326.3537 558.6971 385.6983
+  (between_SS / total_SS = 44.8 %)
+
+ Available components:
+
+ [1] &quot;cluster&quot; &quot;centers&quot; &quot;totss&quot;
+ [4] &quot;withinss&quot; &quot;tot.withinss&quot; &quot;betweenss&quot;
+# &gt; [7] &quot;size&quot; &quot;iter&quot; &quot;ifault&quot
 The result shows information about cluster means, clustering vector, sum of square by cluster and available components. Let's do some visualizations to see how data set is clustered.
 
 First, I use plotcluster function from fpc package to draw discriminant projection plot
 
- library(fpc)
+library(fpc)
 plotcluster(data.train, fit.km$cluster)
 
 
 We can see the data is clustered very well, there are no collapse between clusters. Next, we draw parallel coordinates plot to see how variables contributed in each cluster
 
- library(MASS)
+library(MASS)
 parcoord(data.train, fit.km$cluster)
 
 
@@ -866,26 +904,26 @@ We can extract some insights from above graph suc as black cluster contains wine
 Evaluation
 Because the original data set wine also has 3 classes, it is reasonable if we compare these classes with 3 clusters fited by K-Means
 
- confuseTable.km &lt;- table(wine$Type, fit.km$cluster)
+confuseTable.km &lt;- table(wine$Type, fit.km$cluster)
 confuseTable.km
-#&gt;    1  2  3
-#&gt; 1  0  0 59
-#&gt; 2  3 65  3
+ 1 2 3
+ 1 0 0 59
+ 2 3 65 3
 # &gt; 3 48  0
 We can see only 6 sample is missed. Let's use randIndex from flexclust to compare these two parititions - one from data set and one from result of clustering method.
 
- library(flexclust)
+library(flexclust)
 randIndex(ct.km)
-#&gt;      ARI
-#&gt; 0.897495
+      ARI
+ 0.897495
 It's quite close to 1 so K-Means is good model for clustering wine data set.
 
 References
 Choosing number of cluster in K-Means, http://stackoverflow.com/a/15376462/1036500
 K-means Clustering (from “R in Action”), http://www.r-statistics.com/2013/08/k-means-clustering-from-r-in-action/
-Color the cluster output in r,  http://stackoverflow.com/questions/15386960/color-the-cluster-output-in-r
+Color the cluster output in r, http://stackoverflow.com/questions/15386960/color-the-cluster-output-in-r
 
-\subsection{Ensemble}
+\section{Ensemble}
 
 Ensemble Algorithms 1
 Ensemble methods are models composed of multiple weaker models that are independently trained and whose predictions are combined in some way to make the overall prediction.
@@ -943,7 +981,7 @@ youtube, Kaggle Winning Solution Xgboost algorithm -- Let us learn from its auth
 
 Notes on Parameter Tuning ↩
 
-\subsection{Dimensionality Reduction}
+\section{Dimensionality Reduction}
 
 
 Dimensionality Reduction Algorithms
@@ -971,7 +1009,7 @@ L.J.P. van der Maaten and G.E. Hinton. Visualizing Non-Metric Similarities in Mu
 L.J.P. van der Maaten. Learning a Parametric Embedding by Preserving Local Structure. In Proceedings of the Twelfth International Conference on Artificial Intelligence & Statistics (AI-STATS), JMLR W&CP 5:384-391, 2009. PDF
 L.J.P. van der Maaten and G.E. Hinton. Visualizing High-Dimensional Data Using t-SNE. Journal of Machine Learning Research 9(Nov):2579-2605, 2008. PDF [Supplemental material] [Talk]
 
-\subsection{Anomaly Detection}
+\section{Anomaly Detection}
 
 
 Motivation and Examples
@@ -1063,13 +1101,14 @@ Admittedly, business isn't going well, but you're optimistic about the future as
 
 To introduce some notation
 
-$latex n_u$ - Number of users (called $?^{nu}$ occasionally as we can't subscript in superscript)
-$latex n_m$ - Number of movies
-$latex r(i, j)$ - 1 if user j has rated movie i (i.e. bitmap)
-$latex y(i,j)$ - rating given by user j to move i (defined only if $latex r(i,j) = 1$)
+$n_u$ - Number of users (called $?^{nu}$ occasionally as we can't subscript in superscript)
+$n_m$ - Number of movies
+$r(i, j)$ - 1 if user j has rated movie i (i.e. bitmap)
+$y(i,j)$ - rating given by user j to move i (defined only if $latex r(i,j) = 1$)
 So for this example
-$latex n_u = 4$
-$latex n_m = 5$
+$n_u = 4$
+$n_m = 5$
+
 Summary of scoring
 Alice and Bob gave good ratings to rom coms, but low scores to action films
 Carol and Dave game good ratings for action films but low ratings for rom coms

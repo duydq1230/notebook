@@ -95,6 +95,7 @@ Our focus throughout this book is on using a joint probability distribution over
 probability query Perhaps the most common query type is the probability query. Such a query consists of two parts: evidence • The evidence: a subset E of random variables in the model, and an instantiation e to these variables; query variables • the query variables: a subset Y of random variables in the network. Our task is to compute P(Y | E = e), posterior that is, the posterior probability distribution over the values y of Y , conditioned on the fact that distribution E = e. This expression can also be viewed as the marginal over Y , in the distribution we obtain by conditioning on e.
 
 5.2 MAP Queries
+
 A second important type of task is that of finding a high-probability joint assignment to some subset of variables. The simplest variant of this type of task is the MAP query (also called MAP assignment most probable explanation (MPE)), whose aim is to find the MAP assignment — the most likely assignment to all of the (non-evidence) variables. More precisely, if we let W = X − E, our task is to find the most likely assignment to the variables in W given the evidence E = e: MAP(W | e) = argmax w P(w, e), (2.12) where, in general, argmaxx f(x) represents the value of x for which f(x) is maximal. Note that there might be more than one assignment that has the highest posterior probability. In this case, we can either decide that the MAP task is to return the set of possible assignments, or to return an arbitrary member of that set. It is important to understand the dierence between MAP queries and probability queries. In a MAP query, we are finding the most likely joint assignment to W . To find the most likely assignment to a single variable A, we could simply compute P(A | e) and then pick the most likely value. However, the assignment where each variable individually picks its most  likely value can be quite dierent from the most likely joint assignment to all variables simultaneously. This phenomenon can occur even in the simplest case, where we have no evidence. Example 2.4 Consider a two node chain A → B where A and B are both binary-valued. Assume that: a0 a1 0.4 0.6 A b0 b1 a0 0.1 0.9 a1 0.5 0.5 (2.13) We can see that P(a1) > P(a0), so that MAP(A) = a1. However, MAP(A, B) = (a0, b1): Both values of B have the same probability given a1. Thus, the most likely assignment containing a1 has probability 0.6 × 0.5 = 0.3. On the other hand, the distribution over values of B is more skewed given a0, and the most likely assignment (a0, b1) has the probability 0.4 × 0.9 = 0.36. Thus, we have that argmaxa,b P(a, b) 6= (argmaxa P(a),argmaxb P(b)).
 
 5.3 Marginal MAP Queries
@@ -146,12 +147,12 @@ Phần này có thêm khảo \cite{Goodfellow-et-al-2016} và giáo trình xác 
 Là phân phối mà xác suất xuất hiện của các sự kiện là như nhau.
 \newline
 Biến ngẫu nhiên $X$ tuân theo phân phối đều rời rạc
-$$X \sim \mathcal{U} (a, b)$$
+$$X \sim \mathcal{U}nif (a, b)$$
 với tham số $a, b \in \mathbb Z; a < b$ là khoảng giá trị của $X$, đặt $n = b-a+1$
 \newline
 Ta sẽ có:
 \newline
-\begin{tabular}{ | l | l | }
+\begin{tabular}[c]{ | l | l | }
   \hline
   Định nghĩa & Giá trị \\
   \hline
@@ -164,6 +165,7 @@ Ta sẽ có:
   Phương sai - $Var(X)$ & $\dfrac{n^2-1}{12}$ \\
   \hline
 \end{tabular}
+
 \newline
 Ví dụ: Lịch chạy của xe buýt tại một trạm xe buýt như sau: chiếc xe buýt đầu tiên trong ngày sẽ khởi hành từ trạm này vào lúc 7 giờ, cứ sau mỗi 15 phút sẽ có một xe khác đến trạm. Giả sử một hành khách đến trạm trong khoảng thời gian từ 7 giờ đến 7 giờ 30. Tìm xác suất để hành khách này chờ:
 

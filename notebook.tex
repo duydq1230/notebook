@@ -13,13 +13,15 @@
 
 \setlength{\emergencystretch}{2pt}
 
+\usepackage{color}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
 
+\usepackage{courier}
 \usepackage{listings}
 \lstset{
-basicstyle=\ttfamily,
-columns=fullflexible,
+basicstyle=\fontsize{10}\ttfamily,
+columns=flexible,
 frame=none,
 breaklines=true,
 postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
@@ -27,6 +29,13 @@ inputencoding=utf8,
 showstringspaces=false
 }
 \input{code.tex}
+
+% ====== BEGING TESTING ======
+\renewcommand{\arraystretch}{2.8}
+\input{style/define.tex}
+\usepackage{parcolumns}
+input{style/define.tex}
+% ======   END  TESTING ======
 
 
 \usepackage[makeindex]{imakeidx}
@@ -55,16 +64,18 @@ urlcolor=cyan,
 
   \tableofcontents
   \addcontentsline{toc}{chapter}{\contentsname}
-  \input{introduction.tex}
-  \input{programming/index.tex}
-  \input{math/index.tex}
-  \input{computer_science/index.tex}
+
+%  \input{introduction.tex}
+%  \input{programming/index.tex}
+%  \input{math/index.tex}
+%  \input{computer_science/index.tex}
   \input{data_science/index.tex}
-  \input{other/index.tex}
+%  \input{other/index.tex}
+
   \bibliography{mybib}{}
   \bibliographystyle{ksfh_nat}
+
   \addcontentsline{toc}{part}{Tài liệu}
-%  \addcontentsline{toc}{part}{\refname}
   \printindex
   \addcontentsline{toc}{part}{Chỉ mục}
 \end{document}

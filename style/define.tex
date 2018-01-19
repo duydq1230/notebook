@@ -1,0 +1,15 @@
+% ============================ %
+%           definition
+% ============================ %
+\newcommand{\definition}[2]{
+{\setlength{\parindent}{0pt}
+\begin{parcolumns}[nofirstindent,colwidths={1=2.8cm}]{2}
+  \colchunk{
+  \index{#1}
+  \noindent \textcolor{blue}{#1}
+  }
+
+  \colchunk{ #2 }
+\end{parcolumns}
+}
+}
