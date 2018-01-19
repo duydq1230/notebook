@@ -1,31 +1,42 @@
 \chapter{Nhận dạng tiếng nói}
 
+\diary{26/12/2017 - Automatic Speech Recognition 100. Sau mấy ngày "vật lộn" với code base của Truong Do, thì cuối cùng cũng produce voice được. Cảm giác rất thú vị. Quyết định làm luôn ASR. Tìm mãi chẳng thấy code base đâu (chắc do lĩnh vực mới nên không có kinh nghiệm). May quá lại có bạn frankydotid có project về nhận diện tiếng Indonesia ở \href{https://github.com/frankydotid/Indonesian-Speech-Recognition}{github}. Trong README.md bạn đấy bảo là phải cần đọc HTK Book. Tốt quá đang cần cơ bản.}
+
+\diary{19/01/2018: Hôm nay thực sự quá mệt với bạn Kaldi. Mãi không thể decode với các thuộc tính LDA-MLLT được? Hỏi mãi ở kaldi-help mà không có reply}
+
+\dinary{05/01/2018 - "điên đầu" với Sphinx và HTK. HTK thì đã bỏ rồi vì quá lằng nhằng. Sphinx thì setup được đối với dữ liệu nhỏ rồi. Nhưng không thể làm nó hoạt động với dữ liệu của VIVOS. Chắc hôm nay sẽ switch sang Kaldi vậy.}
+
+
 Trong hệ thống nhận dạng tiếng nói, tín hiệu âm thanh được thu thập như những mẫu phù hợp cho quá trình xử lý của máy tính và được đưa vào quá trình nhận diện. Đầu ra của hệ thống là một câu phụ đề của câu nói.
 
 Nhận dạng tiếng nói là một nhiệm vụ phức tạp và hệ thống tốt nhất trong nhận dạng tiếng nói rất phức tạp. Có rất nhiều cách tiếp cận cho mỗi thành phần. Trong phần này, người viết chỉ muốn đưa ra một cái nhìn tổng thể về nhận dạng tiếng nói, các khó khăn chính, các thành phần cơ bản, chức năng và tương tác của chúng trong một hệ thống nhận dạng tiếng nói.
 
-Các thành phần của hệ thống nhận dạng tiếng nói
+\noindent Các thành phần của hệ thống nhận dạng tiếng nói
 
-![](http://www.igi.tugraz.at/lehre/CI/SS08/tutorials/ASR/img1.gif)
+\includegraphics[width=10cm]{data_science/speech_recognition/asr_components}
 
-Trong bước thứ nhất, trích rút thông tin *Feature Extraction*, các mẫu tín hiệu được tham số hóa. Mục tiêu là trích xuất ra một tập các tham số (đặc trưng) từ tín hiệu có nhiều thông tin hữu ích nhất cho quá trình phân loại.  Các đặc trưng chính được trích xuất với điều kiện *thích nghi* với các sự thay đổi của âm thanh và *nhạy cảm* với các nội dung ngôn ngữ.
+Trong bước thứ nhất, trích rút thông tin \textit{Feature Extraction}, các mẫu tín hiệu được tham số hóa. Mục tiêu là trích xuất ra một tập các tham số (đặc trưng) từ tín hiệu có nhiều thông tin hữu ích nhất cho quá trình phân loại.  Các đặc trưng chính được trích xuất với điều kiện \textit{thích nghi} với các sự thay đổi của âm thanh và \textit{nhạy cảm} với các nội dung ngôn ngữ.
 
-Trong module phân loại, các vector đặc trưng được ánh xạ với các pattern, được gọi là *mô hình âm học* (acoustic model). Mô hình học thường là HMM được train với toàn bộ từ, hay âm như là một đơn vị ngôn ngữ.
+\definition{mô hình âm học}{Trong module phân loại, các vector đặc trưng được ánh xạ với các pattern, được gọi là \textbf{mô hình âm học} (acoustic model). Mô hình học thường là HMM được train với toàn bộ từ, hay âm như là một đơn vị ngôn ngữ.}
 
-*Từ điển phát âm* (pronunciation dictionary) định nghĩa cách kết hợp âm cho các ký tự. Nó có thể chứa cách phát âm khác nhau cho cùng một từ. Bảng 1 hiển thị chính xác một từ điển. Từ (graphme) ở cột bên trái ứng với cách phát âm (các âm) ở cột bên phải (các ký tự âm trong bảng được dùng phổ biến đối với tiếng Anh)
+\definition{Từ điển phát âm}{
+Từ điển phát âm (pronunciation dictionary) định nghĩa cách kết hợp âm cho các ký tự. Nó có thể chứa cách phát âm khác nhau cho cùng một từ. Bảng 1 hiển thị chính xác một từ điển. Từ (graphme) ở cột bên trái ứng với cách phát âm (các âm) ở cột bên phải (các ký tự âm trong bảng được dùng phổ biến đối với tiếng Anh)
+}
 
-| word         | pronunciation            |
-|--------------|--------------------------|
-| INCREASE     | ih n k r iy s            |
-| INCREASED    | ih n k r iy s t          |
-| INCREASES    | ih n k r iy s ah z       |
-| INCREASING   | ih n k r iy s ih ng      |
-| INCREASINGLY | ih n k r iy s ih ng l iy |
-| INCREDIBLE   | ih n k r eh d ah b ah l  |
+\begin{tabular}{ | l | l | }
+  \hline
+  word & pronunciation \\ \hline
+  INCREASE & ih n k r iy s \\ \hline
+  INCREASED & ih n k r iy s t \\ \hline
+  INCREASES & ih n k r iy s ah z \\ \hline
+  INCREASING & ih n k r iy s ih ng  \\ \hline
+  INCREASINGLY & ih n k r iy s ih ng l iy \\ \hline
+  INCREDIBLE & ih n k r eh d ah b ah l \\ \hline
+\end{tabular}
 
-*Mô hình ngôn ngữ* (language model) chứa các thông tin về cú pháp. Mục tiêu để dự đoán khả năng một từ xuất hiện sau các từ khác trong một ngôn ngữ. Nói cách khác, xác xuất để một từ k xảy ra sau khi k-1 từ sau đó được định nghĩa bởi $latex P(w_k | w_{k-1}, w_{k-2}, ..., w1)$
+\textit{Mô hình ngôn ngữ} (language model) chứa các thông tin về cú pháp. Mục tiêu để dự đoán khả năng một từ xuất hiện sau các từ khác trong một ngôn ngữ. Nói cách khác, xác xuất để một từ k xảy ra sau khi k-1 từ sau đó được định nghĩa bởi $P(w_k | w_{k-1}, w_{k-2}, ..., w_1)$
 
-**Mô hình hóa sub-word với HMMs**
+\textbf{Mô hình hóa sub-word với HMMs}
 
 Trong các hệ thống ASR, HMMs được dùng để biểu diễn các đơn vị dưới từ (ví dụ như âm). Với ngôn ngữ, thông thường có 40 âm. Số lượng âm phụ thuộc vào từ điển được sử dụng. Số lượng âm phụ thuộc vào từ điển được sử dụng. Mô hình từ có thể được xây dựng bằng cách kết hợp các mô hình dưới từ.
 
@@ -55,7 +66,7 @@ Trong khi các mô hình monophone đơn giản biểu diễn các đặc trưng
 
 Lặp lại các bước dòng hàng âm thanh và huấn luyện các mô hình triphone với các thuật toán huấn luyện để hiệu chỉnh mô hình. Các phương pháp phổ biến là delta+delta-delta, LDA-MLLT và SAT. Các giải thuật dóng hàng bao gồm dóng hàng cho từng người nói và FMLLR.
 
-**Các thuật toán huấn luyện**
+\textbf{Các thuật toán huấn luyện}
 
 Huấn luyện delta+delta-delta tính các đặc trưng delta và double-delta, hay các hệ số động, để thêm vào các đặc trưng MFCC. Delta và delta-delta là các đặc trưng số học, tính các đạo hàm bậc 1 và 2 của tín hiệu. Do đó, phép tính toán này thường được thực hiện trên một window của các đặc trưng vector. Trong khi một window của hai đặc trưng vector có thể hiệu quả, nó là các xấp xỉ thô (giống như delta-diffrence là một xấp xỉ thô của đạo hàm). Đặc trưng delta được tính toán trong các window của các đặc trưng cơ bản, trong khi delta-delta được tính toán trong các window của đặc trựng delta.
 
@@ -63,13 +74,13 @@ LDA-MLLT viết tắt của Linear Discriminant Analysis - Maximum Likelihood Li
 
 SAT viết tắt của Speaker Adaptive Training. SAT cũng thực hiện các chuẩn hóa đối với người nói bằng cách thực hiện biến đổi trên mỗi người nói. Kết quả của quá trình này đồng nhất và chuẩn hóa hơn, cho phép mô hình có thể sử dụng những tham số này để giảm thiểu sự biến đổi của âm, đối với từng người nói hoặc môi trường thu.
 
-**Các thuật toán dóng hàng**
+\textbf{Các thuật toán dóng hàng}
 
 Thuật toán dòng hàng luôn luôn cố định, trong đó các kịch bản chấp nhận các loại đầu vào âm học khác nhau. Dòng hàng đối với từng người nói, sẽ tách biệt thông tin giữa các người nói trong quá trình dóng hàng.
 
 fMLLR viết tắt của Feature Space Maximum Likelihood Linear Regression. Sau quá trình huấn luyện SAT, các mô hình âm học không huấn luyện trên các đặc trưng ban đầu, mà đối với các đặc trưng chuẩn hóa theo người nói. Với quá trình dóng hàng, xóa bỏ sự khác biệt giữa người nói (bằng cách nghịch đạo ma trận fMLLR), sau đó loại bỏ nó khỏi mô hình *bằng cách nhân ma trận nghịch đảo với đặc trưng vector). Mô hình âm học quasi-speaker-independent có thể sử dụng trong quá trình dóng hàng.
 
-### Dóng hàng (Forced Alignment)
+\textbf{Dóng hàng (Forced Alignment)}
 
 Hệ thống nhận dạng tiếng nói sử dụng một máy tìm kiếm bên cạnh mô hình âm học và ngôn ngữ trong đó chứa tập các từ, âm và tập dữ liệu để đối chiếu với dữ liệu âm thanh cho câu nói. Máy tìm kiếm này sử dụng các đặc trưng được trích xuất bởi dữ liệu âm thanh để xác định sự xuất hiện của từ, âm và đưa ra kết quả.
 
@@ -83,8 +94,7 @@ Dóng hàng có thể sử dụng để dóng âm trong dữ liệu với bản 
 
 ![](https://www.isip.piconepress.com/projects/speech/software/tutorials/production/fundamentals/v1.0/section_04/images/fallign2_s04_04_p01.jpg)
 
-
-### Hidden Markov Model
+\section{Hidden Markov Model}
 
 Hidden Markov Model (HMM) là mô hình trọng số với các trọng số ở cung, chỉ khả năng xuất hiện của cung.
 
@@ -94,44 +104,49 @@ Các trọng số trong trạng thái gọi là observation likelihood, các tr�
 
 Sau đây là một ví dụ:
 
-* Thời tiết trong một ngày có thể là NÓNG hoặc LẠNH
-* Khi trời NÓNG, 20% bạn dùng 1 viên đá, 40% bạn dùng 2 viên, 40% cho 3 viên. Khi trời LẠNH, 50% bạn dùng 1 viên, 40% bạn dùng 2, 10% bạn dùng 3. Đây là các khả năng trong quá trình quan sát (observation likelihood)
-* Khi trời NÓNG, 30% nó sẽ chuyển sang LẠNH, 70% giữ nguyên. Khi trời LẠNH, 40% nó sẽ chuyển sang NÓNG, 60% giữ nguyên. Đây là khả năng dịch chuyển (trainsition likelihood)
+\begin{itemize}
+  \item Thời tiết trong một ngày có thể là NÓNG hoặc LẠNH
+  \item Khi trời NÓNG, 20\% bạn dùng 1 viên đá, 40\% bạn dùng 2 viên, 40\% cho 3 viên.
+  \item Khi trời LẠNH, 50\% bạn dùng 1 viên, 40\% bạn dùng 2, 10\% bạn dùng 3. Đây là các khả năng trong quá trình quan sát (observation likelihood)
+  \item Khi trời NÓNG, 30\% nó sẽ chuyển sang LẠNH, 70\% giữ nguyên. Khi trời LẠNH, 40\% nó sẽ chuyển sang NÓNG, 60\% giữ nguyên. Đây là khả năng dịch chuyển (trainsition likelihood)
+\end{itemize}
+
 * ![https://qph.ec.quoracdn.net/main-qimg-a6744f9e17e59f3729d6fef02d54391b.webp](https://qph.ec.quoracdn.net/main-qimg-a6744f9e17e59f3729d6fef02d54391b.webp)
 
 Giờ, giả sử chung ta quan sát trong 3 ngày, bạn dùng 1,2,3 viên đá. Thời tiết có khả năng diễn ra như thế nào?
 
-Đến đây chúng ta dùng thuật toán Viterbi. Về cơ bản, nó là dynamic programming với hai chiều [state, position_in_sequence]
+Đến đây chúng ta dùng thuật toán Viterbi. Về cơ bản, nó là dynamic programming với hai chiều $[state, position\_in\_sequence]$
 
 Gọi S là trạng thái hiện tại {HOT, COLD} trong quan sát i, S' là trạng thái trước đó, và A là lượng đá tiêu thụ {1, 2, 3} trong quan sát i
 
-$latex Viterbi[S,i] = Viterbi[S', i-1] * p(S|S') * p(A|S)$
-
-$latex V[S,i] = V[S',i-1] * $ transition_likelihood * observation_likelihood
+$$Viterbi[S,i] = Viterbi[S', i-1] * p(S|S') * p(A|S)$$
+$$V[S,i] = V[S',i-1] * transition\_likelihood * observation\_likelihood$$
 
 HMM được sử dụng trong các hệ thống thỏa mãn
 
-1. Có hữu hạn các trạng thái nội tại (internal state), là nguyên nhân của các sự kiện (external events) (các quan sát)
-2. Trạng thái nội tại không quan sát được (hidden)
-3. Trạng thái hiện tại chỉ phụ thuộc vào trạng thái trước đó (qúa trình Markov)
+\begin{enumerate}
+  \item Có hữu hạn các trạng thái nội tại (internal state), là nguyên nhân của các sự kiện (external events) (các quan sát)
+  \item Trạng thái nội tại không quan sát được (hidden)
+  \item Trạng thái hiện tại chỉ phụ thuộc vào trạng thái trước đó (qúa trình Markov)
+\end{enumerate}
 
 Wow! George nhanh chóng liên hệ vụ của anh đấy với mô hình HMM. George nhận ra rằng CCTV footage từ các cập có thể coi như là chuỗi quan sát được, anh đấy có thể dùng mô hình và sử dụng nó để phát hiện hành vị ẩn mà Bob và William hoạt động.
 
-**3 vấn đề cơ bản** được Jack Ferguson giới thiệu trong những năm 1960
+\textbf{3 vấn đề cơ bản} được Jack Ferguson giới thiệu trong những năm 1960
 
-Vấn đề 1 (Likelihood): Cho một HMM $\lambda = (A, B)$ và một chuỗi quan sát $O$, xác định likelihood $P(O|\lambda)$
+\begin{enumerate}
+  \item (Likelihood): Cho một HMM $\lambda = (A, B)$ và một chuỗi quan sát $O$, xác định likelihood $P(O|\lambda)$
+  \item (Decoding): Cho một chuỗi quan sát $O$, và một HMM $\lambda = (A,B)$, xác định chuỗi ẩn $Q$ tốt nhất
+  \item (Learning): Cho một chuỗi quan sát $O$, một tập các trạng thái trong HMM, học các tham số $A$ và $B$
+\end{enumerate}
 
-Vấn đề 2 (Decoding): Cho một chuỗi quan sát $O$, và một HMM $\lambda = (A,B)$, xác định chuỗi ẩn $Q$ tốt nhất
-
-Vấn đề 3 (Learning): Cho một chuỗi quan sát $O$, một tập các trạng thái trong HMM, học các tham số $A$ và $B$
-
-**Likelihood Computation**
+\section{Likelihood Computation}
 
 Vấn đề đầu tiên là tính xác suất xảy ra của một chuỗi quan sát. Ví dụ, trong bài toán ăn đá ở hình 9.3, xác suất xảy ra chuỗi *3 1 3* là bao nhiêu?
 
 **Tính toán Likelihood**: Chuỗi một HMM $\lambda = (A, B)$, và mỗi chuỗi quan sát $O$, xác định likelihood $P(O|\lambda)$
 
-Thuật toán Forward, nếu sử dụng Bayes rule, để tính likelihood, cần khối lượng tính toán $N^T$ với N là số trạng thái có thể có và T là chiều dài chuỗi quan sát. Ví dụ trong bài toán gán nhãn có N=10 nhãn, chiều dài của chuỗi trung bình là 28, thì cần $10^{28}$ bước tính toán. Một giải thuật với hiệu quả $O(N^2T)$ được đề xuất với tên gọi **forward algorithm**
+Thuật toán Forward, nếu sử dụng Bayes rule, để tính likelihood, cần khối lượng tính toán $N^T$ với N là số trạng thái có thể có và T là chiều dài chuỗi quan sát. Ví dụ trong bài toán gán nhãn có N=10 nhãn, chiều dài của chuỗi trung bình là 28, thì cần $10^{28}$ bước tính toán. Một giải thuật với hiệu quả $O(N^2T)$ được đề xuất với tên gọi \textbf{forward algorithm}
 
 Tài liệu tham khảo
 
@@ -140,3 +155,18 @@ Tài liệu tham khảo
 * http://www.igi.tugraz.at/lehre/CI/SS08/tutorials/ASR/node1.html
 * https://www.isip.piconepress.com/projects/speech/software/tutorials/production/fundamentals/v1.0/section_04/s04_04_p01.html
 * https://www.quora.com/What-is-a-simple-explanation-of-the-Hidden-Markov-Model-algorithm
+
+\chapter{Tổng hợp tiếng nói}
+
+\diary{20/12/2017: Text to speech 100. Cảm ơn project rất hay của \href{https://vais.vn/vi/tai-ve/hts_for_vietnamese/}{bạn Truong Do ở vais}, nếu không có project này chắc mình phải mất rất nhiều thời gian mới có được phiên bản text to speech đầu tiên.}
+
+Tóm lại thì việc sinh ra tiếng nói từ text gồm 4 giai đoạn
+
+\begin{enumerate}
+  \item Sinh ra features từ file wav sử dụng tool sptk
+  \item Tạo một lab, trong đó có dữ liệu huấn luyện (những đặc trưng của âm thanh được trích xuất từ bước 1), text đầu vào
+  \item Sử dụng htk để train dữ liệu từ thư mục lab, đầu ra là một model
+  \item Sử dụng model để sinh ra output với text đầu vào, dùng hts\_engine để decode, kết quả được wav files.
+\end{enumerate}
+
+Phù. 4 bước đơn giản thế này thôi mà không biết. Lục cả internet ra mãi chẳng hiểu, cuối cùng file phân tích file `train.sh` của bạn Truong Do mới hiểu. Ahihi

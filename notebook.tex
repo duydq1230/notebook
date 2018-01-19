@@ -31,10 +31,10 @@ showstringspaces=false
 \input{code.tex}
 
 % ====== BEGING TESTING ======
-\renewcommand{\arraystretch}{2.8}
-\input{style/define.tex}
+\renewcommand{\arraystretch}{1}
+
+\input{style/extend.tex}
 \usepackage{parcolumns}
-input{style/define.tex}
 % ======   END  TESTING ======
 
 
@@ -74,8 +74,12 @@ urlcolor=cyan,
 
   \bibliography{mybib}{}
   \bibliographystyle{ksfh_nat}
-
   \addcontentsline{toc}{part}{Tài liệu}
+
   \printindex
   \addcontentsline{toc}{part}{Chỉ mục}
+
+  \listoftodos[Ghi chú]
+  \addcontentsline{toc}{part}{Ghi chú}
+
 \end{document}

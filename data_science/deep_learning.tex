@@ -1,12 +1,55 @@
 \chapter{Học sâu}
+\info{24/11/2017 - Từ hôm nay, mỗi ngày sẽ ghi chú một phần (rất rất nhỏ) về Deep Learning}
+\info{22/11/2017 - Phải nói quyển này hơi nặng so với mình. Nhưng thôi cứ cố gắng vậy.}
 
-View online \href{http://magizbox.com/training/deep_learning/site/}{http://magizbox.com/training/deep_learning/site/}
+Tài liệu cũ: \href{http://magizbox.com/training/deep_learning/site/}{http://magizbox.com/training/deep\_learning/site/}
 
 Deep Learning is a new area of Machine Learning research, which has been introduced with the objective of moving Machine Learning closer to one of its original goals: Artificial Intelligence.
 
-\section{Get Started}
+\section{Deep Feedforward Networks}
+
+\definition{deep feedforward networks}{
+Deep feedforward networks, (hay còn gọi là feedforward neural networks) hoặc multilayer perceptrons (MLPs) là mô hình deep learning cơ bản nhất. Mục tiêu của một feedforward network là xấp xỉ một hàm $f*$. Ví dụ, với bài toán phân loại, $y=f*(x)$ chuyển đầu vào x thành một nhãn y. Một feedforward network định nghĩa một ánh xạ $y=f(x, \theta)$ và học giá trị của $\theta$ để xấp xỉ hàm $f*$ tốt nhất.
+}
+
+Mô hình được gọi là feedforward vì giá trị của x đang lan truyền qua mạng đến output, mà không có chiều ngược lại. Các mô hình neural có sự lan truyền ngược lại được gọi là recurrent neural network.
+
+Feedforward là nền tảng cho rất nhiều mô hình mạng neural hiện đại. Ví dụ, các ứng dụng trong việc nhận diện ảnh thường áp dụng mô hình convolutional, là một dạng đặc biệt của feedforward network. Feedforward network cũng là nền tảng cho mạng recurrent network, có nhiều ứng trọng xử lý ngôn ngữ.
+
+Feedforward neural networks được gọi là network vì nó thường được biểu diễn bởi một đồ thị gồm nhiều tầng, định nghĩa các hàm được kết hợp với nhau như thế nào. Ví dụ, chúng ta có 3 hàm f(1)(x), f(2)(x), f(3)(x) được đặt với nhau thành một chuỗi, hình thành hàm f(x) = f(3)(f(2)(f(1)(x))). Cấu trúc chuỗi này là dạng phổ biến nhất trong mạng neural. Trong trường hợp này f(1)(x) được gọi là layer 1, f(2)(x) được gọi là layer 2, và cứ tiếp tục như vậy. Độ dài của chuỗi thể hiện độ sâu của mô hình. Thuật ngữ "deep learning" xuất phát từ điều này. Layer cuối cũng được goi là output layer.
+Trong mạng neural, mục tiêu là học hàm f*(x). Ứng với mỗi giá trị đầu vào x, sẽ có tương ứng một giá trị y. Mục tiêu của mạng là tìm các tham số để y xấp xỉ với f*(x). Nhưng việc học của hàm không hoàn toàn phụ thuộc vào x, y, mà do learning algorithm quyết định. Vì dữ liệu huấn luyện không chỉ rõ giá trị ở những layer ở giữa, nên chúng được gọi là các hidden layers
+Cuối cùng, mạng neural được gọi là neural vì nó lấy cảm hứng từ ngành khoa học thần kinh. Mỗi hidden layer trong mạng thường là các giá trị vector. Mỗi phần tử trong vector sẽ quyết định việc hành xử thế nào với các input đầu vào và đưa ra output.
+
+Ta có thể coi mỗi layer chứa rất nhiều units hoạt động song song, đóng vai trò như một hàm ánh xạ vector sang giá trị số. Mặc dù các kiến trúc của mạng neural lấy rất nhiều ý tưởng từ ngành khoa học thần kinh, tuy nhiên, mục tiêu của mạng neural không phải để mô phỏng bộ não. Một cách nhìn tốt hơn là xem mạng neural như một máy học, được thiết kế với các điểm nhấn từ những gi chúng ta biết về não người.
+Một cách để hiểu mạng neural là bắt đầu với các mô hình linear, và xem xét các hạn chế của các mô hình này. Linear models, như logistic regression hay linear regression, hấp dẫn ở chỗ chúng có thể fit rất hữu quả và đang tin cậy, với các close form và tối ưu hóa lồi. Một hàn chế hiển nhiên của linear là các hàm linear, nên model không thể hiểu tương tác giữa các input.
+Để mở rộng lienar model để biểu diễn hàm nonlinear của x, chúng ta có thể áp dụng linear model không phải cho x mà cho (x), trong đó  là một nonlinear transformer. Có thể xem như một tập các feature mô tả x, hoặc một cách để biểu diễn x. Vấn đề là chọn mapping . Có 3 cách thông dụng, chọn một generic  như RBF, thiết kế  bằng tay, hoặc học .
+
+Nội dung chương này:
+
+\begin{itemize}
+  \item 1. Ví dụ cơ bản củ feedforward network
+  \item 2. Design decisions cho việc thiết kế mạng feedforward network
+  \item 3. Choose activation functions trong hidden layer
+  \item 4. Thiết kế mạng neural, bao nhiêu layers, các layer kết nối với nhau như thế nào, có bao nhiêu unit trong một layer
+  \begin{itemize}
+    \item chosing the optimizer
+    \item cost function
+    \item form of the output units
+  \end{itemize}
+  \item 5. Thuật toán Back-propagation
+  \item 6. Góc nhìn lịch sử
+\end{itemize}
+
+
+Tham khảo
+Chapter 6, Deep Learning Book
+Neural Network Zoo http://www.asimovinstitute.org/neural-network-zoo/
+
+
+\section{Thực hành: Bắt đầu với Tensorflow}
 
 Tensorflow
+
 Install tensorflow in Windows
 Anaconda
 Anaconda is the leading open data science platform powered by Python. The open source version of Anaconda is a high performance distribution of Python and R and includes over 100 of the most popular Python, R and Scala packages for data science.
@@ -30,15 +73,13 @@ Step 3: Install the NVIDIA CUDA Toolkit.
 
 Step 4: Test that the installed software runs correctly and communicates with the hardware.
 
-
-
 cuDNN
+
 The NVIDIA CUDA Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks. cuDNN provides highly tuned implementations for standard routines such as forward and backward convolution, pooling, normalization, and activation layers. cuDNN is part of the NVIDIA Deep Learning SDK.
 
 Step 1: Register an NVIDIA developer account
 
 Step 2: Download cuDNN v5.1, you will get file like that cudnn-8.0-windows7-x64-v5.1.zip
-
 
 
 Step 3: Copy CUDNN files to CUDA install
@@ -50,6 +91,7 @@ In my environment, CUDA installed in C:\Program Files\NVIDIA GPU Computing Toolk
 
 
 Install Tensorflow Package
+
 CPU TensorFlow environment
 
 conda create --name tensorflow python=3.5
@@ -231,11 +273,6 @@ Deep Bidirectional RNN LSTM networks are quite popular these days and we briefly
 Conclusion
 So far so good. I hope you’ve gotten a basic understanding of what RNNs are and what they can do. In the next post we’ll implement a first version of our language model RNN using Python and Theano. Please leave questions in the comments!
 
-**BTS**
-
-22/11/2017 - Phải nói quyển này hơi nặng so với mình. Nhưng thôi cứ cố gắng vậy.
-24/11/2017 - Từ hôm nay, mỗi ngày sẽ ghi chú một phần (rất rất nhỏ) về Deep Learning [tại đây](https://docs.google.com/document/d/1KxDrw5s6uYHNLda7t0rhp0RM_TlUGxydQ-Qi1JOPFr8/edit?usp=sharing)
-\usepackage{comment}
 
 [^1]: [Understanding Convolutional Neural Networks for NLP](http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp)
 [^2]: [http://pytorch.org/docs/master/nn.html](http://pytorch.org/docs/master/nn.html)

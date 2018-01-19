@@ -44,40 +44,45 @@
 \contentsline {section}{\numberline {4.9}Medical Domain Data}{41}{section.4.9}
 \contentsline {section}{\numberline {4.10}Optical Word Recognition}{42}{section.4.10}
 \contentsline {chapter}{\numberline {5}H\IeC {\d o}c s\IeC {\^a}u}{45}{chapter.5}
-\contentsline {section}{\numberline {5.1}Get Started}{45}{section.5.1}
-\contentsline {section}{\numberline {5.2}T\IeC {\`a}i li\IeC {\d \ecircumflex }u Deep Learning}{46}{section.5.2}
-\contentsline {section}{\numberline {5.3}C\IeC {\'a}c layer trong deep learning}{46}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Sparse Layers}{46}{subsection.5.3.1}
-\contentsline {subsection}{\numberline {5.3.2}Convolution Layers}{46}{subsection.5.3.2}
-\contentsline {section}{\numberline {5.4}Recurrent Neural Networks}{47}{section.5.4}
-\contentsline {chapter}{\numberline {6}X\IeC {\h \uhorn } l\IeC {\'y} ng\IeC {\^o}n ng\IeC {\~\uhorn } t\IeC {\d \uhorn } nhi\IeC {\^e}n}{51}{chapter.6}
+\contentsline {section}{\numberline {5.1}Deep Feedforward Networks}{45}{section.5.1}
+\contentsline {section}{\numberline {5.2}Th\IeC {\d \uhorn }c h\IeC {\`a}nh: B\IeC {\'\abreve }t \IeC {\dj }\IeC {\`\acircumflex }u v\IeC {\'\ohorn }i Tensorflow}{46}{section.5.2}
+\contentsline {section}{\numberline {5.3}T\IeC {\`a}i li\IeC {\d \ecircumflex }u Deep Learning}{48}{section.5.3}
+\contentsline {section}{\numberline {5.4}C\IeC {\'a}c layer trong deep learning}{48}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Sparse Layers}{48}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Convolution Layers}{48}{subsection.5.4.2}
+\contentsline {section}{\numberline {5.5}Recurrent Neural Networks}{49}{section.5.5}
+\contentsline {chapter}{\numberline {6}X\IeC {\h \uhorn } l\IeC {\'y} ng\IeC {\^o}n ng\IeC {\~\uhorn } t\IeC {\d \uhorn } nhi\IeC {\^e}n}{52}{chapter.6}
 \contentsline {section}{\numberline {6.1}Introduction to Natural Language Processing}{52}{section.6.1}
-\contentsline {section}{\numberline {6.2}Natural Language Processing Tasks}{52}{section.6.2}
-\contentsline {section}{\numberline {6.3}Natural Language Processing Applications}{54}{section.6.3}
+\contentsline {section}{\numberline {6.2}Natural Language Processing Tasks}{53}{section.6.2}
+\contentsline {section}{\numberline {6.3}Natural Language Processing Applications}{55}{section.6.3}
 \contentsline {section}{\numberline {6.4}Spelling Correction}{55}{section.6.4}
-\contentsline {section}{\numberline {6.5}Word Vectors}{55}{section.6.5}
-\contentsline {section}{\numberline {6.6}Conditional Random Fields in Name Entity Recognition}{57}{section.6.6}
+\contentsline {section}{\numberline {6.5}Word Vectors}{56}{section.6.5}
+\contentsline {section}{\numberline {6.6}Conditional Random Fields in Name Entity Recognition}{58}{section.6.6}
 \contentsline {section}{\numberline {6.7}Entity Linking}{58}{section.6.7}
 \contentsline {chapter}{\numberline {7}Nh\IeC {\d \acircumflex }n d\IeC {\d a}ng ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{60}{chapter.7}
-\contentsline {chapter}{\numberline {8}Ph\IeC {\^a}n lo\IeC {\d a}i v\IeC {\u a}n b\IeC {\h a}n}{64}{chapter.8}
-\contentsline {chapter}{\numberline {9}Pytorch}{65}{chapter.9}
-\contentsline {chapter}{\numberline {10}Big Data}{67}{chapter.10}
-\contentsline {section}{\numberline {10.1}Distribution Storage}{67}{section.10.1}
-\contentsline {subsection}{\numberline {10.1.1}HDFS}{67}{subsection.10.1.1}
-\contentsline {subsection}{\numberline {10.1.2}HBase}{67}{subsection.10.1.2}
-\contentsline {section}{\numberline {10.2}Distribution Computing}{69}{section.10.2}
-\contentsline {subsection}{\numberline {10.2.1}Apache Spark}{69}{subsection.10.2.1}
-\contentsline {section}{\numberline {10.3}Components}{69}{section.10.3}
-\contentsline {subsection}{\numberline {10.3.1}Ambari}{69}{subsection.10.3.1}
-\contentsline {subsection}{\numberline {10.3.2}Kibana}{70}{subsection.10.3.2}
-\contentsline {subsection}{\numberline {10.3.3}Logstash}{70}{subsection.10.3.3}
-\contentsline {subsection}{\numberline {10.3.4}Elasticsearch}{70}{subsection.10.3.4}
-\contentsline {subsection}{\numberline {10.3.5}Neo4J}{73}{subsection.10.3.5}
-\contentsline {section}{\numberline {10.4}Web Crawling}{74}{section.10.4}
-\contentsline {subsection}{\numberline {10.4.1}Introduction}{74}{subsection.10.4.1}
-\contentsline {subsection}{\numberline {10.4.2}Scrapy}{76}{subsection.10.4.2}
-\contentsline {subsection}{\numberline {10.4.3}Apache Nutch}{76}{subsection.10.4.3}
-\contentsline {subsubsection}{Architecture}{80}{section*.2}
-\contentsline {subsubsection}{Config}{81}{section*.3}
-\contentsline {part}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u}{86}{chapter*.4}
-\contentsline {part}{Ch\IeC {\h i} m\IeC {\d u}c}{87}{chapter*.5}
+\contentsline {section}{\numberline {7.1}Hidden Markov Model}{63}{section.7.1}
+\contentsline {section}{\numberline {7.2}Likelihood Computation}{64}{section.7.2}
+\contentsline {chapter}{\numberline {8}T\IeC {\h \ocircumflex }ng h\IeC {\d \ohorn }p ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{65}{chapter.8}
+\contentsline {chapter}{\numberline {9}Ph\IeC {\^a}n lo\IeC {\d a}i v\IeC {\u a}n b\IeC {\h a}n}{66}{chapter.9}
+\contentsline {chapter}{\numberline {10}Pytorch}{67}{chapter.10}
+\contentsline {chapter}{\numberline {11}Big Data}{69}{chapter.11}
+\contentsline {section}{\numberline {11.1}Distribution Storage}{69}{section.11.1}
+\contentsline {subsection}{\numberline {11.1.1}HDFS}{69}{subsection.11.1.1}
+\contentsline {subsection}{\numberline {11.1.2}HBase}{69}{subsection.11.1.2}
+\contentsline {section}{\numberline {11.2}Distribution Computing}{71}{section.11.2}
+\contentsline {subsection}{\numberline {11.2.1}Apache Spark}{71}{subsection.11.2.1}
+\contentsline {section}{\numberline {11.3}Components}{71}{section.11.3}
+\contentsline {subsection}{\numberline {11.3.1}Ambari}{71}{subsection.11.3.1}
+\contentsline {subsection}{\numberline {11.3.2}Kibana}{72}{subsection.11.3.2}
+\contentsline {subsection}{\numberline {11.3.3}Logstash}{72}{subsection.11.3.3}
+\contentsline {subsection}{\numberline {11.3.4}Elasticsearch}{72}{subsection.11.3.4}
+\contentsline {subsection}{\numberline {11.3.5}Neo4J}{75}{subsection.11.3.5}
+\contentsline {section}{\numberline {11.4}Web Crawling}{76}{section.11.4}
+\contentsline {subsection}{\numberline {11.4.1}Introduction}{76}{subsection.11.4.1}
+\contentsline {subsection}{\numberline {11.4.2}Scrapy}{78}{subsection.11.4.2}
+\contentsline {subsection}{\numberline {11.4.3}Apache Nutch}{78}{subsection.11.4.3}
+\contentsline {subsubsection}{Architecture}{82}{section*.8}
+\contentsline {subsubsection}{Config}{83}{section*.9}
+\contentsline {part}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u}{88}{chapter*.10}
+\contentsline {part}{Ch\IeC {\h i} m\IeC {\d u}c}{89}{chapter*.11}
+\contentsline {part}{Ghi ch\IeC {\'u}}{90}{chapter*.12}
