@@ -3,88 +3,88 @@
 \contentsline {chapter}{\numberline {1}Data Science with Python}{5}{chapter.1}
 \contentsline {section}{\numberline {1.1}Get Started}{5}{section.1.1}
 \contentsline {section}{\numberline {1.2}Data Transformation}{5}{section.1.2}
-\contentsline {section}{\numberline {1.3}Data Preperation}{6}{section.1.3}
-\contentsline {section}{\numberline {1.4}Data IO}{6}{section.1.4}
-\contentsline {section}{\numberline {1.5}Numpy}{6}{section.1.5}
-\contentsline {section}{\numberline {1.6}Data Wrangling}{8}{section.1.6}
-\contentsline {section}{\numberline {1.7}Visualization}{10}{section.1.7}
-\contentsline {chapter}{\numberline {2}Tr\IeC {\'\i } tu\IeC {\d \ecircumflex } nh\IeC {\^a}n t\IeC {\d a}o}{11}{chapter.2}
-\contentsline {section}{\numberline {2.1}Autonomous Agents}{11}{section.2.1}
-\contentsline {section}{\numberline {2.2}Cellular Automator}{11}{section.2.2}
-\contentsline {section}{\numberline {2.3}Fractal}{11}{section.2.3}
-\contentsline {section}{\numberline {2.4}The Pac-Man project}{12}{section.2.4}
-\contentsline {chapter}{\numberline {3}H\IeC {\d o}c m\IeC {\'a}y}{13}{chapter.3}
-\contentsline {section}{\numberline {3.1}Machine Learning Process}{16}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Problem Definition}{17}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Data Gathering}{17}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Data Preprocessing}{17}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}Model Building}{18}{subsection.3.1.4}
-\contentsline {subsection}{\numberline {3.1.5}Evaluation}{19}{subsection.3.1.5}
-\contentsline {section}{\numberline {3.2}Types of Machine Learning}{20}{section.3.2}
-\contentsline {section}{\numberline {3.3}How to learn a ML Algorithm?}{21}{section.3.3}
-\contentsline {section}{\numberline {3.4}Linear Regression}{22}{section.3.4}
-\contentsline {section}{\numberline {3.5}Logistic Regression}{23}{section.3.5}
-\contentsline {section}{\numberline {3.6}Classification}{25}{section.3.6}
-\contentsline {section}{\numberline {3.7}Binary Classification}{25}{section.3.7}
-\contentsline {section}{\numberline {3.8}Multilabel Classification}{26}{section.3.8}
-\contentsline {section}{\numberline {3.9}Clustering}{26}{section.3.9}
-\contentsline {section}{\numberline {3.10}Ensemble}{30}{section.3.10}
-\contentsline {section}{\numberline {3.11}Dimensionality Reduction}{31}{section.3.11}
-\contentsline {section}{\numberline {3.12}Anomaly Detection}{31}{section.3.12}
-\contentsline {section}{\numberline {3.13}Recomendation System}{32}{section.3.13}
-\contentsline {chapter}{\numberline {4}Probabilistic Graphical Model}{34}{chapter.4}
-\contentsline {section}{\numberline {4.1}Representation}{34}{section.4.1}
-\contentsline {section}{\numberline {4.2}Foundation: Graph}{34}{section.4.2}
-\contentsline {section}{\numberline {4.3}Bayesian Network}{37}{section.4.3}
-\contentsline {section}{\numberline {4.4}Template Models for Bayesian Networks}{39}{section.4.4}
-\contentsline {section}{\numberline {4.5}Factor Graph}{40}{section.4.5}
-\contentsline {section}{\numberline {4.6}Inference}{40}{section.4.6}
-\contentsline {section}{\numberline {4.7}Learning}{40}{section.4.7}
-\contentsline {section}{\numberline {4.8}An Introduction to UnBBayes}{40}{section.4.8}
-\contentsline {section}{\numberline {4.9}Medical Domain Data}{41}{section.4.9}
-\contentsline {section}{\numberline {4.10}Optical Word Recognition}{42}{section.4.10}
-\contentsline {chapter}{\numberline {5}H\IeC {\d o}c s\IeC {\^a}u}{45}{chapter.5}
-\contentsline {section}{\numberline {5.1}Deep Feedforward Networks}{45}{section.5.1}
-\contentsline {section}{\numberline {5.2}Th\IeC {\d \uhorn }c h\IeC {\`a}nh: B\IeC {\'\abreve }t \IeC {\dj }\IeC {\`\acircumflex }u v\IeC {\'\ohorn }i Tensorflow}{46}{section.5.2}
-\contentsline {section}{\numberline {5.3}T\IeC {\`a}i li\IeC {\d \ecircumflex }u Deep Learning}{48}{section.5.3}
-\contentsline {section}{\numberline {5.4}C\IeC {\'a}c layer trong deep learning}{48}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Sparse Layers}{48}{subsection.5.4.1}
-\contentsline {subsection}{\numberline {5.4.2}Convolution Layers}{48}{subsection.5.4.2}
-\contentsline {section}{\numberline {5.5}Recurrent Neural Networks}{49}{section.5.5}
-\contentsline {chapter}{\numberline {6}X\IeC {\h \uhorn } l\IeC {\'y} ng\IeC {\^o}n ng\IeC {\~\uhorn } t\IeC {\d \uhorn } nhi\IeC {\^e}n}{52}{chapter.6}
-\contentsline {section}{\numberline {6.1}Introduction to Natural Language Processing}{52}{section.6.1}
-\contentsline {section}{\numberline {6.2}Natural Language Processing Tasks}{53}{section.6.2}
-\contentsline {section}{\numberline {6.3}Natural Language Processing Applications}{55}{section.6.3}
-\contentsline {section}{\numberline {6.4}Spelling Correction}{55}{section.6.4}
-\contentsline {section}{\numberline {6.5}Word Vectors}{56}{section.6.5}
-\contentsline {section}{\numberline {6.6}Conditional Random Fields in Name Entity Recognition}{58}{section.6.6}
-\contentsline {section}{\numberline {6.7}Entity Linking}{58}{section.6.7}
-\contentsline {chapter}{\numberline {7}Nh\IeC {\d \acircumflex }n d\IeC {\d a}ng ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{60}{chapter.7}
-\contentsline {section}{\numberline {7.1}C\IeC {\'a}c th\IeC {\`a}nh ph\IeC {\`\acircumflex }n c\IeC {\h u}a h\IeC {\d \ecircumflex } th\IeC {\'\ocircumflex }ng nh\IeC {\d \acircumflex }n d\IeC {\d a}ng ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{60}{section.7.1}
-\contentsline {section}{\numberline {7.2}Qu\IeC {\'a} tr\IeC {\`\i }nh hu\IeC {\'\acircumflex }n luy\IeC {\d \ecircumflex }n}{61}{section.7.2}
-\contentsline {section}{\numberline {7.3}Hidden Markov Model}{63}{section.7.3}
-\contentsline {section}{\numberline {7.4}Likelihood Computation}{65}{section.7.4}
-\contentsline {chapter}{\numberline {8}T\IeC {\h \ocircumflex }ng h\IeC {\d \ohorn }p ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{66}{chapter.8}
-\contentsline {chapter}{\numberline {9}Ph\IeC {\^a}n lo\IeC {\d a}i v\IeC {\u a}n b\IeC {\h a}n}{67}{chapter.9}
-\contentsline {chapter}{\numberline {10}Pytorch}{68}{chapter.10}
-\contentsline {chapter}{\numberline {11}Big Data}{70}{chapter.11}
-\contentsline {section}{\numberline {11.1}Distribution Storage}{70}{section.11.1}
-\contentsline {subsection}{\numberline {11.1.1}HDFS}{70}{subsection.11.1.1}
-\contentsline {subsection}{\numberline {11.1.2}HBase}{70}{subsection.11.1.2}
-\contentsline {section}{\numberline {11.2}Distribution Computing}{72}{section.11.2}
-\contentsline {subsection}{\numberline {11.2.1}Apache Spark}{72}{subsection.11.2.1}
-\contentsline {section}{\numberline {11.3}Components}{72}{section.11.3}
-\contentsline {subsection}{\numberline {11.3.1}Ambari}{72}{subsection.11.3.1}
-\contentsline {subsection}{\numberline {11.3.2}Kibana}{73}{subsection.11.3.2}
-\contentsline {subsection}{\numberline {11.3.3}Logstash}{73}{subsection.11.3.3}
-\contentsline {subsection}{\numberline {11.3.4}Elasticsearch}{73}{subsection.11.3.4}
-\contentsline {subsection}{\numberline {11.3.5}Neo4J}{76}{subsection.11.3.5}
-\contentsline {section}{\numberline {11.4}Web Crawling}{77}{section.11.4}
-\contentsline {subsection}{\numberline {11.4.1}Introduction}{77}{subsection.11.4.1}
-\contentsline {subsection}{\numberline {11.4.2}Scrapy}{79}{subsection.11.4.2}
-\contentsline {subsection}{\numberline {11.4.3}Apache Nutch}{79}{subsection.11.4.3}
-\contentsline {subsubsection}{Architecture}{83}{section*.8}
-\contentsline {subsubsection}{Config}{84}{section*.9}
-\contentsline {part}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u}{89}{chapter*.10}
-\contentsline {part}{Ch\IeC {\h i} m\IeC {\d u}c}{90}{chapter*.11}
-\contentsline {part}{Ghi ch\IeC {\'u}}{91}{chapter*.12}
+\contentsline {section}{\numberline {1.3}Data Preperation}{7}{section.1.3}
+\contentsline {section}{\numberline {1.4}Data IO}{7}{section.1.4}
+\contentsline {section}{\numberline {1.5}Numpy}{8}{section.1.5}
+\contentsline {section}{\numberline {1.6}Data Wrangling}{16}{section.1.6}
+\contentsline {section}{\numberline {1.7}Visualization}{19}{section.1.7}
+\contentsline {chapter}{\numberline {2}Tr\IeC {\'\i } tu\IeC {\d \ecircumflex } nh\IeC {\^a}n t\IeC {\d a}o}{20}{chapter.2}
+\contentsline {section}{\numberline {2.1}Autonomous Agents}{20}{section.2.1}
+\contentsline {section}{\numberline {2.2}Cellular Automator}{20}{section.2.2}
+\contentsline {section}{\numberline {2.3}Fractal}{20}{section.2.3}
+\contentsline {section}{\numberline {2.4}The Pac-Man project}{21}{section.2.4}
+\contentsline {chapter}{\numberline {3}H\IeC {\d o}c m\IeC {\'a}y}{22}{chapter.3}
+\contentsline {section}{\numberline {3.1}Machine Learning Process}{25}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Problem Definition}{26}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Data Gathering}{26}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Data Preprocessing}{26}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Model Building}{27}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}Evaluation}{28}{subsection.3.1.5}
+\contentsline {section}{\numberline {3.2}Types of Machine Learning}{29}{section.3.2}
+\contentsline {section}{\numberline {3.3}How to learn a ML Algorithm?}{30}{section.3.3}
+\contentsline {section}{\numberline {3.4}Linear Regression}{31}{section.3.4}
+\contentsline {section}{\numberline {3.5}Logistic Regression}{32}{section.3.5}
+\contentsline {section}{\numberline {3.6}Classification}{34}{section.3.6}
+\contentsline {section}{\numberline {3.7}Binary Classification}{34}{section.3.7}
+\contentsline {section}{\numberline {3.8}Multilabel Classification}{35}{section.3.8}
+\contentsline {section}{\numberline {3.9}Clustering}{35}{section.3.9}
+\contentsline {section}{\numberline {3.10}Ensemble}{39}{section.3.10}
+\contentsline {section}{\numberline {3.11}Dimensionality Reduction}{40}{section.3.11}
+\contentsline {section}{\numberline {3.12}Anomaly Detection}{40}{section.3.12}
+\contentsline {section}{\numberline {3.13}Recomendation System}{41}{section.3.13}
+\contentsline {chapter}{\numberline {4}Probabilistic Graphical Model}{43}{chapter.4}
+\contentsline {section}{\numberline {4.1}Representation}{43}{section.4.1}
+\contentsline {section}{\numberline {4.2}Foundation: Graph}{43}{section.4.2}
+\contentsline {section}{\numberline {4.3}Bayesian Network}{46}{section.4.3}
+\contentsline {section}{\numberline {4.4}Template Models for Bayesian Networks}{48}{section.4.4}
+\contentsline {section}{\numberline {4.5}Factor Graph}{49}{section.4.5}
+\contentsline {section}{\numberline {4.6}Inference}{49}{section.4.6}
+\contentsline {section}{\numberline {4.7}Learning}{49}{section.4.7}
+\contentsline {section}{\numberline {4.8}An Introduction to UnBBayes}{49}{section.4.8}
+\contentsline {section}{\numberline {4.9}Medical Domain Data}{50}{section.4.9}
+\contentsline {section}{\numberline {4.10}Optical Word Recognition}{51}{section.4.10}
+\contentsline {chapter}{\numberline {5}H\IeC {\d o}c s\IeC {\^a}u}{54}{chapter.5}
+\contentsline {section}{\numberline {5.1}Deep Feedforward Networks}{54}{section.5.1}
+\contentsline {section}{\numberline {5.2}Th\IeC {\d \uhorn }c h\IeC {\`a}nh: B\IeC {\'\abreve }t \IeC {\dj }\IeC {\`\acircumflex }u v\IeC {\'\ohorn }i Tensorflow}{55}{section.5.2}
+\contentsline {section}{\numberline {5.3}T\IeC {\`a}i li\IeC {\d \ecircumflex }u Deep Learning}{57}{section.5.3}
+\contentsline {section}{\numberline {5.4}C\IeC {\'a}c layer trong deep learning}{57}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Sparse Layers}{57}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Convolution Layers}{57}{subsection.5.4.2}
+\contentsline {section}{\numberline {5.5}Recurrent Neural Networks}{58}{section.5.5}
+\contentsline {chapter}{\numberline {6}X\IeC {\h \uhorn } l\IeC {\'y} ng\IeC {\^o}n ng\IeC {\~\uhorn } t\IeC {\d \uhorn } nhi\IeC {\^e}n}{61}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introduction to Natural Language Processing}{61}{section.6.1}
+\contentsline {section}{\numberline {6.2}Natural Language Processing Tasks}{62}{section.6.2}
+\contentsline {section}{\numberline {6.3}Natural Language Processing Applications}{64}{section.6.3}
+\contentsline {section}{\numberline {6.4}Spelling Correction}{64}{section.6.4}
+\contentsline {section}{\numberline {6.5}Word Vectors}{65}{section.6.5}
+\contentsline {section}{\numberline {6.6}Conditional Random Fields in Name Entity Recognition}{66}{section.6.6}
+\contentsline {section}{\numberline {6.7}Entity Linking}{67}{section.6.7}
+\contentsline {chapter}{\numberline {7}Nh\IeC {\d \acircumflex }n d\IeC {\d a}ng ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{69}{chapter.7}
+\contentsline {section}{\numberline {7.1}C\IeC {\'a}c th\IeC {\`a}nh ph\IeC {\`\acircumflex }n c\IeC {\h u}a h\IeC {\d \ecircumflex } th\IeC {\'\ocircumflex }ng nh\IeC {\d \acircumflex }n d\IeC {\d a}ng ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{69}{section.7.1}
+\contentsline {section}{\numberline {7.2}Qu\IeC {\'a} tr\IeC {\`\i }nh hu\IeC {\'\acircumflex }n luy\IeC {\d \ecircumflex }n}{70}{section.7.2}
+\contentsline {section}{\numberline {7.3}Hidden Markov Model}{72}{section.7.3}
+\contentsline {section}{\numberline {7.4}Likelihood Computation}{74}{section.7.4}
+\contentsline {chapter}{\numberline {8}T\IeC {\h \ocircumflex }ng h\IeC {\d \ohorn }p ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{75}{chapter.8}
+\contentsline {chapter}{\numberline {9}Ph\IeC {\^a}n lo\IeC {\d a}i v\IeC {\u a}n b\IeC {\h a}n}{76}{chapter.9}
+\contentsline {chapter}{\numberline {10}Pytorch}{77}{chapter.10}
+\contentsline {chapter}{\numberline {11}Big Data}{79}{chapter.11}
+\contentsline {section}{\numberline {11.1}Distribution Storage}{79}{section.11.1}
+\contentsline {subsection}{\numberline {11.1.1}HDFS}{79}{subsection.11.1.1}
+\contentsline {subsection}{\numberline {11.1.2}HBase}{79}{subsection.11.1.2}
+\contentsline {section}{\numberline {11.2}Distribution Computing}{81}{section.11.2}
+\contentsline {subsection}{\numberline {11.2.1}Apache Spark}{81}{subsection.11.2.1}
+\contentsline {section}{\numberline {11.3}Components}{81}{section.11.3}
+\contentsline {subsection}{\numberline {11.3.1}Ambari}{81}{subsection.11.3.1}
+\contentsline {subsection}{\numberline {11.3.2}Kibana}{82}{subsection.11.3.2}
+\contentsline {subsection}{\numberline {11.3.3}Logstash}{82}{subsection.11.3.3}
+\contentsline {subsection}{\numberline {11.3.4}Elasticsearch}{82}{subsection.11.3.4}
+\contentsline {subsection}{\numberline {11.3.5}Neo4J}{85}{subsection.11.3.5}
+\contentsline {section}{\numberline {11.4}Web Crawling}{86}{section.11.4}
+\contentsline {subsection}{\numberline {11.4.1}Introduction}{86}{subsection.11.4.1}
+\contentsline {subsection}{\numberline {11.4.2}Scrapy}{88}{subsection.11.4.2}
+\contentsline {subsection}{\numberline {11.4.3}Apache Nutch}{88}{subsection.11.4.3}
+\contentsline {subsubsection}{Architecture}{92}{section*.8}
+\contentsline {subsubsection}{Config}{93}{section*.9}
+\contentsline {part}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u}{98}{chapter*.10}
+\contentsline {part}{Ch\IeC {\h i} m\IeC {\d u}c}{99}{chapter*.11}
+\contentsline {part}{Ghi ch\IeC {\'u}}{100}{chapter*.12}

@@ -32,33 +32,47 @@ DataFrame is a 2-dimensional labeled data structure with columns of potentially 
 Create data frame
 Create new data frame from lists
 
+\begin{lstlisting}[language=Python]
 import pandas as pd
 students = pd.DataFrame({
-  'name' : ["Kate", "John", "Tom", "Mark"],
-  'age' : [20, 21, 19, 18]
+  "name" : ["Kate", "John", "Tom", "Mark"],
+  "age" : [20, 21, 19, 18]
 })
 #       age  name
 #    0   20  Kate
 #    1   21  John
 #    2   19   Tom
 #    3   18  Mark
+\end{lstlisting}
+
 Load dataframe
 Load dataframe from datasets
 
+
+\begin{lstlisting}[language=Python]
 import pandas as pd
 from sklearn import datasets
 iris_data = datasets.load_iris()
 iris = pd.DataFrame(data=iris_data.data,
                     columns=iris_data.feature_names)
 iris
+
+\end{lstlisting}
+
 Selection
+
 Select by column index
 
+\begin{lstlisting}[language=Python]
 students.iloc[1:3, :]
 #       age  name
 #    1   21  John
 #    2   19   Tom
+\end{lstlisting}
+
 Filter
+
+\begin{lstlisting}[language=Python]
 students = pd.DataFrame({
   'math' : [90, 80, 95, 50],
   'physic' : [20, 50, 95, 60]
@@ -68,6 +82,7 @@ students = pd.DataFrame({
 # 1    80      50
 # 2    95      95
 # 3    50      60
+
 students[students['math'] > 85]
 #    math  physic
 # 0    90      20
@@ -76,34 +91,48 @@ students[students['math'] > 85]
 students[students['math'] == students['physic']]
 #    math  physic
 # 2    95      95
+\end{lstlisting}
+
 Create new column
+
+\begin{lstlisting}[language=Python]
 students = pd.DataFrame({
   'name' : ["Kate", "John", "Tom", "Mark"],
   'age' : [20, 21, 19, 18]
 })
-students["birthyear"] = students.apply(lambda row: 2016 - row['age'], axis=1)
+students["birthyear"] = students.apply(
+  lambda row: 2016 - row['age'], axis=1)
 students["birthyear"] = 2016 - students["age"]
-
 #       age  name  birthyear
 #    0   20  Kate       1996
 #    1   21  John       1995
 #    2   19   Tom       1997
 #    3   18  Mark       1998
+\end{lstlisting}
+
 Delete column
+
+\begin{lstlisting}[language=Python]
 students = pd.DataFrame({
   'name' : ["Kate", "John", "Tom", "Mark"],
   'age' : [20, 21, 19, 18]
 })
 students = students.drop('age', 1)
+\end{lstlisting}
+
 References
+
 Wes McKinney, 10-minute tour of pandas: video, notebook
+
 DataFrame, Intro to Data Structures
 
 \section{Data Preperation}
 
 Normalization
+
 Example
 
+\begin{lstlisting}[language=Python]
 import numpy
 from sklearn.preprocessing import normalize
 matrix = numpy.arange(0,27,3).reshape(3,3).astype(numpy.float64)
@@ -117,9 +146,13 @@ normed_matrix = normalize(matrix, axis=1, norm=‘l1’)
 # [[ 0.          0.33333333  0.66666667]
 # [ 0.25        0.33333333  0.41666667]
 # [ 0.28571429  0.33333333  0.38095238]]
+\end{lstlisting}
+
 Label Encoder
+
 Encode labels (categorical variables) with value between 0 and n_classes-1.
 
+\begin{lstlisting}[language=Python]
 import sklearn
 le = sklearn.preprocessing.LabelEncoder()
 le.fit([“paris”, “paris”, “tokyo”, “amsterdam”])
@@ -130,7 +163,10 @@ le.transform([“tokyo”, “tokyo”, “paris”])
 # array([2, 2, 1]...)
 list(le.inverse_transform([2, 2, 1]))
 # [‘tokyo’, ‘tokyo’, ‘paris’]
+\end{lstlisting}
+
 References
+
 How to normalize a 2-dimensional numpy array in python less verbose?
 sklearn.preprocessing.LabelEncoder
 
@@ -139,21 +175,31 @@ sklearn.preprocessing.LabelEncoder
 This post shows how to import data to Python from numerous resources
 
 CSV
+
 Read a csv file from local or from a server
 
+\begin{lstlisting}[language=Python]
 import numpy as np
 import pandas as pd
 # read data
 df = pd.read_csv(“data.csv”, header = 0)
 # write data
 df.to_csv(“data.csv”, header=1, index=False)
+\end{lstlisting}
+
 Excel
+
+\begin{lstlisting}[language=Python]
 import pandas as pd
 # read data
 df = pd.read_excel(“data.xls”)
 # write data
 df = pd.to_excel(“data.xls”, index=False)
+\end{lstlisting}
+
 Sqlite
+
+\begin{lstlisting}[language=Python]
 import sqlite3
 
 DB_NAME = “db.sqlite3”
@@ -164,25 +210,43 @@ db_connector = sqlite3.connect(DB_NAME)
 cursor = db_connector.execute(SELECT_QUERY)
 # return dataset
 data_set = cursor.fetchall()
+\end{lstlisting}
+
 References
+
 pandas.read_excel
 pandas.read_sqlite
 sqlite3.read_sqlite
 
 \section{Numpy}
+
 NumPy
+
 Use the following import convention:
 
+\begin{lstlisting}[language=Python]
 import numpy as np
+\end{lstlisting}
+
 Creating Arrays
+
+\begin{lstlisting}[language=Python]
 a = np.array([1, 2, 3])
 b = np.array([(1.5, 2, 3), (4, 5, 6)], dtype=float)
 c = np.array([[(1.5, 2, 3), (4, 5, 6)], [(3, 2, 1), (4, 5, 6)]], dtype=float)
+\end{lstlisting}
+
 Initial Placeholders
+
+\begin{lstlisting}[language=Python]
 # Create an array of zeros
 np.zeros((3, 4))
 array([[ 0., 0., 0., 0.], [ 0., 0., 0., 0.], [ 0., 0., 0., 0.]])
+\end{lstlisting}
+
 # Create an array of ones
+
+\begin{lstlisting}[language=Python]
 np.ones((2, 3, 4), dtype=np.int16)
 
     array([[[1, 1, 1, 1],
@@ -192,6 +256,7 @@ np.ones((2, 3, 4), dtype=np.int16)
            [[1, 1, 1, 1],
             [1, 1, 1, 1],
             [1, 1, 1, 1]]], dtype=int16)
+
 # Create an array of evenly spaced values (step value)
 np.arange(10, 25, 5)
 array([10, 15, 20])
@@ -200,7 +265,8 @@ np.linspace(0, 2, 9)
 array([ 0. , 0.25, 0.5 , 0.75, 1. , 1.25, 1.5 , 1.75, 2. ])
 # Create a constant array
 np.full((2, 2), 7)
-C:\ProgramData\Anaconda2\lib\site-packages\numpy\core\numeric.py:301: FutureWarning: in the future, full((2, 2), 7) will return an array of dtype(‘int32’) format(shape, fill_value, array(fill_value).dtype), FutureWarning) array([[ 7., 7.], [ 7., 7.]])
+# array([[ 7., 7.], [ 7., 7.]])
+
 # Create a 2x2 identity matirx
 np.eye(2)
 array([[ 1., 0.], [ 0., 1.]])
@@ -210,21 +276,34 @@ array([[ 0.11121701, 0.12191919], [ 0.61608418, 0.91899253]])
 # Create an empty array
 np.empty((3, 2))
 array([[ 0., 0.], [ 0., 0.], [ 0., 0.]])
+\end{lstlisting}
+
 IO
+
 Saving & Loading On Disk
+
+\begin{lstlisting}[language=Python]
 a = np.array([(1, 2), (3, 4)])
 b = np.array([(5, 6), (7, 8)])
 np.save(‘my_array’, a)
 np.savez(‘arrays’, a, b)
 np.load(‘arrays.npz’)
+\end{lstlisting}
+
 Saving & Loading Text Files
+
+\begin{lstlisting}[language=Python]
 np.loadtxt(“myfile.txt”)
 array([[ 1., 2., 3.], [ 2., 3., 4.]])
 np.genfromtxt(“my_file.csv”, delimiter=”,“)
 array([[ 1., 2., 3.], [ 4., 5., 6.]])
 a = np.array([(1.5, 2, 3), (4, 5, 6)], dtype=float)
 np.savetxt(“myarray.txt”, a, delimiter=” “)
+\end{lstlisting}
+
 Data Types
+
+\begin{lstlisting}[language=Python]
 # Signed 64-bit integer types
 np.int64
 # Stardard double-precision floating point
@@ -240,7 +319,11 @@ np.string_
 # Fixed-length unicode type
 np.unicode_
 numpy.unicode_
+\end{lstlisting}
+
 Inspecting Your Array
+
+\begin{lstlisting}[language=Python]
 a = np.array([(1.5, 2, 3), (4, 5, 6)], dtype=float)
 # array dimensions
 a.shape
@@ -263,11 +346,21 @@ a.dtype.name
 # convert an array to a different type
 a.astype(int)
 array([[1, 2, 3], [4, 5, 6]])
+\end{lstlisting}
+
 Asking For Help
+
+\begin{lstlisting}[language=Python]
 np.info(np.ndarray.dtype)
+\end{lstlisting}
+
 Data-type of the array’s elements. Parameters ————— None Returns ———- d : numpy dtype object See Also ———— numpy.dtype Examples ———— >>> x array([[0, 1], [2, 3]]) >>> x.dtype dtype(‘int32’) >>> type(x.dtype)
+
 Array Mathmatics
+
 Arithmetic Operations
+
+\begin{lstlisting}[language=Python]
 a = np.random.random((2, 2))
 b = np.random.random((2, 2))
 # subtraction
@@ -305,7 +398,11 @@ array([[-3.35881648, -0.26484246], [-0.43496903, -0.03873741]])
 a.dot(b)
 np.dot(a, b)
 array([[ 0.15364329, 0.33223443], [ 0.24323666, 0.73136775]])
+\end{lstlisting}
+
 Comparison
+
+\begin{lstlisting}[language=Python]
 a = np.random.random((2, 2))
 a
 array([[ 0.20271908, 0.83347777], [ 0.61463859, 0.47298106]])
@@ -321,7 +418,11 @@ array([[ True, True], [ True, True]], dtype=bool)
 # array-wise comparison
 np.array_equal(a, b)
 False
+\end{lstlisting}
+
 Aggregate Functions
+
+\begin{lstlisting}[language=Python]
 a = np.random.random((3, 3))
 a
 array([[ 0.71770831, 0.895387 , 0.58199526], [ 0.32399079, 0.24146174, 0.59422847], [ 0.9976845 , 0.36588863, 0.67375734]])
@@ -360,7 +461,11 @@ array([[ 0.25274882, 0.19042929, 0.16823795], [ 0.39392342, 0.05954749, 0.860824
 h = a.copy()
 h
 array([[ 0.25274882, 0.19042929, 0.16823795], [ 0.39392342, 0.05954749, 0.8608243 ], [ 0.99375507, 0.92845989, 0.45681322]])
+\end{lstlisting}
+
 Sorting Arrays
+
+\begin{lstlisting}[language=Python]
 a = np.random.random((3, 3))
 a
 array([[ 0.11422752, 0.30046885, 0.15876115], [ 0.89595996, 0.47878824, 0.41827471], [ 0.69593773, 0.52119338, 0.33048738]])
@@ -370,9 +475,13 @@ array([[ 0.11422752, 0.15876115, 0.30046885], [ 0.41827471, 0.47878824, 0.895959
 a.sort(axis=0)
 a
 array([[ 0.11422752, 0.15876115, 0.30046885], [ 0.33048738, 0.47878824, 0.69593773], [ 0.41827471, 0.52119338, 0.89595996]])
+\end{lstlisting}
+
 Subsetting, Slicing, Indexing
+
 Subsettings
 
+\begin{lstlisting}[language=Python]
 a = np.random.random((3, 3))
 a
 array([[ 0.07989823, 0.4180309 , 0.83932547], [ 0.06318651, 0.20509151, 0.08262809], [ 0.64938826, 0.531026 , 0.38633983]])
@@ -383,8 +492,11 @@ array([ 0.64938826, 0.531026 , 0.38633983])
 a[1][2]
 a[1, 2]
 0.08262808937797228
+\end{lstlisting}
+
 Slicing
 
+\begin{lstlisting}[language=Python]
 # select items at index 0 and 1
 a[0:2]
 array([[ 0.07989823, 0.4180309 , 0.83932547], [ 0.06318651, 0.20509151, 0.08262809]])
@@ -398,21 +510,32 @@ array([ 0.06318651, 0.20509151, 0.08262809])
 # reversed array a
 a[::-1]
 array([[ 0.64938826, 0.531026 , 0.38633983], [ 0.06318651, 0.20509151, 0.08262809], [ 0.07989823, 0.4180309 , 0.83932547]])
+\end{lstlisting}
+
 Boolean indexing
 
+\begin{lstlisting}[language=Python]
 # select elements from a less than 0.5
 a[a < 0.5]
 array([ 0.07989823, 0.4180309 , 0.06318651, 0.20509151, 0.08262809, 0.38633983])
+\end{lstlisting}
+
 Fancy indexing
 
+\begin{lstlisting}[language=Python]
 # select elements (1,0), (0,1), (1, 2) and (0,0)
 a[[1, 0, 1, 0], [0, 1, 2, 0]]
 array([ 0.06318651, 0.4180309 , 0.08262809, 0.07989823])
 # select a subset of the matrix’s rows and columns
 a[[1, 0, 1, 0]][:, [0, 1, 2, 0]]
 array([[ 0.06318651, 0.20509151, 0.08262809, 0.06318651], [ 0.07989823, 0.4180309 , 0.83932547, 0.07989823], [ 0.06318651, 0.20509151, 0.08262809, 0.06318651], [ 0.07989823, 0.4180309 , 0.83932547, 0.07989823]])
+\end{lstlisting}
+
 Array Manipulation
+
 Transposing Array
+
+\begin{lstlisting}[language=Python]
 a = np.random.random((2, 3))
 a
 array([[ 0.57430709, 0.64401188, 0.12761183], [ 0.0726823 , 0.7951682 , 0.54114093]])
@@ -423,14 +546,22 @@ array([[ 0.57430709, 0.0726823 ], [ 0.64401188, 0.7951682 ], [ 0.12761183, 0.541
 # permulate array dimensions
 i.T
 array([[ 0.57430709, 0.64401188, 0.12761183], [ 0.0726823 , 0.7951682 , 0.54114093]])
+\end{lstlisting}
+
 Changing Array Shape
+
+\begin{lstlisting}[language=Python]
 # flatten the array
 a.ravel()
 array([ 0.57430709, 0.64401188, 0.12761183, 0.0726823 , 0.7951682 , 0.54114093])
 # reshape, but don’t change data
 a.reshape(3, -2)
 array([[ 0.57430709, 0.64401188], [ 0.12761183, 0.0726823 ], [ 0.7951682 , 0.54114093]])
+\end{lstlisting}
+
 Adding/Removing Elements
+
+\begin{lstlisting}[language=Python]
 # return a new array with shape (2, 6)
 a.resize(2, 3)
 a
@@ -452,7 +583,11 @@ a = np.random.random((1, 3))
 print “a:”, a
 np.delete(a, [1])
 a: [[ 0.1034073 0.93066432 0.49608264]] array([ 0.1034073 , 0.49608264])
+\end{lstlisting}
+
 Combining Arrays
+
+\begin{lstlisting}[language=Python]
 # concatenate arrays
 a = np.random.random((1, 3))
 print a
@@ -480,7 +615,11 @@ array([[ 0.33728008, 0.61421635, 0.49316384], [ 0.1091688 , 0.19072731, 0.043839
 # equivalent to np.hstack
 np.c_[a, b]
 array([[ 0.33728008, 0.61421635, 0.49316384], [ 0.1091688 , 0.19072731, 0.04383904], [ 0.68714517, 0.30587218, 0.28743208]])
+\end{lstlisting}
+
 Spliting Arrays
+
+\begin{lstlisting}[language=Python]
 a = np.random.random((3, 4))
 print a
 [[ 0.64277816 0.75935599 0.64927247 0.80253242] [ 0.87630664 0.19748931 0.51895547 0.83645583] [ 0.03132085 0.043291 0.10945252 0.31883126]]
@@ -490,6 +629,8 @@ np.split(a, 3)
 # split the array vertically at the 3rd index
 np.vsplit(a, 3)
 [array([[ 0.64277816, 0.75935599, 0.64927247, 0.80253242]]), array([[ 0.87630664, 0.19748931, 0.51895547, 0.83645583]]), array([[ 0.03132085, 0.043291 , 0.10945252, 0.31883126]])]
+\end{lstlisting}
+
 Suggested Readings
 www.datacamp.com. Python For Data Science Cheat Sheet: Numpy Basics
 
@@ -500,11 +641,10 @@ Learn about data wrangling with pandas
 Tiny Data
 A foundation for wrangling in pandas
 
-
-
 Create DataFrames
 Specify values for each column
 
+\begin{lstlisting}[language=Python]
 import pandas as pd
 
 df = pd.DataFrame({
@@ -520,9 +660,11 @@ a b c
 2 5 8 11
 
 3 6 9 12
+\end{lstlisting}
 
 Specify values for each row
 
+\begin{lstlisting}[language=Python]
 df = pd.DataFrame(
 [[4, 5, 6],
 [7, 8, 9],
@@ -531,12 +673,10 @@ index=[1, 2, 3],
 columns=[“a”, “b”, “c”])
 df
 a b c
-
 1 4 5 6
-
 2 7 8 9
-
 3 10 11 12
+\end{lstlisting}
 
 Create DataFrame with a MultiIndex
 
