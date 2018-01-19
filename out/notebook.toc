@@ -63,28 +63,28 @@
 \contentsline {section}{\numberline {7.1}C\IeC {\'a}c th\IeC {\`a}nh ph\IeC {\`\acircumflex }n c\IeC {\h u}a h\IeC {\d \ecircumflex } th\IeC {\'\ocircumflex }ng nh\IeC {\d \acircumflex }n d\IeC {\d a}ng ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{60}{section.7.1}
 \contentsline {section}{\numberline {7.2}Qu\IeC {\'a} tr\IeC {\`\i }nh hu\IeC {\'\acircumflex }n luy\IeC {\d \ecircumflex }n}{61}{section.7.2}
 \contentsline {section}{\numberline {7.3}Hidden Markov Model}{63}{section.7.3}
-\contentsline {section}{\numberline {7.4}Likelihood Computation}{64}{section.7.4}
-\contentsline {chapter}{\numberline {8}T\IeC {\h \ocircumflex }ng h\IeC {\d \ohorn }p ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{65}{chapter.8}
-\contentsline {chapter}{\numberline {9}Ph\IeC {\^a}n lo\IeC {\d a}i v\IeC {\u a}n b\IeC {\h a}n}{66}{chapter.9}
-\contentsline {chapter}{\numberline {10}Pytorch}{67}{chapter.10}
-\contentsline {chapter}{\numberline {11}Big Data}{69}{chapter.11}
-\contentsline {section}{\numberline {11.1}Distribution Storage}{69}{section.11.1}
-\contentsline {subsection}{\numberline {11.1.1}HDFS}{69}{subsection.11.1.1}
-\contentsline {subsection}{\numberline {11.1.2}HBase}{69}{subsection.11.1.2}
-\contentsline {section}{\numberline {11.2}Distribution Computing}{71}{section.11.2}
-\contentsline {subsection}{\numberline {11.2.1}Apache Spark}{71}{subsection.11.2.1}
-\contentsline {section}{\numberline {11.3}Components}{71}{section.11.3}
-\contentsline {subsection}{\numberline {11.3.1}Ambari}{71}{subsection.11.3.1}
-\contentsline {subsection}{\numberline {11.3.2}Kibana}{72}{subsection.11.3.2}
-\contentsline {subsection}{\numberline {11.3.3}Logstash}{72}{subsection.11.3.3}
-\contentsline {subsection}{\numberline {11.3.4}Elasticsearch}{72}{subsection.11.3.4}
-\contentsline {subsection}{\numberline {11.3.5}Neo4J}{75}{subsection.11.3.5}
-\contentsline {section}{\numberline {11.4}Web Crawling}{76}{section.11.4}
-\contentsline {subsection}{\numberline {11.4.1}Introduction}{76}{subsection.11.4.1}
-\contentsline {subsection}{\numberline {11.4.2}Scrapy}{78}{subsection.11.4.2}
-\contentsline {subsection}{\numberline {11.4.3}Apache Nutch}{78}{subsection.11.4.3}
-\contentsline {subsubsection}{Architecture}{82}{section*.9}
-\contentsline {subsubsection}{Config}{83}{section*.10}
-\contentsline {part}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u}{88}{chapter*.11}
-\contentsline {part}{Ch\IeC {\h i} m\IeC {\d u}c}{89}{chapter*.12}
-\contentsline {part}{Ghi ch\IeC {\'u}}{90}{chapter*.13}
+\contentsline {section}{\numberline {7.4}Likelihood Computation}{65}{section.7.4}
+\contentsline {chapter}{\numberline {8}T\IeC {\h \ocircumflex }ng h\IeC {\d \ohorn }p ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{66}{chapter.8}
+\contentsline {chapter}{\numberline {9}Ph\IeC {\^a}n lo\IeC {\d a}i v\IeC {\u a}n b\IeC {\h a}n}{67}{chapter.9}
+\contentsline {chapter}{\numberline {10}Pytorch}{68}{chapter.10}
+\contentsline {chapter}{\numberline {11}Big Data}{70}{chapter.11}
+\contentsline {section}{\numberline {11.1}Distribution Storage}{70}{section.11.1}
+\contentsline {subsection}{\numberline {11.1.1}HDFS}{70}{subsection.11.1.1}
+\contentsline {subsection}{\numberline {11.1.2}HBase}{70}{subsection.11.1.2}
+\contentsline {section}{\numberline {11.2}Distribution Computing}{72}{section.11.2}
+\contentsline {subsection}{\numberline {11.2.1}Apache Spark}{72}{subsection.11.2.1}
+\contentsline {section}{\numberline {11.3}Components}{72}{section.11.3}
+\contentsline {subsection}{\numberline {11.3.1}Ambari}{72}{subsection.11.3.1}
+\contentsline {subsection}{\numberline {11.3.2}Kibana}{73}{subsection.11.3.2}
+\contentsline {subsection}{\numberline {11.3.3}Logstash}{73}{subsection.11.3.3}
+\contentsline {subsection}{\numberline {11.3.4}Elasticsearch}{73}{subsection.11.3.4}
+\contentsline {subsection}{\numberline {11.3.5}Neo4J}{76}{subsection.11.3.5}
+\contentsline {section}{\numberline {11.4}Web Crawling}{77}{section.11.4}
+\contentsline {subsection}{\numberline {11.4.1}Introduction}{77}{subsection.11.4.1}
+\contentsline {subsection}{\numberline {11.4.2}Scrapy}{79}{subsection.11.4.2}
+\contentsline {subsection}{\numberline {11.4.3}Apache Nutch}{79}{subsection.11.4.3}
+\contentsline {subsubsection}{Architecture}{83}{section*.8}
+\contentsline {subsubsection}{Config}{84}{section*.9}
+\contentsline {part}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u}{89}{chapter*.10}
+\contentsline {part}{Ch\IeC {\h i} m\IeC {\d u}c}{90}{chapter*.11}
+\contentsline {part}{Ghi ch\IeC {\'u}}{91}{chapter*.12}

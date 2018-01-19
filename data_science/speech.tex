@@ -107,20 +107,25 @@ Các trọng số trong trạng thái gọi là observation likelihood, các tr�
 
 Sau đây là một ví dụ:
 
+\definition{
+  dữ liệu ăn đá
+}{
+Trong \cite{Jurafsky:2009:SLP:1214993}, tác giả giới thiệu dữ liệu ăn đá mô tả số lượng đá tiêu thụ trong các trạng thái thời tiết khác nhau. Đây là mô hình rất hay mô phỏng HMM
 \begin{itemize}
   \item Thời tiết trong một ngày có thể là NÓNG hoặc LẠNH
   \item Khi trời NÓNG, 20\% bạn dùng 1 viên đá, 40\% bạn dùng 2 viên, 40\% cho 3 viên.
-  \item Khi trời LẠNH, 50\% bạn dùng 1 viên, 40\% bạn dùng 2, 10\% bạn dùng 3. Đây là các khả năng trong quá trình quan sát (observation likelihood)
+  \item Khi trời LẠNH, 50\% bạn dùng 1 viên, 40\% bạn dùng 2 viên, 10\% bạn dùng 3 viên. Đây là các khả năng trong quá trình quan sát (observation likelihood)
   \item Khi trời NÓNG, 30\% nó sẽ chuyển sang LẠNH, 70\% giữ nguyên. Khi trời LẠNH, 40\% nó sẽ chuyển sang NÓNG, 60\% giữ nguyên. Đây là khả năng dịch chuyển (trainsition likelihood)
 \end{itemize}
+}
 
-* ![https://qph.ec.quoracdn.net/main-qimg-a6744f9e17e59f3729d6fef02d54391b.webp](https://qph.ec.quoracdn.net/main-qimg-a6744f9e17e59f3729d6fef02d54391b.webp)
+\includegraphics[width=\linewidth]{data_science/speech/ice_eating_problem.png}
 
-Giờ, giả sử chung ta quan sát trong 3 ngày, bạn dùng 1,2,3 viên đá. Thời tiết có khả năng diễn ra như thế nào?
+Giờ, giả sử chung ta quan sát trong 3 ngày, bạn dùng $1, 2, 3$ viên đá. Thời tiết có khả năng diễn ra như thế nào?
 
 Đến đây chúng ta dùng thuật toán Viterbi. Về cơ bản, nó là dynamic programming với hai chiều $[state, position\_in\_sequence]$
 
-Gọi S là trạng thái hiện tại {HOT, COLD} trong quan sát i, S' là trạng thái trước đó, và A là lượng đá tiêu thụ {1, 2, 3} trong quan sát i
+Gọi $S$ là trạng thái hiện tại ${HOT, COLD}$ trong quan sát $i$, $S'$ là trạng thái trước đó, và $A$ là lượng đá tiêu thụ ${1, 2, 3}$ trong quan sát $i$
 
 $$Viterbi[S,i] = Viterbi[S', i-1] * p(S|S') * p(A|S)$$
 $$V[S,i] = V[S',i-1] * transition\_likelihood * observation\_likelihood$$
