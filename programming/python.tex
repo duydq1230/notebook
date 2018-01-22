@@ -1114,7 +1114,7 @@ After __init__ has finished, the caller can rightly assume that the object is re
 Inheritance
 While Object-oriented Programming is useful as a modeling tool, it truly gains power when the concept of inheritance is introduced. Inheritance is the process by which a "child" class derives the data and behavior of a "parent" class. An example will definitely help us here.
 
-Imagine we run a car dealership. We sell all types of vehicles, from motorcycles to trucks. We set ourselves apart from the competition by our prices. Specifically, how we determine the price of a vehicle on our lot: $5,000 x number of wheels a vehicle has. We love buying back our vehicles as well. We offer a flat rate - 10% of the miles driven on the vehicle. For trucks, that rate is $10,000. For cars, $8,000. For motorcycles, $4,000.
+Imagine we run a car dealership. We sell all types of vehicles, from motorcycles to trucks. We set ourselves apart from the competition by our prices. Specifically, how we determine the price of a vehicle on our lot: \$5,000 x number of wheels a vehicle has. We love buying back our vehicles as well. We offer a flat rate - 10\% of the miles driven on the vehicle. For trucks, that rate is \$10,000. For cars, \$8,000. For motorcycles, \$4,000.
 
 If we wanted to create a sales system for our dealership using Object-oriented techniques, how would we do so? What would the objects be? We might have a Sale class, a Customer class, an Inventory class, and so forth, but we'd almost certainly have a Car, Truck, and Motorcycle class.
 
@@ -1477,9 +1477,9 @@ I've gone through some examples of what metaclasses are, and some ideas about ho
 
 But the question remains: when should you think about using custom metaclasses in your project? It's a complicated question, but there's a quotation floating around the web that addresses it quite succinctly:
 
-Metaclasses are deeper magic than 99% of users should ever worry about. If you wonder whether you need them, you don’t (the people who actually need them know with certainty that they need them, and don’t need an explanation about why).
+Metaclasses are deeper magic than 99\% of users should ever worry about. If you wonder whether you need them, you don't (the people who actually need them know with certainty that they need them, and don't need an explanation about why).
 
-– Tim Peters
+Tim Peters
 
 In a way, this is a very unsatisfying answer: it's a bit reminiscent of the wistful and cliched explanation of the border between attraction and love: "well, you just... know!"
 
@@ -1496,6 +1496,7 @@ Singleton
 Non-thread-safe
 Paul Manta's implementation of singletons
 
+\begin{lstlisting}[language=Python]
 @Singleton
 class Foo:
    def __init__(self):
@@ -1545,7 +1546,10 @@ class Singleton:
 
     def __instancecheck__(self, inst):
         return isinstance(inst, self._decorated)
+\end{lstlisting}
+
 Thread safe
+
 werediver's implementation of singletons. A thread safe implementation of singleton pattern in Python. Based on tornado.ioloop.IOLoop.instance() approach.
 
 import threading
@@ -1707,7 +1711,7 @@ Copy folder 1
 import shutil
 shutil.copyfile("src", "dst")
 CLI
-shutil — High-level file operations ↩
+shutil - High-level file operations
 
 \section{Networking}
 
@@ -2553,14 +2557,20 @@ Installation
 
 You can install tox with pip using the following command
 
-$ pip install tox
+\begin{lstlisting}[language=bash]
+> pip install tox
+\end{lstlisting}
+
 Setup default environment in Windows with conda
 
-$ conda create -p C:\python27 python=2.7
-$ conda create -p C:\python34 python=3.4
+\begin{lstlisting}[language=bash]
+> conda create -p C:\python27 python=2.7
+> conda create -p C:\python34 python=3.4
+\end{lstlisting}
+
 Related Readings
 Testing Your Code, The Hitchhiker's Guide to Python
-unittest — Unit testing framework, docs.python.org
+unittest  Unit testing framework, docs.python.org
 Is it possible to use tox with conda-based Python installations?, stackoverflow
 
 \section{IDE & Debugging}
@@ -2577,8 +2587,6 @@ Version Control Integration
 Scientific Tools
 Intelligent Editor
 PyCharm provides smart code completion, code inspections, on-the-fly error highlighting and quick-fixes, along with automated code refactorings and rich navigation capabilities.
-
-
 
 Syntax Highlighting
 
@@ -2610,8 +2618,6 @@ Code snippets and templates
 
 Save time using advanced customizable and parametrized live code templates and snippets.
 
-
-
 Keyboard shortcuts check.if ENTER
 
 if check:
@@ -2642,7 +2648,7 @@ Keyboard shortcuts: F2
 
 Duplicated code detector
 
-Smart duplicated code detector analyzes your code and searches for copy/pasted code. You'll be presented with a list of candidates for refactoring—and with the help of refactorings it's easy to keep your code dry.
+Smart duplicated code detector analyzes your code and searches for copy/pasted code. You'll be presented with a list of candidates for refactoring and with the help of refactorings it's easy to keep your code dry.
 
 Configurable language injections
 
@@ -2737,13 +2743,13 @@ set VS100COMNTOOLS=%VS140COMNTOOLS%
 
 \section{Environment}
 
-Similar to pip, conda is an open source package and environment management system 1. Anaconda is a data science platform that comes with a lot of packages. It uses conda at the core. Unlike Anaconda, Miniconda doesn't come with any installed packages by default. Note that for miniconda, everytime you open up a terminal, conda won’t automatically be available. Run the command below to use conda within miniconda.
+Similar to pip, conda is an open source package and environment management system 1. Anaconda is a data science platform that comes with a lot of packages. It uses conda at the core. Unlike Anaconda, Miniconda doesn't come with any installed packages by default. Note that for miniconda, everytime you open up a terminal, conda won't automatically be available. Run the command below to use conda within miniconda.
 
 Conda
-Let’s first start by checking if conda is installed.
+Let's first start by checking if conda is installed.
 
 \begin{lstlisting}[language=bash]
-$ conda --version
+> conda --version
 
 conda 4.2.12
 To see the full documentation for any command, type the command followed by --help. For example, to learn about the conda update command:
@@ -2751,10 +2757,10 @@ To see the full documentation for any command, type the command followed by --he
 
 
 \begin{lstlisting}[language=bash]
-$ conda update --help
+> conda update --help
 Once it has been confirmed that conda has been installed, we will now make sure that it is up to date.
 
-$ conda update conda
+> conda update conda
 
 Using Anaconda Cloud api site https://api.anaconda.org
 Fetching package metadata: ....
@@ -2796,7 +2802,6 @@ Unlinking packages ...
 Linking packages ...
 [      COMPLETE      ]|###################################################| 100%
 Environments
-
 \end{lstlisting}
 
 
@@ -2825,7 +2830,7 @@ List all environments
 Now you can use conda to see which environments you have installed so far. Use the conda environment info command to find out
 
 \begin{lstlisting}[language=bash]
-$ conda info -e
+> conda info -e
 
 conda environments:
 snowflakes            /home/username/miniconda/envs/snowflakes
@@ -2834,7 +2839,7 @@ bunnies               /home/username/miniconda/envs/bunnies
 
 Verify current environment
 
-Which environment are you using right now – snowflakes or bunnies? To find out, type the command:
+Which environment are you using right now - snowflakes or bunnies? To find out, type the command:
 
 \begin{lstlisting}[language=bash]
 conda info --envs
@@ -2843,7 +2848,7 @@ conda info --envs
 
 \subsection{Remove}
 
-If you didn’t really want an environment named flowers, just remove it as follows:
+If you didn't really want an environment named flowers, just remove it as follows:
 
 
 \begin{lstlisting}[language=bash]
@@ -2864,7 +2869,7 @@ conda env export > environment.yml
 
 Use environment from file
 
-Create a copy of another developer’s environment from their environment.yml file:
+Create a copy of another developer's environment from their environment.yml file:
 
 \begin{lstlisting}[language=bash]
 conda env create -f environment.yml
@@ -3157,13 +3162,13 @@ Note: an other python conda with lower version (such as 3.5), will occur error w
 \noindent Cài đặt package tại một branch của một project trên github
 
 \begin{lstlisting}[language=Python]
-$ pip install git+https://github.com/tangentlabs/django-oscar-paypal.git@issue/34/oscar-0.6#egg=django-oscar-paypal
+> pip install git+https://github.com/tangentlabs/django-oscar-paypal.git@issue/34/oscar-0.6#egg=django-oscar-paypal
 \end{lstlisting}
 
 \noindent Trích xuất danh sách package
 
 \begin{lstlisting}
-$ pip freeze > requirements.txt
+> pip freeze > requirements.txt
 \end{lstlisting}
 
 \noindent \textbf{Chạy ipython trong environment anaconda}
