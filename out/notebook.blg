@@ -11,45 +11,47 @@ Database file #1: mybib.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--GoodfellowBengioCourville Ian Goodfellow and Yoshua Bengio and Aaron Courville 
 Warning-- goodfellowbengiocourville2016
-You've used 1 entry,
+Warning--JurafskyMartin Jurafsky, Daniel and Martin, James H. 
+Warning-- jurafskymartin2009
+You've used 2 entries,
             2526 wiz_defined-function locations,
-            467 strings with 3301 characters,
-and the built_in function-call counts, 579 in all, are:
-= -- 50
-> -- 42
+            474 strings with 3482 characters,
+and the built_in function-call counts, 1082 in all, are:
+= -- 97
+> -- 74
 < -- 0
-+ -- 16
-- -- 15
-* -- 37
-:= -- 101
-add.period$ -- 1
-call.type$ -- 1
-change.case$ -- 6
-chr.to.int$ -- 1
-cite$ -- 1
-duplicate$ -- 26
-empty$ -- 30
-format.name$ -- 17
-if$ -- 107
++ -- 27
+- -- 25
+* -- 65
+:= -- 178
+add.period$ -- 2
+call.type$ -- 2
+change.case$ -- 11
+chr.to.int$ -- 2
+cite$ -- 2
+duplicate$ -- 55
+empty$ -- 61
+format.name$ -- 29
+if$ -- 207
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 4
-newline$ -- 7
-num.names$ -- 5
-pop$ -- 7
+missing$ -- 9
+newline$ -- 10
+num.names$ -- 10
+pop$ -- 14
 preamble$ -- 1
-purify$ -- 8
+purify$ -- 15
 quote$ -- 0
-skip$ -- 36
+skip$ -- 68
 stack$ -- 0
-substring$ -- 7
-swap$ -- 10
+substring$ -- 14
+swap$ -- 22
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 14
-warning$ -- 2
-while$ -- 5
+type$ -- 28
+warning$ -- 4
+while$ -- 10
 width$ -- 0
-write$ -- 20
-(There were 2 warnings)
+write$ -- 38
+(There were 4 warnings)

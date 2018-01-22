@@ -1,71 +1,336 @@
-\contentsline {chapter}{M\d {u}c l\d {u}c}{3}{chapter*.1}
-\contentsline {part}{I\hspace {1em}To\IeC {\'a}n}{4}{part.1}
-\contentsline {chapter}{\numberline {1}X\IeC {\'a}c su\IeC {\'\acircumflex }t}{5}{chapter.1}
-\contentsline {section}{\numberline {1.1}Probability Distributions}{5}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Event Spaces}{5}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}Probability Distributions}{6}{subsection.1.1.2}
-\contentsline {section}{\numberline {1.2}Basic Concepts in Probability}{7}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Conditional Probability}{7}{subsection.1.2.1}
-\contentsline {section}{\numberline {1.3}Chain Rule and Bayes Rule}{7}{section.1.3}
-\contentsline {section}{\numberline {1.4}Random Variables and Joint Distributions}{8}{section.1.4}
-\contentsline {subsection}{\numberline {1.4.1}Motivation}{8}{subsection.1.4.1}
-\contentsline {subsection}{\numberline {1.4.2}What Is a Random Variable?}{9}{subsection.1.4.2}
-\contentsline {section}{\numberline {1.5}Independence and Conditional Independence}{11}{section.1.5}
-\contentsline {section}{\numberline {1.6}Querying a Distribution}{13}{section.1.6}
-\contentsline {subsection}{\numberline {1.6.1}5.1 Probability Queries}{13}{subsection.1.6.1}
-\contentsline {subsection}{\numberline {1.6.2}5.2 MAP Queries}{13}{subsection.1.6.2}
-\contentsline {subsection}{\numberline {1.6.3}5.3 Marginal MAP Queries}{14}{subsection.1.6.3}
-\contentsline {section}{\numberline {1.7}Continuous Spaces}{14}{section.1.7}
-\contentsline {section}{\numberline {1.8}K\IeC {\`\i } v\IeC {\d o}ng v\IeC {\`a} ph\IeC {\uhorn }\IeC {\ohorn }ng sai}{16}{section.1.8}
-\contentsline {subsection}{\numberline {1.8.1}K\IeC {\`\i } v\IeC {\d o}ng}{16}{subsection.1.8.1}
-\contentsline {subsection}{\numberline {1.8.2}Ph\IeC {\uhorn }\IeC {\ohorn }ng sai}{17}{subsection.1.8.2}
-\contentsline {section}{\numberline {1.9}C\IeC {\'a}c h\IeC {\`a}m ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i th\IeC {\^o}ng d\IeC {\d u}ng}{18}{section.1.9}
-\contentsline {subsection}{\numberline {1.9.1}Bi\IeC {\'\ecircumflex }n r\IeC {\`\ohorn }i r\IeC {\d a}c}{18}{subsection.1.9.1}
-\contentsline {subsection}{\numberline {1.9.2}Bi\IeC {\'\ecircumflex }n ng\IeC {\~\acircumflex }u nhi\IeC {\^e}n Bernoulli}{19}{subsection.1.9.2}
-\contentsline {subsection}{\numberline {1.9.3}Ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i Bernoulli}{19}{subsection.1.9.3}
-\contentsline {subsection}{\numberline {1.9.4}Ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i Binomial}{20}{subsection.1.9.4}
-\contentsline {subsection}{\numberline {1.9.5}Ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i Poisson}{20}{subsection.1.9.5}
-\contentsline {subsection}{\numberline {1.9.6}Ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i Geometric}{20}{subsection.1.9.6}
-\contentsline {subsection}{\numberline {1.9.7}Ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i Negative Binomial}{20}{subsection.1.9.7}
-\contentsline {subsection}{\numberline {1.9.8}Ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i Hyper Geometric}{20}{subsection.1.9.8}
-\contentsline {subsection}{\numberline {1.9.9}Bi\IeC {\'\ecircumflex }n li\IeC {\^e}n t\IeC {\d u}c}{20}{subsection.1.9.9}
-\contentsline {subsection}{\numberline {1.9.10}Ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i \IeC {\dj }\IeC {\`\ecircumflex }u}{20}{subsection.1.9.10}
-\contentsline {chapter}{\numberline {2}Th\IeC {\'\ocircumflex }ng k\IeC {\^e}}{22}{chapter.2}
-\contentsline {part}{II\hspace {1em}Linh tinh}{23}{part.2}
-\contentsline {chapter}{\numberline {3}Nghi\IeC {\^e}n c\IeC {\'\uhorn }u}{24}{chapter.3}
-\contentsline {section}{\numberline {3.1}C\IeC {\'a}c c\IeC {\^o}ng c\IeC {\d u}}{24}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Google Scholar \& Semantic Scholar}{24}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Mendeley}{24}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}H\IeC {\d \ocircumflex }i ngh\IeC {\d i} v\IeC {\`a} t\IeC {\d a}p ch\IeC {\'\i }}{24}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}C\IeC {\^a}u chuy\IeC {\d \ecircumflex }n c\IeC {\h u}a Scihub}{25}{subsection.3.1.4}
-\contentsline {section}{\numberline {3.2}L\IeC {\`a}m sao \IeC {\dj }\IeC {\h \ecircumflex } nghi\IeC {\^e}n c\IeC {\'\uhorn }u t\IeC {\'\ocircumflex }t}{25}{section.3.2}
-\contentsline {section}{\numberline {3.3}S\IeC {\'a}ch gi\IeC {\'a}o khoa}{25}{section.3.3}
-\contentsline {section}{\numberline {3.4}L\IeC {\uhorn }\IeC {\d \ohorn }m l\IeC {\d \abreve }t}{26}{section.3.4}
-\contentsline {section}{\numberline {3.5}Thuy\IeC {\'\ecircumflex }t tr\IeC {\`\i }nh}{26}{section.3.5}
-\contentsline {chapter}{\numberline {4}Ngh\IeC {\`\ecircumflex } l\IeC {\d \acircumflex }p tr\IeC {\`\i }nh}{27}{chapter.4}
-\contentsline {chapter}{\numberline {5}Latex}{28}{chapter.5}
-\contentsline {chapter}{\numberline {6}Ch\IeC {\`a}o h\IeC {\`a}ng}{30}{chapter.6}
-\contentsline {chapter}{\numberline {7}Ph\IeC {\'a}t tri\IeC {\h \ecircumflex }n ph\IeC {\`\acircumflex }n m\IeC {\`\ecircumflex }m}{31}{chapter.7}
-\contentsline {chapter}{\numberline {8}Ph\IeC {\uhorn }\IeC {\ohorn }ng ph\IeC {\'a}p l\IeC {\`a}m vi\IeC {\d \ecircumflex }c}{32}{chapter.8}
-\contentsline {chapter}{\numberline {9}Agile}{34}{chapter.9}
-\contentsline {section}{\numberline {9.1}Introduction}{34}{section.9.1}
-\contentsline {section}{\numberline {9.2}Team}{35}{section.9.2}
-\contentsline {section}{\numberline {9.3}Artifacts}{37}{section.9.3}
-\contentsline {section}{\numberline {9.4}Meetings}{37}{section.9.4}
-\contentsline {chapter}{\numberline {10}Docker}{41}{chapter.10}
-\contentsline {section}{\numberline {10.1}Get Started}{41}{section.10.1}
-\contentsline {section}{\numberline {10.2}Dev}{43}{section.10.2}
-\contentsline {section}{\numberline {10.3}Dockerfile}{43}{section.10.3}
-\contentsline {section}{\numberline {10.4}Container}{44}{section.10.4}
-\contentsline {section}{\numberline {10.5}Compose}{45}{section.10.5}
-\contentsline {section}{\numberline {10.6}Swarm}{46}{section.10.6}
-\contentsline {section}{\numberline {10.7}UCP}{47}{section.10.7}
-\contentsline {section}{\numberline {10.8}Labs}{47}{section.10.8}
-\contentsline {section}{\numberline {10.9}GUI}{48}{section.10.9}
-\contentsline {chapter}{\numberline {11}Lean}{50}{chapter.11}
-\contentsline {section}{\numberline {11.1}Lean Canvas}{50}{section.11.1}
-\contentsline {section}{\numberline {11.2}Workflow}{50}{section.11.2}
-\contentsline {section}{\numberline {11.3}Validated Learning}{51}{section.11.3}
-\contentsline {part}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u}{52}{chapter*.5}
-\contentsline {part}{Ch\IeC {\h i} m\IeC {\d u}c}{53}{chapter*.6}
-\contentsline {part}{Ghi ch\IeC {\'u}}{54}{chapter*.7}
+\contentsline {chapter}{M\d {u}c l\d {u}c}{9}{chapter*.1}
+\contentsline {chapter}{\numberline {1}L\IeC {\`\ohorn }i n\IeC {\'o}i \IeC {\dj }\IeC {\`\acircumflex }u}{10}{chapter.1}
+\contentsline {part}{I\hspace {1em}L\IeC {\d \acircumflex }p tr\IeC {\`\i }nh}{12}{part.1}
+\contentsline {chapter}{\numberline {2}Gi\IeC {\'\ohorn }i thi\IeC {\d \ecircumflex }u}{13}{chapter.2}
+\contentsline {section}{\numberline {2.1}C\IeC {\'a}c v\IeC {\'\acircumflex }n \IeC {\dj }\IeC {\`\ecircumflex } l\IeC {\d \acircumflex }p tr\IeC {\`\i }nh}{13}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Introduction}{13}{subsection.2.1.1}
+\contentsline {subsubsection}{Syntax}{14}{section*.2}
+\contentsline {subsection}{\numberline {2.1.2}Data Structure}{14}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}OOP}{14}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Networking}{14}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}Sample Project Ideas}{14}{subsection.2.1.5}
+\contentsline {section}{\numberline {2.2}How to ask a question}{15}{section.2.2}
+\contentsline {section}{\numberline {2.3}C\IeC {\'a}c v\IeC {\'\acircumflex }n \IeC {\dj }\IeC {\`\ecircumflex } l\IeC {\d \acircumflex }p tr\IeC {\`\i }nh}{15}{section.2.3}
+\contentsline {section}{\numberline {2.4}C\IeC {\'a}c m\IeC {\^o} h\IeC {\`\i }nh l\IeC {\d \acircumflex }p tr\IeC {\`\i }nh}{15}{section.2.4}
+\contentsline {section}{\numberline {2.5}Testing}{17}{section.2.5}
+\contentsline {section}{\numberline {2.6}Logging}{19}{section.2.6}
+\contentsline {section}{\numberline {2.7}L\IeC {\d \acircumflex }p tr\IeC {\`\i }nh h\IeC {\`a}m}{20}{section.2.7}
+\contentsline {section}{\numberline {2.8}L\IeC {\d \acircumflex }p tr\IeC {\`\i }nh song song}{20}{section.2.8}
+\contentsline {section}{\numberline {2.9}IDE}{21}{section.2.9}
+\contentsline {chapter}{\numberline {3}Python}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}Gi\IeC {\'\ohorn }i thi\IeC {\d \ecircumflex }u}{23}{section.3.1}
+\contentsline {section}{\numberline {3.2}C\IeC {\`a}i \IeC {\dj }\IeC {\d \abreve }t}{24}{section.3.2}
+\contentsline {section}{\numberline {3.3}C\IeC {\ohorn } b\IeC {\h a}n}{25}{section.3.3}
+\contentsline {section}{\numberline {3.4}C\IeC {\'u} ph\IeC {\'a}p c\IeC {\ohorn } b\IeC {\h a}n}{25}{section.3.4}
+\contentsline {section}{\numberline {3.5}Yield and Generators}{27}{section.3.5}
+\contentsline {section}{\numberline {3.6}C\IeC {\'\acircumflex }u tr\IeC {\'u}c d\IeC {\~\uhorn } li\IeC {\d \ecircumflex }u}{31}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Number}{31}{subsection.3.6.1}
+\contentsline {subsection}{\numberline {3.6.2}Collection}{32}{subsection.3.6.2}
+\contentsline {subsection}{\numberline {3.6.3}String}{34}{subsection.3.6.3}
+\contentsline {subsection}{\numberline {3.6.4}Datetime}{35}{subsection.3.6.4}
+\contentsline {subsection}{\numberline {3.6.5}Object}{36}{subsection.3.6.5}
+\contentsline {section}{\numberline {3.7}Object Oriented Programming}{36}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}Metaclasses}{38}{subsection.3.7.1}
+\contentsline {subsection}{\numberline {3.7.2}Design Patterns}{41}{subsection.3.7.2}
+\contentsline {section}{\numberline {3.8}File System & IO}{42}{section.3.8}
+\contentsline {section}{\numberline {3.9}Operating System}{42}{section.3.9}
+\contentsline {section}{\numberline {3.10}Networking}{42}{section.3.10}
+\contentsline {section}{\numberline {3.11}Concurrency and Parallelism}{43}{section.3.11}
+\contentsline {section}{\numberline {3.12}Event Based Programming}{45}{section.3.12}
+\contentsline {section}{\numberline {3.13}Web Development}{46}{section.3.13}
+\contentsline {section}{\numberline {3.14}Logging}{48}{section.3.14}
+\contentsline {section}{\numberline {3.15}Configuration}{48}{section.3.15}
+\contentsline {section}{\numberline {3.16}Command Line}{49}{section.3.16}
+\contentsline {section}{\numberline {3.17}Testing}{49}{section.3.17}
+\contentsline {section}{\numberline {3.18}IDE & Debugging}{50}{section.3.18}
+\contentsline {section}{\numberline {3.19}Package Manager}{52}{section.3.19}
+\contentsline {section}{\numberline {3.20}Environment}{52}{section.3.20}
+\contentsline {subsection}{\numberline {3.20.1}Create}{54}{subsection.3.20.1}
+\contentsline {subsection}{\numberline {3.20.2}Clone}{54}{subsection.3.20.2}
+\contentsline {subsection}{\numberline {3.20.3}List}{54}{subsection.3.20.3}
+\contentsline {subsection}{\numberline {3.20.4}Remove}{54}{subsection.3.20.4}
+\contentsline {subsection}{\numberline {3.20.5}Share}{55}{subsection.3.20.5}
+\contentsline {section}{\numberline {3.21}Module}{55}{section.3.21}
+\contentsline {section}{\numberline {3.22}Production}{57}{section.3.22}
+\contentsline {section}{\numberline {3.23}Qu\IeC {\h a}n l\IeC {\'y} g\IeC {\'o}i v\IeC {\'\ohorn }i Anaconda}{57}{section.3.23}
+\contentsline {section}{\numberline {3.24}Test v\IeC {\'\ohorn }i python}{58}{section.3.24}
+\contentsline {section}{\numberline {3.25}X\IeC {\^a}y d\IeC {\d \uhorn }ng docs v\IeC {\'\ohorn }i readthedocs v\IeC {\`a} sphinx}{58}{section.3.25}
+\contentsline {section}{\numberline {3.26}Pycharm Pycharm}{61}{section.3.26}
+\contentsline {section}{\numberline {3.27}V\IeC {\`\i } sao l\IeC {\d a}i code python?}{61}{section.3.27}
+\contentsline {chapter}{\numberline {4}C++}{62}{chapter.4}
+\contentsline {section}{\numberline {4.1}Get Started}{62}{section.4.1}
+\contentsline {section}{\numberline {4.2}Basic Syntax}{63}{section.4.2}
+\contentsline {section}{\numberline {4.3}C\IeC {\'\acircumflex }u tr\IeC {\'u}c d\IeC {\~\uhorn } li\IeC {\d \ecircumflex }u}{63}{section.4.3}
+\contentsline {section}{\numberline {4.4}L\IeC {\d \acircumflex }p tr\IeC {\`\i }nh h\IeC {\uhorn }\IeC {\'\ohorn }ng \IeC {\dj }\IeC {\'\ocircumflex }i t\IeC {\uhorn }\IeC {\d \ohorn }ng}{65}{section.4.4}
+\contentsline {section}{\numberline {4.5}C\IeC {\ohorn } s\IeC {\h \ohorn } d\IeC {\~\uhorn } li\IeC {\d \ecircumflex }u}{65}{section.4.5}
+\contentsline {section}{\numberline {4.6}Testing}{66}{section.4.6}
+\contentsline {section}{\numberline {4.7}IDE & Debugging}{67}{section.4.7}
+\contentsline {chapter}{\numberline {5}Javascript}{68}{chapter.5}
+\contentsline {section}{\numberline {5.1}Installation}{68}{section.5.1}
+\contentsline {section}{\numberline {5.2}IDE}{68}{section.5.2}
+\contentsline {section}{\numberline {5.3}Basic Syntax}{68}{section.5.3}
+\contentsline {section}{\numberline {5.4}Data Structure}{70}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Number}{70}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}String}{71}{subsection.5.4.2}
+\contentsline {subsection}{\numberline {5.4.3}Collection}{73}{subsection.5.4.3}
+\contentsline {subsection}{\numberline {5.4.4}Datetime}{73}{subsection.5.4.4}
+\contentsline {subsection}{\numberline {5.4.5}Boolean}{73}{subsection.5.4.5}
+\contentsline {subsection}{\numberline {5.4.6}Object}{73}{subsection.5.4.6}
+\contentsline {section}{\numberline {5.5}OOP}{73}{section.5.5}
+\contentsline {section}{\numberline {5.6}Networking}{75}{section.5.6}
+\contentsline {section}{\numberline {5.7}Logging}{75}{section.5.7}
+\contentsline {section}{\numberline {5.8}Documentation}{75}{section.5.8}
+\contentsline {section}{\numberline {5.9}Error Handling}{76}{section.5.9}
+\contentsline {section}{\numberline {5.10}Testing}{78}{section.5.10}
+\contentsline {section}{\numberline {5.11}Package Manager}{78}{section.5.11}
+\contentsline {section}{\numberline {5.12}Build Tool}{79}{section.5.12}
+\contentsline {section}{\numberline {5.13}Make Module}{79}{section.5.13}
+\contentsline {chapter}{\numberline {6}Java}{80}{chapter.6}
+\contentsline {section}{\numberline {6.1}Get Started}{80}{section.6.1}
+\contentsline {section}{\numberline {6.2}Basic Syntax}{80}{section.6.2}
+\contentsline {section}{\numberline {6.3}Data Structure}{85}{section.6.3}
+\contentsline {section}{\numberline {6.4}OOP}{85}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Classes}{85}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Encapsulation}{89}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}Inheritance}{89}{subsection.6.4.3}
+\contentsline {subsection}{\numberline {6.4.4}Polymorphism}{91}{subsection.6.4.4}
+\contentsline {subsection}{\numberline {6.4.5}Abstraction}{93}{subsection.6.4.5}
+\contentsline {section}{\numberline {6.5}File System & IO}{95}{section.6.5}
+\contentsline {section}{\numberline {6.6}Error Handling}{99}{section.6.6}
+\contentsline {section}{\numberline {6.7}Logging}{104}{section.6.7}
+\contentsline {section}{\numberline {6.8}IDE}{105}{section.6.8}
+\contentsline {section}{\numberline {6.9}Package Manager}{105}{section.6.9}
+\contentsline {section}{\numberline {6.10}Build Tool}{106}{section.6.10}
+\contentsline {section}{\numberline {6.11}Production}{106}{section.6.11}
+\contentsline {chapter}{\numberline {7}PHP}{107}{chapter.7}
+\contentsline {chapter}{\numberline {8}R}{109}{chapter.8}
+\contentsline {section}{\numberline {8.1}R Courses}{109}{section.8.1}
+\contentsline {section}{\numberline {8.2}Everything you need to know about R}{110}{section.8.2}
+\contentsline {chapter}{\numberline {9}Scala}{112}{chapter.9}
+\contentsline {section}{\numberline {9.1}Installation}{112}{section.9.1}
+\contentsline {section}{\numberline {9.2}IDE}{112}{section.9.2}
+\contentsline {section}{\numberline {9.3}Basic Syntax}{112}{section.9.3}
+\contentsline {chapter}{\numberline {10}NodeJS}{114}{chapter.10}
+\contentsline {section}{\numberline {10.1}Get Started}{114}{section.10.1}
+\contentsline {section}{\numberline {10.2}Basic Syntax}{115}{section.10.2}
+\contentsline {section}{\numberline {10.3}File System & IO}{115}{section.10.3}
+\contentsline {section}{\numberline {10.4}Package Manager}{120}{section.10.4}
+\contentsline {section}{\numberline {10.5}Command Line}{121}{section.10.5}
+\contentsline {chapter}{\numberline {11}Octave}{123}{chapter.11}
+\contentsline {section}{\numberline {11.1}Matrix}{123}{section.11.1}
+\contentsline {chapter}{\numberline {12}Toolbox}{125}{chapter.12}
+\contentsline {section}{\numberline {12.1}Vim}{126}{section.12.1}
+\contentsline {section}{\numberline {12.2}Virtual Box}{128}{section.12.2}
+\contentsline {section}{\numberline {12.3}VMWare}{129}{section.12.3}
+\contentsline {part}{II\hspace {1em}To\IeC {\'a}n}{132}{part.2}
+\contentsline {chapter}{\numberline {13}X\IeC {\'a}c su\IeC {\'\acircumflex }t}{133}{chapter.13}
+\contentsline {section}{\numberline {13.1}Probability Distributions}{133}{section.13.1}
+\contentsline {subsection}{\numberline {13.1.1}Event Spaces}{133}{subsection.13.1.1}
+\contentsline {subsection}{\numberline {13.1.2}Probability Distributions}{134}{subsection.13.1.2}
+\contentsline {section}{\numberline {13.2}Basic Concepts in Probability}{135}{section.13.2}
+\contentsline {subsection}{\numberline {13.2.1}Conditional Probability}{135}{subsection.13.2.1}
+\contentsline {section}{\numberline {13.3}Chain Rule and Bayes Rule}{135}{section.13.3}
+\contentsline {section}{\numberline {13.4}Random Variables and Joint Distributions}{136}{section.13.4}
+\contentsline {subsection}{\numberline {13.4.1}Motivation}{136}{subsection.13.4.1}
+\contentsline {subsection}{\numberline {13.4.2}What Is a Random Variable?}{137}{subsection.13.4.2}
+\contentsline {section}{\numberline {13.5}Independence and Conditional Independence}{139}{section.13.5}
+\contentsline {section}{\numberline {13.6}Querying a Distribution}{141}{section.13.6}
+\contentsline {subsection}{\numberline {13.6.1}5.1 Probability Queries}{141}{subsection.13.6.1}
+\contentsline {subsection}{\numberline {13.6.2}5.2 MAP Queries}{141}{subsection.13.6.2}
+\contentsline {subsection}{\numberline {13.6.3}5.3 Marginal MAP Queries}{142}{subsection.13.6.3}
+\contentsline {section}{\numberline {13.7}Continuous Spaces}{142}{section.13.7}
+\contentsline {section}{\numberline {13.8}K\IeC {\`\i } v\IeC {\d o}ng v\IeC {\`a} ph\IeC {\uhorn }\IeC {\ohorn }ng sai}{144}{section.13.8}
+\contentsline {subsection}{\numberline {13.8.1}K\IeC {\`\i } v\IeC {\d o}ng}{144}{subsection.13.8.1}
+\contentsline {subsection}{\numberline {13.8.2}Ph\IeC {\uhorn }\IeC {\ohorn }ng sai}{145}{subsection.13.8.2}
+\contentsline {section}{\numberline {13.9}C\IeC {\'a}c h\IeC {\`a}m ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i th\IeC {\^o}ng d\IeC {\d u}ng}{146}{section.13.9}
+\contentsline {subsection}{\numberline {13.9.1}Bi\IeC {\'\ecircumflex }n r\IeC {\`\ohorn }i r\IeC {\d a}c}{146}{subsection.13.9.1}
+\contentsline {subsection}{\numberline {13.9.2}Bi\IeC {\'\ecircumflex }n ng\IeC {\~\acircumflex }u nhi\IeC {\^e}n Bernoulli}{147}{subsection.13.9.2}
+\contentsline {subsection}{\numberline {13.9.3}Ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i Bernoulli}{147}{subsection.13.9.3}
+\contentsline {subsection}{\numberline {13.9.4}Ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i Binomial}{148}{subsection.13.9.4}
+\contentsline {subsection}{\numberline {13.9.5}Ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i Poisson}{148}{subsection.13.9.5}
+\contentsline {subsection}{\numberline {13.9.6}Ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i Geometric}{148}{subsection.13.9.6}
+\contentsline {subsection}{\numberline {13.9.7}Ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i Negative Binomial}{148}{subsection.13.9.7}
+\contentsline {subsection}{\numberline {13.9.8}Ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i Hyper Geometric}{148}{subsection.13.9.8}
+\contentsline {subsection}{\numberline {13.9.9}Bi\IeC {\'\ecircumflex }n li\IeC {\^e}n t\IeC {\d u}c}{148}{subsection.13.9.9}
+\contentsline {subsection}{\numberline {13.9.10}Ph\IeC {\^a}n ph\IeC {\'\ocircumflex }i \IeC {\dj }\IeC {\`\ecircumflex }u}{148}{subsection.13.9.10}
+\contentsline {chapter}{\numberline {14}Th\IeC {\'\ocircumflex }ng k\IeC {\^e}}{150}{chapter.14}
+\contentsline {part}{III\hspace {1em}Khoa h\IeC {\d o}c m\IeC {\'a}y t\IeC {\'\i }nh}{151}{part.3}
+\contentsline {chapter}{\numberline {15}Data Structure and Algorithm}{152}{chapter.15}
+\contentsline {section}{\numberline {15.1}Introduction}{152}{section.15.1}
+\contentsline {subsection}{\numberline {15.1.1}Greedy Algorithm}{153}{subsection.15.1.1}
+\contentsline {subsection}{\numberline {15.1.2}Divide and Conquer}{154}{subsection.15.1.2}
+\contentsline {subsection}{\numberline {15.1.3}Dynamic Programming}{154}{subsection.15.1.3}
+\contentsline {subsection}{\numberline {15.1.4}7 Steps to Solve Algorithm Problems}{155}{subsection.15.1.4}
+\contentsline {section}{\numberline {15.2}Data Structures}{158}{section.15.2}
+\contentsline {subsection}{\numberline {15.2.1}Array}{158}{subsection.15.2.1}
+\contentsline {subsection}{\numberline {15.2.2}Linked List}{161}{subsection.15.2.2}
+\contentsline {subsection}{\numberline {15.2.3}Stack and Queue}{162}{subsection.15.2.3}
+\contentsline {subsection}{\numberline {15.2.4}Tree}{165}{subsection.15.2.4}
+\contentsline {subsection}{\numberline {15.2.5}Binary Search Tree}{167}{subsection.15.2.5}
+\contentsline {section}{\numberline {15.3}Heaps}{168}{section.15.3}
+\contentsline {section}{\numberline {15.4}Sort}{168}{section.15.4}
+\contentsline {subsection}{\numberline {15.4.1}Introduction}{168}{subsection.15.4.1}
+\contentsline {subsection}{\numberline {15.4.2}Bubble Sort}{170}{subsection.15.4.2}
+\contentsline {subsection}{\numberline {15.4.3}Insertion Sort}{171}{subsection.15.4.3}
+\contentsline {subsection}{\numberline {15.4.4}Selection Sort}{172}{subsection.15.4.4}
+\contentsline {subsection}{\numberline {15.4.5}Merge Sort}{172}{subsection.15.4.5}
+\contentsline {subsection}{\numberline {15.4.6}Shell Sort}{173}{subsection.15.4.6}
+\contentsline {subsection}{\numberline {15.4.7}Quick Sort}{174}{subsection.15.4.7}
+\contentsline {section}{\numberline {15.5}Search}{175}{section.15.5}
+\contentsline {subsection}{\numberline {15.5.1}Linear Search}{175}{subsection.15.5.1}
+\contentsline {subsection}{\numberline {15.5.2}Binary Search}{176}{subsection.15.5.2}
+\contentsline {subsection}{\numberline {15.5.3}Interpolation Search}{177}{subsection.15.5.3}
+\contentsline {subsection}{\numberline {15.5.4}Hash Table}{178}{subsection.15.5.4}
+\contentsline {section}{\numberline {15.6}Graph}{179}{section.15.6}
+\contentsline {subsection}{\numberline {15.6.1}Graph Data Structure}{179}{subsection.15.6.1}
+\contentsline {subsection}{\numberline {15.6.2}Depth First Traversal}{180}{subsection.15.6.2}
+\contentsline {subsection}{\numberline {15.6.3}Breadth First Traversal}{180}{subsection.15.6.3}
+\contentsline {section}{\numberline {15.7}String}{181}{section.15.7}
+\contentsline {subsection}{\numberline {15.7.1}Tries}{184}{subsection.15.7.1}
+\contentsline {subsection}{\numberline {15.7.2}Suffix Array and suffix tree}{187}{subsection.15.7.2}
+\contentsline {subsection}{\numberline {15.7.3}Knuth-Morris-Pratt Algorithm}{188}{subsection.15.7.3}
+\contentsline {chapter}{\numberline {16}Object Oriented Programming}{193}{chapter.16}
+\contentsline {section}{\numberline {16.1}OOP}{193}{section.16.1}
+\contentsline {section}{\numberline {16.2}UML}{197}{section.16.2}
+\contentsline {section}{\numberline {16.3}SOLID}{199}{section.16.3}
+\contentsline {section}{\numberline {16.4}Design Patterns}{200}{section.16.4}
+\contentsline {chapter}{\numberline {17}Database}{203}{chapter.17}
+\contentsline {section}{\numberline {17.1}Introduction}{203}{section.17.1}
+\contentsline {section}{\numberline {17.2}SQL}{205}{section.17.2}
+\contentsline {section}{\numberline {17.3}MySQL}{205}{section.17.3}
+\contentsline {section}{\numberline {17.4}Redis}{206}{section.17.4}
+\contentsline {section}{\numberline {17.5}MongoDB}{206}{section.17.5}
+\contentsline {chapter}{\numberline {18}H\IeC {\d \ecircumflex } \IeC {\dj }i\IeC {\`\ecircumflex }u h\IeC {\`a}nh}{208}{chapter.18}
+\contentsline {chapter}{\numberline {19}Ubuntu}{209}{chapter.19}
+\contentsline {chapter}{\numberline {20}Networking}{210}{chapter.20}
+\contentsline {chapter}{\numberline {21}UX - UI}{212}{chapter.21}
+\contentsline {chapter}{\numberline {22}Service-Oriented Architecture}{213}{chapter.22}
+\contentsline {chapter}{\numberline {23}License}{215}{chapter.23}
+\contentsline {chapter}{\numberline {24}Semantic Web}{216}{chapter.24}
+\contentsline {section}{\numberline {24.1}Web 3.0}{216}{section.24.1}
+\contentsline {section}{\numberline {24.2}RDF}{216}{section.24.2}
+\contentsline {section}{\numberline {24.3}SPARQL}{216}{section.24.3}
+\contentsline {part}{IV\hspace {1em}Khoa h\IeC {\d o}c d\IeC {\~\uhorn } li\IeC {\d \ecircumflex }u}{218}{part.4}
+\contentsline {chapter}{\numberline {25}Data Science with Python}{219}{chapter.25}
+\contentsline {section}{\numberline {25.1}Get Started}{219}{section.25.1}
+\contentsline {section}{\numberline {25.2}Data Transformation}{219}{section.25.2}
+\contentsline {section}{\numberline {25.3}Data Preperation}{221}{section.25.3}
+\contentsline {section}{\numberline {25.4}Data IO}{221}{section.25.4}
+\contentsline {section}{\numberline {25.5}Numpy}{222}{section.25.5}
+\contentsline {section}{\numberline {25.6}Data Wrangling}{230}{section.25.6}
+\contentsline {section}{\numberline {25.7}Visualization}{233}{section.25.7}
+\contentsline {chapter}{\numberline {26}Tr\IeC {\'\i } tu\IeC {\d \ecircumflex } nh\IeC {\^a}n t\IeC {\d a}o}{234}{chapter.26}
+\contentsline {section}{\numberline {26.1}Autonomous Agents}{234}{section.26.1}
+\contentsline {section}{\numberline {26.2}Cellular Automator}{234}{section.26.2}
+\contentsline {section}{\numberline {26.3}Fractal}{234}{section.26.3}
+\contentsline {section}{\numberline {26.4}The Pac-Man project}{235}{section.26.4}
+\contentsline {chapter}{\numberline {27}H\IeC {\d o}c m\IeC {\'a}y}{236}{chapter.27}
+\contentsline {section}{\numberline {27.1}Machine Learning Process}{239}{section.27.1}
+\contentsline {subsection}{\numberline {27.1.1}Problem Definition}{240}{subsection.27.1.1}
+\contentsline {subsection}{\numberline {27.1.2}Data Gathering}{240}{subsection.27.1.2}
+\contentsline {subsection}{\numberline {27.1.3}Data Preprocessing}{240}{subsection.27.1.3}
+\contentsline {subsection}{\numberline {27.1.4}Model Building}{241}{subsection.27.1.4}
+\contentsline {subsection}{\numberline {27.1.5}Evaluation}{242}{subsection.27.1.5}
+\contentsline {section}{\numberline {27.2}Types of Machine Learning}{243}{section.27.2}
+\contentsline {section}{\numberline {27.3}How to learn a ML Algorithm?}{244}{section.27.3}
+\contentsline {section}{\numberline {27.4}Linear Regression}{245}{section.27.4}
+\contentsline {section}{\numberline {27.5}Logistic Regression}{246}{section.27.5}
+\contentsline {section}{\numberline {27.6}Classification}{248}{section.27.6}
+\contentsline {section}{\numberline {27.7}Binary Classification}{248}{section.27.7}
+\contentsline {section}{\numberline {27.8}Multilabel Classification}{249}{section.27.8}
+\contentsline {section}{\numberline {27.9}Clustering}{249}{section.27.9}
+\contentsline {section}{\numberline {27.10}Ensemble}{253}{section.27.10}
+\contentsline {section}{\numberline {27.11}Dimensionality Reduction}{254}{section.27.11}
+\contentsline {section}{\numberline {27.12}Anomaly Detection}{254}{section.27.12}
+\contentsline {section}{\numberline {27.13}Recomendation System}{255}{section.27.13}
+\contentsline {chapter}{\numberline {28}Probabilistic Graphical Model}{257}{chapter.28}
+\contentsline {section}{\numberline {28.1}Representation}{257}{section.28.1}
+\contentsline {section}{\numberline {28.2}Foundation: Graph}{257}{section.28.2}
+\contentsline {section}{\numberline {28.3}Bayesian Network}{260}{section.28.3}
+\contentsline {section}{\numberline {28.4}Template Models for Bayesian Networks}{262}{section.28.4}
+\contentsline {section}{\numberline {28.5}Factor Graph}{263}{section.28.5}
+\contentsline {section}{\numberline {28.6}Inference}{263}{section.28.6}
+\contentsline {section}{\numberline {28.7}Learning}{263}{section.28.7}
+\contentsline {section}{\numberline {28.8}An Introduction to UnBBayes}{263}{section.28.8}
+\contentsline {section}{\numberline {28.9}Medical Domain Data}{264}{section.28.9}
+\contentsline {section}{\numberline {28.10}Optical Word Recognition}{265}{section.28.10}
+\contentsline {chapter}{\numberline {29}H\IeC {\d o}c s\IeC {\^a}u}{268}{chapter.29}
+\contentsline {section}{\numberline {29.1}Deep Feedforward Networks}{268}{section.29.1}
+\contentsline {section}{\numberline {29.2}Th\IeC {\d \uhorn }c h\IeC {\`a}nh: B\IeC {\'\abreve }t \IeC {\dj }\IeC {\`\acircumflex }u v\IeC {\'\ohorn }i Tensorflow}{269}{section.29.2}
+\contentsline {section}{\numberline {29.3}T\IeC {\`a}i li\IeC {\d \ecircumflex }u Deep Learning}{271}{section.29.3}
+\contentsline {section}{\numberline {29.4}C\IeC {\'a}c layer trong deep learning}{271}{section.29.4}
+\contentsline {subsection}{\numberline {29.4.1}Sparse Layers}{271}{subsection.29.4.1}
+\contentsline {subsection}{\numberline {29.4.2}Convolution Layers}{271}{subsection.29.4.2}
+\contentsline {section}{\numberline {29.5}Recurrent Neural Networks}{272}{section.29.5}
+\contentsline {chapter}{\numberline {30}X\IeC {\h \uhorn } l\IeC {\'y} ng\IeC {\^o}n ng\IeC {\~\uhorn } t\IeC {\d \uhorn } nhi\IeC {\^e}n}{275}{chapter.30}
+\contentsline {section}{\numberline {30.1}Introduction to Natural Language Processing}{275}{section.30.1}
+\contentsline {section}{\numberline {30.2}Natural Language Processing Tasks}{276}{section.30.2}
+\contentsline {section}{\numberline {30.3}Natural Language Processing Applications}{278}{section.30.3}
+\contentsline {section}{\numberline {30.4}Spelling Correction}{278}{section.30.4}
+\contentsline {section}{\numberline {30.5}Word Vectors}{279}{section.30.5}
+\contentsline {section}{\numberline {30.6}Conditional Random Fields in Name Entity Recognition}{280}{section.30.6}
+\contentsline {section}{\numberline {30.7}Entity Linking}{281}{section.30.7}
+\contentsline {chapter}{\numberline {31}Nh\IeC {\d \acircumflex }n d\IeC {\d a}ng ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{283}{chapter.31}
+\contentsline {section}{\numberline {31.1}C\IeC {\'a}c th\IeC {\`a}nh ph\IeC {\`\acircumflex }n c\IeC {\h u}a h\IeC {\d \ecircumflex } th\IeC {\'\ocircumflex }ng nh\IeC {\d \acircumflex }n d\IeC {\d a}ng ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{283}{section.31.1}
+\contentsline {section}{\numberline {31.2}Qu\IeC {\'a} tr\IeC {\`\i }nh hu\IeC {\'\acircumflex }n luy\IeC {\d \ecircumflex }n}{284}{section.31.2}
+\contentsline {section}{\numberline {31.3}Hidden Markov Model}{286}{section.31.3}
+\contentsline {section}{\numberline {31.4}Likelihood Computation}{288}{section.31.4}
+\contentsline {chapter}{\numberline {32}T\IeC {\h \ocircumflex }ng h\IeC {\d \ohorn }p ti\IeC {\'\ecircumflex }ng n\IeC {\'o}i}{289}{chapter.32}
+\contentsline {chapter}{\numberline {33}Ph\IeC {\^a}n lo\IeC {\d a}i v\IeC {\u a}n b\IeC {\h a}n}{290}{chapter.33}
+\contentsline {chapter}{\numberline {34}Pytorch}{291}{chapter.34}
+\contentsline {chapter}{\numberline {35}Big Data}{293}{chapter.35}
+\contentsline {section}{\numberline {35.1}Distribution Storage}{293}{section.35.1}
+\contentsline {subsection}{\numberline {35.1.1}HDFS}{293}{subsection.35.1.1}
+\contentsline {subsection}{\numberline {35.1.2}HBase}{293}{subsection.35.1.2}
+\contentsline {section}{\numberline {35.2}Distribution Computing}{295}{section.35.2}
+\contentsline {subsection}{\numberline {35.2.1}Apache Spark}{295}{subsection.35.2.1}
+\contentsline {section}{\numberline {35.3}Components}{295}{section.35.3}
+\contentsline {subsection}{\numberline {35.3.1}Ambari}{295}{subsection.35.3.1}
+\contentsline {subsection}{\numberline {35.3.2}Kibana}{296}{subsection.35.3.2}
+\contentsline {subsection}{\numberline {35.3.3}Logstash}{296}{subsection.35.3.3}
+\contentsline {subsection}{\numberline {35.3.4}Elasticsearch}{296}{subsection.35.3.4}
+\contentsline {subsection}{\numberline {35.3.5}Neo4J}{299}{subsection.35.3.5}
+\contentsline {section}{\numberline {35.4}Web Crawling}{300}{section.35.4}
+\contentsline {subsection}{\numberline {35.4.1}Introduction}{300}{subsection.35.4.1}
+\contentsline {subsection}{\numberline {35.4.2}Scrapy}{302}{subsection.35.4.2}
+\contentsline {subsection}{\numberline {35.4.3}Apache Nutch}{302}{subsection.35.4.3}
+\contentsline {subsubsection}{Architecture}{306}{section*.11}
+\contentsline {subsubsection}{Config}{307}{section*.12}
+\contentsline {part}{V\hspace {1em}Linh tinh}{312}{part.5}
+\contentsline {chapter}{\numberline {36}Nghi\IeC {\^e}n c\IeC {\'\uhorn }u}{313}{chapter.36}
+\contentsline {section}{\numberline {36.1}C\IeC {\'a}c c\IeC {\^o}ng c\IeC {\d u}}{313}{section.36.1}
+\contentsline {subsection}{\numberline {36.1.1}Google Scholar \& Semantic Scholar}{313}{subsection.36.1.1}
+\contentsline {subsection}{\numberline {36.1.2}Mendeley}{313}{subsection.36.1.2}
+\contentsline {subsection}{\numberline {36.1.3}H\IeC {\d \ocircumflex }i ngh\IeC {\d i} v\IeC {\`a} t\IeC {\d a}p ch\IeC {\'\i }}{313}{subsection.36.1.3}
+\contentsline {subsection}{\numberline {36.1.4}C\IeC {\^a}u chuy\IeC {\d \ecircumflex }n c\IeC {\h u}a Scihub}{314}{subsection.36.1.4}
+\contentsline {section}{\numberline {36.2}L\IeC {\`a}m sao \IeC {\dj }\IeC {\h \ecircumflex } nghi\IeC {\^e}n c\IeC {\'\uhorn }u t\IeC {\'\ocircumflex }t}{314}{section.36.2}
+\contentsline {section}{\numberline {36.3}S\IeC {\'a}ch gi\IeC {\'a}o khoa}{314}{section.36.3}
+\contentsline {section}{\numberline {36.4}L\IeC {\uhorn }\IeC {\d \ohorn }m l\IeC {\d \abreve }t}{315}{section.36.4}
+\contentsline {section}{\numberline {36.5}Thuy\IeC {\'\ecircumflex }t tr\IeC {\`\i }nh}{315}{section.36.5}
+\contentsline {chapter}{\numberline {37}Ngh\IeC {\`\ecircumflex } l\IeC {\d \acircumflex }p tr\IeC {\`\i }nh}{316}{chapter.37}
+\contentsline {chapter}{\numberline {38}Latex}{317}{chapter.38}
+\contentsline {chapter}{\numberline {39}Ch\IeC {\`a}o h\IeC {\`a}ng}{319}{chapter.39}
+\contentsline {chapter}{\numberline {40}Ph\IeC {\'a}t tri\IeC {\h \ecircumflex }n ph\IeC {\`\acircumflex }n m\IeC {\`\ecircumflex }m}{320}{chapter.40}
+\contentsline {chapter}{\numberline {41}Ph\IeC {\uhorn }\IeC {\ohorn }ng ph\IeC {\'a}p l\IeC {\`a}m vi\IeC {\d \ecircumflex }c}{321}{chapter.41}
+\contentsline {chapter}{\numberline {42}Agile}{323}{chapter.42}
+\contentsline {section}{\numberline {42.1}Introduction}{323}{section.42.1}
+\contentsline {section}{\numberline {42.2}Team}{324}{section.42.2}
+\contentsline {section}{\numberline {42.3}Artifacts}{326}{section.42.3}
+\contentsline {section}{\numberline {42.4}Meetings}{326}{section.42.4}
+\contentsline {chapter}{\numberline {43}Docker}{330}{chapter.43}
+\contentsline {section}{\numberline {43.1}Get Started}{330}{section.43.1}
+\contentsline {section}{\numberline {43.2}Dev}{332}{section.43.2}
+\contentsline {section}{\numberline {43.3}Dockerfile}{332}{section.43.3}
+\contentsline {section}{\numberline {43.4}Container}{333}{section.43.4}
+\contentsline {section}{\numberline {43.5}Compose}{334}{section.43.5}
+\contentsline {section}{\numberline {43.6}Swarm}{335}{section.43.6}
+\contentsline {section}{\numberline {43.7}UCP}{336}{section.43.7}
+\contentsline {section}{\numberline {43.8}Labs}{336}{section.43.8}
+\contentsline {section}{\numberline {43.9}GUI}{337}{section.43.9}
+\contentsline {chapter}{\numberline {44}Lean}{339}{chapter.44}
+\contentsline {section}{\numberline {44.1}Lean Canvas}{339}{section.44.1}
+\contentsline {section}{\numberline {44.2}Workflow}{339}{section.44.2}
+\contentsline {section}{\numberline {44.3}Validated Learning}{340}{section.44.3}
+\contentsline {part}{T\IeC {\`a}i li\IeC {\d \ecircumflex }u}{341}{chapter*.14}
+\contentsline {part}{Ch\IeC {\h i} m\IeC {\d u}c}{342}{chapter*.15}
+\contentsline {part}{Ghi ch\IeC {\'u}}{343}{chapter*.16}
