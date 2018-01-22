@@ -1,8 +1,9 @@
 \begin{thebibliography}{1}
 \providecommand{\natexlab}[1]{#1}
 
-\bibitem[Jurafsky u.a.(2009)Jurafsky / Martin]{Jurafsky:2009:SLP:1214993}
-Jurafsky, Daniel / Martin, James H.  (2009): \textit{Speech and Language
-  Processing (2nd Edition)}. Upper Saddle River, NJ, USA, Prentice-Hall, Inc.
+\bibitem[Goodfellow u.a.(2016)Goodfellow / Bengio /
+  Courville]{Goodfellow-et-al-2016}
+Goodfellow, Ian / Bengio, Yoshua / Courville, Aaron  (2016): \textit{Deep
+  Learning}. , MIT Press.
 
 \end{thebibliography}
