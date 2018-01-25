@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+./build.sh full
+
 cp out/notebook.pdf pdf/notebook.pdf
 
 git status
