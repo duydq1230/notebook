@@ -36,7 +36,6 @@ Many inputs can mean the same thing.
 The analysis of natural language is broken into various board levels such as phonological, morphological, syntactic, semantic, pragmatic and discourse analysis.
 
 
-
 Phonological Analysis
 Phonology is analysis of spoken language. Therefore, it deals with speech recognition and generation. The core task of speech recognition and generation system is to take an acoustic waveform as input and produce as output, a string of words. The phonology is a part of natural language analysis, which deals with it. The area of computational linguistics that deals with speech analysis is computational phonology
 
@@ -48,18 +47,15 @@ Original Sound
 / 0:52
 
 
-
-Text	X means unknown but the world is pretty known it’s seven billion people have seven stones. One billion can save money to fly abroad on holiday every year. One billion can save money to keep a car or buy a car. And then three billion they save money to pay the by be a bicycle or perhaps a two-wheeler. And two billion they are busy saving money to buy shoes. In the future they will get rich and these people we move over here, these people will move over here, we will have two billion more in the world like this and the question is whether the rich people over there are prepared to be integrated in the world with 10 bilions people.
+Text X means unknown but the world is pretty known it’s seven billion people have seven stones. One billion can save money to fly abroad on holiday every year. One billion can save money to keep a car or buy a car. And then three billion they save money to pay the by be a bicycle or perhaps a two-wheeler. And two billion they are busy saving money to buy shoes. In the future they will get rich and these people we move over here, these people will move over here, we will have two billion more in the world like this and the question is whether the rich people over there are prepared to be integrated in the world with 10 bilions people.
 Auto generated sound
 
 0:00
 / 0:36
 
 
-
 Morphological Analysis
 It is the most elementary phase of NLP. It deals with the word formation. In this phase, individual words are analyzed according to their components called “morphemes”. In addition, non-word taken such as punctuation, etc. are separated from words. Morpheme is basic grammatical building block that makes words.
-
 
 
 The study of word structure is refereed to as morphology. In natural language processing, it is done in morphological analysis. The task of breaking a word into its morphemes is called morphological parsing. A morpheme is defined as minimal meaningful unit in a language, which cannot be further broken into smaller units.
@@ -72,9 +68,9 @@ Morphemes are traditionally divided into two types
 
 (i) “free morphemes”, that are able to act as words in isolation (e.g., “thing”, “permanent”, “local”)
 (ii) “bound morphemes”, that can operate only as part of other words (e.g., “is” ‘ing’ etc) The morpheme, which forms the center part of the world, is also called “stem”. In English, a word can be made up of one or more morphemes, e.g.,
-word - thing           -> stem “think”
-word - localize        -> stem “local”, suffix “ize”
-word - denationalize   -> prefix “de”, stem “nation”, suffix “al”, “ize”
+word - thing -> stem “think”
+word - localize -> stem “local”, suffix “ize”
+word - denationalize -> prefix “de”, stem “nation”, suffix “al”, “ize”
 The computational tool to perform morphological parsing is finite state transducer. A transducer performs it by mapping between the two sets of symbols, and a finite state transducer does it with finite automaton. A transducer normally consists of four parts: recognizer, generator, translator, and relator. The output of the transducer becomes a set of morphemes.
 
 Lexical Analysis
@@ -90,7 +86,6 @@ Lexical analysis is dividing the whole chunk of text into paragraphs, sentences,
 
 Syntactic Analysis
 Syntax refers to the study of formal relationships between words of sentences. In this phase the validity of a sentence according to grammar rules is checked. To perform the syntactic analysis, the knowledge of grammar and parsing is required. Grammar is formal specification of rules allowable in the language, and parsing is a method of analyzing a sentence to determine its structure according to grammar. The most common grammar used for syntactic analysis for natural languages are context free grammar (CFG) also called phase structure grammar and definite clause grammar. These grammars are described in detail in a separate actions.
-
 
 
 Syntactic analysis is done using parsing. Two basic parsing techniques are: top-down parsing and bottom-up parsing.
@@ -341,11 +336,9 @@ Example 1:
 For example, given the sentence “Paris is the capital of France”, the idea is to determine that “Paris” refers to the city of Paris and not to Paris Hilton or any other entity that could be referred as “Paris”.
 
 
-
 Example 2:
 
 Give the sentence “In Second Debate, Donald Trump and HIllary Clinton Spar in Bitter, Personal Terms”, the idea is to determine that “Donald Trump” refer to an American politician, and “Hillary Clinton” refer to 67th United States Secretary of State from 2009 to 2013.
-
 
 
 Architecture
@@ -374,7 +367,6 @@ Can be done here or later in the pipeline
 Examples
 
 
-
 Candidate Selection
 
 
@@ -388,9 +380,7 @@ COMMONNESS
 Perform the ranking of candidate entities based on their overall popularity, i.e., “most command sense”
 
 
-
 Examples
-
 
 
 Commonness can be pre-computed and stored in the entity surface form dictionary. Follows a power law with a long tail of extremely unlikely senses; entities at the tail end of distribution can be safely discarded (e.g., 0.001 is sensible threshold)
@@ -412,3 +402,129 @@ References
 “Entity Linking”. wikipedia
 “Entity Linking”. Krisztian Balog, University of Stavanger, 10th Russian Summer School in Information Retrieval. 2016
 “An End-to-End Entity Linking Approach for Tweets”. Ikuya Yamada, Hideaki Takeda, Yoshiyasu Takefuji. 2015
+
+\section{Chatbot}
+
+\diary{24/01/2018 Hôm qua vừa nhận kèo cà phê với CEO của Rabiloo. Thấy thú vị quá. Hôm nay hỏi anh Vũ qua qua về chatbot. Hehe}
+
+\subsection{3 loại chatbot}
+
+Bài này là dịch từ \href{https://www.ibm.com/blogs/watson/2017/12/3-types-of-business-chatbots-you-can-build/}{bài của một bác ở IBM}. Nóng hồi vừa thổi vừa dịch.
+
+\subsubsection{Chatbot hỗ trợ - Support Chatbots}
+
+Những còn này có xu hướng \textbf{nắm rõ về một lĩnh vực}, giống như các kiến thức của một công ty.
+
+Có lẽ Rabiloo, otonhanh, và rất nhiều bot trên facebook thuộc loại này.
+
+\subsubsection{Chatbot chức năng - Skill chatbot}
+
+Các chatbot chức năng thường là loại \textbf{một câu lệnh}, và không cần phải quá chú ý về ngữ cảnh.
+
+Ví dụ, nó có thể thực hiện các câu "Bật đèn lên"
+
+Mấy con bot này có thể ở các nhà thông minh hay các bot trong công nghiệp.
+
+\subsubsection{Trợ lý ảo}
+
+Các trợ lý ảo có thể kết hợp của hai loại trên. Hoạt động tốt nào biết một chút kiến thức của mỗi lĩnh vực.
+
+Một ví dụ là bạn Siri của Apple.
+
+\textbf{Kết}
+
+Không cần biết loại chatbot bạn muốn xây dựng là gì, điều quan trọng là hãy \textbf{đưa cho nó một cuộc sống, một tính cách riêng}, \textbf{khiến nó trở nên hữu ích}, và \textbf{dễ dàng sử dụng}.
+
+Mọi người sử dụng chatbot vì họ muốn có một cách giao tiếp tự nhiên hơn so với những cách trước đó. Có thể đó là công việc đơn giản như bật một chiếc đèn, hay đó là công việc phức tạp như cho vay thế chấp. Mỗi một công việc có những đặc tính cụ thể, chắc chắn chú bot của bạn tỏa sáng với thiết kế của nó.
+
+\textbf{Các phương pháp là không thể đếm xuể}.
+
+\subsection{Ý tưởng chatbot}
+
+\begin{tikzpicture}
+
+
+%  \fill[blue!40!white] (0,0) rectangle (3,2) node[pos=.5]{abc};
+  \draw (0,0) rectangle (3,2) node[pos=.5]{thời tiết};
+  \draw (4,0) rectangle (7,2) node[pos=.5]{hỏi đáp thông tin};
+  \draw (0,2.5) rectangle (3,4.5) node[pos=.5, align=center]{bác sỹ \\ thăm bệnh };
+  \draw (4,2.5) rectangle (7,4.5) node[pos=.5, align=center]{gái xinh \\ truyện cười };
+  \draw (0,5) rectangle (7,7) node[pos=.5, align=center]{khả năng học };
+
+\end{tikzpicture}
+
+Mình muốn chatbot giao tiếp bằng ngôn ngữ tự nhiên chứ không theo kiểu mệnh lệnh. \textit{cười -> ra chuyện cười}. Thế thì không khác gì search engine.
+
+Mà sao không có quan bot nào khai thác tâm trạng, thông tin của người dùng. Để tìm ra nhu cầu của họ nhỉ?
+
+Vài chức năng hữu ích
+
+\begin{itemize}
+  \item Hỏi đáp thông tin cá nhân của bot. Nhiều bot fail bởi trò đơn giản này.
+  \item Yêu đương an ủi tán tỉnh
+  \item Dự báo thời tiết. Lấy thông tin địa điểm người dùng. Bình luận về thời tiết hiện tại
+  \item Tìm ảnh gái xinh, đọc truyện cười
+  \item Khả năng học
+\end{itemize}
+
+Chán chẳng cần làm
+
+\begin{itemize}
+  \item Tra mã số karaoke
+\end{itemize}
+
+\subsection{Một số chatbot}
+
+\textbf{Chatbot tiếng anh}
+
+\begin{enumerate}
+  \item \href{http://www.mitsuku.com/}{Mitsuku (web)} (2000-). Chiến thắng Loebner Prize vào năm 2016-2017
+  \item  \href{http://ec2-54-215-197-164.us-west-1.compute.amazonaws.com/speech.php}{Rose (web)}. Chiến thắng Loebner Prize vào năm 2014-2015
+  \item \href{http://www.cleverbot.com/ (web)}{Cleverbot} (1997)
+  \item \href{https://en.wikipedia.org/wiki/ELIZA}{ELIZA} (1964-1966) tại MIT bởi Joseph Weizenbaum
+  \item \href{https://poncho.is/}{poncho (messenger)}. Con này chỉ chuyên về thời tiết
+  \item \href{http://research.baidu.com/baidus-melody-ai-powered-conversational-bot-doctors-patients/}{Melody (Baidu)}. Chuyên tư vấn về bác sỹ
+   \item \href{https://donotpay-search-master.herokuapp.com/}{Do Not Pay} (2017). Chatbot về tư vấn luật
+  \item \href{https://www.messenger.com/t/MeditateBot}{meditatebot (messenger)}  - Hướng dẫn thiền
+  \item \href{http://bots.duolingo.com/}{bots duolingo (ios)}  - Bot hướng dẫn học ngoại ngữ
+\end{enumerate}
+
+\textbf{Nền tảng tiếng Anh}
+
+\begin{itemize}
+\item api.ai
+\item DialogFlow
+\end{itemize}
+
+\textbf{Cuộc thi tiếng Anh}
+
+\href{https://en.wikipedia.org/wiki/Loebner_Prize}{Loebner Prize}. Được tổ chức lần đầu vào năm 1990. Mục tiêu là kiểm tra xem chương trình có vượt qua được Turning Test hay không.
+
+\textbf{Chatbot tiếng việt}
+
+\begin{enumerate}
+  \item \href{https://www.facebook.com/troly.bedieu/}{troly.bedieu (messenger)} (2016) Có mấy chức năng. Tán ngẫu. Tìm ảnh gái xinh. Ổn phết
+  \item \href{https://chatbottle.co/bots/bob-for-skype}{Bob (skype)} Cũng khá vui đấy
+  \item \href{https://www.facebook.com/2Miki/}{Người Bạn Tốt Miki} (2016). Xịt rồi
+  \item \href{https://www.hana.ai/}{hana.ai}. Nghe nói có vẻ khủng
+  \item \href{http://www.simsimi.com/otn/chatmode}{Simsimi}. Thấy bảo "con" chatbot này bậy lắm. Không biết có thật không?
+  \item \href{http://sumichat.com/}{Sumichat} Hỗ trợ cả tiếng Việt đây 
+  \item \href{http://www.vietarrow.com/tintuc/VisualFriend-tro-chuyen-voi-may-tinh-bang-tieng-Viet.html}{VisualFriend} (2007) bởi HungCode. Nghe nói là thần thánh lắm nhưng chưa kiểm chứng.
+\end{enumerate}
+
+\textbf{Nền tảng tiếng việt}
+
+\begin{enumerate}
+  \item \href{http://hekate.ai/}{hekate.ai} (2017). 66 triệu doanh nghiệp. 1.2 tỷ người. 68 tỷ message mỗi ngày
+  \item \href{https://harafunnel.com/}{harafunnel.com}
+\end{enumerate}
+
+\textbf{Cuộc thi trên nền tảng tiếng Việt}
+
+\href{https://fpt.ai/bot-of-the-year/}{fpt.ai: bot of the year}
+
+Đề bài: Xây dựng Chatbot để nâng cao trải nghiệm của người dùng cá nhân và doanh nghiệp
+
+Thời gian: 22/11/2017 – 30/07/2018
+
+Đối tượng: Cá nhân và doanh nghiệp quan tâm đến lĩnh vực Chatbot trên khắp Việt Nam.

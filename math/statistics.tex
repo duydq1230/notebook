@@ -1,3 +1,132 @@
 \chapter{Thống kê}
 
-Thống kê làm việc với dữ liệu trong thực tế.
+Theo \cite{nguyentiendung2015}, \textbf{thống kê toán học} có thể coi là tổng thể các phương pháp toán học, dựa trên lý thuyết xác suất và các công cụ khác, nhằm đưa ra được những thông tin mới, kết luận mới, có giá trị, từ những bảng số liệu thô ban đầu, và nhằm giải quyết những vấn đề nào đó nảy sinh từ thực tế.
+
+\section{Các vấn đề thống kê}
+
+Một số mục đích chính của thống kê
+
+\begin{itemize}
+  \item Mô tả số liệu.
+  \item Ước lượng và dự đoán các đại lượng.
+  \item Tìm ra các mối quan hệ giữa các đại lượng.
+  \item Kiểm định các giả thuyết.
+\end{itemize}
+
+\section{Ước lượng bằng thống kê}
+
+\subsection{Phương pháp hợp lý cực đại}
+
+\index{maximum likelihood|see {phương pháp hợp lý cực đại}}
+
+\definition{phương pháp hợp lý cực đại}{
+Theo \cite{nguyentiendung2015}, một trong những phương pháp phổ biến nhất để ước lượng phân bố xác suất của $X$ bằng một phân bố xác suất trong một họ nào đó gọi là \textbf{phương pháp hợp lý cực đại} (maximum likelyhood - dễ xảy ra nhất)
+}
+
+Ý tưởng của phương pháp này: những gì mà thấy được trong thực nghiệm, thì phải dễ xảy ra hơn là những gì không thấy. Ví dụ, khi một giáo viên hỏi một học sinh 4 câu hỏi ngẫu nhiên về một môn học nào đó mà học sinh đều trả lời được, thì giáo viên sẽ "ước lượng" đấy là một học sinh giỏi, vì khi giỏi thì mới nhiều khả năng trả lời được cả 4 câu hỏi, còn nếu không giỏi sẽ có nhiều khả năng không trả lời được ít nhất 1 trong 4 câu hơn là khả năng "ăn may" trả lời" được cả 4 câu.
+
+Chúng ta sẽ tìm phân phối xác suất của biến ngẫu nhiên $X$ sao cho mẫu thực nghiệm $(x_1, ..., x_n)$ có nhiều khả năng xảy ra nhất.
+
+$$h_{MLE} = \underset{h \in H}{argmax} P(h|D)$$
+
+\index{hàm chỉ báo}
+
+Ví dụ. Giả sử ta muốn tìm thấy xác suất của một sự kiện $A$ nào đó (ví dụ như sự kiên: say rượu khi lái xe). Gọi $X$ là \textit{hàm chỉ báo} của A: $X = 0$ nếu $A$ không xảy ra, $X = 1$ nếu $A$ xảy ra. Khi đó $X$ có phân bố Bernoulli với tham số $p = P(A)$. Để ước lượng $p$, ta làm $n$ phép thử ngẫu nhiên đọc lập, và được một mẫu $x_1, ..., x_n$ của $X$. Các số $x_1, ..., x_n$ chỉ nhận hai giá trị 0 và 1. Gọi $k$ là số số 1 trong dãy số $x_1, ..., x_n$. Khi đó, hàm độ hợp lý là:
+
+$$L(p) = p^k (1-p)^{n-k}$$
+
+Đạo hàm của $L(p)$ là $L'(p)$
+
+$$L'(p) = n\left(\frac{k}{n} - p\right) p^{k-1} (1-p)^{n-k-1}$$
+
+Từ đó, hàm $L(p)$ đạt cực đại trên khoảng $[0, 1]$ tại điểm $p = \frac{k}{n}=\sum_{i=1}^n \frac{x_i}{n}$
+
+Như vậy, theo phương pháp hợp lý cực đại, ta có ước lượng sau đây của xác suất $p=p(A)$
+
+$$\hat{p} = \sum_{i=1}^{n} \frac{x_i}{n}$$
+
+\subsection{Phương pháp moment}
+
+\subsection{Phương pháp hậu nghiệm cực đại}
+
+\index{maximum a posteriori|see {phương pháp hậu nghiệm cực đại}}
+
+\definition{phương pháp hậu nghiệm cực đại}{
+Với một tập các giải thiết có thể $H$, hệ thống học sẽ tìm \textbf{giả thiết có thể xảy ra nhất} $h$ ($h \in H$) đối với dữ liệu quan sát được $D$.
+}
+
+Giả thiết này được gọi là giả thiết có xác suất hậu nghiệm cực đại (\textbf{maximum a posteriori - MAP})
+
+$$h_{MAP} = \underset{h \in H}{argmax} P(h|D)$$
+
+Do định lý Bayes,
+
+$$h_{MAP} = \underset{h \in H}{argmax} \frac{P(D|h)P(h)}{P(D)}$$
+
+Do $P(D)$ không phụ thuộc vào $h$, nên
+
+\begin{equation}
+\label{equation:map-3}
+h_{MAP} = \underset{h \in H}{argmax} P(D|h)P(h)
+\end{equation}
+
+\index{dữ liệu chơi tennis}
+Ví dụ. Dữ liệu \textbf{chơi tennis}. Dữ liệu được giới thiệu trong quyển \cite{Mitchell:1997:ML:541177} chứa thông tin thời tiết và quyết định chơi/không chơi tennis của một người. Được trình bày trong bảng \ref{table:dataset-play-tennis}
+
+\begin{table}[]
+\centering
+\label{table:dataset-play-tennis}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+\bfseries ngày & \bfseries ngoài trời & \bfseries nhiệt độ     & \bfseries độ ẩm       & \bfseries gió  & \bfseries chơi tennis \\ \hline
+n1   & nắng       & nóng        & cao         & yếu  & không       \\ \hline
+n2   & nắng       & nóng        & cao         & mạnh & không       \\ \hline
+n3   & âm u       & nóng        & cao         & yếu  & có          \\ \hline
+n4   & mưa        & bình thường & cao         & yếu  & có          \\ \hline
+n5   & mưa        & mát mẻ      & bình thường & yếu  & có          \\ \hline
+n6   & mưa        & mát mẻ      & bình thường & mạnh & không       \\ \hline
+n7   & âm u       & mát mẻ      & bình thường & mạnh & có          \\ \hline
+n8   & nắng       & bình thường & cao         & yếu  & không       \\ \hline
+n9   & nắng       & mát mẻ      & bình thường & yếu  & có          \\ \hline
+n10  & mưa        & bình thường & bình thường & yếu  & có          \\ \hline
+n11  & nắng       & bình thường & bình thường & mạnh & có          \\ \hline
+n12  & âm u       & bình thường & cao         & mạnh & có          \\ \hline
+n13  & âm u       & nóng        & bình thường & yếu  & có          \\ \hline
+n14  & mưa        & bình thường & cao         & mạnh & không       \\ \hline
+\end{tabular}
+\caption{Dữ liệu chơi tennis}
+\end{table}
+
+Tập $H$ bao gồm 2 giả thiết có thể
+
+\begin{itemize}
+  \item $h_1$: Anh ta chơi tennis
+  \item $h_2$: Anh ta không chơi tennis
+\end{itemize}
+
+D: Tập dữ liệu (các ngày) mà trong đó trời nắng và gió mạnh (ngoài trời = nắng)
+
+Dựa vào phương pháp MAP, có thể trả lời câu hỏi với thời tiết như vậy, anh ta có chơi tennis hay không?
+
+Nhắc lại công thức \ref{equation:map-3}
+
+\begin{equation}
+h_{MAP} = \underset{h \in H}{argmax} P(D|h)P(h)
+\end{equation}
+
+Do đó, ta cần tính hai giá trị $P(D|h_1)P(h_1)$ và $P(D|h_2)P(h_2)$
+
+\begin{itemize}
+  \item $P(D|h_1)P(h_1) = P(D, h_1)$ \\ $ = P($ ngoài trời=nắng, chơi tennis=có $) = \frac{2}{14}$
+  \item $P(D|h_2)P(h_2) = P(D, h_2)$ \\ $ = P($ ngoài trời=nắng, chơi tennis=không $) = \frac{3}{14}$
+\end{itemize}
+
+Do đó, với phương pháp MAP, có thể đưa ra kết luận với thời tiết như vậy, anh ta sẽ \textbf{không} chơi tenins
+
+\section{unbiased estimation}
+
+\section{Kiểm định các giả thuyết}
+
+\section{Tài liệu tham khảo}
+
+22/01/2018 Hôm nay tìm được quyển \href{http://www.vietmaths.net/2015/11/nhap-mon-hien-ai-xac-suat-va-thong-ke.html}{Nhập môn hiện đại xác suất và thống kê} của hai tác giả Đỗ Đức Thái và Nguyễn Tiến Dũng quá vui.
