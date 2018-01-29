@@ -1,0 +1,93 @@
+\chapter{Tensorflow}
+
+\section{Cài đặt Tensorflow trong Windows}
+
+Step 1: Download the Anaconda installer
+
+Step 2: Double click the Anaconda installer and follow the prompts to install to the default location.
+
+After a successful installation you will see output like this:
+
+\textbf{CUDA Toolkit 8.0}
+
+The NVIDIA CUDA Toolkit provides a comprehensive development environment for C and C++ developers building GPU-accelerated applications. The CUDA Toolkit includes a compiler for NVIDIA GPUs, math libraries, and tools for debugging and optimizing the performance of your applications. You’ll also find programming guides, user manuals, API reference, and other documentation to help you get started quickly accelerating your application with GPUs.
+
+Step 1: Verify the system has a CUDA-capable GPU.
+
+Step 2: Download the NVIDIA CUDA Toolkit.
+
+Step 3: Install the NVIDIA CUDA Toolkit.
+
+Step 4: Test that the installed software runs correctly and communicates with the hardware.
+
+\begin{lstlisting}
+> nvcc -V
+
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2016 NVIDIA Corporation
+Built on Tue_Jan_10_13:22:03_CST_2017
+Cuda compilation tools, release 8.0, V8.0.61
+\end{lstlisting}
+
+\textbf{cuDNN}
+
+
+The NVIDIA CUDA Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks. cuDNN provides highly tuned implementations for standard routines such as forward and backward convolution, pooling, normalization, and activation layers. cuDNN is part of the NVIDIA Deep Learning SDK.
+
+Step 1: Register an NVIDIA developer account
+
+Step 2: Download cuDNN v5.1, you will get file like that cudnn-8.0-windows7-x64-v5.1.zip
+
+
+Step 3: Copy CUDNN files to CUDA install
+
+Extract your cudnn-8.0-windows7-x64-v5.1.zip file, and copy files to corresponding CUDA folder
+
+In my environment, CUDA installed in C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v8.0, you must copy append three folders bin, include, lib
+
+
+\textbf{Install Tensorflow Package}
+
+CPU TensorFlow environment
+
+\begin{lstlisting}
+conda create --name tensorflow python=3.5
+\end{lstlisting}
+
+activate tensorflow
+
+\begin{lstlisting}
+conda install -y jupyter scipy
+pip install tensorflow
+\end{lstlisting}
+
+GPU TensorFlow environment
+
+\begin{lstlisting}
+conda create --name tensorflow-gpu python=3.5
+activate tensorflow-gpu
+conda install -y jupyter scipy
+pip install tensorflow-gpu
+\end{lstlisting}
+
+\section{Cài đặt tensorflow trong Ubuntu 16.04}
+
+Làm theo hướng dẫn rất hay trong bài viết \href{https://gist.github.com/mjdietzx/0ff77af5ae60622ce6ed8c4d9b419f45}{Install CUDA Toolkit v8.0 and cuDNN v6.0 on Ubuntu 16.04}
+\textbf{Cài đặt CUDA 8.0}
+
+Kiểm tra CUDA sau khi cài đặt
+
+\begin{lstlisting}
+> nvcc
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005−2016 NVIDIA Corporation
+Built on Tue_Jan_10_13:22:03_CST_2017
+Cuda compilation tools, release 8.0, V8.0.61
+\end{lstlisting}
+
+\textbf{Cài đặt cuDNN v6.0}
+
+
+\begin{lstlisting}
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64
+\end{lstlisting}
