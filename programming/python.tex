@@ -1587,11 +1587,13 @@ if __name__ == '__main__':
 Suggested Readings
 Is there a simple, elegant way to define singletons?
 
-\section{File System & IO}
+\section{File System \& IO}
 
-JSON
+\subsection{JSON}
+
 Write json file with pretty format and unicode
 
+\begin{lstlisting}[language=Python]
 import json
 import io
 
@@ -1610,8 +1612,11 @@ data = {
 with io.open("sample_json.json", "w", encoding="utf8") as f:
     content = json.dumps(data, indent=4, sort_keys=True, ensure_ascii=False)
     f.write(unicode(content))
-Result
+\end{lstlisting}
 
+\textbf{Output}
+
+\begin{lstlisting}
 {
     "menu": {
         "header": "Sample Menu",
@@ -1634,8 +1639,11 @@ Result
         ]
     }
 }
-Read json file
+\end{lstlisting}
 
+\textbf{Read json file}
+
+\begin{lstlisting}[language=Python]
 import json
 from pprint import pprint
 
@@ -1643,8 +1651,12 @@ with open('sample_json.json') as data_file:
     data = json.load(data_file)
 
 pprint(data)
-Result
+\end{lstlisting}
 
+
+\textbf{Output}
+
+\begin{lstlisting}[language=Python]
 {u'menu': {u'header': u'Sample Menu',
            u'items': [{u'id': u'Open'},
                       {u'id': u'OpenNew', u'label': u'Open New'},
@@ -1652,13 +1664,18 @@ Result
                       {u'id': u'Help'},
                       {u'id': u'About',
                        u'label': u'About Adobe CVG Viewer...'}]}}
+\end{lstlisting}
+
 Related Reading
 
 Parsing values from a JSON file in Python, stackoverflow
 How do I write JSON data to a file in Python?, stackoverflow
-XML
+
+\section{XML}
+
 Write xml file with lxml package
 
+\begin{lstlisting}[language=Python]
 import lxml.etree as ET
 # root declaration
 root = ET.Element('catalog')
@@ -1675,8 +1692,11 @@ title.text = "XML Developer's Guide"
 # write xml to file
 tree = ET.ElementTree(root)
 tree.write("sample_book.xml", pretty_print=True, xml_declaration=True, encoding='utf-8')
-Result
+\end{lstlisting}
 
+\textbf{Output}
+
+\begin{lstlisting}
 <?xml version='1.0' encoding='UTF-8'?>
 <catalog>
   <!-- this is a xml sample file -->
@@ -1685,8 +1705,12 @@ Result
     <title>XML Developer's Guide</title>
   </book>
 </catalog>
+\end{lstlisting}
+
+
 Read xml file with lxml package
 
+\begin{lstlisting}[language=Python]
 from lxml import etree as ET
 
 tree = ET.parse("sample_book.xml")
@@ -1696,21 +1720,31 @@ print "Book Information"
 print "ID     :", book.attrib["id"]
 print "Author :", book.find('author').text
 print "Title  :", book.find('title').text
-Result
+\end{lstlisting}
 
+\textbf{Output}
+
+\begin{lstlisting}
 Book Information
 ID     : bk001
 Author : Gambardella, Matthew
 Title  : XML Developer's Guide
+\end{lstlisting}
 
 \section{Operating System}
 
-File Operations
-Copy folder 1
+\subsection{File Operations}
 
+\textbf{Copy folder}
+
+\begin{lstlisting}[language=Python]
 import shutil
 shutil.copyfile("src", "dst")
-CLI
+\end{lstlisting}
+
+
+\subsection{CLI}
+
 shutil - High-level file operations
 
 \section{Networking}
@@ -1720,12 +1754,16 @@ REST
 JSON 1 2
 GET
 
+\begin{lstlisting}[language=Python]
 import requests
 url = "http://localhost:8080/messages"
 response = requests.get(url)
 data = response.json()
-POST 3
+\end{lstlisting}
 
+\textbf{POST}
+
+\begin{lstlisting}[language=Python]
 import requests
 import json
 
@@ -1735,6 +1773,7 @@ headers = {
   'Content-type': 'application/json',
   'Accept': 'application/json'}
 r = requests.post(url, data=json.dumps(data), headers=headers)
+\end{lstlisting}
 
 \section{Concurrency and Parallelism}
 

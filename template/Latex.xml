@@ -1,0 +1,88 @@
+<templateSet group="Latex">
+  <template name="bash" value="\begin{lstlisting}[language=bash]&#10;$CONTENT$&#10;\end{lstlisting}$END$" description="Code &lt;bash&gt;" toReformat="false" toShortenFQNames="true">
+    <variable name="CONTENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="LATEX" value="true" />
+    </context>
+  </template>
+  <template name="code" value="\begin{lstlisting}[language=$LANGUAGE$]&#10;$CONTENT$&#10;\end{lstlisting}$END$" description="Code" toReformat="false" toShortenFQNames="true">
+    <variable name="LANGUAGE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CONTENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="LATEX" value="true" />
+    </context>
+  </template>
+  <template name="txt" value="\begin{lstlisting}&#10;$CONTENT$&#10;\end{lstlisting}$END$" description="Code &lt;text&gt;" toReformat="false" toShortenFQNames="true">
+    <variable name="CONTENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="LATEX" value="true" />
+    </context>
+  </template>
+  <template name="ul" value="\begin{itemize}&#10;  \item $END$&#10;\end{itemize}" description="ul" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="LATEX" value="true" />
+    </context>
+  </template>
+  <template name="url" value="\href{$TEXT$}{$URL$}$END$" description="url" toReformat="false" toShortenFQNames="true">
+    <variable name="TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="URL" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="LATEX" value="true" />
+    </context>
+  </template>
+  <template name="img" value="\includegraphics{$PATH$}$END$" description="img" toReformat="false" toShortenFQNames="true">
+    <variable name="PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="LATEX" value="true" />
+    </context>
+  </template>
+  <template name="imgf" value="\includegraphics[width=\linewidth]{$PATH$}$END$" description="full width image" toReformat="false" toShortenFQNames="true">
+    <variable name="PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="LATEX" value="true" />
+    </context>
+  </template>
+  <template name="js" value="\begin{lstlisting}[language=Javscript]&#10;$CONTENT$&#10;\end{lstlisting}$END$" description="Code &lt;Javascript&gt;" toReformat="false" toShortenFQNames="true">
+    <variable name="CONTENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="LATEX" value="true" />
+    </context>
+  </template>
+  <template name="py" value="\begin{lstlisting}[language=Python]&#10;$CONTENT$&#10;\end{lstlisting}$END$" description="Code &lt;Python&gt;" toReformat="false" toShortenFQNames="true">
+    <variable name="CONTENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="LATEX" value="true" />
+    </context>
+  </template>
+  <template name="java" value="\begin{lstlisting}[language=Java]&#10;$CONTENT$&#10;\end{lstlisting}$END$" description="Code &lt;Java&gt;" toReformat="false" toShortenFQNames="true">
+    <variable name="CONTENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="LATEX" value="true" />
+    </context>
+  </template>
+  <template name="b" value="\textbf{$TEXT$}$END$" description="Bold" toReformat="false" toShortenFQNames="true">
+    <variable name="TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="LATEX" value="true" />
+    </context>
+  </template>
+  <template name="i" value="\textit{$TEXT$}$END$" description="Italic" toReformat="false" toShortenFQNames="true">
+    <variable name="TEXT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="LATEX" value="true" />
+    </context>
+  </template>
+  <template name="table" value="\begin{tabular}{ $FORMAT$ }&#10; $TEXT1$ &amp; $TEXT2$ \\     &#10;\end{tabular}" description="T" toReformat="false" toShortenFQNames="true">
+    <variable name="FORMAT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TEXT1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TEXT2" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="LATEX" value="true" />
+    </context>
+  </template>
+  <template name="ol" value="\begin{enumerate}&#10;  \item $END$&#10;\end{enumerate}" description="Ordered list" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="LATEX" value="true" />
+    </context>
+  </template>
+</templateSet>
