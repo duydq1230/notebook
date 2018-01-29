@@ -20,6 +20,12 @@ cp template/Latex.xml ~/.Pycharm*/config/templates/Latex.xml
 cp ~/.Pycharm*/config/templates/Latex.xml template/Latex.xml
 ```
 
+Thư mục Live Template
+
+* Windows: <your_user_home_directory>\.PyCharm<version_number>\config\templates
+* Linux: ~PyCharm<version>/config/templates
+* macOS: ~/Library/Preferences/PyCharm<version>/templates
+
 **Các shortcut hỗ trợ**
 
 Cơ bản
