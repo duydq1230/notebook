@@ -1,36 +1,20 @@
 \chapter{Python}
 
+\diary{01/11/2017 Thích python vì nó quá đơn giản (và quá đẹp).}
+
 Hướng dẫn online tại \href{http://magizbox.com/training/python/site/}{http://magizbox.com/training/python/site/}
 
 \section{Giới thiệu}
 
-\begin{item}
-  \item `Python` is a widely used general-purpose, high-level programming language. Its design philosophy emphasizes code readability, and its syntax allows programmers to express concepts in fewer lines of code than would be possible in languages such as C++ or Java.
-  \item The language provides constructs intended to enable clear programs on both a small and large scale.
-\end{item}
+\textbf{Python} is a general-purpose interpreted, interactive, object-oriented, and high-level programming language. It was created by Guido van Rossum during 1985- 1990. Like Perl, Python source code is also available under the GNU General Public License (GPL). This tutorial gives enough understanding on Python programming language.
 
-Python Tutorial
-Python is a general-purpose interpreted, interactive, object-oriented, and high-level programming language. It was created by Guido van Rossum during 1985- 1990. Like Perl, Python source code is also available under the GNU General Public License (GPL). This tutorial gives enough understanding on Python programming language.
+\textbf{Python is Interpreted}: Python is processed at runtime by the interpreter. You do not need to compile your program before executing it. This is similar to PERL and PHP.
 
-Python is Interpreted
+\textbf{Python is Interactive}: You can actually sit at a Python prompt and interact with the interpreter directly to write your programs.
 
-Python is processed at runtime by the interpreter. You do not need to compile your program before executing it. This is similar to PERL and PHP.
+\textbf{Python is Object-Oriented}: Python supports Object-Oriented style or technique of programming that encapsulates code within objects.
 
-Python is Interactive
-
-You can actually sit at a Python prompt and interact with the interpreter directly to write your programs.
-
-Python is Object-Oriented
-
-Python supports Object-Oriented style or technique of programming that encapsulates code within objects.
-
-Python is Beginner Friendly
-
-Python is a great language for the beginner-level programmers and supports the development of a wide range of applications from simple text processing to WWW browsers to games.
-
-Audience
-This tutorial is designed for software programmers who need to learn Python programming language from scratch.
-
+Python is Beginner Friendly: Python is a great language for the beginner-level programmers and supports the development of a wide range of applications from simple text processing to WWW browsers to games.
 
 \textbf{Sách}
 
@@ -46,16 +30,17 @@ This tutorial is designed for software programmers who need to learn Python prog
 
 \section{Cài đặt}
 
-Get Started
-Welcome! This tutorial details how to get started with Python.
+\subsection{Trên Windows}
 
-For Windows
-Anaconda 4.3.0
+\textbf{Anaconda 4.3.0}
+
 Anaconda is BSD licensed which gives you permission to use Anaconda commercially and for redistribution.
 
 1. Download the installer
+
 2. Optional: Verify data integrity with MD5 or SHA-256
 3. Double-click the .exe file to install Anaconda and follow the instructions on the screen
+
 Python 3.6 version
 64-BIT INSTALLER
 Python 2.7 version
@@ -64,7 +49,8 @@ Step 2. Discover the Map
 
 https://docs.python.org/2/library/index.html
 
-For CentOS
+\textbf{Trên CentOS}
+
 Developer tools
 The Development tools will allow you to build and compile software from source code. Tools for building RPMs are also included, as well as source code management tools like Git, SVN, and CVS.
 
@@ -102,14 +88,14 @@ bash ~/Downloads/Anaconda-2.3.0-Linux-x86_64.sh
 
 \section{Cú pháp cơ bản}
 
-Print, print
+\subsection{Print, print}
+
 
 \begin{lstlisting}[language=python]
 print "Hello World"
 \end{lstlisting}
 
-
-Conditional
+\subsection{Conditional}
 
 \begin{lstlisting}[language=Python]
 if you_smart:
@@ -118,7 +104,7 @@ else:
     print "go away"
 \end{lstlisting}
 
-Loop
+\subsection{Loop}
 
 In general, statements are executed sequentially: The first statement in a function is executed first, followed by the second, and so on. There may be a situation when you need to execute a block of code several number of times.
 
@@ -130,7 +116,9 @@ Python programming language provides following types of loops to handle looping 
 while loop	Repeats a statement or group of statements while a given condition is TRUE. It tests the condition before executing the loop body.
 for loop	Executes a sequence of statements multiple times and abbreviates the code that manages the loop variable.
 nested loops	You can use one or more loop inside any another while, for or do..while loop.
-While Loop
+
+\subsection{While Loop}
+
 A while loop statement in Python programming language repeatedly executes a target statement as long as a given condition is true.
 
 Syntax
@@ -153,7 +141,8 @@ print "Good bye!"
 \end{lstlisting}
 
 
-For Loop
+\subsection{For Loop}
+
 
 It has the ability to iterate over the items of any sequence, such as a list or a string.
 
@@ -1063,16 +1052,18 @@ Related Readings
 
 stackoverflow, Convert Python dict to object?
 
-\section{Object Oriented Programming}
+\section{Lập trình hướng đối tượng}
 
 Object Oriented Programming
 Python has been an object-oriented language since it existed. Because of this, creating and using classes and objects are downright easy. This chapter helps you become an expert in using Python's object-oriented programming support.
 
 If you do not have any previous experience with object-oriented (OO) programming, you may want to consult an introductory course on it or at least a tutorial of some sort so that you have a grasp of the basic concepts.
 
-Classes and Objects
+\subsection{Classes and Objects}
+
 Classes can be thought of as blueprints for creating objects. When I define a BankAccount class using the class keyword, I haven't actually created a bank account. Instead, what I've created is a sort of instruction manual for constructing "bank account" objects. Let's look at the following example code:
 
+\begin{lstlisting}[language=Python]
 class BankAccount:
     id = None
     balance = 0
@@ -1092,23 +1083,28 @@ class BankAccount:
 
 john = BankAccount(1, 1000.0)
 john.withdraw(100.0)
+\end{lstlisting}
+
 The class BankAccount line does not create a new bank account. That is, just because we've defined a BankAcount doesn't mean we've created on; we've merely outlined the blueprint to create a BankAccount object. To do so, we call the class's __init__ method with the proper number of arguments (minus self, which we'll get to in a moment)
 
 So, to use the "blueprint" that we crated by defining the class BankAccount (which is used to create BankAccount objects), we call the class name almost as if it were a function: john = BankAccount(1, 1000.0). This line simple say "use the BankAccount blueprint to create me a new object, which I'll refer to as john".
 
 The john object, known as an instance, is the realized version of the BankAccount class. Before we called BankAccount(), no BankAccount object existed. We can, of course, create as many BankAccount objects as we'd like. There is still, however, only one BankAccount class, regardless of how many instances of the class we create.
 
-self
+\subsection{self}
+
 So what's with that self parameter to all of the BankAccount methods? What is it? Why, it's the instance, of course! Put another way, a method like withdraw defines the instructions for withdrawing money from some abstract customer's account. Calling john.withdraw(100) puts those instructions to use on the john instance.
 
 So when we say def withdraw(self, amount):, we're saying, "here's how you withdraw money from a BankAccount object (which we'll call self) and a dollar figure (which we'll call amount). self is the instance of the BankAccount that  withdraw is being called on. That's not me making analogies, either. john.withdraw(100.0) is just shorthand for BankAccount.withdraw(john, 100.0), which is perfectly valid (if not often seen) code.
 
 Constructors: __init__
+
 self may make sense for other methods, but what about __init__? When we call __init__, we're in the process of creating an object, so how can there already be a self? Python allows us to extend the self pattern to when objects are constructed as well, even though it doesn't exactly fit. Just imagine that john = (1, 1000.0) is the same as calling john = BankAccount(john, 1, 1000.0); the john that's passed in is also made the result.
 
 This is why when we call __init__, we initialize objects by saying things like self.id = id. Remember, since self is the instance, this is equivalent to saying john.id = id, which is the same as john.id= 1. Similarly, self.balance = balance is the same as john.balance = 1000.0. After these two lines, we consider the BankAccount object "initialized" and ready for use.
 
 Be careful what you __init__
+
 After __init__ has finished, the caller can rightly assume that the object is ready to use. That is, after john = BankAccount(1, 1000.0), we can start making deposit and withdraw calls on john; john is a fully-initialized object.
 
 Inheritance
@@ -1120,6 +1116,7 @@ If we wanted to create a sales system for our dealership using Object-oriented t
 
 What would these classes look like? Using what we've learned, here's a possible implementation of the Car class:
 
+\begin{lstlisting}[language=Python]
 class Car(object):
     def __init__(self, wheels, miles, make, model, year, sold_on):
         self.wheels = wheels
@@ -1138,10 +1135,13 @@ class Car(object):
         if self.sold_on is None:
             return 0.0  # Not yet sold
         return 8000 - (.10 * self.miles)
+\end{lstlisting}
+
 OK, that looks pretty reasonable. Of course, we would likely have a number of other methods on the class, but I've shown two of particular interest to us: sale_price and purchase_price. We'll see why these are important in a bit.
 
 Now that we've got the Car class, perhaps we should create a Truck class? Let's follow the same pattern we did for car:
 
+\begin{lstlisting}[language=Python]
 class Truck(object):
     def __init__(self, wheels, miles, make, model, year, sold_on):
         self.wheels = wheels
@@ -1160,13 +1160,17 @@ class Truck(object):
         if self.sold_on is None:
             return 0.0  # Not yet sold
         return 10000 - (.10 * self.miles)
+\end{lstlisting}
+
 Wow. That's almost identical to the car class. One of the most important rules of programming (in general, not just when dealing with objects) is "DRY" or "Don't Repeat Yourself. We've definitely repeated ourselves here. In fact, the Car and Truck classes differ only by a single character (aside from comments).
 
 So what gives? Where did we go wrong? Our main problem is that we raced straight to the concrete: Car and Truck are real things, tangible objects that make intuitive sense as classes. However, they share so much data and functionality in common that it seems there must be an abstraction we can introduce here. Indeed there is: the notion of Vehicle.
 
-Abstract Classes
+\subsection{Abstract Classes}
+
 A Vehicle is not a real-world object. Rather, it is a concept that some real-world objects (like cars, trucks, and motorcycles) embody. We would like to use the fact that each of these objects can be considered a vehicle to remove repeated code. We can do that by creating a Vehicle class:
 
+\begin{lstlisting}[language=Python]
 class Vehicle(object):
     base_sale_price = 0
 
@@ -1188,10 +1192,13 @@ class Vehicle(object):
         if self.sold_on is None:
             return 0.0  # Not yet sold
         return self.base_sale_price - (.10 * self.miles)
+\end{lstlisting}
+
 Now we can make the Car and Truck class inherit from the Vehicle class by replacing object in the line class Car(object). The class in parenthesis is the class that is inherited from (object essentially means "no inheritance". We'll discuss exactly why we write that in a bit).
 
 We can now define Car and Truck in a very straightforward way:
 
+\begin{lstlisting}[language=Python]
 class Car(Vehicle):
 
     def __init__(self, wheels, miles, make, model, year, sold_on):
@@ -1214,14 +1221,21 @@ class Truck(Vehicle):
         self.year = year
         self.sold_on = sold_on
         self.base_sale_price = 10000
+\end{lstlisting}
+
 Object
 Convert dict to object
+
+\begin{lstlisting}[language=Python]
 
 class Struct:
     def __init__(self, **entries):
         self.__dict__.update(entries)
+\end{lstlisting}
+
 Then, you can use
 
+\begin{lstlisting}
 > args = {'a': 1, 'b': 2}
 > s = Struct(**args)
 > s
@@ -1230,6 +1244,8 @@ Then, you can use
 1
 > s.b
 2
+\end{lstlisting}
+
 Suggested Readings
 Improve Your Python: Python Classes and Object Oriented Programming
 stackoverflow, Convert Python dict to object?
@@ -1241,6 +1257,7 @@ Metaclasses
 Python, Classes, and Objects
 Most readers are aware that Python is an object-oriented language. By object-oriented, we mean that Python can define classes, which bundle data and functionality into one entity. For example, we may create a class IntContainer which stores an integer and allows certain operations to be performed:
 
+\begin{lstlisting}[language=Python]
 class IntContainer(object):
     def __init__(self, i):
         self.i = int(i)
@@ -1251,6 +1268,8 @@ ic = IntContainer(2)
 ic.add_one()
 print(ic.i)
 3
+\end{lstlisting}
+
 This is a bit of a silly example, but shows the fundamental nature of classes: their ability to bundle data and operations into a single object, which leads to cleaner, more manageable, and more adaptable code. Additionally, classes can inherit properties from parents and add or specialize attributes and methods. This object-oriented approach to programming can be very intuitive and powerful.
 
 What many do not realize, though, is that quite literally everything in the Python language is an object.
@@ -1263,6 +1282,7 @@ To emphasize that the int type really is an object, let's derive from it and spe
 
 (Note: We'll used the super syntax to call methods from the parent class: if you're unfamiliar with this, take a look at this StackOverflow question).
 
+\begin{lstlisting}[language=Python]
 class MyInt(int):
     def __add__(self, other):
         print "specializing addition"
@@ -1272,6 +1292,8 @@ i = MyInt(2)
 print(i + 2)
 specializing addition
 4
+\end{lstlisting}
+
 Using the + operator on our derived type goes through our __add__ method, as expected. We see that int really is an object that can be subclassed and extended just like user-defined classes. The same is true of floats, lists, tuples, and everything else in the Python language. They're all objects.
 
 Down the Rabbit Hole: Classes as Objects
@@ -1784,6 +1806,7 @@ Threads sometimes called light-weight processes and they do not require much mem
 A thread has a beginning, an execution sequence, and a conclusion. It has an instruction pointer that keeps track of where within its context it is currently running.
 
 It can be pre-empted (interrupted)
+
 It can temporarily be put on hold (also known as sleeping) while other threads are running - this is called yielding.
 Starting a New Thread
 To spawn another thread, you need to call following method available in thread module:
@@ -1797,6 +1820,7 @@ Here, args is a tuple of arguments; use an empty tuple to call function without 
 
 Example
 
+\begin{lstlisting}[language=Python]
 #!/usr/bin/python
 
 import thread
@@ -1819,8 +1843,11 @@ except:
 
 while 1:
    pass
+\end{lstlisting}
+
 When the above code is executed, it produces the following result
 
+\begin{lstlisting}
 Thread-1: Thu Jan 22 15:42:17 2009
 Thread-1: Thu Jan 22 15:42:19 2009
 Thread-2: Thu Jan 22 15:42:19 2009
@@ -1831,9 +1858,12 @@ Thread-1: Thu Jan 22 15:42:25 2009
 Thread-2: Thu Jan 22 15:42:27 2009
 Thread-2: Thu Jan 22 15:42:31 2009
 Thread-2: Thu Jan 22 15:42:35 2009
+\end{lstlisting}
+
 Although it is very effective for low-level threading, but the thread module is very limited compared to the newer threading module.
 
-The Threading Module
+\textbf{The Threading Module}
+
 The newer threading module included with Python 2.4 provides much more powerful, high-level support for threads than the thread module discussed in the previous section.
 
 The threading module exposes all the methods of the thread module and provides some additional methods:
@@ -1849,7 +1879,9 @@ join([time]): The join() waits for threads to terminate.
 isAlive(): The isAlive() method checks whether a thread is still executing.
 getName(): The getName() method returns the name of a thread.
 setName(): The setName() method sets the name of a thread.
-Creating Thread Using Threading Module
+
+\textbf{Creating Thread Using Threading Module}
+
 To implement a new thread using the threading module, you have to do the following −
 
 Define a new subclass of the Thread class.
@@ -1859,6 +1891,7 @@ Once you have created the new Thread subclass, you can create an instance of it 
 
 Example
 
+\begin{lstlisting}[language=Python]
 #!/usr/bin/python
 
 import threading
@@ -1894,8 +1927,11 @@ thread1.start()
 thread2.start()
 
 print "Exiting Main Thread"
+\end{lstlisting}
+
 When the above code is executed, it produces the following result
 
+\begin{lstlisting}[language=Python]
 Starting Thread-1
 Starting Thread-2
 Exiting Main Thread
@@ -1911,7 +1947,10 @@ Thread-2: Thu Mar 21 09:10:08 2013
 Thread-2: Thu Mar 21 09:10:10 2013
 Thread-2: Thu Mar 21 09:10:12 2013
 Exiting Thread-2
+\end{lstlisting}
+
 Synchronizing Threads
+
 The threading module provided with Python includes a simple-to-implement locking mechanism that allows you to synchronize threads. A new lock is created by calling the Lock() method, which returns the new lock.
 
 The acquire(blocking) method of the new lock object is used to force threads to run synchronously. The optional blocking parameter enables you to control whether the thread waits to acquire the lock.
@@ -1922,6 +1961,7 @@ The release() method of the new lock object is used to release the lock when it 
 
 Example
 
+\begin{lstlisting}[language=Python]
 #!/usr/bin/python
 
 import threading
@@ -1966,8 +2006,11 @@ threads.append(thread2)
 for t in threads:
     t.join()
 print "Exiting Main Thread"
+\end{lstlisting}
+
 When the above code is executed, it produces the following result
 
+\begin{lstlisting}[language=Python]
 Starting Thread-1
 Starting Thread-2
 Starting Thread-3
@@ -1980,6 +2023,8 @@ Exiting Thread-3
 Exiting Thread-1
 Exiting Thread-2
 Exiting Main Thread
+\end{lstlisting}
+
 Related Readings
 "Python Multithreaded Programming". www.tutorialspoint.com. N.p., 2016. Web. 13 Dec. 2016.
 "An Introduction To Python Concurrency". dabeaz.com. N.p., 2016. Web. 14 Dec. 2016.
@@ -3223,7 +3268,7 @@ Note: an other python conda with lower version (such as 3.5), will occur error w
 
 \noindent \textbf{Interactive programming với ipython}
 
-\noindent Trích xuất ipython ra slide (không hiểu sao default `--to slides` không work nữa, lại phải thêm tham số `--reveal-prefix` [^1]
+\noindent Trích xuất ipython ra slide (không hiểu sao default `--to slides` không work nữa, lại phải thêm tham số `--reveal-prefix` \footnote{\href{https://github.com/jupyter/nbconvert/issues/91#issuecomment-283736634}{https://github.com/jupyter/nbconvert/issues/91#issuecomment-283736634}}
 
 \begin{lstlisting}[language=bash]
 jupyter nbconvert "file.ipynb"
@@ -3425,13 +3470,6 @@ PS: Trong quá trình này, cũng không thèm build thằng PDF với Epub nữ
 
 \section{Pycharm Pycharm}
 
-01/2018: Pycharm là trình duyệt ưa thích của mình trong suốt 3 năm vừa rồi.
+\diary{01/2018: Pycharm là trình duyệt ưa thích của mình trong suốt 3 năm vừa rồi.}
 
 Hôm nay tự nhiên lại gặp lỗi không tự nhận unittest, không resolve được package import bởi relative path. Vụ không tự nhận unittest sửa bằng cách xóa file .idea là xong. Còn vụ không resolve được package import bởi relative path thì vẫn chịu rồi. Nhìn code cứ đỏ lòm khó chịu thật.
-
-\section{Vì sao lại code python?}
-
-\textbf{01/11/2017}
-Thích python vì nó quá đơn giản (và quá đẹp).
-
-[^1]: https://github.com/jupyter/nbconvert/issues/91#issuecomment-283736634
