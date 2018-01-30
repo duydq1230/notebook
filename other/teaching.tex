@@ -63,6 +63,17 @@ Nếu qua chia sẻ bài viết mạng xã hội CR = 1 / 4000
 
 Nếu qua giới thiệu, tư vấn người quen CR = 1 / 2
 
+\subsection{Chia sẻ bài học trên Facebook}
+
+Hoàn thành bài học
+
+Một bài viết chia sẻ lên Facebook có ảnh sẽ được người dùng click vào cao gấp 2-3 lần bài viết không có ảnh.
+Một bài viết có ảnh thumbnail có nút play xem video thì sẽ có số người dùng click vào cao hơn 1.3 lần so với ảnh thuần túy
+
+Một khóa học online không giới thiệu qua Facebook, YouTube thì chắc chắn không có học viên dù giảng viên giỏi đến mấy
+
+Bài giới thiệu trên facebook có nút play có lượt click lớn hơn nhiều so với không có nút play
+
 \section{Flip Learning}
 
 Lớp học đảo ngược
@@ -345,4 +356,131 @@ Sử dụng GET truyền id có thể thay thế DELETE được không? Tại s
 
 Hỏi những học viên có dấu hiệu buồn ngủ
 
-\section{tíchSlide ngắn gọn, xúc }
+\section{Slide ngắn gọn, xúc tích}
+
+Video < 10 phút
+
+\section{Nén video chuẩn H.264}
+
+Áp dụng đối với hệ điều hành Mac và Linux. Sau khi ghi hình ở độ phân giải 1280x720 pixels, và xuất ra video mp4. Nếu kích thước video tính theo Megabytes > 2 * số phút (Mb) thì video đó nén chưa tốt. Chúng ta cần phải nén video với chuẩn H264.
+
+Các bước thực hiện
+
+Vào web site này https://www.ffmpeg.org/ tải phần mềm ffmpeg về
+
+Copy vào thư mục /usr/local/bin để có thể gọi ffmpeg ở mọi nơi
+Tạo một bash script có tên v264 trong thư mục /usr/local/bin
+cd /usr/local/bin
+nano v264
+
+Paste đoạn script này vào file v264
+
+\begin{lstlisting}[language=bash]
+#!/bin/bash
+if [ -z "$1" ]; then
+    echo "You must input video file name"
+    exit
+fi
+if [ -f $1 ]; then
+	output="$(echo $1 | sed 's/\.[^.]*$//')"
+	ffmpeg -i $1 -c:a copy -x264-params crf=30 -b:a 64k "$output-264.mp4"
+else
+	echo "File $1 does not exist"
+fi
+\end{lstlisting}
+
+Để file v264 thực thi được cần gõ lệnh để bổ xung quyền execution
+
+\begin{lstlisting}[language=bash]
+chmod +x v264
+\end{lstlisting}
+
+Khi nén video gõ lệnh này
+
+\begin{lstlisting}[language=bash]
+v264 yourvideo.mp4
+\end{lstlisting}
+
+\section{Các lỗi giảng viên thường mắc phải khi làm video}
+
+1. Nói nhiều, thích ôm đồm nhiều thông tin trong một video > Độ dài tuyệt nhất là 3 phút
+
+2. Chữ bé, các chi tiết khó nhìn khiến người dùng bị mỏi mắt > Thường sau 3-4 phút là khá mệt
+
+3. Thiếu dòng title phút đầu tiên của video clip -> người dùng khó định hình ngày giảng viên muốn nói gì
+
+4. Không điểm danh các mục nhỏ, nội dung trình bày trong video > Không biết sẽ đi về đâu
+
+5. Không có điểm nhấn, phân cách giữa các mục nhỏ trong hướng dẫn > Mình đang ở mục mấy rồi nhỉ? Còn mấy mục nữa thì hết
+
+6. Ít hình minh họa > Một hình ảnh dùng đúng hiệu quả hơn 1000 câu giải thích
+
+7. Chỉ gõ lệnh nhưng ít khi nói mục đích để làm gì? Kết quả mong muốn là gì
+
+8. Không giải thích các thuật ngữ mới
+
+9. Chưa tính đến môi trường thực hành của học viên có thể khác so với giảng viên
+
+\section{Sử dụng Photoshop}
+
+Sử dụng Photoshop để làm poster cho khóa học
+
+\section{Chú ý khi quay video}
+
+1- Camstasia 3 đã ra mắt
+
+2- Ink2 Go
+
+3- xScap
+
+4- Terminal: font Roboto Mono for Powerline 18pt
+
+5- Powerpoint 720p
+
+\section{Thất bại khi thực hành}
+
+Mọi lỗi sơ suất đều khiến giảng viên cực kỳ bối rối, áp lực
+Mồ hôi toát ra như tắm, học viên xì xào, chán nản vì sốt ruột. Buổi học thất bại
+
+Mọi demo cần chuẩn bị tập dượt, dù là chi tiết nhỏ nhất.
+
+Thực hành tối thiểu 3 lần, ghi lại các bước thành Hand-On-Lab.
+Ghi lại những lỗi giảng viên đã gặp phải:
+
+- Cắm nhầm cực dương - âm tụ hóa
+
+- Thiếu tụ lọc nhiễu
+
+- Máy học viên có thể bị thiếu RAM, cấu hình sai
+
+Giảng viên phát trước Hand-On-Lab cho học viên xem. Tạo câu hỏi quiz để đảm bảo học viên hiểu bài trước khi thực hành.
+
+Đối với những bài thực hành khó, hãy yêu cầu học viên cài sẵn môi trường thực hành bởi:
+
+1- Thời gian tải phần mềm ở lớp học có thể lâu
+2- Tự học viên phát hiện lỗi khi cài phần mềm ở nhà
+3- Học viên được làm quen trước với bài lab đơn giản
+
+Đối với bài thực hành khó, hãy mạnh dạn chọn ra 1-2 học viên giỏi để chuẩn bị trước. Đây là đặc ân mà học viên giỏi sẽ thích thú và cố gắng tham gia.
+
+\section{Học viên mất căn bản - Trả lời hỏi đáp}
+
+\textbf{Question:} Trong một lớp học có quá nhiều học viên không có căn bản để học, nhưng lại có vài học viên giỏi, tiếp thu rất nhanh.
+
+Phục vụ học viên mất căn bản hay phục vụ học viên giỏi?
+
+\textbf{Trả lời:} Đừng chia thành 2 nhóm học viên giỏi và học viên kém. Nhóm giỏi sẽ tiếp tục đi nhanh hơn và nhóm kém sẽ bỏ cuộc.
+
+Chia nhóm để ghép học viên giỏi và kém. Học viên giỏi sẽ giúp đỡ học viên kém.
+
+Lớp 12 học viên chia thành 4 nhóm. Tạo ra cuộc thi đua nhỏ giữa các nhóm. Nếu có học viên bỏ học, sắp xếp lại nhóm.
+
+\textbf{Question:} Trong một lớp học thực hành, nếu có nhiều câu hỏi ở mức độ khó khác nhau? Giảng viên chỉ được chọn trả lời một. Vậy chọn câu trả lời nào?
+
+\textbf{Answer:} Hãy trả lời có khả năng hài lòng số đông học viên nhất.
+
+Câu hỏi khó trả lời buổi sau, qua Facebook group của lớp
+
+Câu hỏi ngoài lề không trả lời
+
+Câu hỏi dễ, nhờ học viên khá trong lớp trả lời hộ
