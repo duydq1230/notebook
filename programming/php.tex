@@ -4,23 +4,25 @@ PHP là ngôn ngữ lập trình web dominate tất cả các anh tài khác mà
 
 Cuối tuần này lại phải xem làm sao cài được xdebug vào PHPStorm cho thằng em tập tành lập trình. Haizzz
 
-### Tương tác với cơ sở dữ liệu
+\section{Tương tác với cơ sở dữ liệu}
 
 Liệt kê danh sách các bản ghi trong bảng groups
 
-```
+\begin{lstlisting}
 $sql = "SELECT * FROM `groups`";
 $groups = mysqli_query($conn, $sql);
-```
+\end{lstlisting}
+
 
 Xóa một bản ghi trong bảng groups
 
-```
+\begin{lstlisting}
 $sql = "DELETE FROM `groups` WHERE id = `5`";
-mysqli_query($conn, $sql);
-```
+mysqli_query(\$conn, $sql);
+\end{lstlisting}
 
-### Cài đặt debug trong PHPStorm
+
+\section{Cài đặt debug trong PHPStorm với Windows} 
 
 https://www.youtube.com/watch?v=mEJ21RB0F14
 
@@ -71,3 +73,14 @@ Bookmark các link &quot;Start debugger&quot;, &quot;Stop debugger&quot; lên tr
 * Trong PHPStorm, nhấn vào biểu tượng &quot;Start Listening for PHP Debug Connections&quot;
 * Đặt breakpoint tại dòng thứ 5
 * Refresh lại trang http://localhost/untitled/add.php, lúc này, breakpoint sẽ dừng ở dòng 5
+
+\section{Cấu hình remote debug trong docker container}
+
+Kiểm tra xdebug đã chạy chính xác
+
+\begin{lstlisting}
+tcpdump -i any port 9000
+\end{lstlisting}
+
+Chú ý: Chẳng hiểu tại sao tcpflow lại không nghe được package. Hic. Mất nguyên buổi sáng.
+
