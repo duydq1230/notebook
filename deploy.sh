@@ -2,7 +2,7 @@
 
 ./build.sh full
 
-cp out/notebook.pdf pdf/notebook.pdf
+cp out/notebook_full.pdf pdf/notebook_full.pdf
 
 git status
 git add -A

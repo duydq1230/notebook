@@ -1,16 +1,18 @@
 \chapter{Hệ điều hành}
 
-Những phần mềm không thể thiếu
+\textbf{Những phần mềm không thể thiếu}
 
-* Trình duyệt Google Chrome (với các extensions Scihub, Mendeley Desktop, Adblock)
-    * Adblock extension
-* Terminal (Oh-my-zsh)
-* IDE Pycharm để code python
-* Quản lý phiên bản code Git
-* Bộ gõ ibus-unikey trong Ubuntu hoặc unikey (Windows) (Ctrl-Space để chuyển đổi ngôn ngữ)
-* CUDA (lập trình trên GPU)
+\begin{itemize}
+  \item Adblock extension
+  \item Trình duyệt Google Chrome (với các extensions Scihub, Mendeley Desktop, Adblock)
+  \item Terminal (Oh-my-zsh)
+  \item IDE Pycharm để code python
+  \item Quản lý phiên bản code Git
+  \item Bộ gõ ibus-unikey trong Ubuntu hoặc unikey (Windows) (Ctrl-Space để chuyển đổi ngôn ngữ)
+  \item CUDA (lập trình trên GPU)
+\end{itemize}
 
-**Xem thông tin hệ thống**
+\textbf{Xem thông tin hệ thống}
 
 Phiên bản `ubuntu 16.04`
 
@@ -19,15 +21,16 @@ sudo apt-get install sysstat
 \end{lstlisting}
 
 
-Xem hoạt động (%) của các core cpu
+Xem hoạt động (\%) của các core cpu
 
-```
+\begin{lstlisting}
 mpstat -A
-```
+\end{lstlisting}
+
 
 CPU của mình có bao nhiều core, bao nhiêu siblibngs
 
-```
+\begin{lstlisting}
 cat /proc/cpuinfo
 
 processor       : 23
@@ -55,12 +58,16 @@ clflush size    : 64
 cache_alignment : 64
 address sizes   : 46 bits physical, 48 bits virtual
 power management:
-```
+\end{lstlisting}
 
 Kết quả cho thấy cpu của 6 core và 12 siblings
 
-Xem chương trình nào tốn ram 
+\textbf{Xem chương trình nào tốn ram}
 
+
+\begin{lstlisting}
 ps aux | awk '{print $2, $4, $11}' | sort -k2rn | head -n 20
+\end{lstlisting}
 
-https://www.garron.me/en/go2linux/how-find-which-process-eating-ram-memory-linux.html
+\href{https://www.garron.me/en/go2linux/how-find-which-process-eating-ram-memory-linux.html}{https://www.garron.me/en/go2linux/how-find-which-process-eating-ram-memory-linux.html}
+
