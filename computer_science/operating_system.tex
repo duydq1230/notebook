@@ -58,3 +58,9 @@ power management:
 ```
 
 Kết quả cho thấy cpu của 6 core và 12 siblings
+
+Xem chương trình nào tốn ram 
+
+ps aux | awk '{print $2, $4, $11}' | sort -k2rn | head -n 20
+
+https://www.garron.me/en/go2linux/how-find-which-process-eating-ram-memory-linux.html
