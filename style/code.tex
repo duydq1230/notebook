@@ -2,22 +2,22 @@
 \usepackage{textcomp}
 \usepackage{listings}
 \usepackage{color}
-%\usepackage{framed}
 \definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
 \lstset{
 literate={-}{-}1,
 basicstyle=\fontsize{10}\ttfamily,
-columns=flexible,
+columns=fullflexible,
 frame=none,
 breaklines=true,
 postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 inputencoding=utf8,
 upquote=true,
 showstringspaces=false,
+keepspaces=true,
 xleftmargin=.25in,
 backgroundcolor=\color{lbcolor},
 framexleftmargin=5pt,
-frame=tb, framerule=0pt
+framerule=0pt
 }
 \lstdefinelanguage{JavaScript}{
   keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},

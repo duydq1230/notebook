@@ -121,6 +121,27 @@ A factor graph is a bipartite graph representing the factorization of a function
 Related Readings
 [1]: Factor Graph, wikipedia.org
 
+\section{Conditional Random Fields}
+
+CRFs là mô hình trạng thái tuyến tính vô hướng (máy trạng thái hữu hạn được huấn luyện có đieuè kiện) và tuân theo tính chất Markov thứ nhất. CRFs đã được chứng minh rất thành công cho các bài toán gán nhãn chuỗi như tách từ, gán nhãn cụm từ, xác định thực thể, gán nhãn cụm danh từ, etc.
+
+Gọi o là một chuỗi dự lieuẹ quan sát cần được gán nhãn. Gọi S là tập tráng thại, mỗi trạng thái liên kết với một nhãn l. Đặt s là một chuỗi trạng thái nào đó, CRFs xác định xác suất điều kiện của một chuỗi trạng thái khi biết chuỗi quan sát như sau:
+
+Gọi Z(o) là thừa số chuẩn hóa trên bộ các chuỗi nhãn có thể. fk xác định một hàm đặc trưng và lambda k là trọng số liên kết với mỗi đặc trưng fk. Mục địch của việc học máy với CRFs là ước lượng các trọng số này. ở đây, có hai loại đặc trưng fk: đặc trưng trạng thái (per-state) và đặc trưng chuyển (transition)
+
+fk
+
+fk
+
+Ở đậy $\sigma$ là Kronecker-sigma. Mỗi đặc trưng trạng thái (2) kết hợp nhãn l của trạng thái hienẹ tại $s_t$ là một vị từ ngữ cảnh - một hàm nhị nhanạ xk xác định các ngữ cảnh quan trọng của quan sát o tại vị trí t. Mỗi đặc trưng chuyển biểu diễn sự phụ thuộc chuỗi bằng cách keté hợp nhãn l của trạng thái trước s và nhãn l của trạng thái hienẹ tại s.
+
+Người ta thường huấn luyenẹ CRFs bằng cách làm cực đại hóa hàm likelihood theo dữ lieuẹ huấn luyện sử dụng các kỹ thuật tối ưu như L-BFGS. Việc lập luanạ (dựa trên mô hình đã học) là tìm ra chuỗi nhãn tương ứng của một chuỗi quan sát đầu vào. Đối với CRFs, người ta thường sử dụng thuật toán quy hoạch động điển hình là Viterbi để thực hiện lập luận với dữ liệu mới.
+
+Tai lieu tham khao
+
+http://www.jaist.ac.jp/~bao/VLSP-text/ICTrda08/ICT08-VLSP-SP83.pdf
+
+
 \section{Inference}
 
 This addresses the question of probabilistic inference: how a PGM can be used to answer questions.

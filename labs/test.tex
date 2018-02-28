@@ -1,0 +1,43 @@
+\documentclass[oneside,english]{book}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{listings}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{babel}
+
+\usepackage[unicode=true,
+  bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+  breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+  {hyperref}
+\hypersetup{pdftitle={HOLA}}
+
+\makeatletter
+
+\usepackage[T1]{fontenc}
+\usepackage[includeheadfoot,margin=2cm]{geometry}
+\usepackage{babel}
+\usepackage{xcolor}
+\usepackage{listings}
+
+\lstset{%
+   numbers=none,
+   tabsize=3,
+   breaklines=true,
+   basicstyle=\small\ttfamily,
+   framerule=0pt,
+   backgroundcolor=\color{gray!25},
+   columns=flexible
+}
+
+\makeatother
+
+\begin{document}
+
+\section*{Example}
+
+This is an example code:
+
+\lstinputlisting{example.py}
+\end{document}

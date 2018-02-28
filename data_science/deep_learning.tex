@@ -49,15 +49,20 @@ Neural Network Zoo http://www.asimovinstitute.org/neural-network-zoo/
 word2vec Example
 Step 1: Download word2vec example from github
 
-$ dir
-
+\begin{lstlisting}
+> dir
 02/06/2017 11:45 DIR .
 02/06/2017 11:45 DIR ..
 02/06/2017 10:12 9,144 word2vec_basic.py
+\end{lstlisting}
+
+
+
 Step 2: Run word2vec_basic example
 
-$ activate tensorflow-gpu
-$ python word2vec_basic.py
+\begin{lstlisting}
+activate tensorflow-gpu
+python word2vec_basic.py
 
 Found and verified text8.zip
 Data size 17005207
@@ -77,6 +82,12 @@ Average loss at step 0 : 288.173675537
 Nearest to its: nasl, tinkering, derivational, yachts, emigrated, fatalism, kingston, kochi,
 Nearest to into: streetcars, neglecting, deutschlands, lecture, realignment, bligh, donau, medalists,
 Nearest to state: canterbury, exceptions, disaffection, crete, westernmost, earthly, organize, richland,
+
+\end{lstlisting}
+
+
+
+\section{taif}
 
 \section{Tài liệu Deep Learning}
 
@@ -219,3 +230,50 @@ So far so good. I hope you’ve gotten a basic understanding of what RNNs are an
 
 [^1]: [Understanding Convolutional Neural Networks for NLP](http://www.wildml.com/2015/11/understanding-convolutional-neural-networks-for-nlp)
 [^2]: [http://pytorch.org/docs/master/nn.html](http://pytorch.org/docs/master/nn.html)
+
+\section{Một số thư viện và framework hỗ trợ Deep Learning}
+
+Cùng với sự phát triển của các thuật toán DL thì các thư viện cũng như framework hỗ trợ các thuật toán này cũng ngày càng tăng về số lượng. Hầu hết các thư viện và framework này đều cung cấp dưới dạng mã nguồn mở do đó rất linh hoạt trong việc sử dụng và mở rộng, đây cũng là một trong những lý do DL được áp dụng trong nhiều bài toán với nhiều lĩnh vực khác nhau. Trong phần tiếp theo nội dung post này sẽ giới thiệu một số thư viện phổ biến đang được cộng đồng nghiên cứu sử dụng.
+
+framework
+
+Caffe framework
+Caffe được viết bằng C++ và phát triển bởi Yangqing Jia từ trung tâm Berkeley Vision Learning Center của đại học UC Berkeley. Được giới thiệu đầu tiên năm 2014 với mục đích là sử dụng để áp dụng thuật toán DL trong các bài toán liên quan đến thị giác máy, cho đến ngày nay cùng với sự đóng góp của cộng đồng, caffe framework được sử dụng cho nhiều lĩnh vực khác như xử lý ngôn ngữ tự nhiên, xử lý tiếng nói…
+
+Sau đây là một số tính năng nổi bật của caffe framework:
+
+Ngoài ngôn ngữ dùng để phát triển là C++, caffe framework còn hỗ trợ Matlab, Python.
+Dễ dàng trong việc thiết lập và cài đặt do Caffe có kiến trúc đặc biệt trong đó sử dụng các thư viện đi kèm một cách độc lập.
+Caffe cho phép người dùng có thể dẽ dàng tùy chọn huấn luyện thuật toán DL trên CPU hoặc GPU.
+Người dùng có thể tự thiết lập một cấu trúc mạng cho hệ thống của mình theo một quy ước có trước, vì vậy người dùng không cần can thiệp quá sâu vào phần lập trình mà vẫn sử dụng được DL.
+Người sử dụng có thể dễ dàng thực hiện quá trình huấn luyện trên dữ liệu của mình thông qua các câu lệnh đơn giản. Ngoài ra, người dùng cũng có thể sử dụng các mô hình đã được huấn luyện sẵn (pretrain model) do cộng đồng đóng góp (models zoo).
+2. Torch
+
+Torch được phát triển bằng ngôn ngữ Lua bởi nhóm nghiên cứu tại trường Đại học NewYork. Torch hiện được sử dụng rộng rãi trong nhiều phòng nghiên cứu cũng như các hãng công nghệ nổi tiếng Facebook, Google, Twitter, NYU, IDIAP …
+Sau đây là một số tính năng nổi bật của Torch framework:
+
+Torch được phát triển bằng ngôn ngữ Lua, một ngôn ngữ mà dễ dàng tích hợp với C. Do đó, chỉ trong vài giờ, bất kì thư viện C hay C++ nào cũng đều trở thành thư viện Lua.
+Torch cũng có thể sử dụng các mô hình huấn luyện trước từ Caffe framework.
+Torch có khả năng chạy trên nhiều hệ điều hành, trong đó bao gồm các hệ điều hành di động như iOS, Android.
+Tuy nhiên Torch khi cần thiết kế hay sử dụng một cấu trúc mạng người dùng sẽ phải tự lập trình với các quy ước đã đặt ra trước.
+
+3. TensorFlow
+
+Thư viện TensorFlow viết bằng C++ và phát triển bởi Google và được giới thiệu vào tháng 11 năm 2015. Hiện tại TensorFlow được cho là sử dụng trong nhiều dịch vụ của Google như phân loại email của gmail, nhận biết phát âm và dịch tự động, nhận biết khuôn mặt trong Google Photo, tối ưu hoá kết quả tìm kiếm, quảng cáo trong Youtube, …
+
+Một số tính năng nổi bật của Torch framework:
+
+TensorFlow hỗ trợ cả hai ngôn ngữ c và python.
+TensorFlow có thể chạy trên nhiều CPU cũng như GPU giúp đẩy nhanh quá trình huấn luyện cũng như xử lý dữ liệu thực từ mô mình đã được học. Ngoài ra với việc có thể sử dụng thư viện này trên các hệ thống cloud sẽ làm đẩy nhanh hiệu năng của các hệ thống sử dụng TensorFlow.
+Với khả năng chạy trên nhiều hệ điều hành như bao gồm cả iOS, Android, hứa hẹn sẽ phát triển được các ứng dụng thông minh nhờ áp dụng các tính năng nổi bật của DL.
+4. Theano
+
+Theano là thư viện thuần Python được phát triển bởi LISA Lab – Đại Học Montreal. Theano cung cấp các thư viện tính toán, cho phép người dùng định nghĩa, tối ưu và đánh giá các hàm tính toán. Theano có khả năng xử lý một lượng lớn dữ liệu với thời gian nhanh chóng và cho phép sử dụng cả CPU và GPU.
+
+Để thiết kế kiến trúc mạng neural cho riêng mình, người dùng phải tự lập trình từ những hàm của thư viện Theano.
+
+Theano sử dụng 2 gói thư viện để hỗ trợ cho việc định nghĩa mô hình mạng neural:
+
+Lasagne: Là thư viện định nghĩa các lớp (trừ lớp cuối cùng) của mô hình mạng neural. Lasagne giúp người dùng lưu trữ dữ liệu trong mạng, tính toán giá trị hàm lỗi, cập nhật trọng số.
+Keras: Là lớp cuối cùng trong cấu trúc mạng. Hỗ trợ cài đặt các hàm kích hoạt và định nghĩa lớp softmax.
+Tương tự như Caffe, Theano cũng có hỗ trợ các mô hình đã được huấn luyện do người sử dụng chia sẻ từ các trang web khác nhau.
