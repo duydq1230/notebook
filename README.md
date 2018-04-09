@@ -8,6 +8,8 @@ Mình dùng latex trên Pycharm với các custom Live Templates cho tex
 
 #### Khoa học máy tính (Computer Science)
 
+* Docker
+
 #### Khoa học dữ liệu (Data Science)
 
 #### Lập trình (Programming)
@@ -15,6 +17,16 @@ Mình dùng latex trên Pycharm với các custom Live Templates cho tex
 * Python ([online](https://github.com/rain1024/notebook/tree/master/programming/python))
 
 #### Toán (Math)
+
+#### Các vấn đề khác (Other)
+
+* Latex
+* Lean
+* Teaching
+* Work
+* Agile
+* Coder
+* Research
 
 ## Sử dụng Live Templates để soạn thảo latex trên Python
 
