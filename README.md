@@ -2,8 +2,6 @@
 
 Quyển sách này được viết bằng latex.
 
-Mình dùng latex trên Pycharm với các custom Live Templates cho tex
-
 ## Mục lục 
 
 #### Khoa học máy tính (Computer Science)
@@ -28,7 +26,11 @@ Mình dùng latex trên Pycharm với các custom Live Templates cho tex
 * Coder
 * Research
 
-## Sử dụng Live Templates để soạn thảo latex trên Python
+## Ghi chú 
+
+Mình dùng latex trên Pycharm với các custom Live Templates cho tex
+
+### Sử dụng Live Templates để soạn thảo latex trên Python
 
 Cập nhật Live Template
 
