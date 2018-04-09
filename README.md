@@ -6,7 +6,7 @@ Dự án tập hợp các kiến thức về khoa học máy tính
 
 #### Khoa học máy tính (Computer Science)
 
-* Docker
+* Docker ([web](https://github.com/rain1024/notebook/blob/master/books/computer_science/docker), [pdf](https://github.com/rain1024/notebook/blob/master/books/computer_science/docker/docker.pdf))
 
 #### Khoa học dữ liệu (Data Science)
 
