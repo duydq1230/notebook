@@ -12,6 +12,8 @@ Mình dùng latex trên Pycharm với các custom Live Templates cho tex
 
 #### Lập trình (Programming)
 
+* Python ([online](https://github.com/rain1024/notebook/tree/master/programming/python))
+
 #### Toán (Math)
 
 ## Sử dụng Live Templates để soạn thảo latex trên Python
