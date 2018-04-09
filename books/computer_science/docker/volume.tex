@@ -1,0 +1,44 @@
+\section{Volume}
+
+Create a volume
+
+$ docker volume create my-vol
+
+List Volumes
+
+$ docker volume ls
+
+Inspect a volume
+
+$ docker volume inspect my-vol
+
+Remove a volume:
+
+$ docker volume rm my-vol
+
+\subsection{Chuyển một volume từ máy này sang máy khác}
+
+Step 1: Create backup
+
+$ docker volume ls
+
+$ docker inspect <volume-name>
+
+$ cd <volume-path>
+$ tar -czf data.tar.gz .
+
+Step 2: Restore
+
+$ docker-machine scp data.tar.gz <machine-name>:/root/data.tar.gz
+
+$ tar -xzf data.tar.gz
+
+$ cp <data-folder-path> <mount-path>
+
+$ chown -R root:root <mount-path>
+
+$ chmod 777 <mount-path>
+
+Step 3: Verify
+
+Xác nhận rằng dữ liệu đã được migrate thành công
