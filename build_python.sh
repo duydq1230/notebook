@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 rm -rf out/*
+mkdir out
 
 pdflatex -file-line-error -interaction=nonstopmode -synctex=1 -output-format=pdf -output-directory=out -aux-directory=auxil books/programming/python/index.tex
 
