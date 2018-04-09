@@ -1,6 +1,6 @@
 # Ghi chú của một coder
 
-Quyển sách này được viết bằng latex.
+Dự án tập hợp các kiến thức về khoa học máy tính
 
 ## Mục lục 
 
@@ -26,7 +26,7 @@ Quyển sách này được viết bằng latex.
 * Coder
 * Research
 
-## Ghi chú 
+## Ghi chú khi sử dụng  
 
 Mình dùng latex trên Pycharm với các custom Live Templates cho tex
 
