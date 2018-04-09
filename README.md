@@ -4,6 +4,16 @@ Quyển sách này được viết bằng latex.
 
 Mình dùng latex trên Pycharm với các custom Live Templates cho tex
 
+## Mục lục 
+
+#### Khoa học máy tính (Computer Science)
+
+#### Khoa học dữ liệu (Data Science)
+
+#### Lập trình (Programming)
+
+#### Toán (Math)
+
 ## Sử dụng Live Templates để soạn thảo latex trên Python
 
 Cập nhật Live Template
