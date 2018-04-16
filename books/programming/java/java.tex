@@ -4,6 +4,9 @@ View online \href{http://magizbox.com/training/java/site/}{http://magizbox.com/t
 
 Java is a general-purpose computer programming language that is concurrent, class-based, object-oriented, and specifically designed to have as few implementation dependencies as possible. It is intended to let application developers "write once, run anywhere" (WORA), meaning that compiled Java code can run on all platforms that support Java without the need for recompilation. Java applications are typically compiled to bytecode that can run on any Java virtual machine (JVM) regardless of computer architecture. As of 2016, Java is one of the most popular programming languages in use, particularly for client-server web applications, with a reported 9 million developers. Java was originally developed by James Gosling at Sun Microsystems (which has since been acquired by Oracle Corporation) and released in 1995 as a core component of Sun Microsystems' Java platform. The language derives much of its syntax from C and C++, but it has fewer low-level facilities than either of them.
 
+
+\part{Java cơ bản}
+
 \input{books/programming/java/get_started.tex}
 \input{books/programming/java/basic_syntax.tex}
 
@@ -794,7 +797,7 @@ public class Salary extends Employee {
 Related Readings
 "Java Abstraction". www.tutorialspoint.com. N.p., 2016. Web. 10 Dec. 2016.
 
-\section{File System & IO}
+\chapter{File System & IO}
 
 The java.io package contains nearly every class you might ever need to perform input and output (I/O) in Java. All these streams represent an input source and an output destination. The stream in the java.io package supports many data such as primitives, object, localized characters, etc.
 
@@ -1120,7 +1123,7 @@ ReadDir.class
 Related Readings
 "Java Files And I/O". www.tutorialspoint.com. N.p., 2016. Web. 15 Dec. 2016.
 
-\section{Error Handling}
+\chapter{Error Handling}
 
 An exception (or exceptional event) is a problem that arises during the execution of a program. When an Exception occurs the normal flow of the program is disrupted and the program/Application terminates abnormally, which is not recommended, therefore, these exceptions are to be handled.
 
@@ -1530,7 +1533,7 @@ Programmatic Exceptions − These exceptions are thrown explicitly by the applic
 Suggested Readings
 "Java Exceptions". 2016. www.Tutorialspoint.Com. https://www.tutorialspoint.com/java/java_exceptions.htm.
 
-\section{Logging}
+\chapter{Logging}
 
 Log4j
 log4j is a reliable, fast and flexible logging framework (APIs) written in Java, which is distributed under the Apache Software License. log4j is a popular logging package written in Java. log4j has been ported to the C, C++, C#, Perl, Python, Ruby, and Eiffel languages.
@@ -1616,9 +1619,12 @@ Suggested Readings
 "Log4j Tutorial". 2016. www.tutorialspoint.com. http://www.tutorialspoint.com/log4j/.
 "Java Logging". 2016. tutorials.jenkov.com. http://tutorials.jenkov.com/java-logging/index.html.
 
-\section{IDE}
+\part{Xây dựng ứng dụng Java}
+
+\chapter{IDE}
 
 Java: IDE
+\begin{lstlisting}
 IntellIJ
 ├── 1. Project Manager
 ├── 2. Search & Replace
@@ -1627,6 +1633,8 @@ IntellIJ
 ├── 5. Debugging
 ├── 6. Build & Release
 └── 7. Git Integration
+\end{lstlisting}
+
 1. Project Manager
 1.1 Create New Project
 
@@ -1641,105 +1649,12 @@ Next/Previous Error	F2 / Shift + F2
 4. Formatting
 Auto Format	Ctrl + Alt + L
 
-\section{Package Manager}
 
-Java: Package Manager
-Gradle
+\input{books/programming/java/package_manager.tex}
 
+\input{books/programming/java/build_tool.tex}
 
-Create your first project with gradle
-Step 1: Create new project folder
-
-mkdir gradle_sample
-Step 2: Make folder structure
-
-gradle init --type java-library
-Step 3: Import to IntelliJ
-
-Open IntelliJ, click File > New... > Project From Existing Sources...
-Plugins
-Application plugin
-Usages
-
-1. Using the application plugin
-
-Add this line in build.gradle
-
-apply plugin: 'application'
-2. Configure the application main class
-
-mainClassName = "org.gradle.sample.Main"
-
-\section{Build Tool}
-
-Java: Build Tool
-Apache Ant
-
-
-Apache Ant is a Java library and command-line tool whose mission is to drive processes described in build files as targets and extension points dependent upon each other. The main known usage of Ant is the build of Java applications. Ant supplies a number of built-in tasks allowing to compile, assemble, test and run Java applications. Ant can also be used effectively to build non Java applications, for instance C or C++ applications. More generally, Ant can be used to pilot any type of process which can be described in terms of targets and tasks. 1
-
-Install Ant
-Download and extract Apache Ant 1.9.6
-
-wget http://mirrors.viethosting.vn/apache//ant/binaries/apache-ant-1.9.6-bin.tar.gz
-tar -xzf apache-ant-1.9.6-bin.tar.gz
-Set path to ant folder
-
-Build Ant through proxy
-Requirement: 1.9.5+
-
-Add the following lines into build.xml
-
-<target name="ivy-init" depends="ivy-proxy, ivy-probe-antlib, ivy-init-antlib" description="--> initialise Ivy settings">
-  <ivy:settings file="${ivy.dir}/ivysettings.xml" />
-  </target>
- <target name="ivy-proxy" description="-->Proxy Ivy settings">
-  <property name="proxy.host" value="proxy.com" />
-  <property name="proxy.port" value="8080" />
-  <property name="proxy.user" value="user" />
-  <property name="proxy.password" value="password" />
-  <setproxy
-    proxyhost="${proxy.host}"
-    proxyport="${proxy.port}"
-    proxyuser="${proxy.user}"
-    proxypassword="${proxy.password}" />
- </target>
-Apache Ant™ ↩
-
-\section{Production}
-
-Java: Production (Docker)
-Production with java
-
-Base Image: [java]/java
-
-Docker Folder
-
-your-app/
-├── app
-│   ├── bin
-│   ├───── your_app.sh
-│   └── lib
-├── Dockerfile
-└── run.sh
-Dockerfile
-
-FROM java:7
-
-COPY run.sh run.sh
-run.sh
-
-cd /app/bin
-chmod u+x your_app.sh
-./your_app.sh
-Compose
-
- service:
-  build: ./your_app
-  command: 'bash run.sh'
-
-
-
+\input{books/programming/java/production.tex}
 
 
 
