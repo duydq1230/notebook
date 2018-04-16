@@ -1,6 +1,4 @@
-\chapter{Basic Syntax}
-
-\section{Variable & Types}
+\chapter{Variables}
 
 Although Java is object oriented, not all types are objects. It is built on top of basic variable types called primitives.
 
@@ -14,7 +12,9 @@ float (float number, 4 bytes)
 double (float number, 8 bytes)
 char (a character, 2 bytes)
 boolean (true or false, 1 byte) Java is a strong typed language, which means variables need to be defined before we use them.
-Numbers
+
+\section{Numbers}
+
 To declare and assign a number use the following syntax:
 
 int myNumber;
@@ -69,7 +69,8 @@ b = children; // Will not work
 if (children) { // Will not work
     // Will not work
 }
-Operators
+
+\section{Operators}
 Java provides a rich set of operators to manipulate variables. We can divide all the Java operators into the following groups:
 
 Arithmetic Operators
@@ -84,11 +85,15 @@ Arithmetic operators are used in mathematical expressions in the same way that t
 The following table lists the arithmetic operators:
 
 Operator	Description	Example
+
+\begin{lstlisting}
 + (Addition)	Adds values on either side of the operator	10 + 20 -> 30
 - (Subtraction)	Subtracts right hand operand from left hand operand	10 - 20 -> -10
 * ( Multiplication )	Multiplies values on either side of the operator	10 * 20 -> 200
 / (Division)	Divides left hand operand by right hand operand	20 / 10 -> 2
 % (Modulus)	Divides left hand operand by right hand operand and returns remainder	7 % 3 -> 1
+\end{lstlisting}
+
 ++ (Increment)	Increases the value of operand by 1
 a = 20
 
@@ -312,17 +317,36 @@ boolean r3 = a == sameA;  // This is true, since a and sameA are really the same
 
 \chapter{Data Structure}
 
-Data Structure
-Number, String
+\section{Number}
+
 Convert number to string
 
+\begin{lstlisting}[language=Java]
 String.valueOf(1000)
+\end{lstlisting}
+
 Make a random
 
+\begin{lstlisting}[language=Java]
 // create a random number from 0 to 99
 (new Random()).nextInt(100)
-Collection
-Arrays
+\end{lstlisting}
+
+
+\section{String}
+
+Gộp một mảng các string vào một string
+
+
+\begin{lstlisting}[language=Java]
+List<String> strings = Arrays.asList("a", "b", "c");
+String s = String.join(" ", strings);
+\end{lstlisting}
+
+\section{Collection}
+
+\subsection{Arrays}
+
 Arrays in Java are also objects. They need to be declared and then created. In order to declare a variable that will hold an array of integers, we use the following syntax:
 
 int[] arr;
@@ -348,6 +372,7 @@ Don't try to print the array without a loop, it will print something nasty like 
 
 \subsection{Set}
 
+\begin{lstlisting}[language=Java]
 import java.util.HashSet;
 import java.util.Set;
 
@@ -366,7 +391,6 @@ public class HelloWorld{
         System.out.println(dogs.size());
      }
 }
-
 
 // 3
 public class Dog {
@@ -389,6 +413,10 @@ public class Dog {
         return (obj instanceof Dog && ((Dog) obj).value == this.value);
     }
 }
+\end{lstlisting}
+
+
+
 List
 List<String> places = Arrays.asList("Buenos Aires", "Córdoba", "La Plata");
 Datetime
