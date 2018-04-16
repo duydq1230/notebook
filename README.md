@@ -37,13 +37,13 @@ Cập nhật Live Template
 Để load các Live Template vào PycharmProject
 
 ```
-cp template/Latex.xml ~/.Pycharm*/config/templates/Latex.xml
+cp pycharm/Latex.xml ~/.Pycharm*/config/templates/Latex.xml
 ```
 
 Để cập nhật các Live Template từ PycharmProject
 
 ```
-cp ~/.Pycharm*/config/templates/Latex.xml template/Latex.xml
+cp ~/.Pycharm*/config/templates/Latex.xml pycharm/Latex.xml
 ```
 
 Thư mục Live Template

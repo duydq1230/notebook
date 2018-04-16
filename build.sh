@@ -13,6 +13,7 @@ folders=(
   ["latex"]="books/computer_science/latex"
   ["docker"]="books/computer_science/docker"
   ["python"]="books/programming/python"
+  ["java"]="books/programming/java"
 )
 folder=${folders[$name]}
 
