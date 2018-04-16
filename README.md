@@ -13,6 +13,7 @@ Dự án tập hợp các kiến thức về khoa học máy tính
 #### Lập trình (Programming)
 
 * Python ([online](https://github.com/rain1024/notebook/tree/master/books/programming/python))
+* Java ([online](https://github.com/rain1024/notebook/tree/master/books/programming/java))
 
 #### Toán (Math)
 
