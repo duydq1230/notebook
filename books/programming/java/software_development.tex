@@ -1,0 +1,47 @@
+\part{Phát triển phần mềm}
+
+\chapter{IDE}
+
+Java: IDE
+\begin{lstlisting}
+IntellIJ
+├── 1. Project Manager
+├── 2. Search & Replace
+├── 3. Navigation
+├── 4. Formatting
+├── 5. Debugging
+├── 6. Build & Release
+└── 7. Git Integration
+\end{lstlisting}
+
+1. Project Manager
+1.1 Create New Project
+
+1.2 Import Maven Project
+
+https://www.jetbrains.com/help/idea/2016.1/importing-project-from-maven-model.html
+
+2. Search & Replace
+Global Search	Shift Shift
+3. Navigation
+Next/Previous Error	F2 / Shift + F2
+4. Formatting
+Auto Format	Ctrl + Alt + L
+
+\chapter{Profiling}
+
+Công cụ profiling hay: Jprofile
+
+Đã "xử" được em JProfile v9, dùng khá ổn. 
+
+\textbf{Theo dõi hiệu năng}
+
+Theo dõi hiệu năng là một hành động quan sát và thu thập - một cách không can thiệp (nonintrusive) - dữ liệu hiệu năng từ một ứng dụng đang vận hành. Trong hầu hết các trường hợp, theo dõi thường là dạng hành động mang tính phòng ngừa và chủ động, được thực hiện trong tất cả các môi trường của ứng dụng: môi trường thực, môi trường giám định chất lượng, hoặc môi trường phát triển. Tuy nhiên, theo dõi cũng thường là bước đầu tiên trong các hành động phản ứng lại tình huống xuất hiện báo cáo có vấn đề về hiệu năng của ứng dụng từ người dùng hoặc những người có liên quan, nhưng không cung cấp đầy đủ thông tin hoặc những đầu mối đề tìm ra nguyên nhân gốc rễ vấn đề. Theo dõi giúp xác định và cách ly các vấn đề tiềm năng mà không ảnh hưởng nghiêm trọng đến sự sẵn sàng đáp ứng hoặc thông lượng của một ứng dụng hiện đang chạy.
+
+\textbf{Đo đạc hiệu năng}
+
+Đo đạc hiệu năng cũng là một hành động thu thập dữ liệu hiệu năng từ một ứng dụng đang vận hành. Tuy nhiên, khác với theo dõi hiệu năng, việc lập hồ sơ hiệu năng có thể tác động hoặc can thiệp nhiều hơn đến ứng dụng. Đo đạc hiệu năng thường tập trung có chủ đích vào phạm vi hẹp hơn so với theo dõi hiệu năng. Đo đạc rất hiếm khi được thực hiện trong môi trường thực, mà nó thường được thực hiện trong các môi trường giám định chất lượng, kiểm thử hoặc phát triển. Đo đạc thường chỉ xảy ra sau hoạt động theo dõi kết thúc hoặc khi những yêu cầu về hiệu năng được xác định rõ (well-defined).
+
+\textbf{Jprofiler - Công cụ hoàn hỏa giúp theo dõi và đo đạc hiệu năng}
+
+Jprofiler được phát triển bởi ej-technologies.com  hiện tại phiên bản mới nhất đang là bản 9.1, trong phạm vi của bài viết này tôi sẽ hướng dẫn cách cài đặt và  theo dõi ứng dụng từ máy cá nhân chạy Window và theo dõi trường trình Java được triển khai chạy thực tế trên máy Linux (Centos 7).
