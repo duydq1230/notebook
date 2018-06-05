@@ -64,10 +64,47 @@ Kết quả cho thấy cpu của 6 core và 12 siblings
 
 \textbf{Xem chương trình nào tốn ram}
 
-
 \begin{lstlisting}
 ps aux | awk '{print $2, $4, $11}' | sort -k2rn | head -n 20
 \end{lstlisting}
 
 \href{https://www.garron.me/en/go2linux/how-find-which-process-eating-ram-memory-linux.html}{https://www.garron.me/en/go2linux/how-find-which-process-eating-ram-memory-linux.html}
+
+\textbf{Quản lý các thiết bị}
+
+Câu lệnh blkid: xem các thiết bị 
+
+```
+$ blkid
+/dev/sda1: UUID="6e1dba21-bbc0-437a-8052-81bb4e428990" TYPE="ext4" PARTUUID="317dca10-01"
+/dev/sdb1: LABEL="data" UUID="7da6c37a-ce51-4610-8cbb-b2a3f5730dd6" TYPE="ext4" PARTUUID="e749bb4a-01"
+```
+
+Sử dụng /etc/fstab để quản lý thông tin mount
+
+```
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda1 during installation
+UUID=6e1dba21-bbc0-437a-8052-81bb4e428990 /               ext4    errors=remount-ro 0       1
+UUID=7da6c37a-ce51-4610-8cbb-b2a3f5730dd6 /data           ext4  defaults        0 0
+```
+
+Các tùy chọn khi mount.
+
+Nếu có nhiều tùy chọn thì chúng được phân cách bởi dấu phẩy. Dưới đây là 1 số tùy chọn đáng chú ý:
+
+- auto: tự động mount thiết bị khi máy tính khởi động.
+- noauto: không tự động mount, nếu muốn sử dụng thiết bị thì sau khi khởi động vào hệ thống bạn cần chạy lệnh mount.
+- user: cho phép người dùng thông thường được quyền mount.
+- nouser: chỉ có người dùng root mới có quyền mount.
+- exec: cho phép chạy các file nhị phân (binary) trên thiết bị.
+- noexec: không cho phép chạy các file binary trên thiết bị.
+- ro (read-only): chỉ cho phép quyền đọc trên thiết bị.
+- rw (read-write): cho phép quyền đọc/ghi trên thiết bị.
+- sync: thao tác nhập xuất (I/O) trên filesystem được đồng bộ hóa.
+- async: thao tác nhập xuất (I/O) trên filesystem diễn ra không đồng bộ.
+- defaults: tương đương với tập các tùy chọn rw, suid, dev, exec, auto, nouser, async
+
+Tham khảo: https://manthang.wordpress.com/2010/11/27/cau-hinh-file-etc-fstab-de-quan-ly-viec-mount-thiet-bi-trong-linux/
+
 
